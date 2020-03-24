@@ -55,10 +55,10 @@
                                     <span class="kt-menu__arrow"></span>
                                     <ul class="kt-menu__subnav">
                                         <li aria-haspopup="true" class="kt-menu__item">
-                                            <a class="kt-menu__link" href="custom/apps/projects/list-datatable.html"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Список групп</span></a>
+                                            <a class="kt-menu__link" href="{{route('groups')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Список групп</span></a>
                                         </li>
                                         <li aria-haspopup="true" class="kt-menu__item">
-                                            <a class="kt-menu__link" href="custom/apps/projects/add-project.html"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Новая группа</span></a>
+                                            <a class="kt-menu__link" href="{{route('create_group')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Новая группа</span></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -69,10 +69,10 @@
                                     <span class="kt-menu__arrow"></span>
                                     <ul class="kt-menu__subnav">
                                         <li aria-haspopup="true" class="kt-menu__item">
-                                            <a class="kt-menu__link" href="custom/apps/projects/list-datatable.html"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Список категорий</span></a>
+                                            <a class="kt-menu__link" href="{{route('categories')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Список категорий</span></a>
                                         </li>
                                         <li aria-haspopup="true" class="kt-menu__item">
-                                            <a class="kt-menu__link" href="custom/apps/projects/add-project.html"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>
+                                            <a class="kt-menu__link" href="{{route('create_category')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -83,10 +83,10 @@
                                     <span class="kt-menu__arrow"></span>
                                     <ul class="kt-menu__subnav">
                                         <li aria-haspopup="true" class="kt-menu__item">
-                                            <a class="kt-menu__link" href="custom/apps/projects/list-datatable.html"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Все характеристики</span></a>
+                                            <a class="kt-menu__link" href="{{route('attributes')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Все характеристики</span></a>
                                         </li>
                                         <li aria-haspopup="true" class="kt-menu__item">
-                                            <a class="kt-menu__link" href="custom/apps/projects/add-project.html"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>
+                                            <a class="kt-menu__link" href="{{route('create_attribute')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>
                                         </li>
                                     </ul>
                                 </div>

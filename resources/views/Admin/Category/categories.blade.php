@@ -133,7 +133,7 @@
 
     <!--begin::Page Scripts(used by this page) -->
 
-<script src="assets/js/pages/custom/projects/list-datatable.js" type="text/javascript"></script>
+    <script src="assets/js/pages/custom/projects/list-datatable.js" type="text/javascript"></script>
 
     <!--end::Page Scripts -->
 

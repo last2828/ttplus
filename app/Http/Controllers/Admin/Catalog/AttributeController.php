@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers\admin\catalog;
 
+use App\Attribute;
 use App\Http\Controllers\Controller;
-use App\Product;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class AttributeController extends Controller
 {
     public function getAll()
     {
-        return view('admin.product.catalog', ['products' => Product::all()]);
+        return view('admin.attribute.attributes');
     }
 
     public function add()
     {
-        return view('admin.product.create_product');
+        return view('admin.attribute.create_attribute');
     }
 }
