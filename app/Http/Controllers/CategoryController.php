@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Category;
 use App\NestedSetModel;
 use Illuminate\Http\Request;
 

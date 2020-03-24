@@ -11,11 +11,14 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/form', 'ProductController@index')->name('form');
-Route::post('/add', 'ProductController@add')->name('add');
-Route::get('/form-cat', 'CategoryController@index')->name('form_cat');
-Route::post('/create-category', 'CategoryController@add')->name('add_cat');
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+    Route::get('/', 'PageController@index')->name('dashboard');
+});
+
+
