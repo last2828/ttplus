@@ -9,6 +9,6 @@ class PageController extends Controller
 {
     public static function index()
     {
-        return view('Admin/dashboard');
+        return view('Admin.dashboard');
     }
 }

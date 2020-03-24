@@ -10,11 +10,11 @@ class ProductController extends Controller
 {
     public function getAll()
     {
-        return view('admin/catalog/catalog', ['products' => Product::all()]);
+        return view('admin.product.catalog', ['products' => Product::all()]);
     }
 
     public function create()
     {
-        return view('');
+        return view('admin.product.create_product');
     }
 }

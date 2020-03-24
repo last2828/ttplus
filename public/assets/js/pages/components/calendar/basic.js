@@ -63,7 +63,7 @@ var KTCalendarBasic = function() {
                         className: "fc-event-primary"
                     },
                     {
-                        title: 'ICT Expo 2017 - Product Release',
+                        title: 'ICT Expo 2017 - Catalog Release',
                         start: YM + '-03',
                         description: 'Lorem ipsum dolor sit tempor inci',
                         end: YM + '-05',

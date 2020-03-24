@@ -44,7 +44,7 @@
                                             <a class="kt-menu__link" href="{{route('catalog')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Каталог товаров</span></a>
                                         </li>
                                         <li aria-haspopup="true" class="kt-menu__item">
-                                            <a class="kt-menu__link" href="{{route('create_product')}}custom/apps/projects/add-project.html"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>
+                                            <a class="kt-menu__link" href="{{route('create_product')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>
                                         </li>
                                     </ul>
                                 </div>

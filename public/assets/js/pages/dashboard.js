@@ -1935,7 +1935,7 @@ var KTDashboard = function() {
                     className: "fc-event-primary"
                 },
                 {
-                    title: 'ICT Expo 2017 - Product Release',
+                    title: 'ICT Expo 2017 - Catalog Release',
                     start: moment('2017-09-09'),
                     description: 'Lorem ipsum dolor sit tempor inci',
                     className: "fc-event-light fc-event-solid-primary"
