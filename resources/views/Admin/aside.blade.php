@@ -2,7 +2,7 @@
     <!-- begin:: Aside -->
     <div class="kt-aside__brand kt-grid__item" id="kt_aside_brand">
         <div class="kt-aside__brand-logo">
-            <a href="index.html"><img alt="Logo" src="assets/media/logos/logo-light.png"></a>
+            <a href="index.html"><h1 style="color: #ffffff">T&T</h1></a>
         </div>
         <div class="kt-aside__brand-tools">
             <button class="kt-aside__brand-aside-toggler" id="kt_aside_toggler"><span><svg class="kt-svg-icon" height="24px" version="1.1" viewbox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
@@ -24,7 +24,7 @@
         <div class="kt-aside-menu" data-ktmenu-dropdown-timeout="500" data-ktmenu-scroll="1" data-ktmenu-vertical="1" id="kt_aside_menu">
             <ul class="kt-menu__nav">
                 <li aria-haspopup="true" class="kt-menu__item">
-                    <a class="kt-menu__link" href="index.html"><i class="kt-menu__link-icon flaticon-home"></i><span class="kt-menu__link-text">Главная</span></a>
+                    <a class="kt-menu__link" href="{{route('dashboard')}}"><i class="kt-menu__link-icon flaticon-home"></i><span class="kt-menu__link-text">Главная</span></a>
                 </li>
                 <li class="kt-menu__section">
                     <h4 class="kt-menu__section-text">Меню</h4><i class="kt-menu__section-icon flaticon-more-v2"></i>
@@ -41,10 +41,10 @@
                                     <span class="kt-menu__arrow"></span>
                                     <ul class="kt-menu__subnav">
                                         <li aria-haspopup="true" class="kt-menu__item">
-                                            <a class="kt-menu__link" href="custom/apps/projects/list-datatable.html"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Каталог товаров</span></a>
+                                            <a class="kt-menu__link" href="{{route('catalog')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Каталог товаров</span></a>
                                         </li>
                                         <li aria-haspopup="true" class="kt-menu__item">
-                                            <a class="kt-menu__link" href="custom/apps/projects/add-project.html"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>
+                                            <a class="kt-menu__link" href="{{route('create_product')}}custom/apps/projects/add-project.html"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>
                                         </li>
                                     </ul>
                                 </div>

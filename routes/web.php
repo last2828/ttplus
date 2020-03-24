@@ -19,6 +19,10 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', 'PageController@index')->name('dashboard');
+        Route::group(['prefix' => 'catalog', 'namespace' => 'Catalog'], function () {
+            Route::get('/', 'ProductController@getAll')->name('catalog');
+            Route::get('/create', 'ProductController@create')->name('create_product');
+        });
 });
 
 
