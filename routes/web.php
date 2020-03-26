@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', 'AdminController@index')->name('dashboard');
         Route::group(['prefix' => 'catalog', 'namespace' => 'Catalog'], function () {
@@ -34,6 +36,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::group(['prefix' => 'attributes', 'namespace' => 'Catalog'], function () {
             Route::get('/', 'AttributeController@getAll')->name('attributes');
             Route::get('/create', 'AttributeController@add')->name('create_attribute');
+        });
+        Route::group(['prefix' => 'blog', 'namespace' => 'Blog'], function () {
+            Route::get('/', 'BlogController@index')->name('blog');
+            Route::get('/create', 'BlogController@add')->name('create_article');
         });
 });
 

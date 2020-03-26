@@ -6,8 +6,8 @@
 <head>
     <base href="../../">
     <meta charset="utf-8" />
-    <title>Metronic | Empty Page</title>
-    <meta name="description" content="Page with empty content">
+    <title>Metronic | Page</title>
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!--begin::Fonts -->
@@ -15,10 +15,7 @@
 
     <!--end::Fonts -->
 
-    <!--begin::Page Vendors Styles(used by this page) -->
-    <link href="/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
-
-    <!--end::Page Vendors Styles -->
+    @yield('stylesheet')
 
     <!--begin::Global Theme Styles(used by all pages) -->
     <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
@@ -40,6 +37,8 @@
 <!-- begin::Body -->
 <body class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--fixed kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
 
+<!-- begin::Header Mobile -->
+
 <div class="kt-header-mobile kt-header-mobile--fixed" id="kt_header_mobile">
     <div class="kt-header-mobile__logo">
         <a href="index.html"><h1 style="color: #ffffff">T&T</h1></a>
@@ -49,7 +48,7 @@
     </div>
 </div>
 
-<!-- end:: Header Mobile -->
+<!-- end::Header Mobile -->
 
 <div class="kt-grid kt-grid--hor kt-grid--root">
     <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">

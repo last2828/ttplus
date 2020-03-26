@@ -2,277 +2,712 @@
 @section('content')
 
     <!-- begin:: Page -->
-    <!-- begin:: Header Mobile -->
-    <div class="kt-header-mobile kt-header-mobile--fixed" id="kt_header_mobile">
-        <div class="kt-header-mobile__logo">
-            <a href="index.html"><img alt="Logo" src="assets/media/logos/logo-light.png"></a>
-        </div>
-        <div class="kt-header-mobile__toolbar">
-            <button class="kt-header-mobile__toggler kt-header-mobile__toggler--left" id="kt_aside_mobile_toggler"><span></span></button> <button class="kt-header-mobile__toggler" id="kt_header_mobile_toggler"><span></span></button> <button class="kt-header-mobile__topbar-toggler" id="kt_header_mobile_topbar_toggler"><i class="flaticon-more"></i></button>
-        </div>
-    </div>
-    <!-- end:: Header Mobile -->
+
     <div class="kt-grid kt-grid--hor kt-grid--root">
         <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
+
             <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
+
                 <!-- begin:: Header -->
-                <div class="kt-header kt-grid__item kt-header--fixed" id="kt_header">
+                <div id="kt_header" class="kt-header kt-grid__item  kt-header--fixed ">
+
                     <!-- begin:: Header Topbar -->
                     <div class="kt-header__topbar">
+
                         <!--begin: User Bar -->
                         <div class="kt-header__topbar-item kt-header__topbar-item--user">
-                            <div class="kt-header__topbar-wrapper" data-offset="0px,0px" data-toggle="dropdown">
+                            <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="0px,0px">
                                 <div class="kt-header__topbar-user">
-                                    <span class="kt-header__topbar-welcome kt-hidden-mobile">Hi,</span> <span class="kt-header__topbar-username kt-hidden-mobile">Sean</span> <img alt="Pic" class="kt-hidden" src="assets/media/users/300_25.jpg"> <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
+                                    <span class="kt-header__topbar-welcome kt-hidden-mobile">Hi,</span>
+                                    <span class="kt-header__topbar-username kt-hidden-mobile">Sean</span>
+                                    <img class="kt-hidden" alt="Pic" src="assets/media/users/300_25.jpg" />
+
+                                    <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
                                     <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">S</span>
                                 </div>
                             </div>
                         </div>
+
                         <!--end: User Bar -->
                     </div>
+
                     <!-- end:: Header Topbar -->
                 </div>
+
                 <!-- end:: Header -->
-                <div class="kt-content kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
-                    <!-- begin:: Content Head -->
-                    <div class="kt-subheader kt-grid__item" id="kt_subheader">
-                        <div class="kt-container kt-container--fluid">
+                <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
+
+                    <!-- begin:: Subheader -->
+                    <div class="kt-subheader   kt-grid__item" id="kt_subheader">
+                        <div class="kt-container  kt-container--fluid ">
                             <div class="kt-subheader__main">
-                                <h3 class="kt-subheader__title">Add Project</h3><span class="kt-subheader__separator kt-subheader__separator--v"></span>
-                                <div class="kt-subheader__group" id="kt_subheader_search">
-                                    <span class="kt-subheader__desc" id="kt_subheader_total">Enter project details and submit</span>
-                                </div>
-                            </div>
-                            <div class="kt-subheader__toolbar">
-                                <a class="btn btn-default btn-bold" href="#">Back</a>
-                                <div class="btn-group">
-                                    <button class="btn btn-brand btn-bold" type="button">Submit</button> <button aria-expanded="false" aria-haspopup="true" class="btn btn-brand btn-bold dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" type="button"></button>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <ul class="kt-nav">
-                                            <li class="kt-nav__item">
-                                                <a class="kt-nav__link" href="#"><i class="kt-nav__link-icon flaticon2-writing"></i> <span class="kt-nav__link-text">Save &amp; continue</span></a>
-                                            </li>
-                                            <li class="kt-nav__item">
-                                                <a class="kt-nav__link" href="#"><i class="kt-nav__link-icon flaticon2-medical-records"></i> <span class="kt-nav__link-text">Save &amp; add new</span></a>
-                                            </li>
-                                            <li class="kt-nav__item">
-                                                <a class="kt-nav__link" href="#"><i class="kt-nav__link-icon flaticon2-hourglass-1"></i> <span class="kt-nav__link-text">Save &amp; exit</span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                <h3 class="kt-subheader__title">
+                                    Column Visibility Examples </h3>
+                                <span class="kt-subheader__separator kt-hidden"></span>
+                                <div class="kt-subheader__breadcrumbs">
+                                    <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+                                    <span class="kt-subheader__breadcrumbs-separator"></span>
+                                    <a href="" class="kt-subheader__breadcrumbs-link">
+                                        Crud </a>
+                                    <span class="kt-subheader__breadcrumbs-separator"></span>
+                                    <a href="" class="kt-subheader__breadcrumbs-link">
+                                        Datatables.net </a>
+                                    <span class="kt-subheader__breadcrumbs-separator"></span>
+                                    <a href="" class="kt-subheader__breadcrumbs-link">
+                                        Advanced </a>
+                                    <span class="kt-subheader__breadcrumbs-separator"></span>
+                                    <a href="" class="kt-subheader__breadcrumbs-link">
+                                        Column Visibility </a>
+
+                                    <!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- end:: Content Head -->
+
+                    <!-- end:: Subheader -->
+
                     <!-- begin:: Content -->
-                    <div class="kt-container kt-container--fluid kt-grid__item kt-grid__item--fluid">
-                        <div class="kt-portlet">
-                            <div class="kt-portlet__body kt-portlet__body--fit">
-                                <div class="kt-grid kt-wizard-v1 kt-wizard-v1--white" data-ktwizard-state="step-first" id="kt_projects_add">
-                                    <div class="kt-grid__item kt-grid__item--fluid kt-wizard-v1__wrapper">
-                                        <!--begin: Form Wizard Form-->
-                                        <form class="kt-form" id="kt_projects_add_form" name="kt_projects_add_form">
-                                            <!--begin: Form Wizard Step 1-->
-                                            <div class="kt-wizard-v1__content" data-ktwizard-state="current" data-ktwizard-type="step-content">
-                                                <div class="kt-heading kt-heading--md">
-                                                    Project Details:
-                                                </div>
-                                                <div class="kt-section kt-section--first">
-                                                    <div class="kt-wizard-v1__form">
-                                                        <div class="row">
-                                                            <div class="col-xl-12">
-                                                                <div class="kt-section__body">
-                                                                    <div class="form-group row">
-                                                                        <label class="col-xl-3 col-lg-3 col-form-label">Project Name</label>
-                                                                        <div class="col-lg-9 col-xl-9">
-                                                                            <input class="form-control" type="text" value="Loop CRM">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group row">
-                                                                        <label class="col-xl-3 col-lg-3 col-form-label">Project Owner</label>
-                                                                        <div class="col-lg-9 col-xl-9">
-                                                                            <input class="form-control" type="text" value="Krox">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group row">
-                                                                        <label class="col-xl-3 col-lg-3 col-form-label">Customer Name</label>
-                                                                        <div class="col-lg-9 col-xl-9">
-                                                                            <input class="form-control" type="text" value="Loop Inc."> <span class="form-text text-muted">If you want your invoices addressed to a company. Leave blank to use your full name.</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group row">
-                                                                        <label class="col-xl-3 col-lg-3 col-form-label">Contact Phone</label>
-                                                                        <div class="col-lg-9 col-xl-9">
-                                                                            <div class="input-group">
-                                                                                <div class="input-group-prepend">
-                                                                                    <span class="input-group-text"><i class="la la-phone"></i></span>
-                                                                                </div><input aria-describedby="basic-addon1" class="form-control" placeholder="Phone" type="text" value="+45678967456">
-                                                                            </div><span class="form-text text-muted">We'll never share your email with anyone else.</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group row">
-                                                                        <label class="col-xl-3 col-lg-3 col-form-label">Email Address</label>
-                                                                        <div class="col-lg-9 col-xl-9">
-                                                                            <div class="input-group">
-                                                                                <div class="input-group-prepend">
-                                                                                    <span class="input-group-text"><i class="la la-at"></i></span>
-                                                                                </div><input aria-describedby="basic-addon1" class="form-control" placeholder="Email" type="text" value="anna.krox@loop.com">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group form-group-last row">
-                                                                        <label class="col-xl-3 col-lg-3 col-form-label">Company Site</label>
-                                                                        <div class="col-lg-9 col-xl-9">
-                                                                            <div class="input-group">
-                                                                                <input class="form-control" placeholder="Username" type="text" value="loop">
-                                                                                <div class="input-group-append">
-                                                                                    <span class="input-group-text">.com</span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--end: Form Wizard Step 1-->
-                                            <!--begin: Form Wizard Step 2-->
-                                            <div class="kt-wizard-v1__content" data-ktwizard-type="step-content">
-                                                <div class="kt-section kt-section--first">
-                                                    <div class="kt-wizard-v1__form">
-                                                        <div class="row">
-                                                            <div class="col-xl-12">
-                                                                <div class="kt-section__body">
-                                                                    <div class="form-group row">
-                                                                        <div class="col-lg-9 col-xl-6">
-                                                                            <h3 class="kt-section__title kt-section__title-md">Project Settings</h3>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group row">
-                                                                        <label class="col-xl-3 col-lg-3 col-form-label">Email Address</label>
-                                                                        <div class="col-lg-9 col-xl-9">
-                                                                            <div class="input-group">
-                                                                                <div class="input-group-prepend">
-                                                                                    <span class="input-group-text"><i class="la la-at"></i></span>
-                                                                                </div><input aria-describedby="basic-addon1" class="form-control" placeholder="Email" type="text" value="nick.watson@loop.com">
-                                                                            </div><span class="form-text text-muted">Email will not be publicly displayed. <a class="kt-link" href="#">Learn more</a>.</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group row">
-                                                                        <label class="col-xl-3 col-lg-3 col-form-label">Language</label>
-                                                                        <div class="col-lg-9 col-xl-9">
-                                                                            <select class="form-control">
-                                                                                <option>
-                                                                                    Select Language...
-                                                                                </option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group row">
-                                                                        <label class="col-xl-3 col-lg-3 col-form-label">Time Zone</label>
-                                                                        <div class="col-lg-9 col-xl-9">
-                                                                            <select class="form-control">
-                                                                                <option data-offset="-39600" value="International Date Line West">
-                                                                                    Select time zone...
-                                                                                </option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group form-group-last row">
-                                                                        <label class="col-xl-3 col-lg-3 col-form-label">Communication</label>
-                                                                        <div class="col-lg-9 col-xl-6">
-                                                                            <div class="kt-checkbox-inline">
-                                                                                <label class="kt-checkbox"><input checked type="checkbox"> Email <span></span></label> <label class="kt-checkbox"><input checked type="checkbox"> SMS <span></span></label> <label class="kt-checkbox"><input type="checkbox"> Phone <span></span></label>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                    <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+                        <div class="kt-portlet kt-portlet--mobile">
+                            <div class="kt-portlet__head kt-portlet__head--lg">
+                                <div class="kt-portlet__head-label">
+										<span class="kt-portlet__head-icon">
+											<i class="kt-font-brand flaticon2-line-chart"></i>
+										</span>
+                                    <h3 class="kt-portlet__head-title">
+                                        Column Visibility
+                                    </h3>
+                                </div>
+                                <div class="kt-portlet__head-toolbar">
+                                    <div class="kt-portlet__head-wrapper">
+                                        <div class="kt-portlet__head-actions">
+                                            <div class="dropdown dropdown-inline">
+                                                <button type="button" class="btn btn-default btn-icon-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="la la-download"></i> Export
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <ul class="kt-nav">
+                                                        <li class="kt-nav__section kt-nav__section--first">
+                                                            <span class="kt-nav__section-text">Choose an option</span>
+                                                        </li>
+                                                        <li class="kt-nav__item">
+                                                            <a href="#" class="kt-nav__link">
+                                                                <i class="kt-nav__link-icon la la-print"></i>
+                                                                <span class="kt-nav__link-text">Print</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="kt-nav__item">
+                                                            <a href="#" class="kt-nav__link">
+                                                                <i class="kt-nav__link-icon la la-copy"></i>
+                                                                <span class="kt-nav__link-text">Copy</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="kt-nav__item">
+                                                            <a href="#" class="kt-nav__link">
+                                                                <i class="kt-nav__link-icon la la-file-excel-o"></i>
+                                                                <span class="kt-nav__link-text">Excel</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="kt-nav__item">
+                                                            <a href="#" class="kt-nav__link">
+                                                                <i class="kt-nav__link-icon la la-file-text-o"></i>
+                                                                <span class="kt-nav__link-text">CSV</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="kt-nav__item">
+                                                            <a href="#" class="kt-nav__link">
+                                                                <i class="kt-nav__link-icon la la-file-pdf-o"></i>
+                                                                <span class="kt-nav__link-text">PDF</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
-                                            <!--end: Form Wizard Step 2-->
-                                            <!--begin: Form Wizard Step 3-->
-                                            <div class="kt-wizard-v1__content" data-ktwizard-type="step-content">
-                                                <div class="kt-heading kt-heading--md">
-                                                    Setup Your Address
-                                                </div>
-                                                <div class="kt-form__section kt-form__section--first">
-                                                    <div class="kt-wizard-v1__form">
-                                                        <div class="form-group">
-                                                            <label>Address Line 1</label> <input class="form-control" name="address1" placeholder="Address Line 1" type="text" value="Address Line 1"> <span class="form-text text-muted">Please enter your Address.</span>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Address Line 2</label> <input class="form-control" name="address2" placeholder="Address Line 2" type="text" value="Address Line 2"> <span class="form-text text-muted">Please enter your Address.</span>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-xl-6">
-                                                                <div class="form-group">
-                                                                    <label>Postcode</label> <input class="form-control" name="postcode" placeholder="Postcode" type="text" value="2000"> <span class="form-text text-muted">Please enter your Postcode.</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xl-6">
-                                                                <div class="form-group">
-                                                                    <label>City</label> <input class="form-control" name="state" placeholder="City" type="text" value="London"> <span class="form-text text-muted">Please enter your City.</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-xl-6">
-                                                                <div class="form-group">
-                                                                    <label>State</label> <input class="form-control" name="state" placeholder="State" type="text" value="VIC"> <span class="form-text text-muted">Please enter your Postcode.</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xl-6">
-                                                                <div class="form-group">
-                                                                    <label>Country:</label> <select class="form-control" name="country">
-                                                                        <option value="">
-                                                                            Select
-                                                                        </option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--end: Form Wizard Step 3-->
-                                            <!--begin: Form Actions -->
-                                            <div class="kt-form__actions">
-                                                <div class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u" data-ktwizard-type="action-prev">
-                                                    Previous
-                                                </div>
-                                                <div class="btn btn-success btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u" data-ktwizard-type="action-submit">
-                                                    Submit
-                                                </div>
-                                                <div class="btn btn-brand btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u" data-ktwizard-type="action-next">
-                                                    Next Step
-                                                </div>
-                                            </div>
-                                            <!--end: Form Actions -->
-                                        </form>
-                                        <!--end: Form Wizard Form-->
+                                            &nbsp;
+                                            <a href="#" class="btn btn-brand btn-elevate btn-icon-sm">
+                                                <i class="la la-plus"></i>
+                                                New Record
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="kt-portlet__body">
+
+                                <!--begin: Datatable -->
+                                <table class="table table-striped- table-bordered table-hover table-checkable" id="kt_table_1">
+                                    <thead>
+                                    <tr>
+                                        <th colspan="2">Order Information</th>
+                                        <th colspan="3">Shipping Information</th>
+                                        <th colspan="3">Agent Information</th>
+                                        <th colspan="3">Stats</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Record ID</th>
+                                        <th>Order ID</th>
+                                        <th>Country</th>
+                                        <th>Ship City</th>
+                                        <th>Ship Address</th>
+                                        <th>Company Agent</th>
+                                        <th>Company Name</th>
+                                        <th>Ship Date</th>
+                                        <th>Status</th>
+                                        <th>Type</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>61715-075</td>
+                                        <td>China</td>
+                                        <td>Tieba</td>
+                                        <td>746 Pine View Junction</td>
+                                        <td>Nixie Sailor</td>
+                                        <td>Gleichner, Ziemann and Gutkowski</td>
+                                        <td>2/12/2018</td>
+                                        <td>3</td>
+                                        <td>2</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>63629-4697</td>
+                                        <td>Indonesia</td>
+                                        <td>Cihaur</td>
+                                        <td>01652 Fulton Trail</td>
+                                        <td>Emelita Giraldez</td>
+                                        <td>Rosenbaum-Reichel</td>
+                                        <td>8/6/2017</td>
+                                        <td>6</td>
+                                        <td>3</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>68084-123</td>
+                                        <td>Argentina</td>
+                                        <td>Puerto Iguazú</td>
+                                        <td>2 Pine View Park</td>
+                                        <td>Ula Luckin</td>
+                                        <td>Kulas, Cassin and Batz</td>
+                                        <td>5/26/2016</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>67457-428</td>
+                                        <td>Indonesia</td>
+                                        <td>Talok</td>
+                                        <td>3050 Buell Terrace</td>
+                                        <td>Evangeline Cure</td>
+                                        <td>Pfannerstill-Treutel</td>
+                                        <td>7/2/2016</td>
+                                        <td>1</td>
+                                        <td>3</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>31722-529</td>
+                                        <td>Austria</td>
+                                        <td>Sankt Andrä-Höch</td>
+                                        <td>3038 Trailsway Junction</td>
+                                        <td>Tierney St. Louis</td>
+                                        <td>Dicki-Kling</td>
+                                        <td>5/20/2017</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>64117-168</td>
+                                        <td>China</td>
+                                        <td>Rongkou</td>
+                                        <td>023 South Way</td>
+                                        <td>Gerhard Reinhard</td>
+                                        <td>Gleason, Kub and Marquardt</td>
+                                        <td>11/26/2016</td>
+                                        <td>5</td>
+                                        <td>3</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>43857-0331</td>
+                                        <td>China</td>
+                                        <td>Baiguo</td>
+                                        <td>56482 Fairfield Terrace</td>
+                                        <td>Englebert Shelley</td>
+                                        <td>Jenkins Inc</td>
+                                        <td>6/28/2016</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>64980-196</td>
+                                        <td>Croatia</td>
+                                        <td>Vinica</td>
+                                        <td>0 Elka Street</td>
+                                        <td>Hazlett Kite</td>
+                                        <td>Streich LLC</td>
+                                        <td>8/5/2016</td>
+                                        <td>6</td>
+                                        <td>1</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>0404-0360</td>
+                                        <td>Colombia</td>
+                                        <td>San Carlos</td>
+                                        <td>38099 Ilene Hill</td>
+                                        <td>Freida Morby</td>
+                                        <td>Haley, Schamberger and Durgan</td>
+                                        <td>3/31/2017</td>
+                                        <td>2</td>
+                                        <td>1</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>52125-267</td>
+                                        <td>Thailand</td>
+                                        <td>Maha Sarakham</td>
+                                        <td>8696 Barby Pass</td>
+                                        <td>Obed Helian</td>
+                                        <td>Labadie, Predovic and Hammes</td>
+                                        <td>1/26/2017</td>
+                                        <td>1</td>
+                                        <td>3</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>11</td>
+                                        <td>54092-515</td>
+                                        <td>Brazil</td>
+                                        <td>Canguaretama</td>
+                                        <td>32461 Ridgeway Alley</td>
+                                        <td>Sibyl Amy</td>
+                                        <td>Treutel-Ratke</td>
+                                        <td>3/8/2017</td>
+                                        <td>4</td>
+                                        <td>2</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>12</td>
+                                        <td>0185-0130</td>
+                                        <td>China</td>
+                                        <td>Jiamachi</td>
+                                        <td>23 Walton Pass</td>
+                                        <td>Norri Foldes</td>
+                                        <td>Strosin, Nitzsche and Wisozk</td>
+                                        <td>4/2/2017</td>
+                                        <td>3</td>
+                                        <td>1</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>13</td>
+                                        <td>21130-678</td>
+                                        <td>China</td>
+                                        <td>Qiaole</td>
+                                        <td>328 Glendale Hill</td>
+                                        <td>Myrna Orhtmann</td>
+                                        <td>Miller-Schiller</td>
+                                        <td>6/7/2016</td>
+                                        <td>3</td>
+                                        <td>1</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>14</td>
+                                        <td>40076-953</td>
+                                        <td>Portugal</td>
+                                        <td>Burgau</td>
+                                        <td>52550 Crownhardt Court</td>
+                                        <td>Sioux Kneath</td>
+                                        <td>Rice, Cole and Spinka</td>
+                                        <td>10/11/2017</td>
+                                        <td>4</td>
+                                        <td>1</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>15</td>
+                                        <td>36987-3005</td>
+                                        <td>Portugal</td>
+                                        <td>Bacelo</td>
+                                        <td>548 Morrow Terrace</td>
+                                        <td>Christa Jacmar</td>
+                                        <td>Brakus-Hansen</td>
+                                        <td>8/17/2017</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>67510-0062</td>
+                                        <td>South Africa</td>
+                                        <td>Pongola</td>
+                                        <td>02534 Hauk Trail</td>
+                                        <td>Shandee Goracci</td>
+                                        <td>Bergnaum, Thiel and Schuppe</td>
+                                        <td>7/24/2016</td>
+                                        <td>5</td>
+                                        <td>3</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>17</td>
+                                        <td>36987-2542</td>
+                                        <td>Russia</td>
+                                        <td>Novokizhinginsk</td>
+                                        <td>19427 Sloan Road</td>
+                                        <td>Jerrome Colvie</td>
+                                        <td>Kreiger, Glover and Connelly</td>
+                                        <td>3/4/2016</td>
+                                        <td>3</td>
+                                        <td>1</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>18</td>
+                                        <td>11673-479</td>
+                                        <td>Brazil</td>
+                                        <td>Conceição das Alagoas</td>
+                                        <td>191 Stone Corner Road</td>
+                                        <td>Michaelina Plenderleith</td>
+                                        <td>Legros-Gleichner</td>
+                                        <td>2/21/2018</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>19</td>
+                                        <td>47781-264</td>
+                                        <td>Ukraine</td>
+                                        <td>Yasinya</td>
+                                        <td>1481 Sauthoff Place</td>
+                                        <td>Lombard Luthwood</td>
+                                        <td>Haag LLC</td>
+                                        <td>1/21/2016</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>20</td>
+                                        <td>42291-712</td>
+                                        <td>Indonesia</td>
+                                        <td>Kembang</td>
+                                        <td>9029 Blackbird Point</td>
+                                        <td>Leonora Chevin</td>
+                                        <td>Mann LLC</td>
+                                        <td>9/6/2017</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>21</td>
+                                        <td>64679-154</td>
+                                        <td>Mongolia</td>
+                                        <td>Sharga</td>
+                                        <td>102 Holmberg Park</td>
+                                        <td>Tannie Seakes</td>
+                                        <td>Blanda Group</td>
+                                        <td>7/31/2016</td>
+                                        <td>6</td>
+                                        <td>3</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>22</td>
+                                        <td>49348-055</td>
+                                        <td>China</td>
+                                        <td>Guxi</td>
+                                        <td>45 Butterfield Street</td>
+                                        <td>Yardley Wetherell</td>
+                                        <td>Gerlach-Schultz</td>
+                                        <td>4/3/2017</td>
+                                        <td>2</td>
+                                        <td>2</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>23</td>
+                                        <td>47593-438</td>
+                                        <td>Portugal</td>
+                                        <td>Viso</td>
+                                        <td>97 Larry Center</td>
+                                        <td>Bryn Peascod</td>
+                                        <td>Larkin and Sons</td>
+                                        <td>5/22/2016</td>
+                                        <td>6</td>
+                                        <td>1</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>54569-0175</td>
+                                        <td>Japan</td>
+                                        <td>Minato</td>
+                                        <td>077 Hoffman Center</td>
+                                        <td>Chrissie Jeromson</td>
+                                        <td>Brakus-McCullough</td>
+                                        <td>11/26/2017</td>
+                                        <td>2</td>
+                                        <td>1</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>25</td>
+                                        <td>0093-1016</td>
+                                        <td>Indonesia</td>
+                                        <td>Merdeka</td>
+                                        <td>3150 Cherokee Center</td>
+                                        <td>Gusti Clamp</td>
+                                        <td>Stokes Group</td>
+                                        <td>4/12/2018</td>
+                                        <td>6</td>
+                                        <td>2</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>26</td>
+                                        <td>0093-5142</td>
+                                        <td>China</td>
+                                        <td>Jianggao</td>
+                                        <td>289 Badeau Alley</td>
+                                        <td>Otis Jobbins</td>
+                                        <td>Ruecker, Leffler and Abshire</td>
+                                        <td>3/6/2018</td>
+                                        <td>4</td>
+                                        <td>2</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>27</td>
+                                        <td>51523-026</td>
+                                        <td>Germany</td>
+                                        <td>Erfurt</td>
+                                        <td>132 Chive Way</td>
+                                        <td>Lonnie Haycox</td>
+                                        <td>Feest Group</td>
+                                        <td>4/24/2018</td>
+                                        <td>1</td>
+                                        <td>3</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>28</td>
+                                        <td>49035-522</td>
+                                        <td>Australia</td>
+                                        <td>Eastern Suburbs Mc</td>
+                                        <td>074 Algoma Drive</td>
+                                        <td>Heddi Castelli</td>
+                                        <td>Kessler and Sons</td>
+                                        <td>1/12/2017</td>
+                                        <td>5</td>
+                                        <td>1</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>29</td>
+                                        <td>58411-198</td>
+                                        <td>Ethiopia</td>
+                                        <td>Kombolcha</td>
+                                        <td>91066 Amoth Court</td>
+                                        <td>Tuck O'Dowgaine</td>
+                                        <td>Simonis, Rowe and Davis</td>
+                                        <td>5/6/2017</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>30</td>
+                                        <td>27495-006</td>
+                                        <td>Portugal</td>
+                                        <td>Arrifes</td>
+                                        <td>3 Fairfield Junction</td>
+                                        <td>Vernon Cosham</td>
+                                        <td>Kreiger-Nicolas</td>
+                                        <td>2/8/2017</td>
+                                        <td>4</td>
+                                        <td>2</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>31</td>
+                                        <td>55154-8284</td>
+                                        <td>Philippines</td>
+                                        <td>Talisay</td>
+                                        <td>09 Sachtjen Junction</td>
+                                        <td>Bryna MacCracken</td>
+                                        <td>Hyatt-Witting</td>
+                                        <td>7/22/2017</td>
+                                        <td>2</td>
+                                        <td>1</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>32</td>
+                                        <td>62678-207</td>
+                                        <td>Libya</td>
+                                        <td>Zuwārah</td>
+                                        <td>82 Thackeray Pass</td>
+                                        <td>Freda Arnall</td>
+                                        <td>Dicki, Morar and Stiedemann</td>
+                                        <td>7/22/2016</td>
+                                        <td>3</td>
+                                        <td>3</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>33</td>
+                                        <td>68428-725</td>
+                                        <td>China</td>
+                                        <td>Zhangcun</td>
+                                        <td>3 Goodland Terrace</td>
+                                        <td>Pavel Kringe</td>
+                                        <td>Goldner-Lehner</td>
+                                        <td>4/2/2017</td>
+                                        <td>4</td>
+                                        <td>1</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>34</td>
+                                        <td>0363-0724</td>
+                                        <td>Morocco</td>
+                                        <td>Temara</td>
+                                        <td>9550 Weeping Birch Crossing</td>
+                                        <td>Felix Nazaret</td>
+                                        <td>Waters, Quigley and Keeling</td>
+                                        <td>6/4/2016</td>
+                                        <td>5</td>
+                                        <td>3</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>35</td>
+                                        <td>37000-102</td>
+                                        <td>Paraguay</td>
+                                        <td>Los Cedrales</td>
+                                        <td>1 Ridge Oak Way</td>
+                                        <td>Penrod Allanby</td>
+                                        <td>Rodriguez Group</td>
+                                        <td>3/5/2018</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>36</td>
+                                        <td>55289-002</td>
+                                        <td>Philippines</td>
+                                        <td>Dologon</td>
+                                        <td>9 Vidon Terrace</td>
+                                        <td>Hubey Passby</td>
+                                        <td>Lemke-Hermiston</td>
+                                        <td>6/29/2017</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>37</td>
+                                        <td>15127-874</td>
+                                        <td>Tanzania</td>
+                                        <td>Nanganga</td>
+                                        <td>33 Anniversary Parkway</td>
+                                        <td>Magdaia Rotlauf</td>
+                                        <td>Hettinger, Medhurst and Heaney</td>
+                                        <td>2/18/2018</td>
+                                        <td>3</td>
+                                        <td>1</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>38</td>
+                                        <td>49349-123</td>
+                                        <td>Indonesia</td>
+                                        <td>Pule</td>
+                                        <td>77292 Bonner Plaza</td>
+                                        <td>Alfonse Lawrance</td>
+                                        <td>Schuppe-Harber</td>
+                                        <td>4/14/2017</td>
+                                        <td>1</td>
+                                        <td>3</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>39</td>
+                                        <td>17089-415</td>
+                                        <td>Palestinian Territory</td>
+                                        <td>Za‘tarah</td>
+                                        <td>42806 Ridgeview Terrace</td>
+                                        <td>Kessiah Chettoe</td>
+                                        <td>Mraz LLC</td>
+                                        <td>3/4/2017</td>
+                                        <td>5</td>
+                                        <td>2</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    <tr>
+                                        <td>40</td>
+                                        <td>51327-510</td>
+                                        <td>Philippines</td>
+                                        <td>Esperanza</td>
+                                        <td>4 Linden Court</td>
+                                        <td>Natka Fairbanks</td>
+                                        <td>Mueller-Greenholt</td>
+                                        <td>6/21/2017</td>
+                                        <td>3</td>
+                                        <td>3</td>
+                                        <td nowrap></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                                <!--end: Datatable -->
+                            </div>
                         </div>
                     </div>
+
                     <!-- end:: Content -->
                 </div>
             </div>
         </div>
     </div>
+
     <!-- end:: Page -->
 
 @endsection
 
 @section('script')
 
+    <!--begin::Page Vendors(used by this page) -->
+    <script src="assets/plugins/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
+
+    <!--end::Page Vendors -->
+
     <!--begin::Page Scripts(used by this page) -->
-    <script src="assets/js/pages/custom/projects/add-project.js" type="text/javascript"></script>
+    <script src="assets/js/pages/crud/datatables/advanced/column-visibility.js" type="text/javascript"></script>
+
     <!--end::Page Scripts -->
 
 @endsection
+
