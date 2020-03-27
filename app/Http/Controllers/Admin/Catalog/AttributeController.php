@@ -15,6 +15,6 @@ class AttributeController extends Controller
 
     public function add()
     {
-        return view('admin.attribute.create_attribute');
+        return view('admin.attribute.create-attribute');
     }
 }

@@ -5,15 +5,17 @@ namespace App\Http\Controllers\admin\blog;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class BlogController extends Controller
+class CategoryController extends Controller
 {
+    //
+
     public function index()
     {
-        return view('admin.blog.blog');
+        return view('admin.blog.categories');
     }
 
     public function add()
     {
-        return view('admin.blog.create-article');
+        return view('admin.blog.create-category');
     }
 }

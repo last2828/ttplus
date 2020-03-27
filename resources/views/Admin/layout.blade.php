@@ -18,19 +18,19 @@
     @yield('stylesheet')
 
     <!--begin::Global Theme Styles(used by all pages) -->
-    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
 
     <!--end::Global Theme Styles -->
 
     <!--begin::Layout Skins(used by all pages) -->
-    <link href="assets/css/skins/header/base/light.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/skins/header/menu/light.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/skins/brand/dark.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/skins/aside/dark.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/skins/header/base/light.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/skins/header/menu/light.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/skins/brand/dark.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/skins/aside/dark.css" rel="stylesheet" type="text/css" />
 
     <!--end::Layout Skins -->
-    <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+    <link rel="shortcut icon" href="../assets/media/logos/favicon.ico" />
 </head>
 <!-- end::Head -->
 
@@ -96,8 +96,8 @@
 <!-- end::Global Config -->
 
 <!--begin::Global Theme Bundle(used by all pages) -->
-<script src="assets/plugins/global/plugins.bundle.js" type="text/javascript"></script>
-<script src="assets/js/scripts.bundle.js" type="text/javascript"></script>
+<script src="../assets/plugins/global/plugins.bundle.js" type="text/javascript"></script>
+<script src="../assets/js/scripts.bundle.js" type="text/javascript"></script>
 
 <!--end::Global Theme Bundle -->
 
