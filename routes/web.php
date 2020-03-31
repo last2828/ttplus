@@ -38,14 +38,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
             Route::get('/create', 'AttributeController@add')->name('create_attribute');
         });
         Route::group(['prefix' => 'blog', 'namespace' => 'Blog'], function () {
-            Route::get('/', 'BlogController@index')->name('blog');
-            Route::get('/create', 'BlogController@add')->name('create_article');
-
-            Route::group(['prefix' => 'category'], function () {
-                Route::get('/', 'CategoryController@index')->name('blog_categories');
-                Route::get('/create', 'CategoryController@add')->name('create_blog_category');
-            });
+            Route::resources(['posts' => 'PostController']);
+            Route::resources(['categories' => 'CategoryController']);
         });
+
 });
 
 

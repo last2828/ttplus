@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\admin\blog;
 
 use App\Http\Controllers\Controller;
+use App\Post;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +16,7 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        return view('admin.blog.posts');
     }
 
     /**
@@ -25,7 +27,7 @@ class CategoryController extends Controller
     public function create()
     {
         //
-        return view('admin.blog.create-category');
+        return view('admin.blog.create-post');
     }
 
     /**
@@ -36,7 +38,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fields = $request->toArray();
+        dd($fields);
+        Post::add($fields);
+
     }
 
     /**

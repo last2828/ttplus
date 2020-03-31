@@ -102,10 +102,10 @@
                         <ul class="kt-menu__subnav">
                             <li aria-haspopup="true" class="kt-menu__item kt-menu__item--parent"><span class="kt-menu__link"><span class="kt-menu__link-text">Блог</span></span></li>
                             <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu" data-ktmenu-submenu-toggle="hover">
-                                <a class="kt-menu__link kt-menu__toggle" href="{{route('blog')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Статьи</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                                <a class="kt-menu__link kt-menu__toggle" href="{{route('posts.index')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Статьи</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
                             </li>
                             <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu" data-ktmenu-submenu-toggle="hover">
-                                <a class="kt-menu__link kt-menu__toggle" href="{{route('create_article')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Добавить статью</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                                <a class="kt-menu__link kt-menu__toggle" href="{{route('posts.create')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Добавить статью</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
                             </li>
                             <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu" data-ktmenu-submenu-toggle="hover">
                                 <a class="kt-menu__link kt-menu__toggle" href="javascript:;"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Категории блога</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
@@ -113,10 +113,10 @@
                                     <span class="kt-menu__arrow"></span>
                                     <ul class="kt-menu__subnav">
                                         <li aria-haspopup="true" class="kt-menu__item">
-                                            <a class="kt-menu__link" href="{{route('blog_categories')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Список категорий</span></a>
+                                            <a class="kt-menu__link" href="{{route('categories.index')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Список категорий</span></a>
                                         </li>
                                         <li aria-haspopup="true" class="kt-menu__item">
-                                            <a class="kt-menu__link" href="{{route('create_blog_category')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>
+                                            <a class="kt-menu__link" href="{{route('categories.create')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>
                                         </li>
                                     </ul>
                                 </div>
