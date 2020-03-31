@@ -41,7 +41,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
             Route::resources(['posts' => 'PostController']);
             Route::resources(['categories' => 'CategoryController']);
         });
-
 });
+
+
 
 

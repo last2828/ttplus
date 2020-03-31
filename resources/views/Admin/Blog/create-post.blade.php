@@ -73,8 +73,11 @@
                                                     <div class="form-group row">
                                                         <label>Описание</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <div class="summernote" id="kt_summernote_1" title="content"></div>
+                                                            <div class="summernote" id="kt_summernote_1" title="content">
+                                                                <p>111</p>
+                                                            </div>
                                                         </div>
+                                                        <input type="hidden" id="content" name="content">
                                                     </div>
                                                     <div class="form-group row">
                                                         <label>HTML-тег H1</label>
@@ -133,7 +136,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-form-label col-lg-3 col-sm-12">Показывать в категориях</label>
                                                         <div class="col-lg-9 col-md-9 col-sm-12">
-                                                            <select class="form-control kt-select2" id="kt_select2_3" name="subcategory_id" multiple="multiple">
+                                                            <select class="form-control kt-select2" id="kt_select2_3" name="subcategory_id[]" multiple="multiple">
                                                                 <option value="1" selected>Главная категория</option>
                                                                 <option value="2">Категория 2</option>
                                                                 <option value="3">Категория 3</option>
@@ -206,4 +209,16 @@
 
     <!--end::Page Scripts -->
 
+    <script>
+    $('#kt_summernote_1').summernote({
+      callbacks: {
+        onInit: function() {
+            $('#content').val($('#kt_summernote_1').summernote('code'))
+        },
+        onChange: function(contents, $editable) {
+            $('#content').val(contents)
+        }
+      }
+    });
+    </script>
 @endsection
