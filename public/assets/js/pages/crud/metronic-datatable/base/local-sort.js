@@ -13,7 +13,7 @@ var KTDatatableLocalSortDemo = function() {
 				type: 'remote',
 				source: {
 					read: {
-						url: 'https://keenthemes.com/metronic/tools/preview/api/datatables/demos/default.php',
+						url: '',
 					},
 				},
 				pageSize: 10,
@@ -55,8 +55,8 @@ var KTDatatableLocalSortDemo = function() {
 					field: 'Название',
 					title: 'Название',
 				}, {
-					field: 'Country',
-					title: 'Country',
+					field: 'Country1',
+					title: 'Country1',
 					template: function(row) {
 						return row.Country + ' ' + row.ShipCountry;
 					},
