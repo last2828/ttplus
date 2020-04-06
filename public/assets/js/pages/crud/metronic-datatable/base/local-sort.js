@@ -52,8 +52,8 @@ var KTDatatableLocalSortDemo = function() {
 					selector: false,
 					textAlign: 'center',
 				}, {
-					field: 'OrderID',
-					title: 'Order ID',
+					field: 'Название',
+					title: 'Название',
 				}, {
 					field: 'Country',
 					title: 'Country',

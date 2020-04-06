@@ -39,9 +39,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $fields = $request->toArray();
-        dd($fields);
-        Post::add($fields);
-
+        Post::create($fields);
     }
 
     /**
@@ -63,7 +61,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.blog.edit-post', ['post' => Post::find($id)]);
     }
 
     /**
@@ -75,7 +73,8 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $fields = $request->toArray();
+        Post::insert($fields, $id);
     }
 
     /**

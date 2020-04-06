@@ -1,6 +1,7 @@
 @extends('admin.layout')
 @section('content')
 
+
     <!-- begin:: Page -->
 
     <div class="kt-grid kt-grid--hor kt-grid--root">
@@ -64,61 +65,14 @@
                                             <button type="button" class="btn btn-brand btn-icon-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="flaticon2-plus"></i> Add New
                                             </button>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <ul class="kt-nav">
-                                                    <li class="kt-nav__section kt-nav__section--first">
-                                                        <span class="kt-nav__section-text">Choose an action:</span>
-                                                    </li>
-                                                    <li class="kt-nav__item">
-                                                        <a href="#" class="kt-nav__link">
-                                                            <i class="kt-nav__link-icon flaticon2-open-text-book"></i>
-                                                            <span class="kt-nav__link-text">Reservations</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="kt-nav__item">
-                                                        <a href="#" class="kt-nav__link">
-                                                            <i class="kt-nav__link-icon flaticon2-calendar-4"></i>
-                                                            <span class="kt-nav__link-text">Appointments</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="kt-nav__item">
-                                                        <a href="#" class="kt-nav__link">
-                                                            <i class="kt-nav__link-icon flaticon2-bell-alarm-symbol"></i>
-                                                            <span class="kt-nav__link-text">Reminders</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="kt-nav__item">
-                                                        <a href="#" class="kt-nav__link">
-                                                            <i class="kt-nav__link-icon flaticon2-contract"></i>
-                                                            <span class="kt-nav__link-text">Announcements</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="kt-nav__item">
-                                                        <a href="#" class="kt-nav__link">
-                                                            <i class="kt-nav__link-icon flaticon2-shopping-cart-1"></i>
-                                                            <span class="kt-nav__link-text">Orders</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="kt-nav__separator kt-nav__separator--fit">
-                                                    </li>
-                                                    <li class="kt-nav__item">
-                                                        <a href="#" class="kt-nav__link">
-                                                            <i class="kt-nav__link-icon flaticon2-rocket-1"></i>
-                                                            <span class="kt-nav__link-text">Projects</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="kt-nav__item">
-                                                        <a href="#" class="kt-nav__link">
-                                                            <i class="kt-nav__link-icon flaticon2-chat-1"></i>
-                                                            <span class="kt-nav__link-text">User Feedbacks</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
                                         </div>
+                                        <a href="{{route('posts.edit', 1)}}">
+                                            <i class="flaticon2-plus"></i> Edit
+                                        </a>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="kt-portlet__body">
 
                                 <!--begin: Search Form -->
@@ -203,7 +157,7 @@
 @section('script')
 
     <!--begin::Page Scripts(used by this page) -->
-    <script src="assets/js/pages/crud/metronic-datatable/base/local-sort.js" type="text/javascript"></script>
+    <script src="../assets/js/pages/crud/metronic-datatable/base/local-sort.js" type="text/javascript"></script>
 
     <!--end::Page Scripts -->
 

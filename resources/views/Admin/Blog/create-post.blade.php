@@ -74,7 +74,7 @@
                                                         <label>Описание</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
                                                             <div class="summernote" id="kt_summernote_1" title="content">
-                                                                <p>111</p>
+                                                                <p>sss</p>
                                                             </div>
                                                         </div>
                                                         <input type="hidden" id="content" name="content">
@@ -110,14 +110,14 @@
                                                         <div class="col-lg-4 col-md-9 col-sm-12">
                                                             <select class="form-control kt-select2" id="kt_select2_2" name="category_id">
                                                                 <optgroup label="Alaskan/Hawaiian Time Zone">
-                                                                    <option value="AK">Alaska</option>
-                                                                    <option value="HI">Hawaii</option>
+                                                                    <option value="1">Alaska</option>
+                                                                    <option value="2">Hawaii</option>
                                                                 </optgroup>
                                                                 <optgroup label="Pacific Time Zone">
-                                                                    <option value="CA">California</option>
-                                                                    <option value="NV" selected>Nevada</option>
-                                                                    <option value="OR">Oregon</option>
-                                                                    <option value="WA">Washington</option>
+                                                                    <option value="3">California</option>
+                                                                    <option value="4" selected>Nevada</option>
+                                                                    <option value="5">Oregon</option>
+                                                                    <option value="6">Washington</option>
                                                                 </optgroup>
                                                                 <optgroup label="Mountain Time Zone">
                                                                     <option value="AZ">Arizona</option>
@@ -157,7 +157,7 @@
                                                     <div class="form-group form-group-last row">
                                                         <label>URL</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="text" class="form-control" aria-describedby="" placeholder="URL" name="url">
+                                                            <input type="text" class="form-control" aria-describedby="" placeholder="URL" name="slug">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
