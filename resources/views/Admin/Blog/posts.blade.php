@@ -1,5 +1,7 @@
+
 @extends('admin.layout')
 @section('content')
+
 
 
     <!-- begin:: Page -->
@@ -151,15 +153,135 @@
     </div>
 
     <!-- end:: Page -->
-
 @endsection
 
 @section('script')
 
     <!--begin::Page Scripts(used by this page) -->
-    <script src="../assets/js/pages/crud/metronic-datatable/base/local-sort.js" type="text/javascript"></script>
+    {{-- <script src="../assets/js/pages/crud/metronic-datatable/base/local-sort.js" type="text/javascript"></script> --}}
 
     <!--end::Page Scripts -->
+    <script>
+    
+    var KTDatatableLocalSortDemo = function() {
+      // Private functions
+      // basic demo
+      var demo = function() {
+        var datatable = $('.kt-datatable').KTDatatable({
+          // datasource definition
+          data: {
+            type: 'local',
+            source: <?php echo $post ?>,
+            pageSize: 10,
+          },
+          // layout definition
+          layout: {
+            scroll: false, // enable/disable datatable scroll both horizontal and vertical when needed.
+            footer: false, // display/hide footer
+          },
+          // column sorting
+          sortable: true,
+          pagination: true,
+          search: {
+            input: $('#generalSearch'),
+          },
+          // columns definition
+          columns: [{
+            field: 'RecordID',
+            title: '#',
+            sortable: 'asc',
+            width: 30,
+            type: 'number',
+            selector: false,
+            textAlign: 'center',
+          }, {
+            field: 'title',
+            title: 'Название',
+          }, {
+            field: 'Country1',
+            title: 'Country1',
+            template: function(row) {
+              return row.Country + ' ' + row.ShipCountry;
+            },
+          }, {
+            field: 'ShipDate',
+            title: 'Ship Date',
+            type: 'date',
+            format: 'MM/DD/YYYY',
+          }, {
+            field: 'TotalPayment',
+            title: 'Payment',
+            type: 'number',
+            // custom sort callback for number
+            sortCallback: function(data, sort, column) {
+              var field = column['field'];
+              return $(data).sort(function(a, b) {
+                var aField = a[field];
+                var bField = b[field];
+                if (isNaN(parseFloat(aField)) && aField != null) {
+                  aField = Number(aField.replace(/[^0-9\.-]+/g, ''));
+                }
+                if (isNaN(parseFloat(bField)) && aField != null) {
+                  bField = Number(bField.replace(/[^0-9\.-]+/g, ''));
+                }
+                aField = parseFloat(aField);
+                bField = parseFloat(bField);
+                if (sort === 'asc') {
+                  return aField > bField ? 1 : aField < bField ? -1 : 0;
+                } else {
+                  return aField < bField ? 1 : aField > bField ? -1 : 0;
+                }
+              });
+            },
+          },{
+            field: 'Actions',
+            title: 'Actions',
+            sortable: false,
+            width: 110,
+            overflow: 'visible',
+            autoHide: false,
+            template: function(data) {
+                var url = `admin/blog/posts/${data.id}/edit/`;
+              return `\
+                      <div class="dropdown">\
+                          <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown">\
+                              <i class="la la-cog"></i>\
+                          </a>\
+                            <div class="dropdown-menu dropdown-menu-right">\
+                              <a class="dropdown-item" href=""><i class="la la-edit"></i> Edit Details</a>\
+                              <a class="dropdown-item" href="#"><i class="la la-leaf"></i> Update Status</a>\
+                              <a class="dropdown-item" href="#"><i class="la la-print"></i> Generate Report</a>\
+                            </div>\
+                      </div>\
+                      <a href="${url}" class="btn-edit btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit details">\
+                          <i class="la la-edit"></i>\
+                      </a>\
+                      <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">\
+                          <i class="la la-trash"></i>\
+                      </a>\
+                  `;
+            },
+          }],
+        });
+        $('#kt_form_status').on('change', function() {
+          datatable.search($(this).val().toLowerCase(), 'Status');
+        });
+        $('#kt_form_type').on('change', function() {
+          datatable.search($(this).val().toLowerCase(), 'Type');
+        });
+        $('#kt_form_status,#kt_form_type').selectpicker();
+      };
+      return {
+        // public functions
+        init: function() {
+          demo();
+        },
+      };
+    }();
+    jQuery(document).ready(function() {
+        KTDatatableLocalSortDemo.init();
+    }); 
+</script>
 
 @endsection
 
