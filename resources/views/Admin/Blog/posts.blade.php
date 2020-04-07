@@ -68,9 +68,6 @@
                                                 <i class="flaticon2-plus"></i> Add New
                                             </button>
                                         </div>
-                                        <a href="{{route('posts.edit', 1)}}">
-                                            <i class="flaticon2-plus"></i> Edit
-                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -249,7 +246,7 @@
                       <a href="${url}" class="btn-edit btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit details">\
                           <i class="la la-edit"></i>\
                       </a>\
-                      <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">\
+                      <a href="" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">\
                           <i class="la la-trash"></i>\
                       </a>\
                   `;

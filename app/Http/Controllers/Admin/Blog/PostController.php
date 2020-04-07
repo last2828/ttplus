@@ -78,7 +78,9 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $fields = $request->toArray();
-        Post::insert($fields, $id);
+        $post = Post::find($id);
+        $post->update($fields);
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -89,6 +91,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Post::destroy($id);
+        return view('admin.blog.posts');
     }
 }

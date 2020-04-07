@@ -51,7 +51,8 @@
                                         </div>
                                     </div>
                                     <!--begin::Form-->
-                                    <form class="kt-form" method="PUT" action="{{route('posts.update', $post->id)}}">
+                                    <form class="kt-form" method="POST" action="{{route('posts.update', $post->id)}}">
+                                        @method('PUT')
                                         @CSRF
                                         <div class="kt-portlet__body">
                                             <ul class="nav nav-tabs  nav-tabs-line" role="tablist">
@@ -67,14 +68,14 @@
                                                     <div class="form-group row">
                                                         <label>Название статьи</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Название статьи" name="title">
+                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Название статьи" name="title" value="{{$post->title}}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                         <label>Описание</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
                                                             <div class="summernote" id="kt_summernote_1" title="content">
-                                                                <p>sss</p>
+                                                                {{$post->content}}
                                                             </div>
                                                         </div>
                                                         <input type="hidden" id="content" name="content">
@@ -88,19 +89,19 @@
                                                     <div class="form-group row">
                                                         <label >Мета-тег Title</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Мета-тег Title" name="meta_title">
+                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Мета-тег Title" name="meta_title" value="{{$post->meta_title}}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                         <label>Мета-тег Description</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <textarea class="form-control" aria-describedby="" placeholder="Мета-тег Description" rows="3" name="meta_description"></textarea>
+                                                            <textarea class="form-control" aria-describedby="" placeholder="Мета-тег Description" rows="3" name="meta_description">{{$post->meta_description}}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                         <label>Мета-тег Keywords</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Мета-тег Keywords" name="meta_keywords">
+                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Мета-тег Keywords" name="meta_keywords" value="{{$post->meta_keywords}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -157,7 +158,7 @@
                                                     <div class="form-group form-group-last row">
                                                         <label>URL</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="text" class="form-control" aria-describedby="" placeholder="URL" name="slug">
+                                                            <input type="text" class="form-control" aria-describedby="" placeholder="URL" name="slug" value="{{$post->slug}}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
