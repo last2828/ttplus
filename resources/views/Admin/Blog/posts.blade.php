@@ -157,10 +157,6 @@
 
 @section('script')
 
-    <!--begin::Page Scripts(used by this page) -->
-    {{-- <script src="../assets/js/pages/crud/metronic-datatable/base/local-sort.js" type="text/javascript"></script> --}}
-
-    <!--end::Page Scripts -->
     <script>
     
     var KTDatatableLocalSortDemo = function() {
@@ -171,7 +167,7 @@
           // datasource definition
           data: {
             type: 'local',
-            source: <?php echo $post ?>,
+            source: <?php echo $posts; ?>,
             pageSize: 10,
           },
           // layout definition
@@ -187,7 +183,7 @@
           },
           // columns definition
           columns: [{
-            field: 'RecordID',
+            field: 'id',
             title: '#',
             sortable: 'asc',
             width: 30,
@@ -198,14 +194,11 @@
             field: 'title',
             title: 'Название',
           }, {
-            field: 'Country1',
-            title: 'Country1',
-            template: function(row) {
-              return row.Country + ' ' + row.ShipCountry;
-            },
+            field: 'category_name',
+            title: 'Категория',
           }, {
-            field: 'ShipDate',
-            title: 'Ship Date',
+            field: 'status',
+            title: 'Статус',
             type: 'date',
             format: 'MM/DD/YYYY',
           }, {
@@ -235,7 +228,7 @@
             },
           },{
             field: 'Actions',
-            title: 'Actions',
+            title: 'Действия',
             sortable: false,
             width: 110,
             overflow: 'visible',

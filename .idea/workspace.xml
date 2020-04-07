@@ -15,7 +15,7 @@
     <session id="-300716754">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.14" value="1" />
@@ -29,23 +29,23 @@
           <entry key="env" value="2" />
           <entry key="example" value="1" />
           <entry key="html" value="22" />
-          <entry key="js" value="4" />
+          <entry key="js" value="6" />
           <entry key="json" value="1" />
           <entry key="map" value="1" />
-          <entry key="php" value="167" />
-          <entry key="rnc" value="2" />
+          <entry key="php" value="172" />
+          <entry key="rnc" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="116" />
+          <entry key="Blade" value="120" />
           <entry key="CSS" value="1" />
           <entry key="HTML" value="22" />
           <entry key="JSON" value="1" />
-          <entry key="JavaScript" value="4" />
-          <entry key="PHP" value="51" />
+          <entry key="JavaScript" value="6" />
+          <entry key="PHP" value="52" />
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="RNG Compact" value="2" />
+          <entry key="RNG Compact" value="3" />
           <entry key="SourceMap" value="1" />
         </counts>
       </usages-collector>
@@ -53,19 +53,19 @@
         <counts>
           <entry key="dummy" value="15" />
           <entry key="html" value="21" />
-          <entry key="js" value="19" />
+          <entry key="js" value="24" />
           <entry key="json" value="1" />
           <entry key="map" value="4" />
-          <entry key="php" value="6746" />
+          <entry key="php" value="7303" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="4078" />
+          <entry key="Blade" value="4330" />
           <entry key="HTML" value="21" />
           <entry key="JSON" value="1" />
-          <entry key="JavaScript" value="19" />
-          <entry key="PHP" value="2668" />
+          <entry key="JavaScript" value="24" />
+          <entry key="PHP" value="2973" />
           <entry key="PLAIN_TEXT" value="15" />
           <entry key="SourceMap" value="4" />
         </counts>
@@ -77,7 +77,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
+            <state relative-caret-position="486">
               <caret line="40" column="46" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
               <folding>
                 <element signature="e#7#389#0#PHP" expanded="true" />
@@ -86,23 +86,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/Blog/PostController.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/Admin/layout.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="76" column="21" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="21" />
+            <state relative-caret-position="736">
+              <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/Blog/PostController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="19" selection-end-column="9" />
-              <folding>
-                <element signature="e#33#71#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="-283">
+              <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/Admin/Blog/edit-post.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="53" column="69" selection-start-line="53" selection-start-column="69" selection-end-line="53" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -110,8 +116,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/Admin/Blog/posts.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2326">
-              <caret line="159" column="25" selection-start-line="159" selection-start-column="25" selection-end-line="159" selection-end-column="25" />
+            <state relative-caret-position="-587">
+              <caret line="200" column="26" selection-start-line="200" selection-start-column="26" selection-end-line="200" selection-end-column="26" />
+              <folding>
+                <element signature="e#3597#3603#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/js/pages/crud/metronic-datatable/base/local-sort.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1285">
+              <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
+              <folding>
+                <element signature="e#55#61#1" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -119,18 +140,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Post.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/Admin/aside.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="104" column="93" selection-start-line="104" selection-start-column="93" selection-end-line="104" selection-end-column="93" />
-              <caret line="107" column="93" selection-start-line="107" selection-start-column="93" selection-end-line="107" selection-end-column="93" />
+            <state relative-caret-position="460">
+              <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+              <folding>
+                <element signature="e#23#62#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -157,7 +171,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" />
         <option value="$USER_HOME$/Desktop/admin/index.html" />
         <option value="$PROJECT_DIR$/resources/views/dashboard.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/Admin/admin_layout.blade.php" />
@@ -198,16 +211,17 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/Blog/CategoryController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_03_30_160347_create_categories_posts_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_03_30_150850_create_posts_table.php" />
-        <option value="$PROJECT_DIR$/resources/views/Admin/Blog/create-post.blade.php" />
         <option value="$USER_HOME$/Desktop/admin/assets/js/pages/crud/metronic-datatable/base/local-sort.js" />
-        <option value="$PROJECT_DIR$/resources/views/Admin/layout.blade.php" />
         <option value="$USER_HOME$/composer.json" />
-        <option value="$PROJECT_DIR$/resources/views/Admin/Blog/posts.blade.php" />
-        <option value="$PROJECT_DIR$/public/assets/js/pages/crud/metronic-datatable/base/local-sort.js" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
+        <option value="$PROJECT_DIR$/public/assets/js/pages/crud/metronic-datatable/base/local-sort.js" />
         <option value="$PROJECT_DIR$/app/Post.php" />
+        <option value="$PROJECT_DIR$/resources/views/Admin/Blog/posts.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/Blog/PostController.php" />
+        <option value="$PROJECT_DIR$/resources/views/Admin/layout.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/Admin/Blog/create-post.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/Admin/Blog/edit-post.blade.php" />
       </list>
     </option>
   </component>
@@ -325,9 +339,10 @@
       <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="height" value="808" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -539,15 +554,15 @@
       <updated>1584972048730</updated>
       <workItem from="1584972049939" duration="11168000" />
       <workItem from="1585038932873" duration="46794000" />
-      <workItem from="1586082343721" duration="8201000" />
+      <workItem from="1586082343721" duration="12954000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66163000" />
+    <option name="totallyTimeSpent" value="70916000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="808" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -578,20 +593,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/admin/custom/pages/faq/faq-1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6108">
-          <caret line="799" column="36" lean-forward="true" selection-start-line="799" selection-start-column="36" selection-end-line="799" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/admin/crud/datatables/advanced/column-visibility.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
@@ -724,13 +725,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/Admin/Blog/categories.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="211" lean-forward="true" selection-start-line="211" selection-end-line="211" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/Catalog/CategoryController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -745,13 +739,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="521">
           <caret line="58" column="140" selection-start-line="58" selection-start-column="140" selection-end-line="58" selection-end-column="140" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/common.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="127" column="18" selection-end-line="598" />
         </state>
       </provider>
     </entry>
@@ -811,13 +798,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/Admin/Blog/create-post.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1748">
-          <caret line="76" column="72" selection-start-line="76" selection-start-column="72" selection-end-line="76" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/admin/assets/js/pages/crud/metronic-datatable/base/local-sort.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -835,23 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/Admin/layout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="98" column="55" selection-start-line="98" selection-start-column="55" selection-end-line="98" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/pages/crud/metronic-datatable/base/local-sort.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-          <folding>
-            <element signature="e#55#61#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -862,24 +825,6 @@
     <entry file="file://$PROJECT_DIR$/vendor/autoload.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="40" column="46" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
-          <folding>
-            <element signature="e#7#389#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/Admin/aside.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="104" column="93" selection-start-line="104" selection-start-column="93" selection-end-line="104" selection-end-column="93" />
-          <caret line="107" column="93" selection-start-line="107" selection-start-column="93" selection-end-line="107" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
@@ -887,17 +832,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/Admin/Blog/posts.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Category.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2326">
-          <caret line="159" column="25" selection-start-line="159" selection-start-column="25" selection-end-line="159" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Post.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        <state relative-caret-position="230">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
@@ -911,10 +849,93 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/Admin/aside.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2430">
+          <caret line="104" column="93" selection-start-line="104" selection-start-column="93" selection-end-line="104" selection-end-column="93" />
+          <caret line="107" column="93" selection-start-line="107" selection-start-column="93" selection-end-line="107" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+          <folding>
+            <element signature="e#23#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/pages/crud/metronic-datatable/base/local-sort.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1285">
+          <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
+          <folding>
+            <element signature="e#55#61#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/Admin/Blog/categories.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/common.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="123" column="18" selection-end-line="598" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/Admin/Blog/posts.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-587">
+          <caret line="200" column="26" selection-start-line="200" selection-start-column="26" selection-end-line="200" selection-end-column="26" />
+          <folding>
+            <element signature="e#3597#3603#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/Admin/layout.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/Admin/Blog/create-post.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="53" column="100" selection-start-line="53" selection-start-column="100" selection-end-line="53" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="40" column="46" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
+          <folding>
+            <element signature="e#7#389#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/Blog/PostController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="76" column="21" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="21" />
+        <state relative-caret-position="-283">
+          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/Admin/Blog/edit-post.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="53" column="69" selection-start-line="53" selection-start-column="69" selection-end-line="53" selection-end-column="69" />
         </state>
       </provider>
     </entry>

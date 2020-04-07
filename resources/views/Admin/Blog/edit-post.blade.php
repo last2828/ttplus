@@ -51,7 +51,7 @@
                                         </div>
                                     </div>
                                     <!--begin::Form-->
-                                    <form class="kt-form" method="POST" action="{{route('posts.store')}}">
+                                    <form class="kt-form" method="PUT" action="{{route('posts.update', $post->id)}}">
                                         @CSRF
                                         <div class="kt-portlet__body">
                                             <ul class="nav nav-tabs  nav-tabs-line" role="tablist">
@@ -210,15 +210,15 @@
     <!--end::Page Scripts -->
 
     <script>
-    $('#kt_summernote_1').summernote({
-      callbacks: {
-        onInit: function() {
-            $('#content').val($('#kt_summernote_1').summernote('code'))
-        },
-        onChange: function(contents, $editable) {
-            $('#content').val(contents)
-        }
-      }
-    });
+        $('#kt_summernote_1').summernote({
+            callbacks: {
+                onInit: function() {
+                    $('#content').val($('#kt_summernote_1').summernote('code'))
+                },
+                onChange: function(contents, $editable) {
+                    $('#content').val(contents)
+                }
+            }
+        });
     </script>
 @endsection

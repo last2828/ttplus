@@ -15,8 +15,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin.blog.posts', ['post' => Post::all()]);
+        $posts = Post::all();
+        foreach($posts as $post){
+            $post['category_name'] = $post->category->name;
+        }
+
+        return view('admin.blog.posts', ['posts' => $posts]);
     }
 
     /**
@@ -26,7 +30,6 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
         return view('admin.blog.create-post');
     }
 
@@ -38,6 +41,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
         $fields = $request->toArray();
         Post::create($fields);
     }
