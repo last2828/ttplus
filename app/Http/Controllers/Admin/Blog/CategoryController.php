@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin\blog;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.blog.categories', ['categories' => Category::all()]);
     }
 
     /**
@@ -24,7 +25,6 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
         return view('admin.blog.create-category');
     }
 
@@ -36,7 +36,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->toArray();
+        Category::create($data);
+        return redirect()->route('categories.index');
+
     }
 
     /**

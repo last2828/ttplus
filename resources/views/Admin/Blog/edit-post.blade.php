@@ -75,7 +75,7 @@
                                                         <label>Описание</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
                                                             <div class="summernote" id="kt_summernote_1" title="content">
-                                                                {{$post->content}}
+                                                                {!! $post->content !!}
                                                             </div>
                                                         </div>
                                                         <input type="hidden" id="content" name="content">
@@ -111,12 +111,12 @@
                                                         <div class="col-lg-4 col-md-9 col-sm-12">
                                                             <select class="form-control kt-select2" id="kt_select2_2" name="category_id">
                                                                 <optgroup label="Alaskan/Hawaiian Time Zone">
-                                                                    <option value="1">Alaska</option>
+                                                                    <option selected value="{{$post->category_id}}" >{{$post->category->name}}</option>
                                                                     <option value="2">Hawaii</option>
                                                                 </optgroup>
                                                                 <optgroup label="Pacific Time Zone">
                                                                     <option value="3">California</option>
-                                                                    <option value="4" selected>Nevada</option>
+                                                                    <option value="4" >Nevada</option>
                                                                     <option value="5">Oregon</option>
                                                                     <option value="6">Washington</option>
                                                                 </optgroup>

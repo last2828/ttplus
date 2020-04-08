@@ -73,17 +73,9 @@
                                                     <div class="form-group row">
                                                         <label>Описание</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <div class="summernote" id="kt_summernote_1" title="content">
-                                                                <p>sss</p>
-                                                            </div>
+                                                            <div class="summernote" id="kt_summernote_1" title="content"></div>
                                                         </div>
                                                         <input type="hidden" id="content" name="content">
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <label>HTML-тег H1</label>
-                                                        <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="text" class="form-control" aria-describedby="" placeholder="HTML-тег H1" name="H1">
-                                                        </div>
                                                     </div>
                                                     <div class="form-group row">
                                                         <label >Мета-тег Title</label>
@@ -109,27 +101,9 @@
                                                         <label class="col-form-label col-lg-3 col-sm-12">Главная категория</label>
                                                         <div class="col-lg-4 col-md-9 col-sm-12">
                                                             <select class="form-control kt-select2" id="kt_select2_2" name="category_id">
-                                                                <optgroup label="Alaskan/Hawaiian Time Zone">
-                                                                    <option value="1">Alaska</option>
-                                                                    <option value="2">Hawaii</option>
-                                                                </optgroup>
-                                                                <optgroup label="Pacific Time Zone">
-                                                                    <option value="3">California</option>
-                                                                    <option value="4" selected>Nevada</option>
-                                                                    <option value="5">Oregon</option>
-                                                                    <option value="6">Washington</option>
-                                                                </optgroup>
-                                                                <optgroup label="Mountain Time Zone">
-                                                                    <option value="AZ">Arizona</option>
-                                                                    <option value="CO">Colorado</option>
-                                                                    <option value="ID">Idaho</option>
-                                                                    <option value="MT">Montana</option>
-                                                                    <option value="NE">Nebraska</option>
-                                                                    <option value="NM">New Mexico</option>
-                                                                    <option value="ND">North Dakota</option>
-                                                                    <option value="UT">Utah</option>
-                                                                    <option value="WY">Wyoming</option>
-                                                                </optgroup>
+                                                                @foreach($categories as $category):
+                                                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
@@ -137,10 +111,9 @@
                                                         <label class="col-form-label col-lg-3 col-sm-12">Показывать в категориях</label>
                                                         <div class="col-lg-9 col-md-9 col-sm-12">
                                                             <select class="form-control kt-select2" id="kt_select2_3" name="subcategory_id[]" multiple="multiple">
-                                                                <option value="1" selected>Главная категория</option>
-                                                                <option value="2">Категория 2</option>
-                                                                <option value="3">Категория 3</option>
-                                                                <option value="4">Категория 4</option>
+                                                                @foreach($categories as $category):
+                                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
@@ -155,7 +128,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group form-group-last row">
-                                                        <label>URL</label>
+                                                        <label>Slug</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
                                                             <input type="text" class="form-control" aria-describedby="" placeholder="URL" name="slug">
                                                         </div>

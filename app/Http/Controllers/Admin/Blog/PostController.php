@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin\blog;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.blog.create-post');
+        return view('admin.blog.create-post', ['categories' => Category::all()]);
     }
 
     /**
@@ -41,9 +42,9 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-
         $fields = $request->toArray();
         Post::create($fields);
+        return redirect()->back();
     }
 
     /**
@@ -65,7 +66,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.blog.edit-post', ['post' => Post::find($id)]);
+        $post = Post::find($id);
+        return view('admin.blog.edit-post', ['post' => $post]);
     }
 
     /**
@@ -92,6 +94,6 @@ class PostController extends Controller
     public function destroy($id)
     {
         Post::destroy($id);
-        return view('admin.blog.posts');
+        return redirect()->route('posts.index');
     }
 }

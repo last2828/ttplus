@@ -49,24 +49,21 @@
                             <div class="kt-portlet__head kt-portlet__head--lg">
                                 <div class="kt-portlet__head-label">
 										<span class="kt-portlet__head-icon">
-											<i class="kt-font-brand flaticon2-line-chart"></i>
+											<i class="kt-font-brand flaticon2-list-2"></i>
 										</span>
                                     <h3 class="kt-portlet__head-title">
-                                        Sorting
-                                        <small>Sorting in local datasource</small>
+                                        Статьи
                                     </h3>
                                 </div>
                                 <div class="kt-portlet__head-toolbar">
                                     <div class="kt-portlet__head-wrapper">
-                                        <a href="#" class="btn btn-clean btn-icon-sm">
-                                            <i class="la la-long-arrow-left"></i>
-                                            Back
-                                        </a>
                                         &nbsp;
                                         <div class="dropdown dropdown-inline">
-                                            <button type="button" class="btn btn-brand btn-icon-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="flaticon2-plus"></i> Add New
-                                            </button>
+                                            <a href="{{route('posts.create')}}">
+                                                <button type="button" class="btn btn-brand btn-icon-sm" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="flaticon2-plus"></i> Добавить
+                                                </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -81,7 +78,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
                                                     <div class="kt-input-icon kt-input-icon--left">
-                                                        <input type="text" class="form-control" placeholder="Search..." id="generalSearch">
+                                                        <input type="text" class="form-control" placeholder="Поиск..." id="generalSearch">
                                                         <span class="kt-input-icon__icon kt-input-icon__icon--left">
 																<span><i class="la la-search"></i></span>
 															</span>
@@ -90,17 +87,14 @@
                                                 <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
                                                     <div class="kt-form__group kt-form__group--inline">
                                                         <div class="kt-form__label">
-                                                            <label>Status:</label>
+                                                            <label>Категория:</label>
                                                         </div>
                                                         <div class="kt-form__control">
                                                             <select class="form-control bootstrap-select" id="kt_form_status">
-                                                                <option value="">All</option>
-                                                                <option value="1">Pending</option>
-                                                                <option value="2">Delivered</option>
-                                                                <option value="3">Canceled</option>
-                                                                <option value="4">Success</option>
-                                                                <option value="5">Info</option>
-                                                                <option value="6">Danger</option>
+                                                                <option value="">Все</option>
+                                                                @foreach($posts as $post):
+                                                                <option value="{{$post->category->id}}">{{$post->category->name}}</option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
@@ -108,25 +102,18 @@
                                                 <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
                                                     <div class="kt-form__group kt-form__group--inline">
                                                         <div class="kt-form__label">
-                                                            <label>Type:</label>
+                                                            <label>Статус:</label>
                                                         </div>
                                                         <div class="kt-form__control">
                                                             <select class="form-control bootstrap-select" id="kt_form_type">
-                                                                <option value="">All</option>
-                                                                <option value="1">Online</option>
-                                                                <option value="2">Retail</option>
-                                                                <option value="3">Direct</option>
+                                                                <option value="">Все</option>
+                                                                <option value="1">Включено</option>
+                                                                <option value="0">Отключено</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-xl-4 order-1 order-xl-2 kt-align-right">
-                                            <a href="#" class="btn btn-default kt-hidden">
-                                                <i class="la la-cart-plus"></i> New Order
-                                            </a>
-                                            <div class="kt-separator kt-separator--border-dashed kt-separator--space-lg d-xl-none"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -180,14 +167,6 @@
           },
           // columns definition
           columns: [{
-            field: 'id',
-            title: '#',
-            sortable: 'asc',
-            width: 30,
-            type: 'number',
-            selector: false,
-            textAlign: 'center',
-          }, {
             field: 'title',
             title: 'Название',
           }, {
@@ -196,33 +175,9 @@
           }, {
             field: 'status',
             title: 'Статус',
-            type: 'date',
-            format: 'MM/DD/YYYY',
-          }, {
-            field: 'TotalPayment',
-            title: 'Payment',
-            type: 'number',
-            // custom sort callback for number
-            sortCallback: function(data, sort, column) {
-              var field = column['field'];
-              return $(data).sort(function(a, b) {
-                var aField = a[field];
-                var bField = b[field];
-                if (isNaN(parseFloat(aField)) && aField != null) {
-                  aField = Number(aField.replace(/[^0-9\.-]+/g, ''));
-                }
-                if (isNaN(parseFloat(bField)) && aField != null) {
-                  bField = Number(bField.replace(/[^0-9\.-]+/g, ''));
-                }
-                aField = parseFloat(aField);
-                bField = parseFloat(bField);
-                if (sort === 'asc') {
-                  return aField > bField ? 1 : aField < bField ? -1 : 0;
-                } else {
-                  return aField < bField ? 1 : aField > bField ? -1 : 0;
-                }
-              });
-            },
+              template: function(data) {
+                  return (data.status == 1) ? 'Включено' : 'Отключено';
+              },
           },{
             field: 'Actions',
             title: 'Действия',
@@ -232,25 +187,21 @@
             autoHide: false,
             template: function(data) {
                 var url = `admin/blog/posts/${data.id}/edit/`;
+                var urls = `admin/blog/posts/${data.id}`;
               return `\
-                      <div class="dropdown">\
-                          <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown">\
-                              <i class="la la-cog"></i>\
-                          </a>\
-                            <div class="dropdown-menu dropdown-menu-right">\
-                              <a class="dropdown-item" href=""><i class="la la-edit"></i> Edit Details</a>\
-                              <a class="dropdown-item" href="#"><i class="la la-leaf"></i> Update Status</a>\
-                              <a class="dropdown-item" href="#"><i class="la la-print"></i> Generate Report</a>\
-                            </div>\
-                      </div>\
                       <a href="${url}" class="btn-edit btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit details">\
                           <i class="la la-edit"></i>\
                       </a>\
-                      <a href="" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">\
-                          <i class="la la-trash"></i>\
-                      </a>\
+                      <form method="POST" action="${urls}" style="display:inline-block">\
+                      @method('DELETE')
+                        @CSRF
+                          <button type="submit" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">\
+                              <i class="la la-trash"></i>\
+                          </button>\
+                      </form>\
                   `;
             },
+
           }],
         });
         $('#kt_form_status').on('change', function() {
