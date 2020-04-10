@@ -14,12 +14,25 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     //
-    protected $fillable = ['title', 'content', 'meta_title', 'meta_keywords', 'meta_description', 'image', 'category_id', 'status', 'slug'];
+    protected $fillable = [
+        'title',
+        'content',
+        'meta_title',
+        'meta_keywords',
+        'meta_description',
+        'image',
+        'category_id',
+        'status',
+        'slug'
+    ];
 
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(
+            Category::class
+        );
     }
+
 }
 
 

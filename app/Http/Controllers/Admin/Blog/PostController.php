@@ -23,7 +23,12 @@ class PostController extends Controller
             $post['category_name'] = $post->category['name'];
         }
 
-        return view('admin.blog.posts', ['posts' => $posts]);
+        return view(
+            'admin.blog.posts',
+            [
+                'posts' => $posts
+            ]
+        );
     }
 
     /**
@@ -33,7 +38,12 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.blog.create-post', ['categories' => Category::all()]);
+        return view(
+            'admin.blog.create-post',
+            [
+                'categories' => Category::all()
+            ]
+        );
     }
 
     /**
@@ -83,7 +93,13 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        return view('admin.blog.edit-post', ['post' => $post, 'categories' => Category::all()]);
+        return view(
+            'admin.blog.edit-post',
+            [
+                'post' => $post,
+                'categories' => Category::all()
+            ]
+        );
     }
 
     /**

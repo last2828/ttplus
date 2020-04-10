@@ -42,10 +42,10 @@
                                     <span class="kt-menu__arrow"></span>
                                     <ul class="kt-menu__subnav">
                                         <li aria-haspopup="true" class="kt-menu__item">
-                                            <a class="kt-menu__link" href="{{route('catalog')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Каталог товаров</span></a>
+                                            <a class="kt-menu__link" href="{{route('products.index')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Каталог товаров</span></a>
                                         </li>
                                         <li aria-haspopup="true" class="kt-menu__item">
-                                            <a class="kt-menu__link" href="{{route('create_product')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>
+                                            <a class="kt-menu__link" href="{{route('products.create')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -56,10 +56,10 @@
                                     <span class="kt-menu__arrow"></span>
                                     <ul class="kt-menu__subnav">
                                         <li aria-haspopup="true" class="kt-menu__item">
-                                            <a class="kt-menu__link" href="{{route('groups')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Список групп</span></a>
+                                            <a class="kt-menu__link" href="{{route('groups.index')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Список групп</span></a>
                                         </li>
                                         <li aria-haspopup="true" class="kt-menu__item">
-                                            <a class="kt-menu__link" href="{{route('create_group')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Новая группа</span></a>
+                                            <a class="kt-menu__link" href="{{route('groups.create')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Новая группа</span></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -70,10 +70,10 @@
                                     <span class="kt-menu__arrow"></span>
                                     <ul class="kt-menu__subnav">
                                         <li aria-haspopup="true" class="kt-menu__item">
-                                            <a class="kt-menu__link" href="{{route('categories')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Список категорий</span></a>
+                                            <a class="kt-menu__link" href="{{route('product_categories.index')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Список категорий</span></a>
                                         </li>
                                         <li aria-haspopup="true" class="kt-menu__item">
-                                            <a class="kt-menu__link" href="{{route('create_category')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>
+                                            <a class="kt-menu__link" href="{{route('product_categories.create')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -84,10 +84,10 @@
                                     <span class="kt-menu__arrow"></span>
                                     <ul class="kt-menu__subnav">
                                         <li aria-haspopup="true" class="kt-menu__item">
-                                            <a class="kt-menu__link" href="{{route('attributes')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Все характеристики</span></a>
+                                            <a class="kt-menu__link" href="{{route('attributes.index')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Все характеристики</span></a>
                                         </li>
                                         <li aria-haspopup="true" class="kt-menu__item">
-                                            <a class="kt-menu__link" href="{{route('create_attribute')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>
+                                            <a class="kt-menu__link" href="{{route('attributes.create')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>
                                         </li>
                                     </ul>
                                 </div>

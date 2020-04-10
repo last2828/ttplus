@@ -1,7 +1,5 @@
 @extends('admin.layout')
 @section('content')
-
-
     <!-- begin:: Page -->
 
     <div class="kt-grid kt-grid--hor kt-grid--root">
@@ -17,7 +15,7 @@
                             <div class="kt-subheader__main">
                                 <span class="kt-subheader__separator kt-hidden"></span>
                                 <div class="kt-subheader__breadcrumbs">
-                                    <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Хлебые крошки</span>
+                                    {{Breadcrumbs::render('blog')}}
                                 </div>
                             </div>
                         </div>

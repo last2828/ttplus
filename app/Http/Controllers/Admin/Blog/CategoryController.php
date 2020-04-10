@@ -18,7 +18,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.blog.categories', ['categories' => Category::all()]);
+        return view(
+            'admin.blog.categories',
+            [
+                'categories' => Category::all()
+            ]
+        );
     }
 
     /**
@@ -28,7 +33,12 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.blog.create-category', ['categories' => Category::all()]);
+        return view(
+            'admin.blog.create-category',
+            [
+                'categories' => Category::all()
+            ]
+        );
     }
 
     /**
@@ -80,7 +90,13 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::find($id);
-        return view('admin.blog.edit-category', ['category' => $category, 'categories' => Category::all()]);
+        return view(
+            'admin.blog.edit-category',
+            [
+                'category' => $category,
+                'categories' => Category::all()
+            ]
+        );
 
     }
 

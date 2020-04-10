@@ -34,7 +34,7 @@
 											<i class="kt-font-brand flaticon2-list-2"></i>
 										</span>
                                     <h3 class="kt-portlet__head-title">
-                                        Статьи
+                                        Товары
                                     </h3>
                                 </div>
                                 <div class="kt-portlet__head-toolbar">
@@ -149,7 +149,7 @@
                     },
                     // columns definition
                     columns: [{
-                        field: 'title',
+                        field: 'name',
                         title: 'Название',
                     }, {
                         field: 'category_name',
@@ -168,8 +168,8 @@
                         overflow: 'visible',
                         autoHide: false,
                         template: function(data) {
-                            var url = `admin/blog/posts/${data.id}/edit/`;
-                            var urls = `admin/blog/posts/${data.id}`;
+                            var url = `admin/catalog/products/${data.id}/edit/`;
+                            var urls = `admin/catalog/products/${data.id}`;
                             return `\
                       <a href="${url}" class="btn-edit btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit details">\
                           <i class="la la-edit"></i>\

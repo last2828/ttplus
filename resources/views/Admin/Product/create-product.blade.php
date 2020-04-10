@@ -51,7 +51,8 @@
                                     </div>
                                 </div>
                                 <!--begin::Form-->
-                                <form class="kt-form">
+                                <form class="kt-form" method="POST" action="{{route('products.store')}}">
+                                    @CSRF
                                     <div class="kt-portlet__body">
                                         <ul class="nav nav-tabs  nav-tabs-line" role="tablist">
                                             <li class="nav-item">
@@ -75,37 +76,34 @@
                                                 <div class="form-group row">
                                                     <label>Название товара</label>
                                                     <div class="col-lg-12 col-md-9 col-sm-12">
-                                                        <input type="text" class="form-control" aria-describedby="" placeholder="Название товара">
+                                                        <input type="text" class="form-control" aria-describedby="" placeholder="Название товара" name="name">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="exampleTextarea">Описание</label>
                                                     <div class="col-lg-12 col-md-9 col-sm-12">
-                                                        <div class="summernote" id="kt_summernote_1"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label>HTML-тег H1</label>
-                                                    <div class="col-lg-12 col-md-9 col-sm-12">
-                                                        <input type="text" class="form-control" aria-describedby="" placeholder="HTML-тег H1">
+                                                        <div class="col-lg-12 col-md-9 col-sm-12">
+                                                            <div class="summernote" id="kt_summernote_1" title="content"></div>
+                                                        </div>
+                                                        <input type="hidden" id="content" name="content">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label >Мета-тег Title</label>
                                                     <div class="col-lg-12 col-md-9 col-sm-12">
-                                                        <input type="text" class="form-control" aria-describedby="" placeholder="Мета-тег Title">
+                                                        <input type="text" class="form-control" aria-describedby="" placeholder="Мета-тег Title" name="meta_title">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label>Мета-тег Description</label>
                                                     <div class="col-lg-12 col-md-9 col-sm-12">
-                                                        <textarea class="form-control" aria-describedby="" placeholder="Мета-тег Description" rows="3"></textarea>
+                                                        <textarea class="form-control" aria-describedby="" placeholder="Мета-тег Description" rows="3" name="meta_description"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label>Мета-тег Keywords</label>
                                                     <div class="col-lg-12 col-md-9 col-sm-12">
-                                                        <input type="text" class="form-control" aria-describedby="" placeholder="Мета-тег Keywords">
+                                                        <input type="text" class="form-control" aria-describedby="" placeholder="Мета-тег Keywords" name="meta_keyword">
                                                     </div>
                                                 </div>
                                             </div>
@@ -113,7 +111,7 @@
                                                 <div class="form-group row">
                                                     <label>Код товара</label>
                                                     <div class="col-lg-12 col-md-9 col-sm-12">
-                                                        <input type="text" class="form-control" aria-describedby="" placeholder="Код товара">
+                                                        <input type="text" class="form-control" aria-describedby="" placeholder="Код товара" name="model">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -127,17 +125,17 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label>URL</label>
+                                                    <label>Slug</label>
                                                     <div class="col-lg-12 col-md-9 col-sm-12">
-                                                        <input type="url" class="form-control" aria-describedby="" placeholder="URL">
+                                                        <input type="url" class="form-control" aria-describedby="" placeholder="slug" name="slug">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-form-label col-lg-3 col-sm-12">Статус товара</label>
                                                     <div class=" col-lg-4 col-md-9 col-sm-12">
-                                                        <select class="form-control kt-select2" id="kt_select2_10" name="param">
-                                                            <option>Включено</option>
-                                                            <option>Отключено</option>
+                                                        <select class="form-control kt-select2" id="kt_select2_10" name="status">
+                                                            <option selected value="1">Включено</option>
+                                                            <option value="0">Отключено</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -146,39 +144,8 @@
                                                 <div class="form-group row">
                                                     <label class="col-form-label col-lg-3 col-sm-12">Главная категория</label>
                                                     <div class="col-lg-4 col-md-9 col-sm-12">
-                                                        <select class="form-control kt-select2" id="kt_select2_2" name="param">
-                                                            <optgroup label="Alaskan/Hawaiian Time Zone">
-                                                                <option value="AK">Alaska</option>
-                                                                <option value="HI">Hawaii</option>
-                                                            </optgroup>
-                                                            <optgroup label="Pacific Time Zone">
-                                                                <option value="CA">California</option>
-                                                                <option value="NV" selected>Nevada</option>
-                                                                <option value="OR">Oregon</option>
-                                                                <option value="WA">Washington</option>
-                                                            </optgroup>
-                                                            <optgroup label="Mountain Time Zone">
-                                                                <option value="AZ">Arizona</option>
-                                                                <option value="CO">Colorado</option>
-                                                                <option value="ID">Idaho</option>
-                                                                <option value="MT">Montana</option>
-                                                                <option value="NE">Nebraska</option>
-                                                                <option value="NM">New Mexico</option>
-                                                                <option value="ND">North Dakota</option>
-                                                                <option value="UT">Utah</option>
-                                                                <option value="WY">Wyoming</option>
-                                                            </optgroup>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-form-label col-lg-3 col-sm-12">Показывать в категориях</label>
-                                                    <div class="col-lg-9 col-md-9 col-sm-12">
-                                                        <select class="form-control kt-select2" id="kt_select2_3" name="param" multiple="multiple">
-                                                            <option value="AK" selected>Главная категория</option>
-                                                            <option value="HI">Категория 2</option>
-                                                            <option value="HI">Категория 3</option>
-                                                            <option value="HI">Категория 4</option>
+                                                        <select class="form-control kt-select2" id="kt_select2_2" name="category_id">
+                                                            <option selected value="null">Не выбрано</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -189,57 +156,12 @@
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1"><i class="flaticon2-sms"></i></span>
                                                             </div>
-                                                            <select class="form-control kt-select2" id="kt_select2_group_1" name="param">
+                                                            <select class="form-control kt-select2" id="kt_select2_group_1" name="group_id">
+                                                                <option selected value="null">Не выбрано</option>
                                                                 <option value="AK">Alaska</option>
                                                                 <option value="HI">Hawaii</option>
                                                                 <option value="CA">California</option>
                                                                 <option value="NV">Nevada</option>
-                                                                <option value="OR">Oregon</option>
-                                                                <option value="WA">Washington</option>
-                                                                <option value="AZ">Arizona</option>
-                                                                <option value="CO">Colorado</option>
-                                                                <option value="ID">Idaho</option>
-                                                                <option value="MT">Montana</option>
-                                                                <option value="NE">Nebraska</option>
-                                                                <option value="NM">New Mexico</option>
-                                                                <option value="ND">North Dakota</option>
-                                                                <option value="UT">Utah</option>
-                                                                <option value="WY">Wyoming</option>
-                                                                <option value="AL">Alabama</option>
-                                                                <option value="AR">Arkansas</option>
-                                                                <option value="IL">Illinois</option>
-                                                                <option value="IA">Iowa</option>
-                                                                <option value="KS">Kansas</option>
-                                                                <option value="KY">Kentucky</option>
-                                                                <option value="LA">Louisiana</option>
-                                                                <option value="MN">Minnesota</option>
-                                                                <option value="MS">Mississippi</option>
-                                                                <option value="MO">Missouri</option>
-                                                                <option value="OK">Oklahoma</option>
-                                                                <option value="SD">South Dakota</option>
-                                                                <option value="TX">Texas</option>
-                                                                <option value="TN">Tennessee</option>
-                                                                <option value="WI">Wisconsin</option>
-                                                                <option value="CT">Connecticut</option>
-                                                                <option value="DE">Delaware</option>
-                                                                <option value="FL">Florida</option>
-                                                                <option value="GA">Georgia</option>
-                                                                <option value="IN">Indiana</option>
-                                                                <option value="ME">Maine</option>
-                                                                <option value="MD">Maryland</option>
-                                                                <option value="MA">Massachusetts</option>
-                                                                <option value="MI">Michigan</option>
-                                                                <option value="NH">New Hampshire</option>
-                                                                <option value="NJ">New Jersey</option>
-                                                                <option value="NY">New York</option>
-                                                                <option value="NC">North Carolina</option>
-                                                                <option value="OH">Ohio</option>
-                                                                <option value="PA">Pennsylvania</option>
-                                                                <option value="RI">Rhode Island</option>
-                                                                <option value="SC">South Carolina</option>
-                                                                <option value="VT">Vermont</option>
-                                                                <option value="VA">Virginia</option>
-                                                                <option value="WV">West Virginia</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -254,14 +176,14 @@
                                                                 <div class="col-md-4">
                                                                     <div class="kt-form__group--inline">
                                                                         <div class="kt-form__control">
-                                                                            <input type="email" class="form-control" placeholder="Введите название характеристики">
+                                                                            <input type="text" class="form-control" placeholder="Введите название характеристики" name="attribute_id">
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="kt-form__group--inline">
                                                                         <div class="kt-form__control">
-                                                                            <input type="text" class="form-control" placeholder="Введите значение характеристики">
+                                                                            <input type="text" class="form-control" placeholder="Введите значение характеристики" name="value">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -298,7 +220,7 @@
                                     </div>
                                     <div class="kt-portlet__foot">
                                         <div class="kt-form__actions">
-                                            <button type="reset" class="btn btn-primary">Сохранить</button>
+                                            <button type="submit" class="btn btn-primary">Сохранить</button>
                                             <button type="reset" class="btn btn-secondary">Отмена</button>
                                         </div>
                                     </div>
@@ -337,5 +259,18 @@
 <script src="../assets/js/pages/crud/forms/widgets/form-repeater.js" type="text/javascript"></script>
 
 <!--end::Page Scripts -->
+
+<script>
+    $('#kt_summernote_1').summernote({
+        callbacks: {
+            onInit: function() {
+                $('#content').val($('#kt_summernote_1').summernote('code'))
+            },
+            onChange: function(contents, $editable) {
+                $('#content').val(contents)
+            }
+        }
+    });
+</script>
 
 @endsection
