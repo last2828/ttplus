@@ -17,11 +17,11 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('content')->nullable();
-            $table->string('meta_title');
-            $table->string('meta_keywords');
-            $table->text('meta_description');
+            $table->string('meta_title')->nullable();
+            $table->string('meta_keywords')->nullable();
+            $table->text('meta_description')->nullable();
             $table->string('image')->nullable();
-            $table->integer('category_id');
+            $table->integer('category_id')->nullable();
             $table->string('slug')->unique();
             $table->integer('status')->default('1');
             $table->timestamps();

@@ -17,16 +17,7 @@
                                     <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                                     <span class="kt-subheader__breadcrumbs-separator"></span>
                                     <a href="" class="kt-subheader__breadcrumbs-link">
-                                        Crud </a>
-                                    <span class="kt-subheader__breadcrumbs-separator"></span>
-                                    <a href="" class="kt-subheader__breadcrumbs-link">
-                                        Forms & Controls </a>
-                                    <span class="kt-subheader__breadcrumbs-separator"></span>
-                                    <a href="" class="kt-subheader__breadcrumbs-link">
-                                        Form Controls </a>
-                                    <span class="kt-subheader__breadcrumbs-separator"></span>
-                                    <a href="" class="kt-subheader__breadcrumbs-link">
-                                        Base Inputs </a>
+                                         </a>
 
                                     <!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
                                 </div>
@@ -51,7 +42,8 @@
                                         </div>
                                     </div>
                                     <!--begin::Form-->
-                                    <form class="kt-form" method="POST" action="{{route('categories.store')}}">
+                                    <form class="kt-form" method="POST" action="{{route('categories.update', $category->id)}}">
+                                        @method('PUT')
                                         @CSRF
                                         <div class="kt-portlet__body">
                                             <ul class="nav nav-tabs  nav-tabs-line" role="tablist">
@@ -67,14 +59,14 @@
                                                     <div class="form-group row">
                                                         <label>Название категории</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Название категории" name="name">
+                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Название категории" name="name" value="{{$category->name}}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                         <label for="exampleTextarea">Описание</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
                                                             <div class="col-lg-12 col-md-9 col-sm-12">
-                                                                <div class="summernote" id="kt_summernote_1" title="content"></div>
+                                                                <div class="summernote" id="kt_summernote_1" title="content">{!! $category->content !!}</div>
                                                             </div>
                                                             <input type="hidden" id="content" name="content">
                                                         </div>
@@ -82,19 +74,19 @@
                                                     <div class="form-group row">
                                                         <label >Мета-тег Title</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Мета-тег Title" name="meta_title">
+                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Мета-тег Title" name="meta_title" value="{{$category->meta_title}}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                         <label>Мета-тег Description</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <textarea class="form-control" aria-describedby="" placeholder="Мета-тег Description" rows="3" name="meta_description"></textarea>
+                                                            <textarea class="form-control" aria-describedby="" placeholder="Мета-тег Description" rows="3" name="meta_description">{{$category->meta_description}}</textarea>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                         <label>Мета-тег Keywords</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Мета-тег Keywords" name="meta_keywords">
+                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Мета-тег Keywords" name="meta_keywords" value="{{$category->meta_keywords}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -103,9 +95,11 @@
                                                         <label class="col-form-label col-lg-3 col-sm-12">Родительская категория</label>
                                                         <div class="col-lg-4 col-md-9 col-sm-12">
                                                             <select class="form-control kt-select2" id="kt_select2_2" name="parent_id">
-                                                                <option value="null" selected>Не выбрано</option>
-                                                                @foreach($categories as $category)
-                                                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                                                <option value="null">Не выбрано</option>
+                                                                @foreach($categories as $cat)
+                                                                    @if(!($cat['id'] == $category->id))
+                                                                    <option {{($cat['id'] == $category->parent_id) ? 'selected' : ''}} value="{{$cat['id']}}">{{$cat['name']}}</option>
+                                                                    @endif
                                                                 @endforeach
                                                             </select>
                                                         </div>
@@ -123,7 +117,7 @@
                                                     <div class="form-group row">
                                                         <label>Slug</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="text" class="form-control" aria-describedby="" placeholder="slug" name="slug">
+                                                            <input type="text" class="form-control" aria-describedby="" placeholder="slug" name="slug" value="{{$category->slug}}">
                                                         </div>
                                                     </div>
                                                     <div class="form-group form-group-last row">

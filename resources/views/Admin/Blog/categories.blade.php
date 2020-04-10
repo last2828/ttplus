@@ -166,8 +166,8 @@
                         overflow: 'visible',
                         autoHide: false,
                         template: function(data) {
-                            var url = `admin/blog/posts/${data.id}/edit/`;
-                            var urls = `admin/blog/posts/${data.id}`;
+                            var url = `admin/blog/categories/${data.id}/edit/`;
+                            var urls = `admin/blog/categories/${data.id}`;
                             return `\
                                   <a href="${url}" class="btn-edit btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit details">\
                                       <i class="la la-edit"></i>\

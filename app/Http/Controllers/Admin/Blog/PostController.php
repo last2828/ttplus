@@ -5,7 +5,9 @@ namespace App\Http\Controllers\admin\blog;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
+use ElForastero\Transliterate\Map;
 use Illuminate\Http\Request;
+use ElForastero\Transliterate\Transliterator;
 
 class PostController extends Controller
 {
@@ -18,7 +20,7 @@ class PostController extends Controller
     {
         $posts = Post::all();
         foreach($posts as $post){
-            $post['category_name'] = $post->category->name;
+            $post['category_name'] = $post->category['name'];
         }
 
         return view('admin.blog.posts', ['posts' => $posts]);
@@ -43,8 +45,22 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $fields = $request->toArray();
+        $translit = new Transliterator(Map::LANG_RU, Map::GOST_7_79_2000);
+
+        if($fields['slug'])
+        {
+            $fields['slug'] = $translit->slugify($fields['slug']);
+        }else{
+            $fields['slug'] = $translit->slugify($fields['title']);
+        }
+
+        if($fields['category_id'] == 'null')
+        {
+            $fields['category_id'] = null;
+        }
+
         Post::create($fields);
-        return redirect()->back();
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -67,7 +83,7 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        return view('admin.blog.edit-post', ['post' => $post]);
+        return view('admin.blog.edit-post', ['post' => $post, 'categories' => Category::all()]);
     }
 
     /**
@@ -80,6 +96,20 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $fields = $request->toArray();
+        $translit = new Transliterator(Map::LANG_RU, Map::GOST_7_79_2000);
+
+        if($fields['slug'])
+        {
+            $fields['slug'] = $translit->slugify($fields['slug']);
+        }else{
+            $fields['slug'] = $translit->slugify($fields['title']);
+        }
+
+        if($fields['category_id'] == 'null')
+        {
+            $fields['category_id'] = null;
+        }
+
         $post = Post::find($id);
         $post->update($fields);
         return redirect()->route('posts.index');
@@ -94,6 +124,6 @@ class PostController extends Controller
     public function destroy($id)
     {
         Post::destroy($id);
-        return redirect()->route('posts.index');
+        return redirect()->back();
     }
 }

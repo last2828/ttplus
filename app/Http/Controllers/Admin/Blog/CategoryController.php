@@ -4,6 +4,9 @@ namespace App\Http\Controllers\admin\blog;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Post;
+use ElForastero\Transliterate\Map;
+use ElForastero\Transliterate\Transliterator;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -25,7 +28,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.blog.create-category');
+        return view('admin.blog.create-category', ['categories' => Category::all()]);
     }
 
     /**
@@ -36,8 +39,23 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->toArray();
-        Category::create($data);
+
+        $fields = $request->toArray();
+        $translit = new Transliterator(Map::LANG_RU, Map::GOST_7_79_2000);
+
+        if($fields['slug'])
+        {
+            $fields['slug'] = $translit->slugify($fields['slug']);
+        }else{
+            $fields['slug'] = $translit->slugify($fields['name']);
+        }
+
+        if($fields['parent_id'] == 'null')
+        {
+            $fields['parent_id'] = null;
+        }
+
+        Category::create($fields);
         return redirect()->route('categories.index');
 
     }
@@ -61,7 +79,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('admin.blog.edit-category', ['category' => $category, 'categories' => Category::all()]);
+
     }
 
     /**
@@ -73,7 +93,24 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $fields = $request->toArray();
+        $translit = new Transliterator(Map::LANG_RU, Map::GOST_7_79_2000);
+
+        if($fields['slug'])
+        {
+            $fields['slug'] = $translit->slugify($fields['slug']);
+        }else{
+            $fields['slug'] = $translit->slugify($fields['name']);
+        }
+
+        if($fields['parent_id'] == 'null')
+        {
+            $fields['parent_id'] = null;
+        }
+
+        $category = Category::find($id);
+        $category->update($fields);
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -84,6 +121,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::destroy($id);
+        return redirect()->back();
     }
 }

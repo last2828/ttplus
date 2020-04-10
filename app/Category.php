@@ -2,8 +2,15 @@
 
 namespace App;
 
+use Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Kalnoy\Nestedset\NodeTrait;
+
+/**
+ * Post
+ *
+ * @mixin Eloquent
+ */
 
 class Category extends Model
 {

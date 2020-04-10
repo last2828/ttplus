@@ -1,6 +1,7 @@
 @extends('admin.layout')
 @section('content')
 
+
     <!-- begin:: Page -->
 
     <div class="kt-grid kt-grid--hor kt-grid--root">
@@ -14,25 +15,9 @@
                     <div class="kt-subheader   kt-grid__item" id="kt_subheader">
                         <div class="kt-container  kt-container--fluid ">
                             <div class="kt-subheader__main">
-                                <h3 class="kt-subheader__title">
-                                    Local Sort </h3>
                                 <span class="kt-subheader__separator kt-hidden"></span>
                                 <div class="kt-subheader__breadcrumbs">
-                                    <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
-                                    <span class="kt-subheader__breadcrumbs-separator"></span>
-                                    <a href="" class="kt-subheader__breadcrumbs-link">
-                                        Crud </a>
-                                    <span class="kt-subheader__breadcrumbs-separator"></span>
-                                    <a href="" class="kt-subheader__breadcrumbs-link">
-                                        KTDatatable </a>
-                                    <span class="kt-subheader__breadcrumbs-separator"></span>
-                                    <a href="" class="kt-subheader__breadcrumbs-link">
-                                        Base </a>
-                                    <span class="kt-subheader__breadcrumbs-separator"></span>
-                                    <a href="" class="kt-subheader__breadcrumbs-link">
-                                        Local Sort </a>
-
-                                    <!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
+                                    <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Хлебые крошки</span>
                                 </div>
                             </div>
                         </div>
@@ -46,27 +31,26 @@
                             <div class="kt-portlet__head kt-portlet__head--lg">
                                 <div class="kt-portlet__head-label">
 										<span class="kt-portlet__head-icon">
-											<i class="kt-font-brand flaticon2-line-chart"></i>
+											<i class="kt-font-brand flaticon2-list-2"></i>
 										</span>
                                     <h3 class="kt-portlet__head-title">
-                                        Список товаров
+                                        Статьи
                                     </h3>
                                 </div>
                                 <div class="kt-portlet__head-toolbar">
                                     <div class="kt-portlet__head-wrapper">
-                                        <a href="#" class="btn btn-clean btn-icon-sm">
-                                            <i class="la la-long-arrow-left"></i>
-                                            Назад
-                                        </a>
                                         &nbsp;
-                                        <div class="kt-portlet__head-wrapper">
-                                            <a href="#" class="btn btn-brand btn-icon-sm">
-                                                <i class="flaticon2-plus"></i> Добавить
+                                        <div class="dropdown dropdown-inline">
+                                            <a href="{{route('products.create')}}">
+                                                <button type="button" class="btn btn-brand btn-icon-sm" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="flaticon2-plus"></i> Добавить
+                                                </button>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="kt-portlet__body">
 
                                 <!--begin: Search Form -->
@@ -76,7 +60,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
                                                     <div class="kt-input-icon kt-input-icon--left">
-                                                        <input type="text" class="form-control" placeholder="Search..." id="generalSearch">
+                                                        <input type="text" class="form-control" placeholder="Поиск..." id="generalSearch">
                                                         <span class="kt-input-icon__icon kt-input-icon__icon--left">
 																<span><i class="la la-search"></i></span>
 															</span>
@@ -85,17 +69,14 @@
                                                 <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
                                                     <div class="kt-form__group kt-form__group--inline">
                                                         <div class="kt-form__label">
-                                                            <label>Status:</label>
+                                                            <label>Категория:</label>
                                                         </div>
                                                         <div class="kt-form__control">
                                                             <select class="form-control bootstrap-select" id="kt_form_status">
-                                                                <option value="">All</option>
-                                                                <option value="1">Pending</option>
-                                                                <option value="2">Delivered</option>
-                                                                <option value="3">Canceled</option>
-                                                                <option value="4">Success</option>
-                                                                <option value="5">Info</option>
-                                                                <option value="6">Danger</option>
+                                                                <option value="">Все</option>
+                                                                @foreach($products as $product)
+                                                                    <option value="{{$product->category['id']}}">{{$product->category['name']}}</option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
@@ -103,28 +84,23 @@
                                                 <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
                                                     <div class="kt-form__group kt-form__group--inline">
                                                         <div class="kt-form__label">
-                                                            <label>Type:</label>
+                                                            <label>Статус:</label>
                                                         </div>
                                                         <div class="kt-form__control">
                                                             <select class="form-control bootstrap-select" id="kt_form_type">
-                                                                <option value="">All</option>
-                                                                <option value="1">Online</option>
-                                                                <option value="2">Retail</option>
-                                                                <option value="3">Direct</option>
+                                                                <option value="">Все</option>
+                                                                <option value="1">Включено</option>
+                                                                <option value="0">Отключено</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-4 order-1 order-xl-2 kt-align-right">
-                                            <a href="#" class="btn btn-default kt-hidden">
-                                                <i class="la la-cart-plus"></i> New Order
-                                            </a>
-                                            <div class="kt-separator kt-separator--border-dashed kt-separator--space-lg d-xl-none"></div>
-                                        </div>
                                     </div>
                                 </div>
+
+                                <!--end: Search Form -->
                             </div>
                             <div class="kt-portlet__body kt-portlet__body--fit">
 
@@ -143,15 +119,92 @@
     </div>
 
     <!-- end:: Page -->
-
 @endsection
 
 @section('script')
 
-    <!--begin::Page Scripts(used by this page) -->
-    <script src="assets/js/pages/crud/metronic-datatable/base/local-sort.js" type="text/javascript"></script>
+    <script>
 
-    <!--end::Page Scripts -->
+        var KTDatatableLocalSortDemo = function() {
+            // Private functions
+            // basic demo
+            var demo = function() {
+                var datatable = $('.kt-datatable').KTDatatable({
+                    // datasource definition
+                    data: {
+                        type: 'local',
+                        source: <?php echo $products; ?>,
+                        pageSize: 10,
+                    },
+                    // layout definition
+                    layout: {
+                        scroll: false, // enable/disable datatable scroll both horizontal and vertical when needed.
+                        footer: false, // display/hide footer
+                    },
+                    // column sorting
+                    sortable: true,
+                    pagination: true,
+                    search: {
+                        input: $('#generalSearch'),
+                    },
+                    // columns definition
+                    columns: [{
+                        field: 'title',
+                        title: 'Название',
+                    }, {
+                        field: 'category_name',
+                        title: 'Категория',
+                    }, {
+                        field: 'status',
+                        title: 'Статус',
+                        template: function(data) {
+                            return (data.status == 1) ? 'Включено' : 'Отключено';
+                        },
+                    },{
+                        field: 'Actions',
+                        title: 'Действия',
+                        sortable: false,
+                        width: 110,
+                        overflow: 'visible',
+                        autoHide: false,
+                        template: function(data) {
+                            var url = `admin/blog/posts/${data.id}/edit/`;
+                            var urls = `admin/blog/posts/${data.id}`;
+                            return `\
+                      <a href="${url}" class="btn-edit btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit details">\
+                          <i class="la la-edit"></i>\
+                      </a>\
+                      <form method="POST" action="${urls}" style="display:inline-block">\
+                      @method('DELETE')
+                                    @CSRF
+                                <button type="submit" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">\
+                                    <i class="la la-trash"></i>\
+                                </button>\
+                            </form>\
+`;
+                        },
+
+                    }],
+                });
+                $('#kt_form_status').on('change', function() {
+                    datatable.search($(this).val().toLowerCase(), 'Status');
+                });
+                $('#kt_form_type').on('change', function() {
+                    datatable.search($(this).val().toLowerCase(), 'Type');
+                });
+                $('#kt_form_status,#kt_form_type').selectpicker();
+            };
+            return {
+                // public functions
+                init: function() {
+                    demo();
+                },
+            };
+        }();
+        jQuery(document).ready(function() {
+            KTDatatableLocalSortDemo.init();
+        });
+    </script>
 
 @endsection
 
