@@ -63,12 +63,6 @@
                                                         <input type="hidden" id="content" name="content">
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label>HTML-тег H1</label>
-                                                        <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="text" class="form-control" aria-describedby="" placeholder="HTML-тег H1" name="H1">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
                                                         <label >Мета-тег Title</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
                                                             <input type="text" class="form-control" aria-describedby="" placeholder="Мета-тег Title" name="meta_title" value="{{$post->meta_title}}">

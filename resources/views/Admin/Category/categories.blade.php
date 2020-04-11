@@ -57,7 +57,7 @@
                                     <div class="kt-portlet__head-wrapper">
                                         &nbsp;
                                         <div class="dropdown dropdown-inline">
-                                            <a href="{{route('categories.create')}}">
+                                            <a href="{{route('product_categories.create')}}">
                                                 <button type="button" class="btn btn-brand btn-icon-sm" aria-haspopup="true" aria-expanded="false">
                                                     <i class="flaticon2-plus"></i> Добавить
                                                 </button>
@@ -166,8 +166,8 @@
                         overflow: 'visible',
                         autoHide: false,
                         template: function(data) {
-                            var url = `admin/blog/categories/${data.id}/edit/`;
-                            var urls = `admin/blog/categories/${data.id}`;
+                            var url = `admin/catalog/product_categories/${data.id}/edit/`;
+                            var urls = `admin/catalog/product_categories/${data.id}`;
                             return `\
                                   <a href="${url}" class="btn-edit btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit details">\
                                       <i class="la la-edit"></i>\

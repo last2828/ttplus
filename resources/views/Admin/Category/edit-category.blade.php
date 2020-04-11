@@ -17,7 +17,7 @@
                                     <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                                     <span class="kt-subheader__breadcrumbs-separator"></span>
                                     <a href="" class="kt-subheader__breadcrumbs-link">
-                                         </a>
+                                    </a>
 
                                     <!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
                                 </div>
@@ -42,7 +42,7 @@
                                         </div>
                                     </div>
                                     <!--begin::Form-->
-                                    <form class="kt-form" method="POST" action="{{route('categories.update', $category->id)}}">
+                                    <form class="kt-form" method="POST" action="{{route('product_categories.update', $category->id)}}">
                                         @method('PUT')
                                         @CSRF
                                         <div class="kt-portlet__body">
@@ -98,7 +98,7 @@
                                                                 <option value="null">Не выбрано</option>
                                                                 @foreach($categories as $cat)
                                                                     @if(!($cat['id'] == $category->id))
-                                                                    <option {{($cat['id'] == $category->parent_id) ? 'selected' : ''}} value="{{$cat['id']}}">{{$cat['name']}}</option>
+                                                                        <option {{($cat['id'] == $category->parent_id) ? 'selected' : ''}} value="{{$cat['id']}}">{{$cat['name']}}</option>
                                                                     @endif
                                                                 @endforeach
                                                             </select>

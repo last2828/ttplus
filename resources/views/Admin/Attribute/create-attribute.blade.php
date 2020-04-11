@@ -51,18 +51,19 @@
                                         </div>
                                     </div>
                                     <!--begin::Form-->
-                                    <form class="kt-form">
+                                    <form class="kt-form" method="POST" action="{{route('attributes.store')}}">
+                                        @CSRF
                                         <div class="kt-portlet__body">
                                             <div class="form-group form-group-last row">
                                                 <label>Название характеристики</label>
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <input type="text" class="form-control" aria-describedby="" placeholder="Название характеристики">
+                                                    <input type="text" class="form-control" aria-describedby="" placeholder="Название характеристики" name="name">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="kt-portlet__foot">
                                             <div class="kt-form__actions">
-                                                <button type="reset" class="btn btn-primary">Сохранить</button>
+                                                <button type="submit" class="btn btn-primary">Сохранить</button>
                                                 <button type="reset" class="btn btn-secondary">Отмена</button>
                                             </div>
                                         </div>

@@ -7,9 +7,8 @@ use App\Group;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\ProductCategory;
-use ElForastero\Transliterate\Map;
-use ElForastero\Transliterate\Transliterator;
 use Illuminate\Http\Request;
+use Transliterate;
 
 class ProductController extends Controller
 {
@@ -20,10 +19,14 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $products = Product::all();
+        foreach($products as $product){
+            $product['category_name'] = $product->category['name'];
+        }
         return view(
             'admin.product.catalog',
             [
-                'products' => Product::all()
+                'products' => $products
             ]
         );
     }
@@ -38,7 +41,9 @@ class ProductController extends Controller
         return view(
           'admin.product.create-product',
           [
-              'categories' => ProductCategory::all()
+              'categories' => ProductCategory::all(),
+              'groups' => Group::all(),
+              'attributes' => Attribute::all()
           ]
         );
     }
@@ -53,13 +58,11 @@ class ProductController extends Controller
     {
         $fields = $request->toArray();
 
-        $translit = new Transliterator(Map::LANG_RU, Map::GOST_7_79_2000);
-
         if($fields['slug'])
         {
-            $fields['slug'] = $translit->slugify($fields['slug']);
+            $fields['slug'] = Transliterate::slugify($fields['slug']);
         }else{
-            $fields['slug'] = $translit->slugify($fields['name']);
+            $fields['slug'] = Transliterate::slugify($fields['name']);
         }
 
         if($fields['category_id'] == 'null')
@@ -95,11 +98,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::find($id);
         return view(
             'admin.product.edit-product',
             [
-                'product' => $product,
+                'product' => Product::find($id),
                 'categories' => ProductCategory::all(),
                 'groups' => Group::all(),
                 'attributes' => Attribute::all()
@@ -118,12 +120,11 @@ class ProductController extends Controller
     {
         $fields = $request->toArray();
 
-        $translit = new Transliterator(Map::LANG_RU, Map::GOST_7_79_2000);
         if($fields['slug'])
         {
-            $fields['slug'] = $translit->slugify($fields['slug']);
+            $fields['slug'] = Transliterate::slugify($fields['slug']);
         }else{
-            $fields['slug'] = $translit->slugify($fields['name']);
+            $fields['slug'] = Transliterate::slugify($fields['name']);
         }
 
         if($fields['category_id'] == 'null')
@@ -135,7 +136,8 @@ class ProductController extends Controller
             $fields['group_id'] = null;
         }
 
-        Product::create($fields);
+        $product = Product::find($id);
+        $product->update($fields);
         return redirect()->route('products.index');
 
     }
@@ -148,6 +150,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::destroy($id);
+        return redirect()->back();
     }
 }

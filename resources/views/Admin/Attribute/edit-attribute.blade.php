@@ -51,13 +51,14 @@
                                         </div>
                                     </div>
                                     <!--begin::Form-->
-                                    <form class="kt-form" method="POST" action="{{route('groups.store')}}">
+                                    <form class="kt-form" method="POST" action="{{route('attributes.update', $attribute->id)}}">
+                                        @method('PUT')
                                         @CSRF
                                         <div class="kt-portlet__body">
                                             <div class="form-group form-group-last row">
-                                                <label>Название группы</label>
+                                                <label>Название характеристики</label>
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <input type="text" class="form-control" aria-describedby="" placeholder="Название группы" name="name">
+                                                    <input type="text" class="form-control" aria-describedby="" placeholder="Название характеристики" name="name" value="{{$attribute['name']}}">
                                                 </div>
                                             </div>
                                         </div>

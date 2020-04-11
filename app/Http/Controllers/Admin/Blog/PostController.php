@@ -5,9 +5,8 @@ namespace App\Http\Controllers\admin\blog;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
-use ElForastero\Transliterate\Map;
 use Illuminate\Http\Request;
-use ElForastero\Transliterate\Transliterator;
+use Transliterate;
 
 class PostController extends Controller
 {
@@ -55,13 +54,12 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $fields = $request->toArray();
-        $translit = new Transliterator(Map::LANG_RU, Map::GOST_7_79_2000);
 
         if($fields['slug'])
         {
-            $fields['slug'] = $translit->slugify($fields['slug']);
+            $fields['slug'] = Transliterate::slugify($fields['slug']);
         }else{
-            $fields['slug'] = $translit->slugify($fields['title']);
+            $fields['slug'] = Transliterate::slugify($fields['title']);
         }
 
         if($fields['category_id'] == 'null')
@@ -92,11 +90,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
         return view(
             'admin.blog.edit-post',
             [
-                'post' => $post,
+                'post' => Post::find($id),
                 'categories' => Category::all()
             ]
         );
@@ -112,13 +109,12 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $fields = $request->toArray();
-        $translit = new Transliterator(Map::LANG_RU, Map::GOST_7_79_2000);
 
         if($fields['slug'])
         {
-            $fields['slug'] = $translit->slugify($fields['slug']);
+            $fields['slug'] = Transliterate::slugify($fields['slug']);
         }else{
-            $fields['slug'] = $translit->slugify($fields['title']);
+            $fields['slug'] = Transliterate::slugify($fields['title']);
         }
 
         if($fields['category_id'] == 'null')

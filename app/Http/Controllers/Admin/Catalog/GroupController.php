@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin\catalog;
 
+use App\Group;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,12 @@ class GroupController extends Controller
      */
     public function index()
     {
-        //
+        return view(
+                'admin.group.groups',
+            [
+                'groups' => Group::all()
+            ]
+        );
     }
 
     /**
@@ -24,7 +30,9 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //
+        return view(
+            'admin.group.create-group'
+        );
     }
 
     /**
@@ -35,7 +43,10 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fields = $request->toArray();
+        Group::create($fields);
+        return redirect()->route('groups.index');
+
     }
 
     /**
@@ -57,7 +68,12 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view(
+            'admin.group.edit-group',
+            [
+                'group' => Group::find($id)
+            ]
+        );
     }
 
     /**
@@ -69,7 +85,10 @@ class GroupController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $fields = $request->toArray();
+        $group = Group::find($id);
+        $group->update($fields);
+        return redirect()->route('groups.index');
     }
 
     /**
@@ -80,6 +99,7 @@ class GroupController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Group::destroy($id);
+        return redirect()->back();
     }
 }

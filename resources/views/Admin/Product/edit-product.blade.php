@@ -51,7 +51,7 @@
                                         </div>
                                     </div>
                                     <!--begin::Form-->
-                                    <form class="kt-form" method="POST" action="{{route('products.update', $product['id'])}}">
+                                    <form class="kt-form" method="POST" action="{{route('products.update', $product->id)}}">
                                         @method('PUT')
                                         @CSRF
                                         <div class="kt-portlet__body">

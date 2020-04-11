@@ -51,7 +51,8 @@
                                         </div>
                                     </div>
                                     <!--begin::Form-->
-                                    <form class="kt-form">
+                                    <form class="kt-form" method="POST" action="{{route('product_categories.store')}}">
+                                        @CSRF
                                         <div class="kt-portlet__body">
                                             <ul class="nav nav-tabs  nav-tabs-line" role="tablist">
                                                 <li class="nav-item">
@@ -66,37 +67,34 @@
                                                     <div class="form-group row">
                                                         <label>Название категории</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Название категории">
+                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Название категории" name="name">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                         <label for="exampleTextarea">Описание</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <div class="summernote" id="kt_summernote_1"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <label>HTML-тег H1</label>
-                                                        <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="text" class="form-control" aria-describedby="" placeholder="HTML-тег H1">
+                                                            <div class="col-lg-12 col-md-9 col-sm-12">
+                                                                <div class="summernote" id="kt_summernote_1" title="content"></div>
+                                                            </div>
+                                                            <input type="hidden" id="content" name="content">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                         <label >Мета-тег Title</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Мета-тег Title">
+                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Мета-тег Title" name="meta_title">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                         <label>Мета-тег Description</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <textarea class="form-control" aria-describedby="" placeholder="Мета-тег Description" rows="3"></textarea>
+                                                            <textarea class="form-control" aria-describedby="" placeholder="Мета-тег Description" rows="3" name="meta_description"></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                         <label>Мета-тег Keywords</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Мета-тег Keywords">
+                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Мета-тег Keywords" name="meta_keywords">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -104,28 +102,11 @@
                                                     <div class="form-group row">
                                                         <label class="col-form-label col-lg-3 col-sm-12">Родительская категория</label>
                                                         <div class="col-lg-4 col-md-9 col-sm-12">
-                                                            <select class="form-control kt-select2" id="kt_select2_2" name="param">
-                                                                <optgroup label="Alaskan/Hawaiian Time Zone">
-                                                                    <option value="AK" selected></option>
-                                                                    <option value="HI">Hawaii</option>
-                                                                </optgroup>
-                                                                <optgroup label="Pacific Time Zone">
-                                                                    <option value="CA">California</option>
-                                                                    <option value="NV">Nevada</option>
-                                                                    <option value="OR">Oregon</option>
-                                                                    <option value="WA">Washington</option>
-                                                                </optgroup>
-                                                                <optgroup label="Mountain Time Zone">
-                                                                    <option value="AZ">Arizona</option>
-                                                                    <option value="CO">Colorado</option>
-                                                                    <option value="ID">Idaho</option>
-                                                                    <option value="MT">Montana</option>
-                                                                    <option value="NE">Nebraska</option>
-                                                                    <option value="NM">New Mexico</option>
-                                                                    <option value="ND">North Dakota</option>
-                                                                    <option value="UT">Utah</option>
-                                                                    <option value="WY">Wyoming</option>
-                                                                </optgroup>
+                                                            <select class="form-control kt-select2" id="kt_select2_2" name="parent_id">
+                                                                <option value="null" selected>Не выбрано</option>
+                                                                @foreach($categories as $category)
+                                                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
@@ -140,17 +121,17 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label>URL</label>
+                                                        <label>Slug</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="url" class="form-control" aria-describedby="" placeholder="URL">
+                                                            <input type="text" class="form-control" aria-describedby="" placeholder="slug" name="slug">
                                                         </div>
                                                     </div>
                                                     <div class="form-group form-group-last row">
                                                         <label class="col-form-label col-lg-3 col-sm-12">Статус</label>
                                                         <div class=" col-lg-4 col-md-9 col-sm-12">
-                                                            <select class="form-control kt-select2" id="kt_select2_10" name="param">
-                                                                <option>Включено</option>
-                                                                <option>Отключено</option>
+                                                            <select class="form-control kt-select2" id="kt_select2_10" name="status">
+                                                                <option value="1">Включено</option>
+                                                                <option value="0">Отключено</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -159,7 +140,7 @@
                                         </div>
                                         <div class="kt-portlet__foot">
                                             <div class="kt-form__actions">
-                                                <button type="reset" class="btn btn-primary">Сохранить</button>
+                                                <button type="submit" class="btn btn-primary">Сохранить</button>
                                                 <button type="reset" class="btn btn-secondary">Отмена</button>
                                             </div>
                                         </div>
@@ -185,14 +166,25 @@
 @section('script')
 
     <!--begin::Page Scripts(used by this page) -->
-    <script src="assets/js/pages/crud/forms/editors/summernote.js" type="text/javascript"></script>
+    <script src="{{asset('assets/js/pages/crud/forms/editors/summernote.js')}}" type="text/javascript"></script>
 
     <!--end::Page Scripts -->
 
     <!--begin::Page Scripts(used by this page) -->
-    <script src="assets/js/pages/crud/forms/widgets/select2.js" type="text/javascript"></script>
+    <script src="{{asset('assets/js/pages/crud/forms/widgets/select2.js')}}" type="text/javascript"></script>
 
     <!--end::Page Scripts -->
 
-
+    <script>
+        $('#kt_summernote_1').summernote({
+            callbacks: {
+                onInit: function() {
+                    $('#content').val($('#kt_summernote_1').summernote('code'))
+                },
+                onChange: function(contents, $editable) {
+                    $('#content').val(contents)
+                }
+            }
+        });
+    </script>
 @endsection

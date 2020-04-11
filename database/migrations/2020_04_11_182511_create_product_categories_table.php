@@ -15,6 +15,15 @@ class CreateProductCategoriesTable extends Migration
     {
         Schema::create('product_categories', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->nestedSet();
+            $table->text('content')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->string('meta_keywords')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('slug')->unique();
+            $table->string('image')->nullable();
+            $table->integer('status')->default('1');
             $table->timestamps();
         });
     }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\admin\catalog;
 
 use App\Http\Controllers\Controller;
+use App\ProductCategory;
 use Illuminate\Http\Request;
+use Transliterate;
 
 class CategoryController extends Controller
 {
@@ -14,7 +16,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view(
+            'admin.category.categories',
+            [
+                'categories' => ProductCategory::all()
+            ]
+        );
     }
 
     /**
@@ -24,7 +31,12 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view(
+          'admin.category.create-category',
+          [
+              'categories' => ProductCategory::all()
+          ]
+        );
     }
 
     /**
@@ -35,7 +47,22 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fields = $request->toArray();
+
+        if($fields['slug'])
+        {
+            $fields['slug'] = Transliterate::slugify($fields['slug']);
+        }else{
+            $fields['slug'] = Transliterate::slugify($fields['name']);
+        }
+
+        if($fields['parent_id'] == 'null')
+        {
+            $fields['parent_id'] = null;
+        }
+
+        ProductCategory::create($fields);
+        return redirect()->route('product_categories.index');
     }
 
     /**
@@ -57,7 +84,13 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view(
+            'admin.category.edit-category',
+            [
+                'category' => ProductCategory::find($id),
+                'categories' => ProductCategory::all()
+            ]
+        );
     }
 
     /**
@@ -69,7 +102,23 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $fields = $request->toArray();
+
+        if($fields['slug'])
+        {
+            $fields['slug'] = Transliterate::slugify($fields['slug']);
+        }else{
+            $fields['slug'] = Transliterate::slugify($fields['name']);
+        }
+
+        if($fields['parent_id'] == 'null')
+        {
+            $fields['parent_id'] = null;
+        }
+
+        $category = ProductCategory::find($id);
+        $category->update($fields);
+        return redirect()->route('product_categories.index');
     }
 
     /**
@@ -80,6 +129,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        ProductCategory::destroy($id);
+        return redirect()->back();
     }
+
 }
