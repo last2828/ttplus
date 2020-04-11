@@ -1,33 +1,36 @@
 <?php
 
-use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
-
 // Blog
 Breadcrumbs::for('blog', function ($trail) {
-    $trail->push('Статьи', route('posts.index'));
+    $trail->push('Блог', route('posts.index'));
 });
 
-
 // Blog > Create Post
-Breadcrumbs::for('create', function ($trail) {
+Breadcrumbs::for('create-post', function ($trail) {
     $trail->parent('blog');
     $trail->push('Добавить статью', route('posts.create'));
 });
 
 // Blog > Edit Post
-Breadcrumbs::for('edit', function ($trail) {
+Breadcrumbs::for('edit-post', function ($trail, $post) {
     $trail->parent('blog');
-    $trail->push('Изменить статью', route('posts.edit'));
+    $trail->push($post->title, route('posts.edit', $post->id));
 });
 
-// Home > Blog > [Category]
-Breadcrumbs::for('category', function ($trail, $category) {
+// Blog > Categories
+Breadcrumbs::for('blog-categories', function ($trail) {
     $trail->parent('blog');
-    $trail->push($category->title, route('category', $category->id));
+    $trail->push('Категории блога', route('categories.index'));
 });
 
-// Home > Blog > [Category] > [Post]
-Breadcrumbs::for('post', function ($trail, $post) {
-    $trail->parent('category', $post->category);
-    $trail->push($post->title, route('post', $post->id));
+// Blog > Category > Create
+Breadcrumbs::for('create-blog-category', function ($trail) {
+    $trail->parent('blog-categories');
+    $trail->push('Создать', route('categories.create'));
+});
+
+// Blog > Category > Edit
+Breadcrumbs::for('edit-blog-category', function ($trail, $category) {
+    $trail->parent('blog-categories');
+    $trail->push($category->name, route('categories.edit', $category->id));
 });
