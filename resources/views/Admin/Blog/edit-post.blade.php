@@ -10,7 +10,7 @@
                     <div class="kt-subheader   kt-grid__item" id="kt_subheader">
                         <div class="kt-container  kt-container--fluid ">
                             <div class="kt-subheader__main">
-                                    {{Breadcrumbs::render('edit')}}
+                                    {{--{{Breadcrumbs::render('edit')}}--}}
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group form-group-last row">
-                                                        <label>URL</label>
+                                                        <label>Slug</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
                                                             <input type="text" class="form-control" aria-describedby="" placeholder="slug" name="slug" value="{{$post->slug}}">
                                                         </div>
@@ -120,7 +120,7 @@
                                                         <div class=" col-lg-4 col-md-9 col-sm-12">
                                                             <select class="form-control kt-select2" id="kt_select2_10" name="status">
                                                                 <option value="1">Включено</option>
-                                                                <option value="0">Отключено</option>
+                                                                <option {{($post['status'] == 0 ? 'selected' : '')}} value="0">Отключено</option>
                                                             </select>
                                                         </div>
                                                     </div>

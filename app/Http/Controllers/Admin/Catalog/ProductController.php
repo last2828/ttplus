@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\admin\catalog;
 
+use App\Attribute;
+use App\Group;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\ProductCategory;
@@ -49,8 +51,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $fields = $request->toArray();
 
         $translit = new Transliterator(Map::LANG_RU, Map::GOST_7_79_2000);
@@ -65,6 +65,11 @@ class ProductController extends Controller
         if($fields['category_id'] == 'null')
         {
             $fields['category_id'] = null;
+        }
+
+        if($fields['group_id'] == 'null')
+        {
+            $fields['group_id'] = null;
         }
 
         Product::create($fields);
@@ -90,7 +95,16 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        // 
+        $product = Product::find($id);
+        return view(
+            'admin.product.edit-product',
+            [
+                'product' => $product,
+                'categories' => ProductCategory::all(),
+                'groups' => Group::all(),
+                'attributes' => Attribute::all()
+            ]
+        );
     }
 
     /**
@@ -102,7 +116,28 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $fields = $request->toArray();
+
+        $translit = new Transliterator(Map::LANG_RU, Map::GOST_7_79_2000);
+        if($fields['slug'])
+        {
+            $fields['slug'] = $translit->slugify($fields['slug']);
+        }else{
+            $fields['slug'] = $translit->slugify($fields['name']);
+        }
+
+        if($fields['category_id'] == 'null')
+        {
+            $fields['category_id'] = null;
+        }
+        if($fields['group_id'] == 'null')
+        {
+            $fields['group_id'] = null;
+        }
+
+        Product::create($fields);
+        return redirect()->route('products.index');
+
     }
 
     /**

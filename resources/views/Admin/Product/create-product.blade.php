@@ -127,7 +127,7 @@
                                                 <div class="form-group row">
                                                     <label>Slug</label>
                                                     <div class="col-lg-12 col-md-9 col-sm-12">
-                                                        <input type="url" class="form-control" aria-describedby="" placeholder="slug" name="slug">
+                                                        <input type="text" class="form-control" aria-describedby="" placeholder="slug" name="slug">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -146,6 +146,9 @@
                                                     <div class="col-lg-4 col-md-9 col-sm-12">
                                                         <select class="form-control kt-select2" id="kt_select2_2" name="category_id">
                                                             <option selected value="null">Не выбрано</option>
+                                                            @foreach($categories as $category):
+                                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
@@ -154,14 +157,13 @@
                                                     <div class="col-lg-4 col-md-9 col-sm-12">
                                                         <div class="input-group flex-nowrap mb-3">
                                                             <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="basic-addon1"><i class="flaticon2-sms"></i></span>
+                                                                <span class="input-group-text" id="basic-addon1"><i class="flaticon2-graph-2"></i></span>
                                                             </div>
                                                             <select class="form-control kt-select2" id="kt_select2_group_1" name="group_id">
                                                                 <option selected value="null">Не выбрано</option>
-                                                                <option value="AK">Alaska</option>
-                                                                <option value="HI">Hawaii</option>
-                                                                <option value="CA">California</option>
-                                                                <option value="NV">Nevada</option>
+                                                                @foreach($groups as $group):
+                                                                <option value="{{$group->id}}">{{$group->name}}</option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
@@ -246,17 +248,17 @@
 @section('script')
 
 <!--begin::Page Scripts(used by this page) -->
-<script src="../assets/js/pages/crud/forms/editors/summernote.js" type="text/javascript"></script>
+<script src="{{asset('assets/js/pages/crud/forms/editors/summernote.js')}}" type="text/javascript"></script>
 
 <!--end::Page Scripts -->
 
 <!--begin::Page Scripts(used by this page) -->
-<script src="../assets/js/pages/crud/forms/widgets/select2.js" type="text/javascript"></script>
+<script src="{{asset('assets/js/pages/crud/forms/widgets/select2.js')}}" type="text/javascript"></script>
 
 <!--end::Page Scripts -->
 
 <!--begin::Page Scripts(used by this page) -->
-<script src="../assets/js/pages/crud/forms/widgets/form-repeater.js" type="text/javascript"></script>
+<script src="{{asset('assets/js/pages/crud/forms/widgets/form-repeater.js')}}" type="text/javascript"></script>
 
 <!--end::Page Scripts -->
 

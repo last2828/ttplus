@@ -25,14 +25,14 @@
 @section('script')
 
     <!--begin::Page Vendors(used by this page) -->
-    <script src="../assets/plugins/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
+    <script src="{{asset('assets/plugins/custom/fullcalendar/fullcalendar.bundle.js')}}" type="text/javascript"></script>
     <script src="//maps.google.com/maps/api/js?key=AIzaSyBTGnKT7dt597vo9QgeQ7BFhvSRP4eiMSM" type="text/javascript"></script>
-    <script src="../assets/plugins/custom/gmaps/gmaps.js" type="text/javascript"></script>
+    <script src="{{asset('assets/plugins/custom/gmaps/gmaps.js')}}" type="text/javascript"></script>
 
     <!--end::Page Vendors -->
 
     <!--begin::Page Scripts(used by this page) -->
-    <script src="../assets/js/pages/dashboard.js" type="text/javascript"></script>
+    <script src="{{asset('assets/js/pages/dashboard.js')}}" type="text/javascript"></script>
 
     <!--end::Page Scripts -->
 
