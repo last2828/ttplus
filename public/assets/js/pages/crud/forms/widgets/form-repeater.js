@@ -16,7 +16,13 @@ var KTFormRepeater = function() {
 
             hide: function (deleteElement) {                
                 $(this).slideUp(deleteElement);                 
-            }   
+            },
+
+            ready: function (setIndexes) {
+                $('.product-attributes select').select2({
+                    placeholder: "Выберите значение"
+                });
+            },
         });
     }
 

@@ -7,32 +7,9 @@
         <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
             <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
                 <!-- begin:: Subheader -->
-                <div class="kt-subheader   kt-grid__item" id="kt_subheader">
-                    <div class="kt-container  kt-container--fluid ">
-                        <div class="kt-subheader__main">
-                            <h3 class="kt-subheader__title">
-                                Base Controls </h3>
-                            <span class="kt-subheader__separator kt-hidden"></span>
-                            <div class="kt-subheader__breadcrumbs">
-                                <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
-                                <span class="kt-subheader__breadcrumbs-separator"></span>
-                                <a href="" class="kt-subheader__breadcrumbs-link">
-                                    Crud </a>
-                                <span class="kt-subheader__breadcrumbs-separator"></span>
-                                <a href="" class="kt-subheader__breadcrumbs-link">
-                                    Forms & Controls </a>
-                                <span class="kt-subheader__breadcrumbs-separator"></span>
-                                <a href="" class="kt-subheader__breadcrumbs-link">
-                                    Form Controls </a>
-                                <span class="kt-subheader__breadcrumbs-separator"></span>
-                                <a href="" class="kt-subheader__breadcrumbs-link">
-                                    Base Inputs </a>
 
-                                <!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{Breadcrumbs::render('create-product')}}
+
                 <!-- end:: Subheader -->
 
                 <!-- begin:: Content -->
@@ -46,7 +23,7 @@
                                 <div class="kt-portlet__head">
                                     <div class="kt-portlet__head-label">
                                         <h3 class="kt-portlet__head-title">
-                                            Добавить
+                                            Новый товар
                                         </h3>
                                     </div>
                                 </div>
@@ -170,15 +147,19 @@
                                                 </div>
                                             </div>
                                             <div class="tab-pane " id="kt_tabs_1_4" role="tabpanel">
-                                                <div id="kt_repeater_1">
+                                                <div id="kt_repeater_1" class="product-attributes">
                                                     <div class="form-group row" id="kt_repeater_1">
                                                         <label class="col-md-12 col-form-label">Характеристики</label>
-                                                        <div data-repeater-list="" class="col-lg-12">
+                                                        <div data-repeater-list="list" class="col-lg-12">
                                                             <div data-repeater-item class="form-group row align-items-center">
                                                                 <div class="col-md-4">
                                                                     <div class="kt-form__group--inline">
                                                                         <div class="kt-form__control">
-                                                                            <input type="text" class="form-control" placeholder="Введите название характеристики" name="attribute_id">
+                                                                            <select name="attribute_id" class="form-control kt-select2" id="">
+                                                                                @foreach($attributes as $attribute)
+                                                                                <option value="{{$attribute->id}}">{{$attribute->name}}</option>
+                                                                                @endforeach
+                                                                            </select>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -263,6 +244,10 @@
 <!--end::Page Scripts -->
 
 <script>
+    $('.product-attributes select').select2({
+        placeholder: "Выберите значение"
+    });
+
     $('#kt_summernote_1').summernote({
         callbacks: {
             onInit: function() {
