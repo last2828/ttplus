@@ -20,6 +20,7 @@
     <!--begin::Global Theme Styles(used by all pages) -->
     <link href="{{asset('assets/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css" />
 
     <!--end::Global Theme Styles -->
 
@@ -98,6 +99,7 @@
 <!--begin::Global Theme Bundle(used by all pages) -->
 <script src="{{asset('assets/plugins/global/plugins.bundle.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/js/scripts.bundle.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/app.js')}}" type="text/javascript"></script>
 
 <!--end::Global Theme Bundle -->
 

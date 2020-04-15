@@ -19,16 +19,24 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', 'AdminController@index')->name('dashboard');
-        Route::group(['prefix' => 'catalog', 'namespace' => 'Catalog'], function () {
-            Route::resources(['products' => 'ProductController']);
-            Route::resources(['attributes' => 'AttributeController']);
-            Route::resources(['groups' => 'GroupController']);
-            Route::resources(['product_categories' => 'CategoryController']);
-        });
-        Route::group(['prefix' => 'blog', 'namespace' => 'Blog'], function () {
-            Route::resources(['posts' => 'PostController']);
-            Route::resources(['categories' => 'CategoryController']);
-        });
+
+    Route::group(['prefix' => 'catalog', 'namespace' => 'Catalog'], function () {
+        Route::resources(['products' => 'ProductController']);
+        Route::resources(['attributes' => 'AttributeController']);
+        Route::resources(['groups' => 'GroupController']);
+        Route::resources(['product_categories' => 'CategoryController']);
+    });
+
+    Route::group(['prefix' => 'blog', 'namespace' => 'Blog'], function () {
+        Route::resources(['posts' => 'PostController']);
+        Route::resources(['categories' => 'CategoryController']);
+    });
+
+    Route::group(['prefix' => 'about', 'as' => 'about.'], function () {
+        Route::get('/', 'AboutController@index')->name('index');
+    });
+
+
 
 });
 
