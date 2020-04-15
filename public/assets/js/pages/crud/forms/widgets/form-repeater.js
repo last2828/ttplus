@@ -12,17 +12,33 @@ var KTFormRepeater = function() {
              
             show: function () {
                 $(this).slideDown();
+                console.log($(this).find('select'));
+                
+                $(this).find('select').select2({
+                    "language": {
+                        "noResults": function(){
+                            return "Не найдено";
+                        }
+                    },
+                    placeholder: "Выберите значение"
+                });
             },
 
             hide: function (deleteElement) {                
                 $(this).slideUp(deleteElement);                 
             },
 
-            ready: function (setIndexes) {
+            ready: function(){
+                console.log($(this));
                 $('.product-attributes select').select2({
+                    "language": {
+                        "noResults": function(){
+                            return "Не найдено";
+                        }
+                    },
                     placeholder: "Выберите значение"
                 });
-            },
+            }
         });
     }
 

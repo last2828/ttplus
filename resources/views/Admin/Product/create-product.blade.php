@@ -155,9 +155,9 @@
                                                                 <div class="col-md-4">
                                                                     <div class="kt-form__group--inline">
                                                                         <div class="kt-form__control">
-                                                                            <select name="attribute_id" class="form-control kt-select2" id="">
+                                                                            <select name="attribute_id" class="form-control">
                                                                                 @foreach($attributes as $attribute)
-                                                                                <option value="{{$attribute->id}}">{{$attribute->name}}</option>
+                                                                                    <option value="{{$attribute->id}}">{{$attribute->name}}</option>
                                                                                 @endforeach
                                                                             </select>
                                                                         </div>
@@ -244,10 +244,6 @@
 <!--end::Page Scripts -->
 
 <script>
-    $('.product-attributes select').select2({
-        placeholder: "Выберите значение"
-    });
-
     $('#kt_summernote_1').summernote({
         callbacks: {
             onInit: function() {
