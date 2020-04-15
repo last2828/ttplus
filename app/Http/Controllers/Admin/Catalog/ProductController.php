@@ -6,7 +6,9 @@ use App\Attribute;
 use App\Group;
 use App\Http\Controllers\Controller;
 use App\Product;
+use App\ProductAttribute;
 use App\ProductCategory;
+use App\ProductGroup;
 use Illuminate\Http\Request;
 use Transliterate;
 
@@ -75,7 +77,23 @@ class ProductController extends Controller
             $fields['group_id'] = null;
         }
 
-        Product::create($fields);
+        $product = Product::create($fields);
+
+        if($product['group_id'] != null){
+            $groupFields = [
+                'product_id' => $product->id,
+                'group_id' => $fields['group_id']
+            ];
+            ProductGroup::create($groupFields);
+        }
+
+
+        foreach($fields['list'] as $key => $attributesFields)
+        {
+            $attributesFields['product_id'] = $product->id;
+            ProductAttribute::create($attributesFields);
+        }
+
         return redirect()->route('products.index');
     }
 
@@ -98,13 +116,16 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
+        $array = ProductAttribute::all()->where($id == ProductAttribute::get('product_id'));
+        dd($array);
         return view(
             'admin.product.edit-product',
             [
                 'product' => Product::find($id),
                 'categories' => ProductCategory::all(),
                 'groups' => Group::all(),
-                'attributes' => Attribute::all()
+                'attributes' => Attribute::all(),
+                'productAttributes' => ProductAttribute::all()->where($id, ProductAttribute::get('product_id'))
             ]
         );
     }
@@ -135,6 +156,16 @@ class ProductController extends Controller
         {
             $fields['group_id'] = null;
         }
+
+        $data = [
+            'product_id' => $fields['id'],
+            'group_id' => $fields['group_id']
+        ];
+
+        ProductGroup::where(
+            ['product_id', 'group_id'],
+            [$data['product_id'], $data['group_id']]
+        )->create($data);
 
         $product = Product::find($id);
         $product->update($fields);
