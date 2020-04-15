@@ -139,8 +139,8 @@ class ProductController extends Controller
     {
         $fields = $request->toArray();
 
-        $oldAttributes = array_combine($fields['old_attribute_id'], $fields['old_attribute_value']);
-        
+        $allAttrubites = array_merge($fields['attributes_old'], $fields['attributes']);
+        return $allAttrubites;
 
         if($fields['slug'])
         {
@@ -158,15 +158,15 @@ class ProductController extends Controller
             $fields['group_id'] = null;
         }
 
-        $data = [
-            'product_id' => $fields['id'],
-            'group_id' => $fields['group_id']
-        ];
+        // $data = [
+        //     'product_id' => $fields['id'],
+        //     'group_id' => $fields['group_id']
+        // ];
 
-        ProductGroup::where(
-            ['product_id', 'group_id'],
-            [$data['product_id'], $data['group_id']]
-        )->create($data);
+        // ProductGroup::where(
+        //     ['product_id', 'group_id'],
+        //     [$data['product_id'], $data['group_id']]
+        // )->create($data);
 
         $product = Product::find($id);
         $product->update($fields);
