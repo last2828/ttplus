@@ -22,4 +22,9 @@ class Attribute extends Model
             'product_id'
         );
     }
+
+    public function productAttributes()
+    {
+        return $this->hasMany(ProductAttribute::class);
+    }
 }

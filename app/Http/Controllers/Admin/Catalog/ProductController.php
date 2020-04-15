@@ -88,7 +88,7 @@ class ProductController extends Controller
         }
 
 
-        foreach($fields['list'] as $key => $attributesFields)
+        foreach($fields['attributes'] as $key => $attributesFields)
         {
             $attributesFields['product_id'] = $product->id;
             ProductAttribute::create($attributesFields);
@@ -116,8 +116,6 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $array = ProductAttribute::all()->where($id == ProductAttribute::get('product_id'));
-        dd($array);
         return view(
             'admin.product.edit-product',
             [
@@ -125,7 +123,7 @@ class ProductController extends Controller
                 'categories' => ProductCategory::all(),
                 'groups' => Group::all(),
                 'attributes' => Attribute::all(),
-                'productAttributes' => ProductAttribute::all()->where($id, ProductAttribute::get('product_id'))
+                'productAttributes' => ProductAttribute::where('product_id', $id)->with('attribute')->get()
             ]
         );
     }
@@ -140,6 +138,9 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $fields = $request->toArray();
+
+        $oldAttributes = array_combine($fields['old_attribute_id'], $fields['old_attribute_value']);
+        
 
         if($fields['slug'])
         {

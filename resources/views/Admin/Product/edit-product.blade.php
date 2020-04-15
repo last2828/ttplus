@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('content')
-    {{return $productAttributes}}
+
     <!-- begin:: Page -->
     <div class="kt-grid kt-grid--hor kt-grid--root">
         <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
@@ -148,15 +148,42 @@
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane " id="kt_tabs_1_4" role="tabpanel">
+                                                    <label class="col-md-12 col-form-label">Характеристики</label>
+                                                    @foreach($productAttributes as $productAttribute)
+                                                        <div data-repeater-list="" class="col-lg-12">
+                                                            <div data-repeater-item class="form-group row align-items-center">
+                                                                <div class="col-md-4">
+                                                                    <div class="kt-form__group--inline">
+                                                                        <div class="kt-form__control">
+                                                                            <p>{{$productAttribute->attribute['name']}}</p><input type="hidden" value="{{$productAttribute->id}}" name="old_attribute_id[]">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="kt-form__group--inline">
+                                                                        <div class="kt-form__control">
+                                                                            <input type="text" class="form-control" placeholder="Введите значение характеристики" name="old_attribute_value[]" value="{{$productAttribute->value}}">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
+                                                                        <i class="la la-trash-o"></i>
+                                                                        Удалить
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
                                                     <div id="kt_repeater_1">
                                                         <div class="form-group row" id="kt_repeater_1">
-                                                            <label class="col-md-12 col-form-label">Характеристики</label>
-                                                            <div data-repeater-list="" class="col-lg-12">
+                                                            <div data-repeater-list="attributes" class="col-lg-12">
                                                                 <div data-repeater-item class="form-group row align-items-center">
                                                                     <div class="col-md-4">
                                                                         <div class="kt-form__group--inline">
                                                                             <div class="kt-form__control">
                                                                                 <select name="attribute_id" class="form-control kt-select2" id="">
+                                                                                    <option selected value="null">Добавить характеристику</option>
                                                                                     @foreach($attributes as $attribute)
                                                                                         <option value="{{$attribute->id}}">{{$attribute->name}}</option>
                                                                                     @endforeach
