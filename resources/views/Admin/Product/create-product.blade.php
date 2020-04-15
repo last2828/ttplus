@@ -150,7 +150,7 @@
                                                 <div id="kt_repeater_1" class="product-attributes">
                                                     <div class="form-group row" id="kt_repeater_1">
                                                         <label class="col-md-12 col-form-label">Характеристики</label>
-                                                        <div data-repeater-list="list" class="col-lg-12">
+                                                        <div data-repeater-list="attributes" class="col-lg-12">
                                                             <div data-repeater-item class="form-group row align-items-center">
                                                                 <div class="col-md-4">
                                                                     <div class="kt-form__group--inline">
