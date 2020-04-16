@@ -1,0 +1,107 @@
+body
+  font-family: 'Gilroy'
+  background-color: white
+.out
+  overflow: hidden
+.container
+  max-width: 1600px
+  width: 100%
+  display: flex
+  margin: 0 auto
+  overflow: hidden
+  position: relative
+  z-index: 1
+  +r($lg)
+    max-width: 1420px
+  +r($md)
+    max-width: 1200px
+  +r(1299)
+    width: 90%
+  +r($xs)
+    width: 80%
+.breadcrumbs
+  display: flex
+  a, p, p.breadcrumbs__current
+    justify-content: flex-start
+    font-size: 17px
+    color: #6a7281
+    margin-top: 60px
+    letter-spacing: normal
+    +r($lg)
+      font-size: 15px
+      margin-top: 50px
+    +r($md)
+      font-size: 12px
+      margin-top: 45px
+    +r($xs)
+      margin-top: 30px
+      font-size: 10px
+h2
+  font-size: 34px
+  letter-spacing: 3.4px
+  color: black
+  text-transform: uppercase
+  font-weight: 500
+  margin-top: 70px
+  +r($lg)
+    font-size: 30px
+    letter-spacing: 3.0px
+    margin-top: 60px
+  +r($md)
+    font-size: 24px
+    letter-spacing: 2.4px
+    margin-top: 50px
+  +r($xs)
+    margin-top: 15px
+    font-size: 18px
+    letter-spacing: 1.8px
+    color: #2b2c30
+h2.heading
+  font-size: 56.2px
+  letter-spacing: 5.62px
+  font-weight: bold
+  line-height: normal
+  color: $dark-gray
+  +r($lg)
+    font-size: 50px
+    letter-spacing: 5px
+  +r($md)
+    font-size: 40px
+    letter-spacing: 4px
+  +r($xs)
+    font-size: 24px
+    letter-spacing: 2.4px
+p
+  font-size: 24px
+  font-weight: normal
+  line-height: normal
+  letter-spacing: normal
+  color: $dark-gray
+  +r($md)
+    font-size: 17px
+.dot
+  position: absolute
+  top: 50%
+  transform: translate(0, -50%)
+  left: 0
+  width: 17px
+  height: 17px
+  background-color: #2468eb
+  border-radius: 50%
+  +r($lg)
+    width: 15px
+    height: 15px
+  +r($md)
+    width: 12px
+    height: 12px
+  +r(767)
+    width: 6px
+    height: 6px
+.dot-sm
+  position: absolute
+  top: 50%
+  left: 0
+  width: 5px
+  height: 5px
+  background-color: #2468eb
+  border-radius: 50%

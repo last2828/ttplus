@@ -1,0 +1,223 @@
+.catalog-page
+  background-color: #f7f9fc
+  .container
+    flex-direction: column
+    h2
+      +r($xs)
+        font-size: 24px
+        line-height: normal
+        letter-spacing: 2.4px
+        color: #2b2c30
+  .product-cards
+    display: flex
+    justify-content: center
+    align-items: stretch
+    padding-bottom: 200px
+    max-width: 1455px
+    margin: 110px auto 0
+    +r($lg)
+      max-width: 1280px
+      margin-top: 75px
+      padding-bottom: 175px
+    +r($md)
+      max-width: 1200px
+      margin-top: 60px
+      padding-bottom: 145px
+    +r(1100)
+      padding-left: 45px
+      padding-right: 45px
+    +r(950)
+      flex-direction: column
+      max-width: 100%
+      align-items: center
+      padding-bottom: 90px
+    .catalog-card
+      display: flex
+      justify-content: flex-end
+      flex-direction: column
+      max-width: 700px
+      width: 50%
+      margin-top: 77px
+      background-color: white
+      border-radius: 6px
+      box-shadow: 0 28px 60px 0 rgba(191, 204, 226, 0.24)
+      padding-top: 240px
+      position: relative
+      border: solid 1.4px transparent
+      +r($lg)
+        max-width: 615px
+        border: solid 1.2px transparent
+        padding-top: 210px
+      +r($md)
+        max-width: 500px
+        border: solid 1px transparent
+        padding-top: 170px
+      +r(950)
+        width: 100%
+        margin-top: 100px
+      +r($xs)
+        min-width: 300px
+        max-width: 400px
+        margin-top: 40px
+        padding-top: 110px
+        border: solid 1px #ced9ef
+      &:hover
+        border: solid 1px #ced9ef
+      &:nth-of-type(odd)
+        margin-right: 55px
+        +r($lg)
+          margin-right: 50px
+        +r($md)
+          margin-right: 40px
+        +r(950)
+          margin-right: 0
+        .card__image
+          width: 506px
+          height: 279.7px
+          top: -108px
+          +r($lg)
+            width: 440px
+            height: 245px
+            top: -95px
+          +r($md)
+            width: 360px
+            height: 200px
+            top: -77px
+          +r($xs)
+            top: -37px
+            width: 218px
+            height: 120px
+      &:nth-of-type(even)
+        .card__image
+          width: 330px
+          height: 263px
+          top: -86px
+          +r($lg)
+            width: 290px
+            height: 230px
+            top: -75px
+          +r($md)
+            width: 235px
+            height: 187px
+            top: -60px
+          +r($xs)
+            width: 140px
+            height: 112px
+            top: -40px
+        +r($xs)
+          margin-top: 80px
+      .card__image
+        position: absolute
+        left: 50%
+        transform: translate(-50%, 0)
+        img
+          width: 100%
+          object-fit: cover
+      .card__heading
+        display: flex
+        justify-content: center
+        padding-bottom: 40px
+        position: relative
+        +r($lg)
+          padding-bottom: 45px
+        +r($md)
+          padding-bottom: 30px
+        h3
+          width: 510px
+          font-size: 33px
+          font-weight: normal
+          letter-spacing: 3.3px
+          line-height: 43px
+          text-align: center
+          color: black
+          +r($lg)
+            width: 447px
+            font-size: 28px
+            letter-spacing: 2.8px
+            line-height: 38px
+          +r($md)
+            width: 365px
+            font-size: 23px
+            letter-spacing: 2.3px
+            line-height: 33px
+          +r($xs)
+            font-size: 17px
+            letter-spacing: 1.7px
+            line-height: 23px
+          span
+            font-weight: 600
+        &:before
+          content: ""
+          height: 2px
+          width: 350px
+          display: block
+          position: absolute
+          bottom: 0
+          left: 50%
+          transform: translate(-50%, 0)
+          background-image: url("/img/line_2.svg")
+          background-repeat: no-repeat
+          background-size: cover
+          +r($lg)
+            width: 310px
+          +r($md)
+            width: 244px
+      .card__content
+        display: flex
+        text-align: center
+        justify-content: center
+        margin: 0 auto
+        margin-top: 60px
+        +r($md)
+          margin-top: 40px
+        +r($xs)
+          flex-direction: column
+          align-items: flex-start
+          margin: 20px 40px 0
+        .content__column
+          max-width: 274px
+          +r($md)
+            max-width: 240px
+          +r($md)
+            max-width: 195px
+          p
+            cursor: pointer
+            text-align: left
+            font-size: 20px
+            font-weight: 500
+            line-height: normal
+            letter-spacing: normal
+            color: #4a4a4a
+            padding-bottom: 15px
+            +r($lg)
+              font-size: 17px
+            +r($md)
+              font-size: 14px
+            &:hover
+              color: $blue
+          &:nth-of-type(odd)
+            margin-right: 50px
+            +r($md)
+              margin-right: 30px
+      .card__bottom
+        display: flex
+        justify-content: center
+        margin-top: 50px
+        padding-bottom: 50px
+        +r($md)
+          margin-top: 40px
+          padding-bottom: 30px
+        +r(1100)
+          flex-direction: column
+          align-items: center
+        +r($xs)
+          justify-content: flex-start
+          padding-left: 40px
+          margin-top: 25px
+        .btn-primary
+          margin-right: 15px
+          +r(1100)
+            margin-bottom: 15px
+            margin-right: 0
+          +r($xs)
+            display: none

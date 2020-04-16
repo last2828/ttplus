@@ -1,0 +1,184 @@
+.header
+  width: 100%
+  position: relative
+  z-index: 101
+  background-color: white
+  box-shadow: 0 39px 84px 0 rgba(206, 217, 239, 0.24)
+  +r($md)
+    box-shadow: 0 28px 60px 0 rgba(206, 217, 239, 0.24)
+  .container
+    max-width: 1600px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: 33px 0
+    +r($lg)
+      max-width: 1420px
+      padding: 30px 0
+    +r($md)
+      padding: 25px 0
+      max-width: 1200px
+    +r($xs)
+      justify-content: space-between
+    a.logo__image
+      display: flex
+      align-items: center
+      justify-content: center
+      text-decoration: none
+      width: 75px
+      height: 41px
+      +r($lg)
+        width: 66px
+        height: 36px
+      +r($md)
+        width: 54px
+        height: 29px
+      +r($xs)
+        margin-right: 0
+      img
+        object-fit: contain
+        width: 100%
+        height: 100%
+      +r($md)
+        width: 54px
+        height: 29px
+        +r($md)
+          width: 54px
+          height: 29px
+    .menu
+      max-width: 800px
+      width: 100%
+      +r($lg)
+        max-width: 700px
+      +r($md)
+        max-width: 500px
+      +r(1100)
+        display: none
+      ul
+        display: flex
+        justify-content: space-around
+        li
+          a
+            font-size: 24px
+            letter-spacing: 1.5px
+            text-decoration: none
+            line-height: normal
+            color: #45464b
+            +r($lg)
+              font-size: 21px
+              letter-spacing: 1.3px
+            +r($md)
+              font-size: 17px
+              letter-spacing: 1.06px
+            &:hover
+              color: $blue
+    .contact-info
+      display: flex
+      flex-direction: column
+      justify-content: center
+      +r(1100)
+        display: none
+      .contact-info__phone
+        font-size: 25px
+        text-decoration: none
+        color: #4a4a4a
+        padding-bottom: 10px
+        +r($lg)
+          font-size: 22px
+        +r($md)
+          font-size: 18px
+      .contact-info__email
+        font-size: 20px
+        color: #9ea9bd
+        +r($md)
+          font-size: 17px
+        +r($md)
+          font-size: 14px
+    .search
+      display: flex
+      +r(1100)
+        display: none
+      .input
+        display: flex
+        width: 328px
+        height: 82px
+        border-radius: 5px
+        background-color: #f2f5fb
+        position: relative
+        border: solid 1px transparent
+        +r($lg)
+          width: 287px
+          height: 70px
+        +r($md)
+          width: 233px
+          height: 58px
+        &:hover
+          border: solid 1px #b1bdd4
+        input
+          width: 260px
+          height: 82px
+          background-color: transparent
+          padding: 0 40px
+          font-size: 24px
+          +r($lg)
+            font-size: 21px
+            letter-spacing: 1.3px
+            width: 230px
+            height: 70px
+          +r($md)
+            font-size: 17px
+            width: 178px
+            height: 58px
+          &::placeholder
+            font-size: 24px
+            letter-spacing: 1.5px
+            color: #ced9ef
+            +r($lg)
+              font-size: 21px
+              letter-spacing: 1.3px
+            +r($md)
+              font-size: 17px
+              letter-spacing: 1.06px
+          &:focus
+            border: none
+        .input__icon-search
+          position: absolute
+          text-decoration: none
+          width: 30px
+          height: 30px
+          background-image: url("/img/search.svg")
+          background-repeat: no-repeat
+          background-size: contain
+          top: 27px
+          right: 50px
+          +r($lg)
+            width: 25px
+            height: 25px
+          +r($md)
+            width: 22px
+            height: 22px
+            top: 19px
+            top: 19px
+            right: 35px
+    .btn-phone
+      display: none
+      +r(1100)
+        display: flex
+        width: 25px
+        height: 25px
+        background-image: url("/img/phone-call.svg")
+        background-repeat: no-repeat
+        background-size: contain
+    .btn-menu
+      display: none
+      +r(1100)
+        display: flex
+        flex-direction: column
+        justify-content: center
+        margin: 5px 0 0 0px
+      span
+        width: 40px
+        height: 2px
+        border-radius: 1.5px
+        background-color: $cloudy-blue
+        margin-bottom: 8px

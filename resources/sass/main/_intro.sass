@@ -1,0 +1,283 @@
+.intro
+  width: 100%
+  height: 100%
+  padding-top: 60px
+  padding-bottom: 50px
+  +r($lg)
+    padding-top: 70px
+    padding-bottom: 40px
+  +r($md)
+    padding-bottom: 0
+  +r($xs)
+    padding-top: 55px
+    padding-bottom: 0
+  +r(370)
+    padding-top: 20px
+  .swiper-container
+    width: 1600px
+    height: 100%
+    position: relative
+    +r($md)
+      width: 1200px
+    +r($xs)
+      width: 100%
+    .swiper-wrapper
+      width: 100%
+      height: 620px
+      +r($lg)
+        height: 600px
+      +r($md)
+        height: 450px
+      +r($xs)
+        height: 100%
+        padding-bottom: 30px
+      .swiper-slide
+        position: relative
+        display: flex
+        justify-content: space-between
+        width: 100%
+        +r($xs)
+          flex-direction: column
+          align-items: center
+        .intro__content
+          h2
+            width: 270px
+            +r($lg)
+              font-size: 50px
+              line-height: 55px
+            +r(1100)
+              font-size: 30px
+              line-height: 35px
+            +r($xs)
+              width: 100%
+              max-width: 270px
+            +r(370)
+              font-size: 20px
+          p
+            width: 535px
+            font-size: 28px
+            letter-spacing: 2.8px
+            font-weight: normal
+            line-height: normal
+            color: $dark-gray
+            padding-top: 35px
+            +r($lg)
+              font-size: 25px
+              letter-spacing: 2.5px
+              width: 480px
+              padding-top: 30px
+            +r($md)
+              font-size: 20px
+              letter-spacing: 2px
+              width: 381px
+              padding-top: 25px
+            +r(1100)
+              font-size: 18px
+              line-height: 25px
+            +r($xs)
+              width: 100%
+              font-size: 16px
+              letter-spacing: 1.6px
+              line-height: 22px
+              max-width: 381px
+            +r(370)
+              font-size: 14px
+              letter-spacing: 1.4px
+          .content__bottom
+            display: flex
+            padding-top: 60px
+            +r($lg)
+              padding-top: 50px
+            +r(1100)
+              flex-direction: column
+            +r($xs)
+              display: none
+            .btn-primary
+              +r(1100)
+                margin-bottom: 15px
+            .btn-next--blue
+              +r(1100)
+                margin-left: 0
+        .intro__bottom
+          display: none
+          +r($xs)
+            display: flex
+            justify-content: flex-start
+            width: 100%
+            .btn-next--blue
+              width: 100%
+              max-width: 290px
+              margin-left: 0
+        .intro__image
+          width: 650px
+          height: 501px
+          margin-left: 50px
+          margin-right: 40px
+          margin-top: 25px
+          position: relative
+          +r($lg)
+            width: 530px
+            height: 330px
+          +r($md)
+            width: 438px
+            height: 338px
+          +r(1100)
+            margin-left: 0
+          +r(999)
+            display: flex
+          +r($xs)
+            width: 294px
+            height: 227px
+            margin: 75px auto 155px
+          +r(410)
+            margin:  45px auto 125px
+          +r(370)
+            width: 230px
+            margin-bottom: 85px
+          .btn-play
+            right: -60px
+            +r($lg)
+              right: -80px
+            +r(999)
+              right: -30px
+            +r($xs)
+              right: -40px
+            +r(370)
+              right: -60px
+          img
+            width: 100%
+            object-fit: contain
+        .intro__card
+          display: flex
+          flex-direction: column
+          align-items: flex-start
+          width: 225px
+          height: 160px
+          border-radius: 6px
+          box-shadow: 0 15px 29px 0 rgba(201, 210, 226, 0.16)
+          background-color: rgba(255, 255, 255, 0.65)
+          padding: 210px 0 35px
+          margin-top: 180px
+          margin-right: 20px
+          position: relative
+          +r($lg)
+            height: 140px
+          +r($md)
+            width: 160px
+            padding: 157px 0 25px
+            margin-top: 140px
+          +r(1199)
+            margin-top: 80px
+          +r(999)
+            display: none
+          .card__content
+            p
+              font-size: 15.5px
+              padding-left: 50px
+              font-weight: 500
+              line-height: normal
+              letter-spacing: normal
+              color: #45464b
+              margin-bottom: 15px
+              +r($lg)
+                font-size: 14px
+                padding-left: 40px
+              +r($md)
+                font-size: 11px
+                padding-left: 30px
+          .btn-intro
+            padding-left: 50px
+            +r($lg)
+              padding-left: 40px
+            +r($md)
+              padding-left: 30px
+          .card__image
+            position: absolute
+            top: 25px
+            left: -30px
+            width: 260px
+            height: 145px
+            +r($lg)
+              width: 250px
+              height: 109px
+            +r($md)
+              width: 197px
+              height: 109px
+            +r(1199)
+              width: 180px
+            img
+              width: 100%
+              object-fit: contain
+        &:nth-of-type(2)
+          .intro__image
+            margin-top: 110px
+            margin-left: 0
+            width: 641px
+            height: 379px
+            //+r($lg)
+              width: 456px
+              height: 270px
+              margin-top: 90px
+            +r($md)
+              width: 456px
+              height: 270px
+              margin-top: 90px
+            +r($xs)
+              width: 280px
+              height: 175px
+              margin: 115px auto 150px
+            +r(410)
+              margin: 55px auto 125px
+            +r(370)
+              width: 230px
+              height: 136px
+            .btn-play
+              top: -100px
+              +r($md)
+                top: -70px
+              +r($xs)
+                top: -40px
+          .intro__card
+            padding-top: 200px
+            margin-top: 210px
+            +r($md)
+              padding-top: 167px
+              margin-top: 110px
+            .card__image
+              width: 223px
+              height: 176px
+              top: 15px
+              left: -15px
+              +r($lg)
+                width: 195px
+                height: 155px
+              +r($md)
+                width: 160px
+                height: 127px
+    .swiper-pagination
+      margin-top: 15px
+      bottom: 80px
+      left: 0
+      text-align: left
+      width: 300px
+      +r($lg)
+        bottom: 140px
+      +r($md)
+        bottom: 30px
+      +r(1100)
+        bottom: 0
+      +r($xs)
+        bottom: 0
+    .swiper-pagination-bullet
+      width: 84px
+      height: 4px
+      border-radius: 2px
+      background-color: #c4d2ec
+      margin-right: 15px
+      +r($lg)
+        width: 74px
+        border-radius: 1.8px
+      +r($md)
+        width: 60px
+        height: 3px
+        border-radius: 1.5px

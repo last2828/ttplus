@@ -1,0 +1,54 @@
+.info
+  margin-top: 70px
+  margin-bottom: 30px
+  +r($lg)
+    margin-bottom: 0
+  +r($md)
+    margin-bottom: 50px
+  +r(1500)
+    margin-top: 0
+  +r($xs)
+    margin-top: 25px
+    padding-bottom: 50px
+  .container
+    flex-direction: column
+    +r($xs)
+      width: 100%
+      padding: 0 40px
+    +r(370)
+      padding: 0 25px
+    .info__heading
+      display: flex
+      justify-content: flex-end
+      align-items: center
+      margin: 0 auto 40px
+      max-width: 1500px
+      width: 100%
+      +r($lg)
+        max-width: 1260px
+        margin-bottom: 25px
+      +r($md)
+        max-width: 1040px
+        margin-bottom: 15px
+      +r($xs)
+        width: 100%
+        justify-content: flex-start
+        margin-bottom: 40px
+      h2
+        margin-top: 0
+        margin-right: 70px
+        +r($md)
+          margin-right: 60px
+      .btn-secondary
+        +r($xs)
+          display: none
+    .info__card
+      &:nth-of-type(4)
+        +r($xs)
+          display: none
+    .info__bottom
+      display: none
+      +r($xs)
+        display: flex
+        justify-content: flex-start
+        align-items: center

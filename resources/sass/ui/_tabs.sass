@@ -1,0 +1,80 @@
+.tabs
+  +r($xs)
+    display: flex
+    flex-direction: column
+    align-items: center
+  .custom-select
+    display: none
+    +r($xs)
+      display: flex
+    .selectric-wrapper
+      width: 100%
+      max-width: 290px
+      .selectric
+        max-width: 290px
+        +r(370)
+          width: 250px
+  .tabs__caption
+    display: flex
+    justify-content: space-between
+    width: 100%
+    max-width: 995px
+    border-radius: 6px
+    border: solid 1px #b1bdd4
+    +r($lg)
+      width: 871px
+    +r($md)
+      width: 708px
+    +r($xs)
+      display: none
+    li
+      padding-top: 33px
+      padding-bottom: 33px
+      width: 100%
+      +r($md)
+        padding-top: 25px
+        padding-bottom: 25px
+    li.active
+      border-radius: 6px
+      background-color: $light-blue
+    .tab-button
+      display: flex
+      justify-content: center
+      align-items: center
+      width: auto
+      margin: 0
+      outline: none
+      cursor: pointer
+      font-size: 21px
+      font-weight: bold
+      line-height: normal
+      letter-spacing: 2.1px
+      color: $blue
+      background-color: transparent
+      white-space: nowrap
+      +r($lg)
+        font-size: 18px
+        letter-spacing: 1.8px
+      +r($md)
+        font-size: 15px
+        letter-spacing: 1.5px
+      &:hover
+        border-radius: 6px
+        background-color: $light-blue
+.tabs-blue
+  ul
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 80px 0 88px
+    +r($lg)
+      padding: 70px 0 80px
+    +r($md)
+      padding: 60px 0
+    li.active
+      .sp-text
+        text-decoration: underline
+.tabs__content
+  display: none
+  &.active
+    display: flex

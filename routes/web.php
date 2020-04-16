@@ -13,8 +13,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::post('/photos', 'Admin\PhotoController@upload');
+
+Route::group(['namespace' => 'Front', 'as' => 'pages.'], function () {
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/about-us', 'AboutController@index')->name('about');
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
@@ -34,6 +38,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     Route::group(['prefix' => 'about', 'as' => 'about.'], function () {
         Route::get('/', 'AboutController@index')->name('index');
+        Route::put('/update', 'AboutController@update')->name('update');
     });
 
 
@@ -43,3 +48,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

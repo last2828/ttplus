@@ -1,0 +1,83 @@
+.subscribe
+  background-image: url("/img/main/subscribe-bg-lg.png")
+  width: 100%
+  height: 100%
+  background-repeat: no-repeat
+  background-size: cover
+  padding-top: 235px
+  padding-bottom: 140px
+  +r($lg)
+    padding-top: 205px
+    padding-bottom: 125px
+  +r($md)
+    background-image: url("/img/main/subscribe-bg.png")
+    padding-top: 170px
+    padding-bottom: 90px
+  +r(1380)
+    background-size: 120%
+  +r($xs)
+    background-size: cover
+    background-image: url("/img/subscribe-bg-sm.svg")
+    padding-top: 85px
+    padding-bottom: 580px
+  +r(410)
+    padding-bottom: 560px
+    margin-bottom: -50px
+  +r(370)
+    padding-bottom: 680px
+  .container
+    +r($xs)
+      justify-content: center
+    .form__container
+      display: flex
+      flex-direction: column
+      justify-content: flex-start
+      width: 533px
+      padding-left: 65px
+      +r($lg)
+        width: 465px
+      +r($md)
+        width: 380px
+      +r($xs)
+        width: 100%
+        padding-left: 0
+        justify-content: center
+      h2
+        margin-top: 0
+        margin-bottom: 40px
+        width: 533px
+        +r($lg)
+          width: 500px
+          margin-bottom: 30px
+        +r($md)
+          width: 380px
+          margin-bottom: 25px
+        +r($xs)
+          width: 100%
+          max-width: 240px
+      p
+        margin-bottom: 50px
+        line-height: 38px
+        width: 533px
+        +r($lg)
+          width: 467px
+          line-height: 35px
+          margin-bottom: 45px
+        +r($md)
+          width: 380px
+          line-height: 30px
+          margin-bottom: 40px
+        +r($xs)
+          line-height: 24px
+          width: 100%
+          max-width: 280px
+          margin-bottom: 25px
+      .policy
+        margin-top: 35px
+        margin-bottom: 35px
+        +r($lg)
+          margin-top: 25px
+          margin-bottom: 25px
+        +r($md)
+          margin-top: 25px
+          margin-bottom: 20px

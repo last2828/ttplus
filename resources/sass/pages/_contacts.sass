@@ -1,0 +1,99 @@
+.contacts
+  background-color: #f7f9fc
+  padding-bottom: 130px
+  +r($lg)
+    padding-bottom: 115px
+  +r($md)
+    padding-bottom: 95px
+  +r($xs)
+    padding-bottom: 0
+  .container
+    flex-direction: column
+    h2
+      +r($xs)
+        font-size: 24px
+        font-weight: normal
+        letter-spacing: 2.4px
+        color: #2b2c30
+  .contacts__content
+    display: flex
+    justify-content: space-between
+    padding-top: 55px
+    +r($md)
+      padding-top: 40px
+    +r(1100)
+      flex-direction: column-reverse
+    ul
+      +r(1100)
+        margin-top: 35px
+      li
+        max-width: 590px
+        padding-left: 50px
+        position: relative
+        margin-right: 65px
+        margin-bottom: 50px
+        +r($lg)
+          max-width: 520px
+          margin-bottom: 35px
+        +r($md)
+          max-width: 450px
+          margin-bottom: 35px
+        +r(1100)
+          max-width: 100%
+        +r($xs)
+          padding-left: 0
+        +r(414)
+          margin-right: 0
+          max-width: 290px
+        .contacts-heading
+          display: flex
+          margin-left: -50px
+          position: relative
+          +r($xs)
+            margin-left: 0
+          h3
+            font-size: 22.5px
+            font-weight: bold
+            color: #4a4a4a
+            padding-left: 50px
+            +r($lg)
+              font-size: 20px
+            +r($md)
+              font-size: 16px
+            +r($xs)
+              padding-left: 20px
+        p
+          font-size: 22.5px
+          font-weight: 500
+          line-height: normal
+          letter-spacing: normal
+          color: #4a4a4a
+          margin-top: 20px
+          +r($lg)
+            font-size: 20px
+          +r($md)
+            font-size: 16px
+          &:nth-of-type(3)
+            margin-top: 0
+            +r($xs)
+              margin-top: 20px
+          span
+            color: #2468eb
+    .maps
+      +r(1100)
+        display: flex
+        justify-content: center
+      #map
+        width: 930px
+        height: 648px
+        +r($lg)
+          width: 812px
+          height: 567px
+        +r($md)
+          width: 660px
+          height: 460px
+        +r(1100)
+          width: 100%
+        +r($xs)
+          width: 100%
+          height: 330px

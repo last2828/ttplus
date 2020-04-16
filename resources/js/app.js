@@ -1,29 +1,32 @@
-import grapesjs from 'grapesjs';
-import 'grapesjs/dist/css/grapes.min.css';
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
 
-const editor = grapesjs.init({
-  // Indicate where to init the editor. You can also pass an HTMLElement
-  container: '#gjs',
-  // Get the content for the canvas directly from the element
-  // As an alternative we could use: `components: '<h1>Hello World Component!</h1>'`,
-  components: '<h1>Hello World Component!</h1>',
-  fromElement: true,
-  // Size of the editor
-  height: '300px',
-  width: 'auto',
-  // Disable the storage manager for the moment
-  storageManager: false,
-  // Avoid any default panel
-  // panels: { defaults: [] },
-});
+require('./bootstrap');
 
-var blockManager = editor.BlockManager;
-blockManager.add('container', {
-  label: 'Container',
-  content: '<div class="container"></div>',
-});
+window.Vue = require('vue');
 
-blockManager.add('block', {
-  label: 'Block',
-  content: '<div class="block">Первый блок</div>',
+/**
+ * The following block of code may be used to automatically register your
+ * Vue components. It will recursively scan this directory for the Vue
+ * components and automatically register them with their "basename".
+ *
+ * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+ */
+
+// const files = require.context('./', true, /\.vue$/i)
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+
+Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
+
+const app = new Vue({
+    el: '#app',
 });

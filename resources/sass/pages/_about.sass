@@ -1,0 +1,363 @@
+.about-page
+  background-color: #f7f9fc
+  .container
+    flex-direction: column
+    h2
+      margin-top: 80px
+      +r($lg)
+        margin-top: 70px
+      +r($md)
+        margin-top: 60px
+      +r($xs)
+        width: 240px
+        margin-top: 20px
+      &:nth-of-type(2)
+        margin-top: 65px
+        +r($md)
+          margin-top: 35px
+  ul
+    li
+      margin-bottom: 35px
+      max-width: 1380px
+      padding-left: 85px
+      position: relative
+      +r($lg)
+        padding-left: 70px
+        margin-bottom: 30px
+        max-width: 1180px
+      +r($md)
+        padding-left: 50px
+        margin-bottom: 25px
+        max-width: 950px
+      +r($xs)
+        margin-bottom: 20px
+        padding-left: 25px
+      p
+        margin: 0
+  p
+    max-width: 1350px
+    font-size: 23px
+    margin-top: 30px
+    font-weight: normal
+    line-height: normal
+    letter-spacing: 2.3px
+    color: black
+    +r($lg)
+      margin-top: 30px
+      font-size: 20px
+      letter-spacing: 2px
+      max-width: 1180px
+    +r($md)
+      margin-top: 20px
+      font-size: 16px
+      letter-spacing: 1.6px
+      max-width: 961px
+    +r($xs)
+      font-size: 13px
+      letter-spacing: 1.3px
+      font-weight: normal
+    span
+      font-weight: 600
+    &.partners
+      max-width: 984px
+      margin-bottom: 60px
+      +r($lg)
+        max-width: 860px
+        margin-bottom: 50px
+      +r($md)
+        max-width: 700px
+        margin-bottom: 45px
+      +r($xs)
+        margin-bottom: 25px
+  .about__image
+    width: 100%
+    height: 100%
+    margin: 50px 0
+    +r($lg)
+      margin: 35px 0
+    +r($xs)
+      margin: 20px 0 0
+    img
+      width: 100%
+      object-fit: contain
+  .about__quote
+    margin-left: 50px
+    margin-top: 70px
+    margin-bottom: 30px
+    max-width: 1290px
+    border-radius: 8.4px
+    border: solid 1.4px #ced9ef
+    position: relative
+    +r($lg)
+      max-width: 1130px
+      border: solid 1px #ced9ef
+      border-radius: 6px
+    +r($md)
+      margin-top: 50px
+      max-width: 918px
+      border: solid 1px #ced9ef
+      border-radius: 6px
+    +r($xs)
+      width: 100%
+      margin-left: 0
+      margin-bottom: 20px
+    .quotes
+      position: absolute
+      width: 100px
+      height: 70px
+      background-image: url("/img/quotes.svg")
+      background-repeat: no-repeat
+      background-size: contain
+      left: 40px
+      top: -30px
+      +r($lg)
+        width: 87px
+        height: 61px
+        left: 35px
+        top: -25px
+      +r($md)
+        width: 71px
+        height: 50px
+        left: 30px
+        top: -20px
+      +r($xs)
+        width: 55px
+        height: 40px
+    p
+      font-weight: 500
+      font-style: italic
+      margin: 50px auto
+      width: 934px
+      +r($lg)
+        width: 860px
+      +r($md)
+        width: 700px
+      +r(800)
+        margin: 50px 30px
+      +r($xs)
+        margin: 40px 20px 35px 35px
+  .about__years
+    display: flex
+    justify-content: space-between
+    margin-top: 65px
+    align-items: stretch
+    +r($lg)
+      margin-top: 55px
+    +r($md)
+      margin-top: 45px
+    +r($xs)
+      flex-direction: column
+      align-items: center
+      margin-top: 25px
+    .about__year
+      width: 500px
+      min-height: 286px
+      border-radius: 5px
+      border: solid 1px #b1bdd4
+      padding: 70px 0 90px 85px
+      +r($lg)
+        width: 440px
+        padding: 60px 0 80px 70px
+      +r($md)
+        width: 360px
+        padding: 50px 0 40px 60px
+      +r(1210)
+        width: 32%
+        padding: 45px 30px 35px
+        margin-bottom: 25px
+      +r($xs)
+        width: 100%
+        max-width: 300px
+        min-height: 100%
+      .year
+        font-size: 46px
+        letter-spacing: 4.6px
+        font-weight: bold
+        line-height: normal
+        color: $blue
+        margin-bottom: 35px
+        +r($lg)
+          font-size: 40px
+          letter-spacing: 4px
+          margin-bottom: 25px
+        +r($md)
+          font-size: 33px
+          letter-spacing: 3.3px
+        +r($xs)
+          font-size: 27px
+          letter-spacing: 2.7px
+          margin-bottom: 20px
+      p
+        max-width: 371px
+        +r($lg)
+          max-width: 325px
+        +r($md)
+          max-width: 264px
+  .about__blocks
+    margin-bottom: 145px
+    +r($md)
+      margin-bottom: 105px
+    +r($xs)
+      margin-bottom: 50px
+    .about__block
+      margin-top: 45px
+      width: 100%
+      border-radius: 7px
+      border: solid 1.4px #b1bdd4
+      padding: 110px
+      +r($lg)
+        padding: 95px 155px
+      +r($md)
+        margin-top: 35px
+        border-radius: 5px
+        border: solid 1px #b1bdd4
+        padding: 65px 45px
+      +r($xs)
+        margin-top: 0
+        padding: 35px
+      &:nth-of-type(1)
+        h4
+          padding-bottom: 25px
+      &:nth-of-type(2), &:nth-of-type(3)
+        +r($xs)
+          display: none
+      h4
+        font-weight: bold
+        margin: 0 auto
+        max-width: 1270px
+        font-size: 23px
+        line-height: normal
+        letter-spacing: 2.3px
+        color: black
+        +r($lg)
+          font-size: 20px
+          letter-spacing: 2px
+        +r($md)
+          max-width: 890px
+          font-size: 16px
+          letter-spacing: 1.6px
+        +r($xs)
+          font-size: 13px
+          letter-spacing: 1.3px
+      p
+        margin: 0 auto 20px
+        max-width: 1270px
+        line-height: 30px
+        +r($lg)
+          line-height: 28px
+        +r($md)
+          max-width: 890px
+          line-height: 22px
+        +r($xs)
+          margin: 0
+.about__documents
+  display: flex
+  flex-direction: column
+  max-width: 1530px
+  align-items: center
+  margin: 0 auto
+  background-color: white
+  +r($md)
+    max-width: 1035px
+  +r($xs)
+    border-bottom: 1px solid $light-blue
+    padding-bottom: 70px
+  .tabs
+    +r($xs)
+      display: none
+  .custom-select
+    display: none
+    +r($xs)
+      display: flex
+      margin-top: 45px
+  .tabs__caption
+    width: 955px
+    margin: 90px auto 0
+    +r($lg)
+      margin-top: 75px
+    +r($md)
+      margin-top: 65px
+    li
+      padding-left: 60px
+      padding-right: 60px
+      +r($md)
+        padding-left: 35px
+        padding-right: 35px
+  .about__documents-tab
+    margin: 55px 0 60px
+    justify-content: space-between
+    +r($lg)
+      margin: 50px 0
+    +r($md)
+      margin: 40px 0
+    +r($xs)
+      margin-bottom: 70px
+    .document
+      width: 440px
+      height: 628px
+      margin-right: 63px
+      +r($lg)
+        width: 387px
+        height: 550px
+        margin-right: 55px
+      +r($md)
+        width: 315px
+        height: 447px
+        margin-right: 45px
+      +r(1100)
+        width: 215px
+        height: 304px
+      &:nth-of-type(3)
+        margin-right: 0
+      img
+        width: 100%
+        object-fit: contain
+  .btn-form
+    width: 370px
+    margin-bottom: 170px
+    +r($lg)
+      width: 325px
+      margin-bottom: 150px
+    +r($md)
+      width: 264px
+      margin-bottom: 125px
+    +r($xs)
+      display: none
+  #certificates, #exhibitions
+    display: none
+  .tabs__content-mobile
+    display: none
+    +r($xs)
+      display: flex
+      margin-top: 30px
+      margin-left: -80px
+  .swiper-mobile
+    width: 100%
+    height: 100%
+    max-width: 220px
+    max-height: 350px
+    .swiper-slide
+      display: flex
+      justify-content: center
+      align-items: center
+      text-align: center
+      font-size: 18px
+      background: #fff
+      width: 100%
+      &-active
+        margin-right: 0 !important
+      .document__img
+        width: 213px
+        height: 302px
+        img
+          width: 100%
+          object-fit: contain
+    .swiper-mobile-pagination
+      width: 300px
+      margin-top: 15px
+    .swiper-pagination-bullet
+      width: 60px
+      height: 3px
+      border-radius: 1.5px
+      background-color: #c4d2ec
+
