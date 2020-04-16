@@ -14,11 +14,14 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::post('/photos', 'Admin\PhotoController@upload');
+Route::get('/photos', 'Admin\PhotoController@index');
+Route::post('/photos/upload', 'Admin\PhotoController@upload');
+Route::get('/photos/delete/{id}', 'Admin\PhotoController@delete');
 
 Route::group(['namespace' => 'Front', 'as' => 'pages.'], function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/about-us', 'AboutController@index')->name('about');
+    Route::get('/about-us/style', 'AboutController@style');
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
@@ -51,4 +54,3 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

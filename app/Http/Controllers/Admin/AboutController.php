@@ -11,7 +11,8 @@ class AboutController extends Controller
     public function index()
     {
         return view('admin.pages.about.index', [
-            'html' => PageField::where('key', 'about_html')->first()
+            'html' => PageField::where('key', 'about_html')->first(),
+            'css' => PageField::where('key', 'about_css')->first()
         ]);
     }
     public function update(Request $request)
@@ -20,6 +21,9 @@ class AboutController extends Controller
 
         PageField::where('key', 'about_html')->update([
             'value' => $fields['html']
+        ]);
+        PageField::where('key', 'about_css')->update([
+            'value' => $fields['css']
         ]);
         return redirect()->route('about.index');
     }

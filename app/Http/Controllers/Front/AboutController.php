@@ -11,7 +11,12 @@ class AboutController extends Controller
     public function index()
     {
         return view('front.pages.about', [
-            'html' => PageField::where('key', 'about_html')->first()
+            'html' => PageField::where('key', 'about_html')->first(),
+            'css' => PageField::where('key', 'about_css')->first()
         ]);
+    }
+    public function style()
+    {
+        return PageField::where('key', 'about_css')->first()['value'];
     }
 }
