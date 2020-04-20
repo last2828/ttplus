@@ -156,7 +156,7 @@
                                                                 <div class="col-md-4">
                                                                     <div class="kt-form__group--inline">
                                                                         <div class="kt-form__control">
-                                                                            <p>{{$productAttribute->attribute['name']}}</p><input type="hidden" value="{{$productAttribute->id}}" name="attribute_id">
+                                                                            <p>{{$productAttribute->attribute['name']}}</p><input type="hidden" value="{{$productAttribute->id}}" name="id"><input type="hidden" value="{{$productAttribute->attribute_id}}" name="attribute_id">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -185,7 +185,7 @@
                                                                         <div class="kt-form__group--inline">
                                                                             <div class="kt-form__control">
                                                                                 <select name="attribute_id" class="form-control kt-select2" id="">
-                                                                                    <option selected value="null">Добавить характеристику</option>
+                                                                                    <option selected value="null">Выберите значение</option>
                                                                                     @foreach($attributes as $attribute)
                                                                                         <option value="{{$attribute->id}}">{{$attribute->name}}</option>
                                                                                     @endforeach
