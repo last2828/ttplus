@@ -20,8 +20,22 @@ Route::get('/photos/delete/{id}', 'Admin\PhotoController@delete');
 
 Route::group(['namespace' => 'Front', 'as' => 'pages.'], function () {
     Route::get('/', 'HomeController@index')->name('home');
+    
+    Route::group(['prefix' => 'catalog', 'namespace' => 'Catalog', 'as' => 'catalog.'], function () {
+        Route::get('/', 'CatalogController@index')->name('index');
+        Route::get('/{any?}', 'CategoryController@index')->name('category')->where('any', '(.*)?');
+        // Route::get('/{any?}/{product}', 'ProductController@index')->name('product');
+    });
+
+    Route::group(['prefix' => 'info', 'namespace' => 'News', 'as' => 'news.'], function () {
+        Route::get('/', 'NewsController@index')->name('index');
+        Route::get('/{slug}', 'ArticleController@index')->name('article');
+    });
+
+
     Route::get('/about-us', 'AboutController@index')->name('about');
     Route::get('/about-us/style', 'AboutController@style');
+    Route::get('/contact', 'ContactController@index')->name('contact');
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {

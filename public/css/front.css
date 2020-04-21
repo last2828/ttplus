@@ -931,7 +931,8 @@ button.swiper-pagination-bullet {
   }
 }
 
-.header .container .menu ul li a:hover {
+.header .container .menu ul li a:hover,
+.header .container .menu ul li a.active {
   color: #2468eb;
 }
 
@@ -3739,6 +3740,35 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
 
 .selectric-items .selectric-group li {
   padding-left: 25px;
+}
+
+#title,
+#text,
+#category,
+#video,
+.card-1,
+.card-2,
+#about_heading,
+#about_text {
+  opacity: 0;
+}
+
+.card-1 {
+  transform: translateY(-100px);
+}
+
+.card-2 {
+  transform: translateY(100px);
+}
+
+#button-1,
+#button-2,
+#image {
+  transform: scale(0);
+}
+
+#bg {
+  opacity: 0;
 }
 
 .about-page {
@@ -8847,35 +8877,38 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   }
 }
 
-.bg {
+.bg_div {
   background-image: url("/img/intro-bg-lg.svg");
   background-position-y: -210px;
+  height: 2086px;
+  position: absolute !important;
   width: 100%;
   background-repeat: no-repeat;
   background-size: contain;
   position: relative;
+  transform-origin: center;
 }
 
 @media only screen and (max-width: 1919px) {
-  .bg {
+  .bg_div {
     background-position-y: -190px;
   }
 }
 
 @media only screen and (max-width: 1500px) {
-  .bg {
+  .bg_div {
     background-position-y: -140px;
   }
 }
 
 @media only screen and (max-width: 1440px) {
-  .bg {
+  .bg_div {
     background-position-y: -75px;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .bg {
+  .bg_div {
     background-image: url("/img/intro-bg-sm.svg");
   }
 }
