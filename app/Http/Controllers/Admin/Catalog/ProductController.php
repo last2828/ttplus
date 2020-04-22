@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin\catalog;
 use App\Attribute;
 use App\Group;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductValidator;
 use App\Product;
 use App\ProductAttribute;
 use App\ProductCategory;
@@ -53,17 +54,16 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  ProductValidator $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductValidator $request)
     {
+        $request->validated();
         $fields = $request->toArray();
 
-        if($fields['slug'])
+        if($fields['slug'] == null)
         {
-            $fields['slug'] = Transliterate::slugify($fields['slug']);
-        }else{
             $fields['slug'] = Transliterate::slugify($fields['name']);
         }
 
@@ -87,12 +87,16 @@ class ProductController extends Controller
             ProductGroup::create($groupFields);
         }
 
+        if(!empty($fields['attributes']))
+            foreach($fields['attributes'] as $key => $attributesFields)
+            {
+    //            if($attributesFields['value'] == 'null'){
+    //                return redirect()->back()->withErrors('', 'Ошибка в поле');
+    //            }
 
-        foreach($fields['attributes'] as $key => $attributesFields)
-        {
-            $attributesFields['product_id'] = $product->id;
-            ProductAttribute::create($attributesFields);
-        }
+                    $attributesFields['product_id'] = $product->id;
+                    ProductAttribute::create($attributesFields);
+            }
 
         return redirect()->route('products.index');
     }
@@ -139,35 +143,61 @@ class ProductController extends Controller
     {
         $fields = $request->toArray();
 
-        $allAttrubites = array_merge($fields['attributes_old'], $fields['attributes']);
-        return $allAttrubites;
-
-        if($fields['slug'])
+        // check slug
+        if($fields['slug'] == null)
         {
-            $fields['slug'] = Transliterate::slugify($fields['slug']);
-        }else{
             $fields['slug'] = Transliterate::slugify($fields['name']);
         }
 
+        // check category
         if($fields['category_id'] == 'null')
         {
             $fields['category_id'] = null;
         }
+
+        // updating groups fields in db
         if($fields['group_id'] == 'null')
         {
             $fields['group_id'] = null;
         }
+        elseif($fields['group_id'] != null)
+        {
+            $data = [
+                'product_id' => $id,
+                'group_id' => $fields['group_id']
+            ];
 
-        // $data = [
-        //     'product_id' => $fields['id'],
-        //     'group_id' => $fields['group_id']
-        // ];
+            ProductGroup::where('product_id', $id)->update($data);
+        }
 
-        // ProductGroup::where(
-        //     ['product_id', 'group_id'],
-        //     [$data['product_id'], $data['group_id']]
-        // )->create($data);
+        // updating attributes fields in db
+        if(!empty($fields['attributes_old'])) {
+            foreach($fields['attributes_old'] as $key => $attributesFields) {
 
+                if($attributesFields['value'] == 'null'){
+                    return redirect()->back()->withErrors();
+                }
+
+                $attributesFields['product_id'] = $id;
+
+                ProductAttribute::find($attributesFields['id'])->update($attributesFields);
+            }
+        }
+
+        if(!empty($fields['attributes'])){
+            foreach($fields['attributes'] as $key => $attributesFields) {
+
+                if($attributesFields['value'] == 'null'){
+                    return redirect()->back()->withErrors();
+                }
+
+                $attributesFields['product_id'] = $id;
+
+                ProductAttribute::create($attributesFields);
+            }
+        }
+
+        // updating product fields in db
         $product = Product::find($id);
         $product->update($fields);
         return redirect()->route('products.index');
@@ -183,6 +213,8 @@ class ProductController extends Controller
     public function destroy($id)
     {
         Product::destroy($id);
+        ProductAttribute::where('product_id', $id)->delete();
+        ProductGroup::where('product_id', $id)->delete();
         return redirect()->back();
     }
 }

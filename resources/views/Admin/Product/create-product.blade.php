@@ -12,6 +12,20 @@
 
                 <!-- end:: Subheader -->
 
+                @if($errors->any())
+                        <div class="alert alert-outline-danger fade show" role="alert">
+                            <div class="alert-icon"><i class="flaticon-warning"></i></div>
+                            <div class="alert-text">Проверьте форму на ошибки</div>
+                            <div class="alert-text">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                @endif
+
                 <!-- begin:: Content -->
                 <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
                     <div class="row">
@@ -54,6 +68,11 @@
                                                     <label>Название товара</label>
                                                     <div class="col-lg-12 col-md-9 col-sm-12">
                                                         <input type="text" class="form-control" aria-describedby="" placeholder="Название товара" name="name">
+                                                        @if($errors->has('name'))
+                                                            <div class="alert alert-outline-danger fade show" role="alert">
+                                                                <div class="">{{ $errors->first('name') }}</div>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -89,6 +108,13 @@
                                                     <label>Код товара</label>
                                                     <div class="col-lg-12 col-md-9 col-sm-12">
                                                         <input type="text" class="form-control" aria-describedby="" placeholder="Код товара" name="model">
+                                                        @if($errors->has('model'))
+
+                                                            <div class="alert alert-outline-danger fade show" role="alert">
+                                                                <div class="">{{ $errors->first('model') }}</div>
+                                                            </div>
+
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -156,6 +182,7 @@
                                                                     <div class="kt-form__group--inline">
                                                                         <div class="kt-form__control">
                                                                             <select name="attribute_id" class="form-control">
+                                                                                <option selected value="null">Выберите значение</option>
                                                                                 @foreach($attributes as $attribute)
                                                                                     <option value="{{$attribute->id}}">{{$attribute->name}}</option>
                                                                                 @endforeach
