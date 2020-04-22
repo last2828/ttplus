@@ -1,0 +1,221 @@
+.product-container
+  max-width: 1300px
+  margin: 0 auto
+  +r($md)
+    max-width: 1000px
+  +r($xs)
+    width: 90%
+.product
+  +r($xs)
+    margin-bottom: 40px
+  .container
+    flex-direction: column
+    +r($xs)
+      width: 100%
+    .breadcrumbs
+      +r($xs)
+        width: 80%
+        margin-left: auto
+        margin-right: auto
+      span
+        +r($xs)
+          display: none
+    .product-container
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      +r($xs)
+        width: 80%
+        margin-left: auto
+        margin-right: auto
+      h2
+        +r($xs)
+          font-size: 24px
+          letter-spacing: 2.4px
+          margin-bottom: 30px
+      .product__content
+        display: flex
+        justify-content: center
+        +r(930)
+          flex-direction: column-reverse
+          align-items: center
+        ul
+          max-width: 600px
+          width: 100%
+          margin-right: 110px
+          +r($lg)
+            max-width: 535px
+            margin-right: 180px
+          +r($md)
+            max-width: 450px
+            margin-right: 80px
+          +r(930)
+            max-width: 100%
+            margin-right: 0
+            margin-top: 20px
+          .dot-sm
+            +r($xs)
+              top: 5px
+        li
+          padding-left: 30px
+          position: relative
+          +r($md)
+            padding-left: 20px
+          p
+            font-size: 24px
+            font-weight: normal
+            color: #4a4a4a
+            margin-top: 30px
+            +r($lg)
+              font-size: 21px
+            +r($md)
+              margin-top: 25px
+              font-size: 17px
+        .product__image-container
+          width: 506px
+          height: 445px
+          border-radius: 6px
+          box-shadow: 0 28px 60px 0 rgba(206, 217, 239, 0.24)
+          background-color: white
+          position: relative
+          margin-top: -25px
+          +r($lg)
+            width: 445px
+            height: 390px
+            margin-top: -25px
+          +r($md)
+            width: 360px
+            height: 317px
+            margin-top: -45px
+          +r(1050)
+            width: 260px
+            height: 247px
+          +r(930)
+            width: 290px
+            height: 255px
+            margin-top: 0
+          +r(370)
+            width: 255px
+          .product__image
+            position: absolute
+            width: 572px
+            height: 317px
+            top: 40px
+            left: 50%
+            transform: translate(-50%, 0)
+            +r($lg)
+              width: 500px
+              height: 278px
+            +r($md)
+              width: 407px
+              height: 226px
+            +r(1050)
+              width: 307px
+            +r($xs)
+              width: 329px
+              height: 183px
+            +r(374)
+              width: 300px
+              height: 166px
+            img
+              width: 100%
+              object-fit: contain
+
+.product__characteristics
+  +r($xs)
+    background-color: #f7f9fc
+    padding: 35px 0 45px
+  .tabs-blue
+    +r($xs)
+      display: none
+    .tabs__caption__bg
+      background-color: #f7f9fc
+      +r(950)
+        padding-left: 30px
+        padding-right: 30px
+      ul.tabs__caption
+        margin: 50px auto 0
+        max-width: 1250px
+        +r($lg)
+          margin: 40px auto 0
+          max-width: 1200px
+        +r($md)
+          margin: 35px auto 0
+          max-width: 900px
+        .btn-secondary
+          .sp-arrow
+            +r(950)
+              margin-right: 10px
+    .tabs__content
+      margin: 0 auto
+      max-width: 1275px
+      +r($md)
+        max-width: 950px
+      table
+        margin: 120px 0 165px
+        +r($lg)
+          margin: 104px 0 145px 0
+        +r($md)
+          margin: 85px 0 120px 0
+        +r(950)
+          margin-right: 30px
+          margin-left: 30px
+        tr
+          display: flex
+          justify-content: center
+          &:nth-last-of-type(1)
+            td
+              border-bottom: none
+          td
+            max-width: 400px
+            width: 100%
+            height: 73px
+            display: flex
+            align-items: center
+            font-size: 24px
+            font-weight: normal
+            line-height: normal
+            letter-spacing: normal
+            color: #4a4a4a
+            padding-left: 150px
+            border-bottom: solid 1.4px $light-blue
+            +r($lg)
+              max-width: 370px
+              height: 65px
+              font-size: 21px
+            +r($md)
+              max-width: 300px
+              height: 45px
+              font-size: 17px
+              border-bottom: solid 1px $light-blue
+            &.first-column
+              background-color: #f7f9fc
+              padding-left: 0
+            &.zero-column
+              width: 55px
+              padding-left: 0
+              background-color: #f7f9fc
+              border-bottom: solid 1.4px #f7f9fc
+              +r($lg)
+                width: 49px
+              +r($md)
+                width: 40px
+                border-bottom: solid 1px #f7f9fc
+              +r(950)
+                padding-left: 40px
+  .mobile-details
+    display: none
+    +r($xs)
+      display: flex
+      flex-direction: column
+      align-items: center
+      p
+        width: 260px
+        font-size: 15px
+        font-weight: bold
+        line-height: normal
+        letter-spacing: 1.5px
+        color: #2b2c30
+        margin-bottom: 25px
+        span
+          color: $blue

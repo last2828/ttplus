@@ -1,0 +1,598 @@
+.main-catalog__heading
+  background-color: #f7f9fc
+  padding-bottom: 80px
+  +r($lg)
+    padding-bottom: 70px
+  +r($md)
+    padding-bottom: 60px
+  +r($xs)
+    padding-bottom: 40px
+  .container
+    flex-direction: column
+    h2
+      +r($xs)
+        font-size: 24px
+        font-weight: normal
+        line-height: normal
+        letter-spacing: 2.4px
+    .heading__content
+      display: flex
+      justify-content: flex-start
+      margin-top: 25px
+      +r($xs)
+        margin-left: 0
+        margin-right: 0
+      .heading__text
+        max-width: 1179px
+        margin-right: 80px
+        +r($lg)
+          max-width: 1050px
+        +r($md)
+          max-width: 830px
+        +r(414)
+          max-width: 285px
+          margin-right: 0
+        p
+          font-size: 24px
+          font-weight: normal
+          line-height: 1.8rem
+          letter-spacing: normal
+          color: #4a4a4a
+          +r($lg)
+            font-size: 21px
+          +r($md)
+            font-size: 17px
+          +r($xs)
+            font-size: 16px
+            letter-spacing: 1.6px
+      .heading__buttons
+        +r(900)
+          justify-content: center
+          display: flex
+          flex-direction: column
+        +r($xs)
+          display: none
+        .btn-pdf
+          margin-top: 0
+          margin-bottom: 25px
+    .btn-secondary
+      width: 260px
+      margin-top: 35px
+      +r($lg)
+        width: 240px
+        margin-top: 25px
+      +r($md)
+        width: 190px
+.main-catalog__content
+  background-color: white
+  padding-bottom: 50px
+  +r($xs)
+    margin: 0
+  .container
+    max-width: 1700px
+    width: 100%
+    +r($lg)
+      max-width: 1500px
+    +r($md)
+      display: flex
+      max-width: 90%
+      justify-content: center
+    +r(1439)
+      max-width: 100%
+      width: 100%
+    +r($sm)
+      width: 90%
+    +r($xs)
+      width: 100%
+      flex-direction: column
+      align-items: center
+  .btn-filter
+    display: none
+    +r($xs)
+      display: flex
+      height: 66px
+      width: 100%
+      padding: 25px 40px
+    .span-arrow
+      +r($xs)
+        right: 30px
+    &.is-active
+      border-bottom: solid 1px #e9e9e9
+      .span-text
+        color: $blue
+        font-weight: bold
+  aside
+    width: 450px
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding-left: 40px
+    padding-top: 50px
+    +r($lg)
+      width: 390px
+      padding-right: 35px
+      padding-left: 30px
+    +r($md)
+      width: 260px
+      padding-right: 40px
+      padding-left: 30px
+    +r(900)
+      margin-left: 30px
+    +r($md)
+      width: 260px
+    +r($xs)
+      width: 90%
+      display: none
+    .parameters__card
+      width: 365px
+      min-height: 284px
+      box-shadow: 0 39px 84px 0 rgba(206, 217, 239, 0.24)
+      border-radius: 8px
+      background-color: white
+      margin-bottom: 30px
+      +r($lg)
+        width: 320px
+        box-shadow: 0 28px 60px 0 rgba(206, 217, 239, 0.24)
+        margin-bottom: 25px
+        border-radius: 6px
+      +r($md)
+        margin-bottom: 20px
+        width: 260px
+      +r($xs)
+        display: none
+      .card__heading
+        width: 100%
+        min-height: 85px
+        background-color: #f7f9fc
+        padding: 30px 0 30px 50px
+        border-radius: 8px 8px 0 0
+        +r($lg)
+          min-height: 73px
+          padding: 25px 42px
+          border-radius: 6px 6px 0 0
+        +r($md)
+          min-height: 60px
+          padding: 20px 0 15px 35px
+        h4
+          font-size: 23px
+          font-weight: 600
+          line-height: normal
+          letter-spacing: normal
+          color: #4a4a4a
+          +r($lg)
+            font-size: 20px
+          +r($md)
+            font-size: 16px
+      .card__content
+        padding: 15px 30px 20px 32px
+        +r($lg)
+          padding: 15px 38px 20px 40px
+        .btn-simple
+          border-top: solid 1px $light-blue
+          padding: 15px 0
+          +r($md)
+            padding: 10px 0
+          &:nth-of-type(1)
+            border-top: none
+        .characteristics
+          display: none
+          ul
+            li
+              position: relative
+              margin: 15px 0
+              +r($md)
+                margin: 10px 0
+              a
+                justify-content: flex-start
+                align-items: center
+                font-size: 20px
+                font-weight: 500
+                line-height: normal
+                letter-spacing: normal
+                color: #4a4a4a
+                padding-left: 20px
+                +r($lg)
+                  font-size: 17px
+                +r($md)
+                  font-size: 14px
+    .btn-single-param__heading
+      margin-bottom: 30px
+      +r($md)
+        margin-bottom: 20px
+      +r($xs)
+        margin-bottom: 0
+      &#Dunkermotoren, &#Jianghai
+        display: none
+        +r($xs)
+          display: flex
+        .span-text
+          +r($xs)
+            font-weight: bold
+            width: 220px
+    .single-param__content
+      display: none
+      padding: 0 15px 20px
+      justify-content: center
+      +r($xs)
+        margin-top: 15px
+        border-bottom: solid 1px #e9e9e9
+        width: 90%
+      &#Dunkermotoren__content, &#Jianghai__content
+        display: none
+        +r($xs)
+          flex-direction: column
+          align-items: flex-start
+          padding-left: 0
+          padding-right: 0
+          margin-bottom: 0
+          a
+            font-size: 14px
+            font-weight: normal
+            line-height: normal
+            letter-spacing: normal
+            color: #4a4a4a
+            margin-bottom: 25px
+            position: relative
+            padding-left: 35px
+            &:nth-last-of-type(1)
+              margin-bottom: 0
+            .dot-sm
+              background-color: #e0dfe4
+            &:hover
+              .dot-sm
+                background-color: $blue
+    .checkboxes
+      justify-content: center
+      display: flex
+      padding-left: 65px
+      min-width: 365px
+      +r($lg)
+        padding-left: 80px
+      +r($md)
+        padding-left: 75px
+        min-height: 240px
+      form
+        justify-content: flex-start
+        margin: 0 auto
+        align-items: center
+        flex-wrap: wrap
+        min-width: 365px
+        +r($md)
+          min-width: 240px
+    .range
+      padding-left: 30px
+      min-height: 150px
+      +r($lg)
+        padding-left: 60px
+        min-height: 120px
+      +r($md)
+        padding-left: 45px
+        min-height: 70px
+      +r($xs)
+        display: flex
+        justify-content: center
+        align-items: center
+        padding-left: 0
+      form
+        width: 320px
+        flex-direction: column
+        +r($md)
+          width: 270px
+        .range-numbers
+          display: flex
+          p
+            font-size: 20px
+            font-weight: 500
+            line-height: normal
+            letter-spacing: normal
+            color: #4a4a4a
+            padding: 15px
+            +r($md)
+              font-size: 14px
+    #idle-speed, #idle-speed__content, #rated-speed, #rated-speed__content, #torque, #torque__content, #rated-moment, #rated-moment__content, #power, #power__content, #type, #type__content
+      +r($xs)
+        display: none
+  .products
+    max-width: 1250px
+    display: flex
+    flex-direction: column
+    margin-left: 55px
+    padding-top: 50px
+    +r($lg)
+      max-width: 1058px
+      margin-left: 20px
+    +r($md)
+      max-width: 100%
+      margin-left: 40px
+    +r(1280)
+      max-width: 100%
+    +r($xs)
+      width: 85%
+      padding-bottom: 40px
+    .param
+      display: flex
+      justify-content: center
+      align-items: center
+      height: 97px
+      border-right: solid 1.4px #d2dcf1
+      +r($lg)
+        border-right: solid 1px #ced9ef
+        height: 85px
+      +r($md)
+        height: 70px
+      +r($xs)
+        border-right: solid 1px transparent
+    .series
+      width: 285px
+      display: flex
+      +r($lg)
+        width: 256px
+      +r($md)
+        width: 208px
+        padding-left: 10px
+    .diameter
+      width: 110px
+      +r($lg)
+        width: 95px
+      +r($md)
+        width: 80px
+      +r(800)
+        border-right: none
+      +r($xs)
+        display: none
+    .length
+      width: 110px
+      +r($lg)
+        width: 90px
+      +r($md)
+        width: 70px
+      +r(800)
+        display: none
+      +r(920)
+        border-right: none
+      +r($xs)
+        display: none
+    .voltage
+      width: 150px
+      +r($lg)
+        width: 140px
+      +r($md)
+        width: 110px
+      +r(920)
+        display: none
+      +r(1100)
+        border-right: none
+      +r($xs)
+        display: none
+    .power
+      width: 135px
+      border-right: none !important
+      +r($lg)
+        width: 120px
+      +r($md)
+        width: 100px
+      +r(1270)
+        display: none
+      +r($xs)
+        display: none
+    .moment
+      width: 135px
+      +r($lg)
+        width: 120px
+      +r($md)
+        width: 100px
+      +r(1280)
+        border-right: none
+      +r(1200)
+        display: none
+      +r($xs)
+        display: none
+    .speed
+      width: 135px
+      +r($lg)
+        width: 120px
+      +r($md)
+        width: 100px
+      +r(1100)
+        display: none
+      +r(1200)
+        border-right: none
+      +r($xs)
+        display: none
+    .parameter__names
+      display: flex
+      margin-bottom: 80px
+      +r($lg)
+        margin-bottom: 50px
+      +r($md)
+        margin-bottom: 30px
+      +r($xs)
+        display: none
+      p
+        font-size: 16px
+        font-weight: 500
+        line-height: normal
+        letter-spacing: normal
+        text-align: center
+        color: #4a4a4a
+        +r($lg)
+          font-size: 15px
+        +r($md)
+          font-size: 11px
+    .product__block
+      display: flex
+      flex-direction: column
+      +r($xs)
+        align-items: center
+      &:nth-of-type(4),&:nth-of-type(5)
+        +r($xs)
+          display: none
+      h3
+        font-size: 20px
+        font-weight: 500
+        line-height: normal
+        letter-spacing: 2.0px
+        color: black
+        margin-bottom: 45px
+        text-transform: uppercase
+        +r($lg)
+          font-size: 17px
+          letter-spacing: 1.7px
+          margin-bottom: 40px
+        +r($md)
+          font-size: 14px
+          letter-spacing: 1.4px
+          margin-bottom: 30px
+        +r($xs)
+          width: 290px
+          margin-top: 55px
+          margin-bottom: 25px
+      .product__series
+        display: flex
+        width: 1195px
+        height: 143px
+        border-radius: 6px
+        border: solid 1px #ced9ef
+        margin-bottom: 15px
+        align-items: center
+        position: relative
+        +r($lg)
+          width: 1058px
+          height: 125px
+        +r($md)
+          width: 860px
+          height: 102px
+        +r(1280)
+          width: calc(100% + 70px)
+        +r(1200)
+          width: 100%
+        +r(919)
+          width: 90%
+        +r($xs)
+          max-width: 300px
+          width: 100%
+        &:nth-of-type(4)
+          display: none
+          +r($xs)
+            display: flex
+        .prod__img
+          width: 152px
+          height: 85px
+          margin-left: 10px
+          position: relative
+          +r($lg)
+            width: 135px
+            height: 75px
+            margin-left: 0
+          +r($md)
+            width: 108px
+            height: 60px
+          img
+            position: absolute
+            z-index: -1
+            object-fit: contain
+            width: 100%
+        &:hover
+          box-shadow: 0 28px 60px 0 rgba(206, 217, 239, 0.24), 0 28px 60px 0 rgba(191, 204, 226, 0.24)
+          .btn-next
+            .span-arrow
+              background-color: $blue
+              &:before
+                width: 12px
+                height: 20px
+                background-image: url("/img/btn-arrow.svg")
+                background-repeat: no-repeat
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%) rotate(0)
+                +r($md)
+                  width: 10px
+                  height: 16px
+        .param
+          p
+            font-size: 17px
+            font-weight: normal
+            line-height: normal
+            letter-spacing: normal
+            text-align: center
+            color: #4a4a4a
+            +r($md)
+              font-size: 12px
+          .prod__name
+            margin-left: 15px
+            +r($md)
+              padding-right: 15px
+            p
+              font-size: 25px
+              font-weight: normal
+              line-height: normal
+              letter-spacing: 2.5px
+              color: black
+              text-align: left
+              +r($lg)
+                font-size: 22px
+                letter-spacing: 2.2px
+              +r($md)
+                font-size: 18px
+                letter-spacing: 1.8px
+              span
+                font-size: 17px
+                font-weight: normal
+                line-height: normal
+                letter-spacing: normal
+                text-align: left
+                color: $cloudy-blue
+                +r($lg)
+                  font-size: 15px
+                +r($md)
+                  font-size: 12px
+        .btn-next
+          position: absolute
+          right: 0
+          +r($xs)
+            .span-arrow
+              height: 100px
+              width: 63px
+      .block__bottom
+        display: flex
+        margin: 45px auto 65px
+        +r($md)
+          margin: 15px auto 50px
+        +r(1100)
+          flex-direction: column
+        +r($xs)
+          margin-bottom: 0
+          justify-content: center
+        .btn
+          +r(1100)
+            margin-left: auto
+            margin-right: auto
+        .btn-primary
+          width: 425px
+          +r($lg)
+            width: 376px
+          +r($md)
+            width: 303px
+          +r($xs)
+            background: none
+            text-decoration: underline
+            width: 100%
+            max-width: 300px
+            margin-bottom: 30px
+            height: 15px
+        .btn-next--blue
+          width: 490px
+          margin-left: 50px
+          +r($lg)
+            width: 440px
+            margin-left: 35px
+          +r($md)
+            width: 352px
+            margin-left: 35px
+          +r(1100)
+            margin-left: 0
+            margin-top: 15px
+          +r($xs)
+            max-width: 300px
+            .span-arrow
+              display: none

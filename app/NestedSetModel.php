@@ -5,6 +5,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Kalnoy\Nestedset\NodeTrait;
 
+/**
+ * App\NestedSetModel
+ * @mixin \Eloquent
+ */
 class NestedSetModel extends Model
 {
     use NodeTrait;

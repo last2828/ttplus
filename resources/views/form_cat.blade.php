@@ -21,6 +21,7 @@
 
 <h1>Category hierarchy</h1>
 
+@dd($categories)
 @foreach($categories as $category)
     @if($category->parent_id == null)
         <div>{{ $category->name }}</div>

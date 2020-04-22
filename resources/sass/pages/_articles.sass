@@ -1,0 +1,225 @@
+.articles
+  background-color: #f7f9fc
+  .container
+    flex-direction: column
+    max-width: 1700px
+    padding-left: 50px
+    +r($lg)
+      max-width: 1420px
+      padding-left: 0
+    +r($md)
+      max-width: 1200px
+      padding-left: 0
+    +r(1299)
+      width: 90%
+    +r($xs)
+      width: 80%
+    .breadcrumbs
+      span
+        +r($xs)
+          display: none
+    h2
+      margin-top: 80px
+      +r($md)
+        margin-top: 55px
+      +r($xs)
+        margin-top: 20px
+    .articles__content
+      display: flex
+      justify-content: space-between
+      margin-top: 55px
+      +r($md)
+        margin-top: 40px
+      +r($xs)
+        margin-top: 20px
+      .article
+        max-width: 1070px
+        display: flex
+        flex-direction: column
+        +r($lg)
+          max-width: 930px
+        +r($md)
+          max-width: 760px
+        +r(900)
+          max-width: 50%
+        +r($xs)
+          max-width: 100%
+        .article__image
+          width: 100%
+          height: 100%
+          img
+            object-fit: contain
+            width: 100%
+        .article__text
+          margin-top: 80px
+          +r($lg)
+            margin-top: 70px
+          +r($md)
+            margin-top: 60px
+          +r($xs)
+            margin-top: 40px
+          p
+            margin-bottom: 40px
+            font-size: 23px
+            font-weight: normal
+            line-height: normal
+            letter-spacing: 2.3px
+            color: black
+            +r($lg)
+              font-size: 20px
+              letter-spacing: 2px
+            +r($md)
+              font-size: 16px
+              letter-spacing: 1.6px
+              margin-bottom: 30px
+            +r($xs)
+              font-size: 13px
+              letter-spacing: 1.3px
+            span
+              font-weight: 600
+        h3
+          margin: 40px 0
+          font-size: 23px
+          line-height: normal
+          letter-spacing: 2.3px
+          color: black
+          font-weight: 600
+          +r($lg)
+            font-size: 20px
+            letter-spacing: 2px
+          +r($md)
+            font-size: 16px
+            letter-spacing: 1.6px
+            margin: 30px 0
+          +r($xs)
+            font-size: 13px
+            letter-spacing: 1.3px
+        ul
+          padding-top: 20px
+          padding-bottom: 30px
+          +r($xs)
+            padding-bottom: 0
+          li
+            padding-left: 80px
+            position: relative
+            margin-bottom: 40px
+            +r($lg)
+              padding-left: 60px
+            +r($md)
+              padding-left: 50px
+              margin-bottom: 30px
+            +r($xs)
+              padding-left: 25px
+            p
+              font-size: 23px
+              font-weight: normal
+              line-height: normal
+              letter-spacing: 2.3px
+              color: black
+              +r($lg)
+                font-size: 20px
+                letter-spacing: 2px
+              +r($md)
+                font-size: 16px
+                letter-spacing: 1.6px
+              +r($xs)
+                font-size: 13px
+                letter-spacing: 1.3px
+        .article__bottom
+          display: flex
+          justify-content: space-between
+          align-items: center
+          margin: 65px 0 150px
+          +r($lg)
+            margin-top: 60px
+            margin-bottom: 130px
+          +r($md)
+            margin-top: 50px
+            margin-bottom: 105px
+          +r($xs)
+            margin: 30px 0 55px
+          .span-text
+            +r(900)
+              display: none
+            +r($xs)
+              display: flex
+        hr
+          height: 2px
+          width: 100%
+          background-color: $cloudy-blue
+          border: 1px solid transparent
+          margin: 20px 0 1px
+          +r($md)
+            margin-top: 1px
+      aside
+        max-width: 500px
+        display: flex
+        flex-direction: column
+        +r($md)
+          max-width: 400px
+        +r($xs)
+          display: none
+        .aside-card
+          width: 420px
+          height: 560px
+          border-radius: 8.4px
+          box-shadow: 0 39px 84px 0 rgba(191, 204, 226, 0.24)
+          background-color: white
+          position: relative
+          margin: 0 40px 140px
+          +r($lg)
+            border-radius: 6px
+            box-shadow: 0 28px 60px 0 rgba(191, 204, 226, 0.24)
+            width: 370px
+            height: 492px
+            margin: 0 40px 120px
+          +r($md)
+            border-radius: 6px
+            box-shadow: 0 28px 60px 0 rgba(191, 204, 226, 0.24)
+            width: 300px
+            height: 400px
+            margin: 0 40px 100px
+          .aside-card__image
+            width: 100%
+            +r($md)
+              height: 241px
+            img
+              object-fit: contain
+              width: 100%
+          .aside-card__content
+            padding: 50px 0 90px 55px
+            +r($lg)
+              padding: 40px 0 75px 50px
+            +r($md)
+              padding: 35px 0 60px 40px
+            p
+              width: 320px
+              font-size: 21px
+              font-weight: normal
+              line-height: 28px
+              letter-spacing: 2.1px
+              color: black
+              +r($lg)
+                font-size: 18px
+                letter-spacing: 1.8px
+                line-height: 24px
+                width: 280px
+              +r($md)
+                font-size: 15px
+                letter-spacing: 1.5px
+                line-height: 20px
+                width: 228px
+              span
+                font-weight: 600
+          .btn-primary
+            width: 225px
+            position: absolute
+            bottom: -45px
+            left: 50%
+            transform: translate(-50%, 0)
+            +r($lg)
+              width: 195px
+              bottom: -40px
+            +r($md)
+              width: 160px
+              bottom: -32px

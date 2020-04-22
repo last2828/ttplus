@@ -1,0 +1,90 @@
+.about
+  margin-top: 40px
+  .container
+    flex-direction: column
+    .about__content
+      display: flex
+      justify-content: space-between
+      +r(1099)
+        flex-direction: column
+      .about__block-text
+        width: 715px
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        margin-top: 55px
+        margin-bottom: 35px
+        margin-right: 95px
+        +r($lg)
+          width: 620px
+          margin-right: 80px
+        +r($md)
+          width: 515px
+        +r(1099)
+          width: 100%
+        +r($xs)
+          width: 100%
+          margin-top: 30px
+          margin-right: 0
+        p
+          padding-bottom: 40px
+          font-weight: normal
+          line-height: 2.2rem
+          font-size: 24px
+          +r($lg)
+            font-size: 21px
+            line-height: 28px
+            padding-bottom: 30px
+          +r($md)
+            font-size: 17px
+            line-height: 24px
+            padding-bottom: 30px
+          +r($xs)
+            font-size: 15px
+            line-height: 22px
+        .btn
+          margin-top: 30px
+      .about__cards
+        max-width: 790px
+        width: 100%
+        display: flex
+        flex-wrap: wrap
+        padding-bottom: 50px
+        padding-right: 40px
+        +r($lg)
+          padding-bottom: 40px
+          max-width: 700px
+          padding-right: 0
+        +r($md)
+          padding-bottom: 40px
+          max-width: 570px
+          padding-right: 40px
+        +r(1099)
+          display: none
+.swiper-about-cards
+  display: none
+  +r(1099)
+    display: block
+    width: 100%
+    height: 100%
+    padding-left: 30px
+    margin-bottom: 55px
+  .swiper-slide
+    box-shadow: 0 28px 60px 0 rgba(206, 217, 239, 0.24)
+    width: 255px
+    height: 265px
+    margin: 20px 20px 30px 0
+    .about__card
+      width: 255px
+      height: 265px
+      padding: 0
+      .card__content
+        padding: 35px 45px
+  &-pagination
+    bottom: 0
+  .swiper-pagination-bullet
+    width: 60px
+    height: 3px
+    margin-right: 15px
+    border-radius: 1.5px
+    background-color: #c4d2ec

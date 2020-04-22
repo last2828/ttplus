@@ -1,0 +1,13 @@
+<svg width="375" height="959" viewBox="0 0 375 959" xmlns="http://www.w3.org/2000/svg">
+    <title>
+        Group 2
+    </title>
+    <g transform="translate(-300 -15)" fill="none" fill-rule="evenodd">
+        <ellipse fill-opacity=".169" fill="#CED9EF" cx="487.5" cy="487" rx="487.5" ry="487"/>
+        <ellipse fill-opacity=".103" fill="#CED9EF" cx="487.5" cy="460" rx="226.5" ry="226"/>
+        <ellipse stroke-opacity=".498" stroke="#E8EBF1" cx="487.5" cy="460.5" rx="266.5" ry="265.5"/>
+        <ellipse stroke-opacity=".3" stroke="#E8EBF1" cx="487.5" cy="460.5" rx="303.5" ry="302.5"/>
+        <ellipse fill-opacity=".149" fill="#CED9EF" cx="487.5" cy="460.5" rx="179.5" ry="178.5"/>
+        <ellipse fill-opacity=".179" fill="#CED9EF" cx="487" cy="460.5" rx="128" ry="127.5"/>
+    </g>
+</svg>

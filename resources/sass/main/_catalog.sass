@@ -1,0 +1,158 @@
+.catalog
+  margin-top: 10px
+  .container
+    flex-direction: column
+    +r($xs)
+      width: 100%
+    .heading
+      +r($md)
+        margin-top: 30px
+      +r($xs)
+        margin-top: 15px
+        margin-left: 40px
+    .catalog__content
+      display: flex
+      justify-content: center
+      align-items: flex-start
+      padding: 0 40px 70px
+      +r($lg)
+        padding-bottom: 0
+      +r($md)
+        padding-bottom: 40px
+      +r($xs)
+        flex-direction: column
+        align-items: center
+        padding: 0 25px 60px
+      .catalog-card
+        max-width: 702px
+        width: 50%
+        margin: 200px 0 80px
+        background-color: white
+        z-index: 1
+        padding-top: 240px
+        position: relative
+        border: solid 1px transparent
+        border-radius: 8.4px
+        box-shadow: 0 39px 84px 0 rgba(191, 204, 226, 0.24)
+        +r($lg)
+          max-width: 615px
+          border-radius: 6px
+          box-shadow: 0 28px 60px 0 rgba(191, 204, 226, 0.24)
+          padding-top: 208px
+          margin-top: 170px
+        +r($md)
+          max-width: 500px
+          padding-top: 180px
+          margin-top: 140px
+        +r($xs)
+          border: solid 1px #ced9ef
+          width: 100%
+          max-width: 300px
+          padding-top: 120px
+          margin: 70px 0 0
+          padding-left: 15px
+          padding-right: 15px
+        &:hover
+          border: solid 1.4px #ced9ef
+          +r($md)
+            border: solid 1px $light-blue
+        &:nth-of-type(1)
+          margin-right: 50px
+          +r($md)
+            margin-right: 40px
+          +r($xs)
+            margin-right: 0
+          .card__image
+            width: 506px
+            height: 280px
+            top: -100px
+            +r($lg)
+              width: 443px
+              height: 245px
+            +r($md)
+              width: 360px
+              height: 200px
+            +r($xs)
+              width: 218px
+              height: 120px
+              top: -35px
+        &:nth-of-type(2)
+          padding-top: 320px
+          +r($lg)
+            padding-top: 280px
+          +r($md)
+            padding-top: 240px
+          +r($xs)
+            padding-top: 120px
+          .card__image
+            width: 370px
+            height: 295px
+            top: -80px
+            +r($lg)
+              width: 330px
+              height: 265px
+              top: -60px
+            +r($md)
+              width: 268px
+              height: 214px
+              top: -60px
+            +r($xs)
+              width: 160px
+              height: 130px
+              top: -40px
+        .card__image
+          position: absolute
+          left: 50%
+          transform: translate(-50%, 0)
+          img
+            width: 100%
+            object-fit: cover
+        .card__content
+          display: flex
+          text-align: center
+          justify-content: center
+          margin: 0 auto
+          p
+            font-size: 32.3px
+            line-height: normal
+            letter-spacing: 3.23px
+            width: 511px
+            font-weight: normal
+            text-align: center
+            color: black
+            +r($lg)
+              width: 447px
+              font-size: 28px
+              letter-spacing: 2.8px
+            +r($md)
+              width: 365px
+              font-size: 23px
+              letter-spacing: 2.3px
+            +r($xs)
+              font-size: 17px
+              letter-spacing: 1.7px
+            span
+              font-weight: 600
+        .card__bottom
+          display: flex
+          justify-content: center
+          padding-top: 65px
+          padding-bottom: 40px
+          +r($md)
+            padding-top: 45px
+            padding-bottom: 30px
+          +r(1100)
+            align-items: center
+            flex-direction: column
+          +r($xs)
+            justify-content: flex-start
+          .btn-secondary
+            +r($xs)
+              margin-left: 30px
+          .btn-primary
+            margin-right: 15px
+            +r(1100)
+              margin-bottom: 15px
+              margin-right: 0
+            +r($xs)
+              display: none
