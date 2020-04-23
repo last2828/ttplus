@@ -65,14 +65,13 @@
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="kt_tabs_1_1" role="tabpanel">
                                                 <div class="form-group row">
-                                                    <label>Название товара</label>
+                                                    <label>Название товара*</label>
                                                     <div class="col-lg-12 col-md-9 col-sm-12">
-                                                        <input type="text" class="form-control" aria-describedby="" placeholder="Название товара" name="name">
-                                                        @if($errors->has('name'))
-                                                            <div class="alert alert-outline-danger fade show" role="alert">
-                                                                <div class="">{{ $errors->first('name') }}</div>
-                                                            </div>
-                                                        @endif
+                                                        <input type="text"
+                                                               class="form-control {{($errors->has('name')) ? 'alert alert-outline-danger fade show' : ''}}"
+                                                               role="alert"
+                                                               aria-describedby=""
+                                                               placeholder="{{ ($errors->has('name')) ? $errors->first('name') : 'Название товара' }}" name="name">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -105,16 +104,14 @@
                                             </div>
                                             <div class="tab-pane" id="kt_tabs_1_2" role="tabpanel">
                                                 <div class="form-group row">
-                                                    <label>Код товара</label>
+                                                    <label>Код товара*</label>
                                                     <div class="col-lg-12 col-md-9 col-sm-12">
-                                                        <input type="text" class="form-control" aria-describedby="" placeholder="Код товара" name="model">
-                                                        @if($errors->has('model'))
-
-                                                            <div class="alert alert-outline-danger fade show" role="alert">
-                                                                <div class="">{{ $errors->first('model') }}</div>
-                                                            </div>
-
-                                                        @endif
+                                                            <input type="text"
+                                                                   class="form-control {{($errors->has('model')) ? 'alert alert-outline-danger fade show' : ''}}"
+                                                                   role="alert"
+                                                                   aria-describedby=""
+                                                                   placeholder="{{ ($errors->has('model')) ? $errors->first('model') : 'Код товара'}}"
+                                                                   name="model">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -130,7 +127,11 @@
                                                 <div class="form-group row">
                                                     <label>Slug</label>
                                                     <div class="col-lg-12 col-md-9 col-sm-12">
-                                                        <input type="text" class="form-control" aria-describedby="" placeholder="slug" name="slug">
+                                                        <input type="text"
+                                                               class="form-control {{($errors->has('slug')) ? 'alert alert-outline-danger fade show' : ''}}"
+                                                               role="alert"
+                                                               aria-describedby=""
+                                                               placeholder="{{ ($errors->has('slug')) ? $errors->first('slug') : 'slug' }}" name="slug">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -145,10 +146,10 @@
                                             </div>
                                             <div class="tab-pane" id="kt_tabs_1_3" role="tabpanel">
                                                 <div class="form-group row">
-                                                    <label class="col-form-label col-lg-3 col-sm-12">Главная категория</label>
+                                                    <label class="col-form-label col-lg-3 col-sm-12">Главная категория*</label>
                                                     <div class="col-lg-4 col-md-9 col-sm-12">
                                                         <select class="form-control kt-select2" id="kt_select2_2" name="category_id">
-                                                            <option selected value="null">Не выбрано</option>
+                                                            <option selected value="null">{{ ($errors->has('category_id')) ? $errors->first('category_id') : 'Не выбрано'}}</option>
                                                             @foreach($categories as $category):
                                                             <option value="{{$category->id}}">{{$category->name}}</option>
                                                             @endforeach
@@ -156,14 +157,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label class="col-form-label col-lg-3 col-sm-12">Группа товаров</label>
+                                                    <label class="col-form-label col-lg-3 col-sm-12">Группа товаров*</label>
                                                     <div class="col-lg-4 col-md-9 col-sm-12">
                                                         <div class="input-group flex-nowrap mb-3">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text" id="basic-addon1"><i class="flaticon2-graph-2"></i></span>
                                                             </div>
                                                             <select class="form-control kt-select2" id="kt_select2_group_1" name="group_id">
-                                                                <option selected value="null">Не выбрано</option>
+                                                                <option selected value="null">{{ ($errors->has('group_id')) ? $errors->first('group_id') : 'Не выбрано'}}</option>
                                                                 @foreach($groups as $group):
                                                                 <option value="{{$group->id}}">{{$group->name}}</option>
                                                                 @endforeach
@@ -182,7 +183,7 @@
                                                                     <div class="kt-form__group--inline">
                                                                         <div class="kt-form__control">
                                                                             <select name="attribute_id" class="form-control">
-                                                                                <option selected value="null">Выберите значение</option>
+                                                                                <option selected value="null">{{ ($errors->has('attributes.*.attribute_id')) ? $errors->first('attributes.*.attribute_id') : 'Выберите значение'}}</option>
                                                                                 @foreach($attributes as $attribute)
                                                                                     <option value="{{$attribute->id}}">{{$attribute->name}}</option>
                                                                                 @endforeach
@@ -193,7 +194,11 @@
                                                                 <div class="col-md-4">
                                                                     <div class="kt-form__group--inline">
                                                                         <div class="kt-form__control">
-                                                                            <input type="text" class="form-control" placeholder="Введите значение характеристики" name="value">
+                                                                            <input type="text"
+                                                                                   class="form-control {{($errors->has('attributes.*.value')) ? 'alert alert-outline-danger fade show' : ''}}"
+                                                                                   role="alert"
+                                                                                   placeholder="{{ ($errors->has('attributes.*.value')) ? $errors->first('attributes.*.value') : 'Введите значение характеристики'}}"
+                                                                                   name="value">
                                                                         </div>
                                                                     </div>
                                                                 </div>

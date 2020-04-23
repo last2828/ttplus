@@ -26,7 +26,12 @@ class ProductValidator extends FormRequest
         return [
             'name' => 'required|unique:products|max:255',
             'model' => 'required|unique:products|max:255',
-            'slug' => 'required|unique:products'
+            'slug' => 'unique:products',
+            'attributes.*.value' => 'required',
+            'attributes.*.attribute_id' => 'not_in:null',
+            'attributes_old.*.value' => 'required',
+            'group_id' => 'not_in:null',
+            'category_id' => 'not_in:null',
         ];
     }
 
@@ -42,7 +47,12 @@ class ProductValidator extends FormRequest
             'name.unique' => 'Товар с таким названием уже существует',
             'model.required' => 'Введите код товара',
             'model.unique' => '"Код товара"" должен быть уникальным',
-            'slug.required' => 'На русском нельзя'
+            'slug.unique' => 'Введите уникальное значение',
+            'attributes.*.value.required' => 'Значение не может быть пустым',
+            'attributes.*.attribute_id.not_in' => 'Выберите характеристику',
+            'attributes_old.*.value.required' => 'Значение не может быть пустым',
+            'group_id.not_in' => 'Выберите группу товаров',
+            'category_id.not_in' => 'Выберите категорию',
         ];
     }
 

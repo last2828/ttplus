@@ -59,6 +59,7 @@ class ProductController extends Controller
      */
     public function store(ProductValidator $request)
     {
+//        dd($request->all());
         $request->validated();
         $fields = $request->toArray();
 
@@ -79,11 +80,12 @@ class ProductController extends Controller
 
         $product = Product::create($fields);
 
-        if($product['group_id'] != null){
+        if($fields['group_id'] != null){
             $groupFields = [
                 'product_id' => $product->id,
                 'group_id' => $fields['group_id']
             ];
+
             ProductGroup::create($groupFields);
         }
 
@@ -127,7 +129,8 @@ class ProductController extends Controller
                 'categories' => ProductCategory::all(),
                 'groups' => Group::all(),
                 'attributes' => Attribute::all(),
-                'productAttributes' => ProductAttribute::where('product_id', $id)->with('attribute')->get()
+                'productAttributes' => ProductAttribute::where('product_id', $id)->with('attribute')->get(),
+                'productGroup' => ProductGroup::where('product_id', $id)->with('group')->first()
             ]
         );
     }
@@ -135,12 +138,12 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  ProductValidator $request
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductValidator $request, $id)
     {
+        $request->validated();
         $fields = $request->toArray();
 
         // check slug
@@ -163,20 +166,14 @@ class ProductController extends Controller
         elseif($fields['group_id'] != null)
         {
             $data = [
-                'product_id' => $id,
                 'group_id' => $fields['group_id']
             ];
-
             ProductGroup::where('product_id', $id)->update($data);
         }
 
         // updating attributes fields in db
         if(!empty($fields['attributes_old'])) {
             foreach($fields['attributes_old'] as $key => $attributesFields) {
-
-                if($attributesFields['value'] == 'null'){
-                    return redirect()->back()->withErrors();
-                }
 
                 $attributesFields['product_id'] = $id;
 
@@ -186,10 +183,6 @@ class ProductController extends Controller
 
         if(!empty($fields['attributes'])){
             foreach($fields['attributes'] as $key => $attributesFields) {
-
-                if($attributesFields['value'] == 'null'){
-                    return redirect()->back()->withErrors();
-                }
 
                 $attributesFields['product_id'] = $id;
 
