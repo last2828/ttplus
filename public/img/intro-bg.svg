@@ -1,0 +1,12 @@
+<svg width="1366" height="1102" viewBox="0 0 1366 1102" xmlns="http://www.w3.org/2000/svg">
+    <title>
+        графика(экран 1)
+    </title>
+    <g transform="translate(-133 -541)" fill="none" fill-rule="evenodd">
+        <circle fill-opacity=".169" fill="#CED9EF" cx="821.5" cy="821.5" r="821.5"/>
+        <circle fill-opacity=".103" fill="#CED9EF" cx="963" cy="916" r="381"/>
+        <ellipse stroke-opacity=".498" stroke="#E8EBF1" cx="963" cy="915.5" rx="448" ry="447.5"/>
+        <ellipse stroke-opacity=".3" stroke="#E8EBF1" cx="963" cy="915.5" rx="511" ry="510.5"/>
+        <circle fill-opacity=".149" fill="#CED9EF" cx="963" cy="916" r="303"/>
+    </g>
+</svg>

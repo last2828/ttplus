@@ -56,7 +56,7 @@
       font-size: 13px
       letter-spacing: 1.3px
       font-weight: normal
-    span
+    b
       font-weight: 600
     &.partners
       max-width: 984px
@@ -105,7 +105,7 @@
       position: absolute
       width: 100px
       height: 70px
-      background-image: url("/img/quotes.svg")
+      background-image: url("../img/quotes.svg")
       background-repeat: no-repeat
       background-size: contain
       left: 40px
@@ -136,120 +136,96 @@
         margin: 50px 30px
       +r($xs)
         margin: 40px 20px 35px 35px
-  .about__years
+  .about__year
+    min-height: 286px
     display: flex
-    justify-content: space-between
-    margin-top: 65px
-    align-items: stretch
+    flex-direction: column
+    justify-content: center
+    border-radius: 5px
+    border: solid 1px #b1bdd4
+    padding: 70px 0 90px 85px
     +r($lg)
-      margin-top: 55px
+      padding: 60px 0 80px 70px
     +r($md)
-      margin-top: 45px
+      padding: 50px 0 40px 60px
+    +r(1210)
+      padding: 45px 30px 35px
+      margin-bottom: 25px
     +r($xs)
-      flex-direction: column
-      align-items: center
-      margin-top: 25px
-    .about__year
-      width: 500px
-      min-height: 286px
+      width: 100%
+      max-width: 300px
+      min-height: 100%
+    .year
+      font-size: 46px
+      letter-spacing: 4.6px
+      font-weight: bold
+      line-height: normal
+      color: $blue
+      margin-bottom: 35px
+      +r($lg)
+        font-size: 40px
+        letter-spacing: 4px
+        margin-bottom: 25px
+      +r($md)
+        font-size: 33px
+        letter-spacing: 3.3px
+      +r($xs)
+        font-size: 27px
+        letter-spacing: 2.7px
+        margin-bottom: 20px
+  .about__block
+    margin-top: 45px
+    width: 100%
+    border-radius: 7px
+    border: solid 1.4px #b1bdd4
+    padding: 110px
+    +r($lg)
+      padding: 95px 155px
+    +r($md)
+      margin-top: 35px
       border-radius: 5px
       border: solid 1px #b1bdd4
-      padding: 70px 0 90px 85px
-      +r($lg)
-        width: 440px
-        padding: 60px 0 80px 70px
-      +r($md)
-        width: 360px
-        padding: 50px 0 40px 60px
-      +r(1210)
-        width: 32%
-        padding: 45px 30px 35px
-        margin-bottom: 25px
-      +r($xs)
-        width: 100%
-        max-width: 300px
-        min-height: 100%
-      .year
-        font-size: 46px
-        letter-spacing: 4.6px
-        font-weight: bold
-        line-height: normal
-        color: $blue
-        margin-bottom: 35px
-        +r($lg)
-          font-size: 40px
-          letter-spacing: 4px
-          margin-bottom: 25px
-        +r($md)
-          font-size: 33px
-          letter-spacing: 3.3px
-        +r($xs)
-          font-size: 27px
-          letter-spacing: 2.7px
-          margin-bottom: 20px
-      p
-        max-width: 371px
-        +r($lg)
-          max-width: 325px
-        +r($md)
-          max-width: 264px
-  .about__blocks
-    margin-bottom: 145px
-    +r($md)
-      margin-bottom: 105px
+      padding: 65px 45px
     +r($xs)
-      margin-bottom: 50px
-    .about__block
-      margin-top: 45px
-      width: 100%
-      border-radius: 7px
-      border: solid 1.4px #b1bdd4
-      padding: 110px
-      +r($lg)
-        padding: 95px 155px
-      +r($md)
-        margin-top: 35px
-        border-radius: 5px
-        border: solid 1px #b1bdd4
-        padding: 65px 45px
-      +r($xs)
-        margin-top: 0
-        padding: 35px
-      &:nth-of-type(1)
-        h4
-          padding-bottom: 25px
-      &:nth-of-type(2), &:nth-of-type(3)
-        +r($xs)
-          display: none
+      margin-top: 0
+      padding: 35px
+    &:nth-of-type(1)
       h4
-        font-weight: bold
-        margin: 0 auto
-        max-width: 1270px
-        font-size: 23px
-        line-height: normal
-        letter-spacing: 2.3px
-        color: black
-        +r($lg)
-          font-size: 20px
-          letter-spacing: 2px
-        +r($md)
-          max-width: 890px
-          font-size: 16px
-          letter-spacing: 1.6px
-        +r($xs)
-          font-size: 13px
-          letter-spacing: 1.3px
-      p
-        margin: 0 auto 20px
-        max-width: 1270px
-        line-height: 30px
-        +r($lg)
-          line-height: 28px
-        +r($md)
-          max-width: 890px
-          line-height: 22px
-        +r($xs)
-          margin: 0
+        padding-bottom: 25px
+    &:nth-of-type(2), &:nth-of-type(3)
+      +r($xs)
+        display: none
+    h4
+      font-weight: bold
+      margin: 0 auto
+      max-width: 1270px
+      font-size: 23px
+      line-height: normal
+      letter-spacing: 2.3px
+      color: black
+      +r($lg)
+        font-size: 20px
+        letter-spacing: 2px
+      +r($md)
+        max-width: 890px
+        font-size: 16px
+        letter-spacing: 1.6px
+      +r($xs)
+        font-size: 13px
+        letter-spacing: 1.3px
+    p
+      margin: 0 auto 20px
+      max-width: 1270px
+      line-height: 30px
+      +r($lg)
+        line-height: 28px
+      +r($md)
+        max-width: 890px
+        line-height: 22px
+      +r($xs)
+        margin: 0
+
+  
 .about__documents
   display: flex
   flex-direction: column
@@ -361,3 +337,8 @@
       border-radius: 1.5px
       background-color: #c4d2ec
 
+
+.row-2
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between

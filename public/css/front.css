@@ -931,7 +931,8 @@ button.swiper-pagination-bullet {
   }
 }
 
-.header .container .menu ul li a:hover {
+.header .container .menu ul li a:hover,
+.header .container .menu ul li a.active {
   color: #2468eb;
 }
 
@@ -3741,6 +3742,35 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   padding-left: 25px;
 }
 
+#title,
+#text,
+#category,
+#video,
+.card-1,
+.card-2,
+#about_heading,
+#about_text {
+  opacity: 0;
+}
+
+.card-1 {
+  transform: translateY(-100px);
+}
+
+.card-2 {
+  transform: translateY(100px);
+}
+
+#button-1,
+#button-2,
+#image {
+  transform: scale(0);
+}
+
+#bg {
+  opacity: 0;
+}
+
 .about-page {
   background-color: #f7f9fc;
 }
@@ -3852,7 +3882,7 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   }
 }
 
-.about-page p span {
+.about-page p b {
   font-weight: 600;
 }
 
@@ -3944,7 +3974,7 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   position: absolute;
   width: 100px;
   height: 70px;
-  background-image: url("/img/quotes.svg");
+  background-image: url(/images/quotes.svg?bc81b5ece52c1fee2f129c827ea8f005);
   background-repeat: no-repeat;
   background-size: contain;
   left: 40px;
@@ -4007,72 +4037,44 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   }
 }
 
-.about-page .about__years {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 65px;
-  align-items: stretch;
-}
-
-@media only screen and (max-width: 1919px) {
-  .about-page .about__years {
-    margin-top: 55px;
-  }
-}
-
-@media only screen and (max-width: 1679px) {
-  .about-page .about__years {
-    margin-top: 45px;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  .about-page .about__years {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 25px;
-  }
-}
-
-.about-page .about__years .about__year {
-  width: 500px;
+.about-page .about__year {
   min-height: 286px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border-radius: 5px;
   border: solid 1px #b1bdd4;
   padding: 70px 0 90px 85px;
 }
 
 @media only screen and (max-width: 1919px) {
-  .about-page .about__years .about__year {
-    width: 440px;
+  .about-page .about__year {
     padding: 60px 0 80px 70px;
   }
 }
 
 @media only screen and (max-width: 1679px) {
-  .about-page .about__years .about__year {
-    width: 360px;
+  .about-page .about__year {
     padding: 50px 0 40px 60px;
   }
 }
 
 @media only screen and (max-width: 1210px) {
-  .about-page .about__years .about__year {
-    width: 32%;
+  .about-page .about__year {
     padding: 45px 30px 35px;
     margin-bottom: 25px;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .about-page .about__years .about__year {
+  .about-page .about__year {
     width: 100%;
     max-width: 300px;
     min-height: 100%;
   }
 }
 
-.about-page .about__years .about__year .year {
+.about-page .about__year .year {
   font-size: 46px;
   letter-spacing: 4.6px;
   font-weight: bold;
@@ -4082,7 +4084,7 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
 }
 
 @media only screen and (max-width: 1919px) {
-  .about-page .about__years .about__year .year {
+  .about-page .about__year .year {
     font-size: 40px;
     letter-spacing: 4px;
     margin-bottom: 25px;
@@ -4090,53 +4092,21 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
 }
 
 @media only screen and (max-width: 1679px) {
-  .about-page .about__years .about__year .year {
+  .about-page .about__year .year {
     font-size: 33px;
     letter-spacing: 3.3px;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .about-page .about__years .about__year .year {
+  .about-page .about__year .year {
     font-size: 27px;
     letter-spacing: 2.7px;
     margin-bottom: 20px;
   }
 }
 
-.about-page .about__years .about__year p {
-  max-width: 371px;
-}
-
-@media only screen and (max-width: 1919px) {
-  .about-page .about__years .about__year p {
-    max-width: 325px;
-  }
-}
-
-@media only screen and (max-width: 1679px) {
-  .about-page .about__years .about__year p {
-    max-width: 264px;
-  }
-}
-
-.about-page .about__blocks {
-  margin-bottom: 145px;
-}
-
-@media only screen and (max-width: 1679px) {
-  .about-page .about__blocks {
-    margin-bottom: 105px;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  .about-page .about__blocks {
-    margin-bottom: 50px;
-  }
-}
-
-.about-page .about__blocks .about__block {
+.about-page .about__block {
   margin-top: 45px;
   width: 100%;
   border-radius: 7px;
@@ -4145,13 +4115,13 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
 }
 
 @media only screen and (max-width: 1919px) {
-  .about-page .about__blocks .about__block {
+  .about-page .about__block {
     padding: 95px 155px;
   }
 }
 
 @media only screen and (max-width: 1679px) {
-  .about-page .about__blocks .about__block {
+  .about-page .about__block {
     margin-top: 35px;
     border-radius: 5px;
     border: solid 1px #b1bdd4;
@@ -4160,24 +4130,24 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
 }
 
 @media only screen and (max-width: 767px) {
-  .about-page .about__blocks .about__block {
+  .about-page .about__block {
     margin-top: 0;
     padding: 35px;
   }
 }
 
-.about-page .about__blocks .about__block:nth-of-type(1) h4 {
+.about-page .about__block:nth-of-type(1) h4 {
   padding-bottom: 25px;
 }
 
 @media only screen and (max-width: 767px) {
-  .about-page .about__blocks .about__block:nth-of-type(2),
-  .about-page .about__blocks .about__block:nth-of-type(3) {
+  .about-page .about__block:nth-of-type(2),
+  .about-page .about__block:nth-of-type(3) {
     display: none;
   }
 }
 
-.about-page .about__blocks .about__block h4 {
+.about-page .about__block h4 {
   font-weight: bold;
   margin: 0 auto;
   max-width: 1270px;
@@ -4188,14 +4158,14 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
 }
 
 @media only screen and (max-width: 1919px) {
-  .about-page .about__blocks .about__block h4 {
+  .about-page .about__block h4 {
     font-size: 20px;
     letter-spacing: 2px;
   }
 }
 
 @media only screen and (max-width: 1679px) {
-  .about-page .about__blocks .about__block h4 {
+  .about-page .about__block h4 {
     max-width: 890px;
     font-size: 16px;
     letter-spacing: 1.6px;
@@ -4203,33 +4173,33 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
 }
 
 @media only screen and (max-width: 767px) {
-  .about-page .about__blocks .about__block h4 {
+  .about-page .about__block h4 {
     font-size: 13px;
     letter-spacing: 1.3px;
   }
 }
 
-.about-page .about__blocks .about__block p {
+.about-page .about__block p {
   margin: 0 auto 20px;
   max-width: 1270px;
   line-height: 30px;
 }
 
 @media only screen and (max-width: 1919px) {
-  .about-page .about__blocks .about__block p {
+  .about-page .about__block p {
     line-height: 28px;
   }
 }
 
 @media only screen and (max-width: 1679px) {
-  .about-page .about__blocks .about__block p {
+  .about-page .about__block p {
     max-width: 890px;
     line-height: 22px;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .about-page .about__blocks .about__block p {
+  .about-page .about__block p {
     margin: 0;
   }
 }
@@ -4448,6 +4418,12 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   height: 3px;
   border-radius: 1.5px;
   background-color: #c4d2ec;
+}
+
+.row-2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .contacts {
@@ -8901,35 +8877,38 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   }
 }
 
-.bg {
+.bg_div {
   background-image: url("/img/intro-bg-lg.svg");
   background-position-y: -210px;
+  height: 2086px;
+  position: absolute !important;
   width: 100%;
   background-repeat: no-repeat;
   background-size: contain;
   position: relative;
+  transform-origin: center;
 }
 
 @media only screen and (max-width: 1919px) {
-  .bg {
+  .bg_div {
     background-position-y: -190px;
   }
 }
 
 @media only screen and (max-width: 1500px) {
-  .bg {
+  .bg_div {
     background-position-y: -140px;
   }
 }
 
 @media only screen and (max-width: 1440px) {
-  .bg {
+  .bg_div {
     background-position-y: -75px;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .bg {
+  .bg_div {
     background-image: url("/img/intro-bg-sm.svg");
   }
 }

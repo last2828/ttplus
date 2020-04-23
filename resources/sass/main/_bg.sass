@@ -1,15 +1,20 @@
 .bg
-  background-image: url("/img/intro-bg-lg.svg")
-  background-position-y: -210px
-  width: 100%
-  background-repeat: no-repeat
-  background-size: contain
-  position: relative
-  +r($lg)
-    background-position-y: -190px
-  +r(1500)
-    background-position-y: -140px
-  +r(1440)
-    background-position-y: -75px
-  +r($xs)
-    background-image: url("/img/intro-bg-sm.svg")
+  &_div
+    background-image: url("/img/intro-bg-lg.svg")
+    background-position-y: -210px
+    height: 2086px
+    position: absolute !important
+    width: 100%
+    background-repeat: no-repeat
+    background-size: contain
+    position: relative
+    transform-origin: center
+    // opacity: 0
+    +r($lg)
+      background-position-y: -190px
+    +r(1500)
+      background-position-y: -140px
+    +r(1440)
+      background-position-y: -75px
+    +r($xs)
+      background-image: url("/img/intro-bg-sm.svg")

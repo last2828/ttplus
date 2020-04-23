@@ -24,16 +24,18 @@
                 <div class="kt-portlet__body">
                   <div id="gjs">
                     {!! $html->value !!}
+                    <style>{{$css->value}}</style>
                   </div>
                   
                 </div>
                 
                 <div class="kt-portlet__foot">
                   <div class="kt-form__actions">
-                    <form action="{{route('about.update')}}" method="POST">
+                    <form class="html_form" action="{{route('about.update')}}" method="POST">
                       @csrf
                       @method('PUT')
                       <input type="hidden" name="html" class="html">
+                      <input type="hidden" name="css" class="css">
                       <button type="submit" class="btn btn-primary">Сохранить</button>
                     </form>
                   </div>
