@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\admin\catalog;
 
-use App\Attribute;
 use App\Group;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\ProductValidator;
 use App\Product;
-use App\ProductAttribute;
-use App\ProductCategory;
-use App\ProductGroup;
-use Illuminate\Http\Request;
+use App\Attribute;
 use Transliterate;
+use App\ProductGroup;
+use App\ProductCategory;
+use App\ProductAttribute;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Route;
+use App\Http\Requests\ProductValidator;
 
 class ProductController extends Controller
 {
@@ -29,7 +30,7 @@ class ProductController extends Controller
         return view(
             'admin.product.catalog',
             [
-                'products' => $products
+                'products' => $products,
             ]
         );
     }
@@ -42,11 +43,12 @@ class ProductController extends Controller
     public function create()
     {
         return view(
-          'admin.product.create-product',
+          'admin.product.create',
           [
               'categories' => ProductCategory::all(),
               'groups' => Group::all(),
-              'attributes' => Attribute::all()
+              'attributes' => Attribute::all(),
+              'route' => Route::currentRouteName()
           ]
         );
     }
@@ -123,9 +125,10 @@ class ProductController extends Controller
     public function edit($id)
     {
         return view(
-            'admin.product.edit-product',
+            'admin.product.edit',
             [
                 'product' => Product::find($id),
+                'route' => Route::currentRouteName(),
                 'categories' => ProductCategory::all(),
                 'groups' => Group::all(),
                 'attributes' => Attribute::all(),

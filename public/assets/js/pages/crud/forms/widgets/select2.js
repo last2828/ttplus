@@ -4,28 +4,28 @@ var KTSelect2 = function() {
     var demos = function() {
         // basic
         $('#kt_select2_1, #kt_select2_1_validate').select2({
-            placeholder: "Select a state"
+            placeholder: "Выберите значение"
         });
 
         // nested
         $('#kt_select2_2, #kt_select2_2_validate').select2({
-            placeholder: "Select a state"
+            placeholder: "Выберите значение"
         });
 
         // multi select
         $('#kt_select2_3, #kt_select2_3_validate').select2({
-            placeholder: "Select a state",
+            placeholder: "Выберите значение",
         });
 
         // basic
         $('#kt_select2_4').select2({
-            placeholder: "Select a state",
+            placeholder: "Выберите значение",
             allowClear: true
         });
 
         // group input
         $('#kt_select2_group_1, #kt_select2_group_2').select2({
-            placeholder: "Select a state"
+            placeholder: "Выберите значение"
         });
 
         // loading data from array
@@ -156,22 +156,22 @@ var KTSelect2 = function() {
         $('#kt_select2_modal').on('shown.bs.modal', function () {
             // basic
             $('#kt_select2_1_modal').select2({
-                placeholder: "Select a state"
+                placeholder: "Выберите значение"
             });
 
             // nested
             $('#kt_select2_2_modal').select2({
-                placeholder: "Select a state"
+                placeholder: "Выберите значение"
             });
 
             // multi select
             $('#kt_select2_3_modal').select2({
-                placeholder: "Select a state",
+                placeholder: "Выберите значение",
             });
 
             // basic
             $('#kt_select2_4_modal').select2({
-                placeholder: "Select a state",
+                placeholder: "Выберите значение",
                 allowClear: true
             });
         });
