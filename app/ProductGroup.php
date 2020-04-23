@@ -14,4 +14,13 @@ use Eloquent;
 class ProductGroup extends Model
 {
     protected $fillable = ['product_id', 'group_id'];
+
+    public function group()
+    {
+        return $this->belongsTo(
+            Group::class,
+            'group_id',
+            'id'
+        );
+    }
 }

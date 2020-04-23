@@ -46,11 +46,8 @@ class Product extends Model
 
     public function group()
     {
-        return $this->belongsToMany(
-            Group::class,
-            'product_groups',
-            'product_id',
-            'group_id'
+        return $this->hasOne(
+            Group::class
         );
     }
 }

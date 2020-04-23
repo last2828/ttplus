@@ -22,4 +22,9 @@ class Group extends Model
             'product_id'
         );
     }
+
+    public function productGroups()
+    {
+        return $this->hasMany(ProductGroup::class);
+    }
 }

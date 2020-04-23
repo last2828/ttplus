@@ -12,6 +12,20 @@
 
                     <!-- end:: Subheader -->
 
+                    @if($errors->any())
+                        <div class="alert alert-outline-danger fade show" role="alert">
+                            <div class="alert-icon"><i class="flaticon-warning"></i></div>
+                            <div class="alert-text">Проверьте форму на ошибки</div>
+                            <div class="alert-text">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    @endif
+
                     <!-- begin:: Content -->
                     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
                         <div class="row">
@@ -123,7 +137,6 @@
                                                         <label class="col-form-label col-lg-3 col-sm-12">Главная категория</label>
                                                         <div class="col-lg-4 col-md-9 col-sm-12">
                                                             <select class="form-control kt-select2" id="kt_select2_2" name="category_id">
-                                                                <option value="null">Не выбрано</option>
                                                                 @foreach($categories as $category)
                                                                 <option {{($product->category['id'] == $category->id) ? 'selected' : ''}} value="{{$category['id']}}">{{$category['name']}}</option>
                                                                 @endforeach
@@ -138,9 +151,8 @@
                                                                     <span class="input-group-text" id="basic-addon1"><i class="flaticon2-graph-2"></i></span>
                                                                 </div>
                                                                 <select class="form-control kt-select2" id="kt_select2_group_1" name="group_id">
-                                                                    <option value="null">Не выбрано</option>
                                                                     @foreach($groups as $group):
-                                                                    <option {{($product['group_id'] == $group->id ? 'selected' : '')}} value="{{$group->id}}">{{$group->name}}</option>
+                                                                        <option {{($group['id'] == $productGroup->group->id) ? 'selected' : ''}} value="{{$group['id']}}">{{$group['name']}}</option>
                                                                     @endforeach
                                                                 </select>
                                                             </div>
@@ -163,7 +175,11 @@
                                                                 <div class="col-md-4">
                                                                     <div class="kt-form__group--inline">
                                                                         <div class="kt-form__control">
-                                                                            <input type="text" class="form-control" placeholder="Введите значение характеристики" name="value" value="{{$productAttribute->value}}">
+                                                                            <input type="text"
+                                                                                   class="form-control {{($errors->has('attributes_old.*.value')) ? 'alert alert-outline-danger fade show' : ''}}"
+                                                                                   role="alert"
+                                                                                   placeholder="{{ ($errors->has('attributes_old.*.value')) ? $errors->first('attributes_old.*.value') : 'Введите значение характеристики'}}"
+                                                                                   name="value" value="{{$productAttribute->value}}">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -184,8 +200,8 @@
                                                                     <div class="col-md-4">
                                                                         <div class="kt-form__group--inline">
                                                                             <div class="kt-form__control">
-                                                                                <select name="attribute_id" class="form-control kt-select2" id="">
-                                                                                    <option selected value="null">Выберите значение</option>
+                                                                                <select name="attribute_id" class="form-control">
+                                                                                    <option selected value="null">{{ ($errors->has('attributes.*.attribute_id')) ? $errors->first('attributes.*.attribute_id') : 'Выберите значение'}}</option>
                                                                                     @foreach($attributes as $attribute)
                                                                                         <option value="{{$attribute->id}}">{{$attribute->name}}</option>
                                                                                     @endforeach
@@ -196,7 +212,11 @@
                                                                     <div class="col-md-4">
                                                                         <div class="kt-form__group--inline">
                                                                             <div class="kt-form__control">
-                                                                                <input type="text" class="form-control" placeholder="Введите значение характеристики" name="value">
+                                                                                <input type="text"
+                                                                                       class="form-control {{($errors->has('attributes.*.value')) ? 'alert alert-outline-danger fade show' : ''}}"
+                                                                                       role="alert"
+                                                                                       placeholder="{{ ($errors->has('attributes.*.value')) ? $errors->first('attributes.*.value') : 'Введите значение характеристики'}}"
+                                                                                       name="value">
                                                                             </div>
                                                                         </div>
                                                                     </div>
