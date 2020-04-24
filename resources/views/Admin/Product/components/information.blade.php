@@ -6,15 +6,15 @@
       </div>
   </div>
   <div class="form-group row">
-      <label class="col-form-label col-lg-3 col-sm-12">Изображение товара</label>
-      <div class="col-lg-4 col-md-9 col-sm-12">
-          <div class="dropzone dropzone-default" id="kt_dropzone_1">
-              <div class="dropzone-msg dz-message needsclick">
-                  <h3 class="dropzone-msg-title">Перетащите файл сюда или нажмите для загрузки</h3>
-              </div>
-          </div>
-      </div>
+    <label>Изображение</label>
+    <div class="col-lg-12 col-md-9 col-sm-12">
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile" name="file">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+        </div>
+    </div>
   </div>
+  
   <div class="form-group row">
       <label>Slug</label>
       <div class="col-lg-12 col-md-9 col-sm-12">

@@ -59,10 +59,13 @@ class ProductController extends Controller
      * @param  ProductValidator $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductValidator $request)
+    public function store(Request $request)
     {
         $fields = $request->toArray();
 
+        $name = $fields['file']->getClientOriginalName();
+        $pathName = $fields['file']->storeAs('products', $name);
+        return $pathName;
         if($fields['slug'] == null)
         {
             $fields['slug'] = Transliterate::slugify($fields['name']);
