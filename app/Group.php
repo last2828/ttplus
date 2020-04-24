@@ -11,13 +11,24 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Group extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'name',
+        'category_id',
+        ];
 
     public function product()
     {
-        return $this->belongsToMany(
+        return $this->hasMany(
             Product::class
         );
     }
 
+    public function category()
+    {
+        return $this->hasOne(
+            ProductCategory::class,
+            'id',
+            'category_id'
+        );
+    }
 }

@@ -28,10 +28,10 @@ class Product extends Model
         'status'
     ];
 
-    public function category()
+    public function group()
     {
-        return $this->belongsTo(
-            ProductCategory::class
+        return $this->hasOne(
+            Group::class
         );
     }
 
@@ -45,10 +45,4 @@ class Product extends Model
         );
     }
 
-    public function group()
-    {
-        return $this->belongsTo(
-            Group::class
-        );
-    }
 }
