@@ -38,7 +38,7 @@ Route::group(['namespace' => 'Front', 'as' => 'pages.'], function () {
     Route::get('/contact', 'ContactController@index')->name('contact');
 });
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function () {
     Route::get('/', 'AdminController@index')->name('dashboard');
 
     Route::group(['prefix' => 'catalog', 'namespace' => 'Catalog'], function () {
@@ -63,8 +63,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 });
 
 
-
-
-
 Auth::routes();
 
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
+
+Route::get('/home', 'HomeController@index')->name('home');
