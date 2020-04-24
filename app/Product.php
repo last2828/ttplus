@@ -31,7 +31,9 @@ class Product extends Model
     public function group()
     {
         return $this->hasOne(
-            Group::class
+            Group::class,
+            'id',
+            'group_id'
         );
     }
 
