@@ -54,63 +54,8 @@
                                             @include('admin.product.components.general')
                                             @include('admin.product.components.information')
                                             @include('admin.product.components.relation')
-                                            <div class="tab-pane " id="kt_tabs_1_4" role="tabpanel">
-                                                <div id="kt_repeater_1" class="product-attributes">
-                                                    <div class="form-group row" id="kt_repeater_1">
-                                                        <label class="col-md-12 col-form-label">Характеристики</label>
-                                                        <div data-repeater-list="attributes" class="col-lg-12">
-                                                            <div data-repeater-item class="form-group row align-items-center">
-                                                                <div class="col-md-4">
-                                                                    <div class="kt-form__group--inline">
-                                                                        <div class="kt-form__control">
-                                                                            <select name="attribute_id" class="form-control">
-                                                                                @foreach($attributes as $attribute)
-                                                                                    <option value="{{$attribute->id}}">{{$attribute->name}}</option>
-                                                                                @endforeach
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <div class="kt-form__group--inline">
-                                                                        <div class="kt-form__control">
-                                                                            <input type="text"
-                                                                                   class="form-control {{($errors->has('attributes.*.value')) ? 'alert alert-outline-danger fade show' : ''}}"
-                                                                                   role="alert"
-                                                                                   placeholder="{{ ($errors->has('attributes.*.value')) ? $errors->first('attributes.*.value') : 'Введите значение характеристики'}}"
-                                                                                   name="value">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-2">
-                                                                    <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
-                                                                        <i class="la la-trash-o"></i>
-                                                                        Удалить
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">
-                                                                <i class="la la-plus"></i> Добавить
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane " id="kt_tabs_1_5" role="tabpanel">
-                                                <div class="form-group form-group-last row">
-                                                    <label class="col-form-label col-lg-3 col-sm-12">Дополнительные изображения</label>
-                                                    <div class="col-lg-4 col-md-9 col-sm-12">
-                                                        <div class="dropzone dropzone-default dropzone-brand" id="kt_dropzone_2">
-                                                            <div class="dropzone-msg dz-message needsclick">
-                                                                <h3 class="dropzone-msg-title">Перетащите файлы сюда или нажмите для загрузки</h3>
-                                                                <span class="dropzone-msg-desc">Загрузка до 10 файлов</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @include('admin.product.components.attributes')
+                                            @include('admin.product.components.images')
                                         </div>
                                     </div>
                                     <div class="kt-portlet__foot">

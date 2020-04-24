@@ -50,7 +50,7 @@
                                     <div class="row align-items-center">
                                         <div class="col-xl-8 order-2 order-xl-1">
                                             <div class="row align-items-center">
-                                                <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
+                                                <div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
                                                     <div class="kt-input-icon kt-input-icon--left">
                                                         <input type="text" class="form-control" placeholder="Поиск..." id="generalSearch">
                                                         <span class="kt-input-icon__icon kt-input-icon__icon--left">
@@ -58,7 +58,7 @@
 															</span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
+                                                <div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
                                                     <div class="kt-form__group kt-form__group--inline">
                                                         <div class="kt-form__label">
                                                             <label>Категория:</label>
@@ -73,7 +73,22 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
+                                                <div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
+                                                    <div class="kt-form__group kt-form__group--inline">
+                                                        <div class="kt-form__label">
+                                                            <label>Группа:</label>
+                                                        </div>
+                                                        <div class="kt-form__control">
+                                                            <select class="form-control bootstrap-select" id="kt_form_status">
+                                                                <option value="">Все</option>
+                                                                @foreach($products as $product)
+                                                                    <option value="{{$product->group['id']}}">{{$product->group['name']}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
                                                     <div class="kt-form__group kt-form__group--inline">
                                                         <div class="kt-form__label">
                                                             <label>Статус:</label>
@@ -146,6 +161,9 @@
                     }, {
                         field: 'category_name',
                         title: 'Категория',
+                    },  {
+                        field: 'group_name',
+                        title: 'Группа',
                     }, {
                         field: 'status',
                         title: 'Статус',

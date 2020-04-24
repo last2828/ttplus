@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ProductValidator extends FormRequest
 {
@@ -24,14 +25,25 @@ class ProductValidator extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:products|max:255',
-            'model' => 'required|unique:products|max:255',
-            'slug' => 'unique:products',
+            'name' => [
+                'required',
+                'max:255',
+                Rule::unique('products', 'name')->ignore($this->product)
+                ],
+            'model' => [
+                'required',
+                'max:255',
+                Rule::unique('products', 'model')->ignore($this->product)
+            ],
+            'slug' => [
+                'max:255',
+                Rule::unique('products', 'slug')->ignore($this->product)
+            ],
             'attributes.*.value' => 'required',
-            'attributes.*.attribute_id' => 'not_in:null',
+            'attributes.*.attribute_id' => 'required',
             'attributes_old.*.value' => 'required',
-            'group_id' => 'not_in:null',
-            'category_id' => 'not_in:null',
+            'group_id' => 'required',
+            'category_id' => 'required',
         ];
     }
 
@@ -49,10 +61,11 @@ class ProductValidator extends FormRequest
             'model.unique' => '"Код товара"" должен быть уникальным',
             'slug.unique' => 'Введите уникальное значение',
             'attributes.*.value.required' => 'Значение не может быть пустым',
-            'attributes.*.attribute_id.not_in' => 'Выберите характеристику',
+            'attributes.*.attribute_id.required' => 'Выберите характеристику',
             'attributes_old.*.value.required' => 'Значение не может быть пустым',
-            'group_id.not_in' => 'Выберите группу товаров',
-            'category_id.not_in' => 'Выберите категорию',
+            'group_id.required' => 'Выберите группу товаров',
+            'category_id.required' => 'Выберите категорию',
+
         ];
     }
 

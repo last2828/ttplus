@@ -6,7 +6,6 @@ use App\Group;
 use App\Product;
 use App\Attribute;
 use Transliterate;
-use App\ProductGroup;
 use App\ProductCategory;
 use App\ProductAttribute;
 use Illuminate\Http\Request;
@@ -26,6 +25,7 @@ class ProductController extends Controller
         $products = Product::all();
         foreach($products as $product){
             $product['category_name'] = $product->category['name'];
+            $product['group_name'] = $product->group['name'];
         }
         return view(
             'admin.product.catalog',
@@ -61,8 +61,6 @@ class ProductController extends Controller
      */
     public function store(ProductValidator $request)
     {
-//        dd($request->all());
-        $request->validated();
         $fields = $request->toArray();
 
         if($fields['slug'] == null)
@@ -70,34 +68,11 @@ class ProductController extends Controller
             $fields['slug'] = Transliterate::slugify($fields['name']);
         }
 
-        if($fields['category_id'] == 'null')
-        {
-            $fields['category_id'] = null;
-        }
-
-        if($fields['group_id'] == 'null')
-        {
-            $fields['group_id'] = null;
-        }
-
         $product = Product::create($fields);
-
-        if($fields['group_id'] != null){
-            $groupFields = [
-                'product_id' => $product->id,
-                'group_id' => $fields['group_id']
-            ];
-
-            ProductGroup::create($groupFields);
-        }
 
         if(!empty($fields['attributes']))
             foreach($fields['attributes'] as $key => $attributesFields)
             {
-    //            if($attributesFields['value'] == 'null'){
-    //                return redirect()->back()->withErrors('', 'Ошибка в поле');
-    //            }
-
                     $attributesFields['product_id'] = $product->id;
                     ProductAttribute::create($attributesFields);
             }
@@ -133,7 +108,6 @@ class ProductController extends Controller
                 'groups' => Group::all(),
                 'attributes' => Attribute::all(),
                 'productAttributes' => ProductAttribute::where('product_id', $id)->with('attribute')->get(),
-                'productGroup' => ProductGroup::where('product_id', $id)->with('group')->first()
             ]
         );
     }
@@ -146,32 +120,12 @@ class ProductController extends Controller
      */
     public function update(ProductValidator $request, $id)
     {
-        $request->validated();
         $fields = $request->toArray();
 
         // check slug
         if($fields['slug'] == null)
         {
             $fields['slug'] = Transliterate::slugify($fields['name']);
-        }
-
-        // check category
-        if($fields['category_id'] == 'null')
-        {
-            $fields['category_id'] = null;
-        }
-
-        // updating groups fields in db
-        if($fields['group_id'] == 'null')
-        {
-            $fields['group_id'] = null;
-        }
-        elseif($fields['group_id'] != null)
-        {
-            $data = [
-                'group_id' => $fields['group_id']
-            ];
-            ProductGroup::where('product_id', $id)->update($data);
         }
 
         // updating attributes fields in db
@@ -210,7 +164,6 @@ class ProductController extends Controller
     {
         Product::destroy($id);
         ProductAttribute::where('product_id', $id)->delete();
-        ProductGroup::where('product_id', $id)->delete();
         return redirect()->back();
     }
 }

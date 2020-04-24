@@ -22,6 +22,7 @@ class Product extends Model
         'meta_description',
         'model',
         'category_id',
+        'group_id',
         'slug',
         'image',
         'status'
@@ -46,7 +47,7 @@ class Product extends Model
 
     public function group()
     {
-        return $this->hasOne(
+        return $this->belongsTo(
             Group::class
         );
     }
