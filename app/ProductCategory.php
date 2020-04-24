@@ -26,10 +26,12 @@ class ProductCategory extends Model
         'image'
     ];
 
-    public function product()
+    public function groups()
     {
-        return $this->belongsToMany(
-            Product::class
-        );
+        return $this->hasMany(Product::class, 'category_id', 'id');
+    }
+    public function parent()
+    {
+        return $this->belongsTo(self::class, 'parent_id');
     }
 }

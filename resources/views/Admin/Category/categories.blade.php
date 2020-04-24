@@ -72,6 +72,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -125,16 +126,23 @@
                         input: $('#generalSearch'),
                     },
                     // columns definition
-                    columns: [{
+                    columns: [
+                    {
                         field: 'name',
                         title: 'Название',
-                    }, {
+                    },
+                {
                         field: 'status',
                         title: 'Статус',
                         template: function(data) {
                             return (data.status == 1) ? 'Включено' : 'Отключено';
                         },
-                    },{
+                    },
+                    {
+                        field: 'parent_name',
+                        title: 'Родительская',
+                    },
+                    {
                         field: 'Actions',
                         title: 'Действия',
                         sortable: false,

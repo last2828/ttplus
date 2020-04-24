@@ -16,21 +16,19 @@
       </div>
       <div class="card__content">
         <div class="content__column">
-          <p>BG | EC Motors</p>
-          <p>GR/G | Brushed DC Motors</p>
-          <p>KD/DR | AC motors</p>
-          <p>D/DCD | Venetian blind drives</p>
+          @foreach (array_slice($dunkermotoren, 0, 5) as $item)
+          <p><a href="{{route('pages.catalog.category', $item['slug'])}}">{{$item['name']}}</a></p>
+          @endforeach
         </div>
         <div class="content__column">
-          <p>PLG/SG/STG | Gearboxes</p>
-          <p>BGE | Controllers</p>
-          <p>Brakes and Encoders</p>
-          <p>Linear Systems</p>
+          @foreach (array_slice($dunkermotoren, 5) as $item)
+            <p>{{$item['name']}}</p>
+          @endforeach
         </div>
       </div>
       <div class="card__bottom">
         <a href="#" class="btn btn-primary">Подробнее</a>
-        <a href="{{route('pages.catalog.category', 'slug')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a>
+        <a href="{{route('pages.catalog.dunkermotoren')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a>
       </div>
     </div>
     <div class="catalog-card">
@@ -51,7 +49,7 @@
       </div>
       <div class="card__bottom">
         <a href="#" class="btn btn-primary">Подробнее</a>
-        <a href="{{route('pages.catalog.category', 'slug')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a>
+        <a href="{{route('pages.catalog.jianghai')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a>
       </div>
     </div>
   </div>

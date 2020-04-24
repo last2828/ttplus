@@ -16,12 +16,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view(
-            'admin.category.categories',
-            [
-                'categories' => ProductCategory::all()
-            ]
-        );
+        $categories = ProductCategory::with('parent')->get();
+        foreach($categories as $category){
+            if (isset($category->parent['name'])) {
+                $category['parent_name'] = $category->parent['name'];
+            }
+        }
+        return view('admin.category.categories', compact('categories'));
     }
 
     /**
