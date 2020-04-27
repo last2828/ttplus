@@ -100,6 +100,7 @@ class GroupController extends Controller
         //update current group
         Group::updateGroup($fields, $id);
 
+        //back to the group catalog
         return redirect()->route('groups.index');
     }
 
@@ -111,7 +112,10 @@ class GroupController extends Controller
      */
     public function destroy($id)
     {
+        //delete group
         Group::destroy($id);
+
+        //back to the group catalog
         return redirect()->back();
     }
 }

@@ -62,7 +62,7 @@
           <entry key="js" value="27" />
           <entry key="json" value="14" />
           <entry key="map" value="4" />
-          <entry key="php" value="32847" />
+          <entry key="php" value="32894" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -71,7 +71,7 @@
           <entry key="HTML" value="24" />
           <entry key="JSON" value="14" />
           <entry key="JavaScript" value="27" />
-          <entry key="PHP" value="19575" />
+          <entry key="PHP" value="19622" />
           <entry key="PLAIN_TEXT" value="23" />
           <entry key="SourceMap" value="4" />
         </counts>
@@ -107,8 +107,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Product.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="108" column="8" selection-start-line="108" selection-start-column="8" selection-end-line="108" selection-end-column="30" />
+            <state relative-caret-position="450">
+              <caret line="103" column="54" selection-start-line="103" selection-start-column="54" selection-end-line="103" selection-end-column="54" />
               <folding>
                 <element signature="e#23#36#0#PHP" expanded="true" />
                 <element signature="e#177#404#0#PHP" />
@@ -118,6 +118,7 @@
                 <element signature="e#1157#1489#0#PHP" />
                 <element signature="e#1533#1579#0#PHP" />
                 <element signature="e#2286#2332#0#PHP" />
+                <element signature="e#2936#3917#0#PHP" />
                 <element signature="e#4094#4140#0#PHP" />
                 <element signature="e#4025#4417#0#PHP" />
               </folding>
@@ -152,8 +153,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/Catalog/GroupController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="568">
-              <caret line="99" column="41" selection-start-line="99" selection-start-column="41" selection-end-line="99" selection-end-column="41" />
+            <state relative-caret-position="524">
+              <caret line="114" column="17" selection-start-line="114" selection-start-column="17" selection-end-line="114" selection-end-column="17" />
               <folding>
                 <element signature="e#54#72#0#PHP" expanded="true" />
                 <element signature="e#1465#1513#0#PHP" />
@@ -555,12 +556,12 @@
       <workItem from="1586250593051" duration="3715000" />
       <workItem from="1586334224502" duration="16230000" />
       <workItem from="1586435072746" duration="59869000" />
-      <workItem from="1587988603938" duration="16929000" />
+      <workItem from="1587988603938" duration="17205000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207288000" />
+    <option name="totallyTimeSpent" value="207564000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -935,8 +936,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Product.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="108" column="8" selection-start-line="108" selection-start-column="8" selection-end-line="108" selection-end-column="30" />
+        <state relative-caret-position="450">
+          <caret line="103" column="54" selection-start-line="103" selection-start-column="54" selection-end-line="103" selection-end-column="54" />
           <folding>
             <element signature="e#23#36#0#PHP" expanded="true" />
             <element signature="e#177#404#0#PHP" />
@@ -946,6 +947,7 @@
             <element signature="e#1157#1489#0#PHP" />
             <element signature="e#1533#1579#0#PHP" />
             <element signature="e#2286#2332#0#PHP" />
+            <element signature="e#2936#3917#0#PHP" />
             <element signature="e#4094#4140#0#PHP" />
             <element signature="e#4025#4417#0#PHP" />
           </folding>
@@ -966,8 +968,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/Catalog/GroupController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="99" column="41" selection-start-line="99" selection-start-column="41" selection-end-line="99" selection-end-column="41" />
+        <state relative-caret-position="524">
+          <caret line="114" column="17" selection-start-line="114" selection-start-column="17" selection-end-line="114" selection-end-column="17" />
           <folding>
             <element signature="e#54#72#0#PHP" expanded="true" />
             <element signature="e#1465#1513#0#PHP" />
