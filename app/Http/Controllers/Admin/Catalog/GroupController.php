@@ -8,6 +8,7 @@ use App\Group;
 use App\Http\Controllers\Controller;
 use App\ProductCategory;
 use Illuminate\Http\Request;
+use Transliterate;
 
 class GroupController extends Controller
 {
@@ -51,7 +52,12 @@ class GroupController extends Controller
     public function store(Request $request)
     {
         $fields = $request->toArray();
-//        dd($fields);
+
+        if($fields['slug'] == null)
+        {
+            $fields['slug'] = Transliterate::slugify($fields['name']);
+        }
+
         Group::create($fields);
         return redirect()->route('groups.index');
 
@@ -95,6 +101,13 @@ class GroupController extends Controller
     public function update(Request $request, $id)
     {
         $fields = $request->toArray();
+
+        // check slug
+        if($fields['slug'] == null)
+        {
+            $fields['slug'] = Transliterate::slugify($fields['name']);
+        }
+
         $group = Group::find($id);
         $group->update($fields);
         return redirect()->route('groups.index');

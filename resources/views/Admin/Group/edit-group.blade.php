@@ -38,13 +38,19 @@
                                                     <input type="text" class="form-control" aria-describedby="" placeholder="Название группы" name="name" value="{{$group['name']}}">
                                                 </div>
                                             </div>
-                                            <div class="form-group form-group-last row">
+                                            <div class="form-group row">
                                                 <label class="col-form-label col-lg-3 col-sm-12">Категория</label>
                                                 <div class="col-lg-4 col-md-9 col-sm-12">
                                                     <select class="form-control kt-select2" id="kt_select2_2" name="category_id">
                                                         @foreach($categories as $category)
                                                             <option {{($group->category['id'] == $category['id']) ? 'selected' : ''}} value="{{$category['id']}}">{{$category['name']}}</option>@endforeach
                                                     </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-group-last row">
+                                                <label>Slug</label>
+                                                <div class="col-lg-12 col-md-9 col-sm-12">
+                                                    <input type="text" class="form-control" aria-describedby="" placeholder="slug" name="slug" value="{{$group['slug']}}">
                                                 </div>
                                             </div>
                                         </div>

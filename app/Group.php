@@ -14,6 +14,7 @@ class Group extends Model
     protected $fillable = [
         'name',
         'category_id',
+        'slug',
         ];
 
     public function product()
