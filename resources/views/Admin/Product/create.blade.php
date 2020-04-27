@@ -1,4 +1,5 @@
 @extends('admin.layout')
+
 @section('content')
 
 <!-- begin:: Page -->
@@ -41,19 +42,15 @@
                                                 <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_2" role="tab">Данные</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_3" role="tab">Связи</a>
+                                                <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_3" role="tab">Характеристики</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_4" role="tab">Характеристики</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_5" role="tab">Изображения</a>
+                                                <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_4" role="tab">Изображения</a>
                                             </li>
                                         </ul>
                                         <div class="tab-content">
                                             @include('admin.product.components.general')
                                             @include('admin.product.components.information')
-                                            @include('admin.product.components.relation')
                                             @include('admin.product.components.attributes')
                                             @include('admin.product.components.images')
                                         </div>
@@ -86,16 +83,9 @@
 @section('script')
 
 <!--begin::Page Scripts(used by this page) -->
+
 <script src="{{asset('assets/js/pages/crud/forms/editors/summernote.js')}}" type="text/javascript"></script>
-
-<!--end::Page Scripts -->
-
-<!--begin::Page Scripts(used by this page) -->
 <script src="{{asset('assets/js/pages/crud/forms/widgets/select2.js')}}" type="text/javascript"></script>
-
-<!--end::Page Scripts -->
-
-<!--begin::Page Scripts(used by this page) -->
 <script src="{{asset('assets/js/pages/crud/forms/widgets/form-repeater.js')}}" type="text/javascript"></script>
 
 <!--end::Page Scripts -->

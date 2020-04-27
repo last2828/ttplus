@@ -158,10 +158,7 @@
                     columns: [{
                         field: 'name',
                         title: 'Название',
-                    }, {
-                        field: 'category_name',
-                        title: 'Категория',
-                    },  {
+                    },{
                         field: 'group_name',
                         title: 'Группа',
                     }, {

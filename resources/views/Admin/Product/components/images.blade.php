@@ -1,4 +1,4 @@
-<div class="tab-pane " id="kt_tabs_1_5" role="tabpanel">
+<div class="tab-pane " id="kt_tabs_1_4" role="tabpanel">
     <div class="form-group form-group-last row">
         <label class="col-form-label col-lg-3 col-sm-12">Дополнительные изображения</label>
         <div class="col-lg-4 col-md-9 col-sm-12">
