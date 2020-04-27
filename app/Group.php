@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Transliterate;
 
 /**
  * App\Group
@@ -56,8 +55,4 @@ class Group extends Model
         return true;
     }
 
-    public static function deleteGroup($id)
-    {
-
-    }
 }

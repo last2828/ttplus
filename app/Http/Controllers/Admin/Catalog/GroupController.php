@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers\admin\catalog;
 
-use App\AppHelper;
-use App\Category;
-use App\CategoryGroup;
 use App\Group;
 use App\Http\Controllers\Controller;
 use App\ProductCategory;
 use Illuminate\Http\Request;
-use Transliterate;
 
 class GroupController extends Controller
 {
