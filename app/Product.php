@@ -5,6 +5,7 @@ namespace App;
 use Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
+use phpDocumentor\Reflection\Types\Self_;
 use Transliterate;
 
 /**
@@ -52,41 +53,43 @@ class Product extends Model
     public static function getAllProducts()
     {
         //get all products from db
-        $products = Product::all();
+        $products = self::all();
 
         //add 'group' fields in products array
         foreach($products as $product){
             $product['group_name'] = $product->group['name'];
         }
 
-        //display product catalog
-        return view('admin.product.catalog', compact('products'));
+        //return all products
+        return compact('products');
     }
 
-    public static function createProduct()
+    public static function getProductComponents()
     {
-        //get components for product creating
+        //get all components for product creating
         $groups = Group::all();
         $attributes = Attribute::all();
 
         //get route for check this crud
         $route = Route::currentRouteName();
 
-        //display create form with components
-        return view('admin.product.create', compact(['groups', 'attributes', 'route']));
+        //return product components and route
+        return compact(['groups', 'attributes', 'route']);
     }
 
     public static function storeProduct($fields)
     {
-
         //if 'slug' was not filled => transliterate 'name' to fill 'slug'
         if($fields['slug'] == null)
         {
             $fields['slug'] = Transliterate::slugify($fields['name']);
         }
 
-        //save product in db
-        $product = Product::create($fields);
+        $product = self::create($fields);
+
+//        $product = new self;
+//        $product->checkSlug($fields);
+//        $product->create($fields);
 
         //save product attributes if they exist
         if(!empty($fields['attributes']))
@@ -95,26 +98,18 @@ class Product extends Model
                 $attributesFields['product_id'] = $product->id;
                 ProductAttribute::create($attributesFields);
             }
-
-        //back to the product catalog
-        return redirect()->route('products.index');
     }
 
-    public static function editProduct($id)
+    public static function getCurrentProductComponents($id)
     {
         //find this product
-        $product = Product::find($id);
+        $product = self::find($id);
 
-        //get components for product updating
-        $groups = Group::all();
-        $attributes = Attribute::all();
+        //get current product attributes
         $productAttributes = ProductAttribute::where('product_id', $id)->with('attribute')->get();
 
-        //get route for check this crud
-        $route = Route::currentRouteName();
-
-        //display update form with components
-        return view('admin.product.edit', compact(['product', 'groups', 'attributes', 'productAttributes', 'route']));
+        //return product with components and route
+        return compact(['product', 'productAttributes']);
     }
 
     public static function updateProduct($fields, $id)
@@ -146,23 +141,27 @@ class Product extends Model
         }
 
         //update product in db
-        $product = Product::find($id);
+        $product = self::find($id);
         $product->update($fields);
-
-        //back to the product catalog
-        return redirect()->route('products.index');
     }
 
     public static function deleteProduct($id)
     {
         //remove product from table 'products'
-        Product::destroy($id);
+        self::destroy($id);
 
         //remove product attributes from table 'product_attributes'
         ProductAttribute::where('product_id', $id)->delete();
-
-        //back to the product catalog
-        return redirect()->back();
     }
 
+    public function checkSlug($fields)
+    {
+        //if 'slug' was not filled => transliterate 'name' to fill 'slug'
+        if($fields['slug'] == null)
+        {
+            $fields['slug'] = Transliterate::slugify($fields['name']);
+        }
+
+        return $fields;
+    }
 }

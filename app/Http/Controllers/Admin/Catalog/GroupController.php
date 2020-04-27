@@ -19,12 +19,7 @@ class GroupController extends Controller
      */
     public function index()
     {
-        return view(
-                'admin.group.groups',
-            [
-                'groups' => Group::all()
-            ]
-        );
+        return Group::getAllGroups();
     }
 
     /**
@@ -34,13 +29,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        return view(
-            'admin.group.create-group',
-            [
-                'categories' => ProductCategory::all()
-            ]
-
-        );
+        return Group::createGroup();
     }
 
     /**
@@ -51,16 +40,10 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
+        //convert data from object to array after validation
         $fields = $request->toArray();
 
-        if($fields['slug'] == null)
-        {
-            $fields['slug'] = Transliterate::slugify($fields['name']);
-        }
-
-        Group::create($fields);
-        return redirect()->route('groups.index');
-
+        return Group::storeGroup($fields);
     }
 
     /**

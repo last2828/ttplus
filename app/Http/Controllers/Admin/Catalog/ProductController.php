@@ -15,7 +15,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::getAllProducts();
+        //get all products
+        $products = Product::getAllProducts();
+
+        //display catalog with products
+        return view('admin.product.catalog', $products);
     }
 
     /**
@@ -25,7 +29,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return Product::createProduct();
+        //get all components for create product
+        $components = Product::getProductComponents();
+
+        //display create form with components
+        return view('admin.product.create', $components);
     }
 
     /**
@@ -39,7 +47,11 @@ class ProductController extends Controller
         //convert data from object to array after validation
         $fields = $request->toArray();
 
-        return Product::storeProduct($fields);
+        //save new product
+        Product::storeProduct($fields);
+
+        //back to the product catalog
+        return redirect()->route('products.index');
     }
 
     /**
@@ -61,7 +73,14 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        return Product::editProduct($id);
+        //get current product components
+        $currentProduct = Product::getCurrentProductComponents($id);
+
+        //get all components for update product
+        $components = Product::getProductComponents();
+
+        //display update form with components
+        return view('admin.product.edit', $currentProduct, $components);
     }
 
     /**
@@ -75,7 +94,11 @@ class ProductController extends Controller
         //convert data from object to array after validation
         $fields = $request->toArray();
 
-        return Product::updateProduct($fields, $id);
+        //update current product
+        Product::updateProduct($fields, $id);
+
+        //back to the product catalog
+        return redirect()->route('products.index');
     }
 
     /**
@@ -86,6 +109,10 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        return Product::deleteProduct($id);
+        //delete current product
+        Product::deleteProduct($id);
+
+        //back to the product catalog
+        return redirect()->back();
     }
 }
