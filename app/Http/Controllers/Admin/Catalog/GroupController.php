@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\admin\catalog;
 
+use App\Category;
+use App\CategoryGroup;
 use App\Group;
 use App\Http\Controllers\Controller;
+use App\ProductCategory;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -31,7 +34,11 @@ class GroupController extends Controller
     public function create()
     {
         return view(
-            'admin.group.create-group'
+            'admin.group.create-group',
+            [
+                'categories' => ProductCategory::all()
+            ]
+
         );
     }
 
@@ -44,6 +51,7 @@ class GroupController extends Controller
     public function store(Request $request)
     {
         $fields = $request->toArray();
+//        dd($fields);
         Group::create($fields);
         return redirect()->route('groups.index');
 
@@ -71,7 +79,8 @@ class GroupController extends Controller
         return view(
             'admin.group.edit-group',
             [
-                'group' => Group::find($id)
+                'group' => Group::find($id),
+                'categories' => ProductCategory::all(),
             ]
         );
     }

@@ -16,6 +16,7 @@ class ProductCategory extends Model
     use NodeTrait;
     protected $fillable = [
         'name',
+        'name_ru',
         'content',
         'meta_title',
         'meta_description',
@@ -26,12 +27,10 @@ class ProductCategory extends Model
         'image'
     ];
 
-    public function groups()
+    public function group()
     {
-        return $this->hasMany(Product::class, 'category_id', 'id');
-    }
-    public function parent()
-    {
-        return $this->belongsTo(self::class, 'parent_id');
+        return $this->hasMany(
+            Group::class
+        );
     }
 }

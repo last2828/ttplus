@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\admin\catalog;
 
+use App\CategoryGroup;
+use App\Group;
 use App\Http\Controllers\Controller;
 use App\ProductCategory;
 use Illuminate\Http\Request;
@@ -89,7 +91,7 @@ class CategoryController extends Controller
             'admin.category.edit-category',
             [
                 'category' => ProductCategory::find($id),
-                'categories' => ProductCategory::all()
+                'categories' => ProductCategory::all(),
             ]
         );
     }

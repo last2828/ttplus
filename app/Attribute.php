@@ -25,6 +25,8 @@ class Attribute extends Model
 
     public function productAttributes()
     {
-        return $this->hasMany(ProductAttribute::class);
+        return $this->hasMany(
+            ProductAttribute::class
+        );
     }
 }

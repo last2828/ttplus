@@ -176,6 +176,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         ElForastero\Transliterate\ServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\BreadcrumbsServiceProvider::class,
+        UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+
 
     ],
 
@@ -229,6 +232,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Transliterate' => ElForastero\Transliterate\Facade::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

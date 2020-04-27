@@ -45,7 +45,7 @@ class ProductController extends Controller
         return view(
           'admin.product.create',
           [
-              'categories' => ProductCategory::all(),
+//              'categories' => ProductCategory::all(),
               'groups' => Group::all(),
               'attributes' => Attribute::all(),
               'route' => Route::currentRouteName()
@@ -63,9 +63,6 @@ class ProductController extends Controller
     {
         $fields = $request->toArray();
 
-        $name = $fields['file']->getClientOriginalName();
-        $pathName = $fields['file']->storeAs('products', $name);
-        return $pathName;
         if($fields['slug'] == null)
         {
             $fields['slug'] = Transliterate::slugify($fields['name']);
@@ -107,7 +104,7 @@ class ProductController extends Controller
             [
                 'product' => Product::find($id),
                 'route' => Route::currentRouteName(),
-                'categories' => ProductCategory::all(),
+//                'categories' => ProductCategory::all(),
                 'groups' => Group::all(),
                 'attributes' => Attribute::all(),
                 'productAttributes' => ProductAttribute::where('product_id', $id)->with('attribute')->get(),
