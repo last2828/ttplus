@@ -34,48 +34,26 @@ class Group extends Model
         );
     }
 
-    public static function getAllGroups()
-    {
-        //get all groups from db
-        $groups = self::all();
-
-        //display group catalog
-        return view('admin.group.groups', compact('groups'));
-    }
-
-    public static function createGroup()
-    {
-        //get components for group creating
-        $categories = ProductCategory::all();
-
-        //display create form with components
-        return view('admin.group.create-group', compact('categories'));
-    }
-
     public static function storeGroup($fields)
     {
-        //if 'slug' was not filled => transliterate 'name' to fill 'slug'
-        if($fields['slug'] == null)
-        {
-            $fields['slug'] = Transliterate::slugify($fields['name']);
-        }
+        //check slug and transliterate 'name' if slug = null
+        $fields = AppHelper::checkSlug($fields);
 
         //save group in db
-        Group::create($fields);
+        self::create($fields);
 
-        //back to the group catalog
-        return redirect()->route('groups.index');
-
-    }
-
-    public static function editGroup($id)
-    {
-
+        return true;
     }
 
     public static function updateGroup($fields, $id)
     {
+        //check slug and transliterate 'name' if slug = null
+        $fields = AppHelper::checkSlug($fields);
 
+        //update group in db
+        self::find($id)->update($fields);
+
+        return true;
     }
 
     public static function deleteGroup($id)

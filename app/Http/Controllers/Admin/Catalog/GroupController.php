@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin\catalog;
 
+use App\AppHelper;
 use App\Category;
 use App\CategoryGroup;
 use App\Group;
@@ -19,7 +20,8 @@ class GroupController extends Controller
      */
     public function index()
     {
-        return Group::getAllGroups();
+        $groups = Group::all();
+        return view('admin.group.groups', compact('groups'));
     }
 
     /**
@@ -29,7 +31,11 @@ class GroupController extends Controller
      */
     public function create()
     {
-        return Group::createGroup();
+        //get components for group creating
+        $categories = ProductCategory::all();
+
+        //display create form with components
+        return view('admin.group.create', compact('categories'));
     }
 
     /**
@@ -43,7 +49,11 @@ class GroupController extends Controller
         //convert data from object to array after validation
         $fields = $request->toArray();
 
-        return Group::storeGroup($fields);
+        //save new group
+        Group::storeGroup($fields);
+
+        //back to the group catalog
+        return redirect()->route('groups.index');
     }
 
     /**
@@ -65,13 +75,14 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
-        return view(
-            'admin.group.edit-group',
-            [
-                'group' => Group::find($id),
-                'categories' => ProductCategory::all(),
-            ]
-        );
+        //get components for group creating
+        $categories = ProductCategory::all();
+
+        //find current group
+        $group = Group::find($id);
+
+        //display update form with components
+        return view('admin.group.edit', compact(['categories', 'group']));
     }
 
     /**
@@ -83,16 +94,12 @@ class GroupController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //convert data from object to array after validation
         $fields = $request->toArray();
 
-        // check slug
-        if($fields['slug'] == null)
-        {
-            $fields['slug'] = Transliterate::slugify($fields['name']);
-        }
+        //update current group
+        Group::updateGroup($fields, $id);
 
-        $group = Group::find($id);
-        $group->update($fields);
         return redirect()->route('groups.index');
     }
 

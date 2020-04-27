@@ -74,7 +74,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         //get current product components
-        $currentProduct = Product::getCurrentProductComponents($id);
+        $currentProduct = Product::getCurrentProduct($id);
 
         //get all components for update product
         $components = Product::getProductComponents();

@@ -68,7 +68,7 @@ class Product extends Model
         $groups = Group::all();
         $attributes = Attribute::all();
 
-        //get route for check this crud
+        //get route for check crud
         $route = Route::currentRouteName();
 
         //return product components and route
@@ -89,7 +89,7 @@ class Product extends Model
         return true;
     }
 
-    public static function getCurrentProductComponents($id)
+    public static function getCurrentProduct($id)
     {
         //find this product
         $product = self::find($id);
@@ -107,8 +107,7 @@ class Product extends Model
         $fields = AppHelper::checkSlug($fields);
 
         //update product in db
-        $product = self::find($id);
-        $product->update($fields);
+        self::find($id)->update($fields);
 
         //check attributes and save or change if they exist
         self::checkAttributes($fields, $id);
