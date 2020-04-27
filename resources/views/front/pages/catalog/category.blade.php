@@ -47,43 +47,89 @@
           <p>Номинальная мощность, <br> Вт</p>
         </div>
       </div>
-      @foreach ($categories as $category)
-        <div class="product__block">
-          <h3>{{$category['name']}}</h3>
-          @foreach ($category->group as $group)
-            <div class="product__series">
-              <div class="param series">
-                <div class="prod__img"><img src="img/catalog/product.jpg" alt=""></div>
-                <div class="prod__name">
-                  <p><span>Серия</span> <br> {{$group['name']}}</p>
+      @if (Route::currentRouteName() == 'pages.catalog.dunker.group')
+        @foreach ($categories as $category)
+          <div class="product__block">
+            <h3>{{$category['name']}}</h3>
+            @foreach ($category['group'] as $group)
+              <div class="product__series">
+                <div class="param series">
+                  <div class="prod__img"><img src="img/catalog/product.jpg" alt=""></div>
+                  <div class="prod__name">
+                    <p><span>Серия</span> <br> {{$group['name']}}</p>
+                  </div>
                 </div>
+                <div class="param diameter">
+                  <p>23</p>
+                </div>
+                <div class="param length">
+                  <p>50</p>
+                </div>
+                <div class="param voltage">
+                  <p>12/24</p>
+                </div>
+                <div class="param speed">
+                  <p>3 950 <br> 450</p>
+                </div>
+                <div class="param moment">
+                  <p>1.0 <br> 1.1</p>
+                </div>
+                <div class="param power">
+                  <p>4</p>
+                </div>
+                <a href="{{route('pages.catalog.dunker.group', [
+                  'category' => $category['slug'],
+                  'group' => $group['slug']
+                ])}}" class="btn btn-next">
+                  <div class="span-arrow"></div>
+                </a>
               </div>
-              {{$group->product}}
-              <div class="param diameter">
-                <p>23</p>
+            @endforeach 
+            <div class="block__bottom"><a href="#" class="btn btn-primary">Показать все позиции</a><a href="#" class="btn btn-next--blue">Индивидуальный заказ<span class="span-arrow"></span></a></div>
+          </div>
+        @endforeach
+      @else
+        @foreach ($categories as $category)
+          <div class="product__block">
+            <h3>{{$category['name']}}</h3>
+            @foreach ($category['group'] as $group)
+              <div class="product__series">
+                <div class="param series">
+                  <div class="prod__img"><img src="img/catalog/product.jpg" alt=""></div>
+                  <div class="prod__name">
+                    <p><span>Серия</span> <br> {{$group['name']}}</p>
+                  </div>
+                </div>
+                <div class="param diameter">
+                  <p>23</p>
+                </div>
+                <div class="param length">
+                  <p>50</p>
+                </div>
+                <div class="param voltage">
+                  <p>12/24</p>
+                </div>
+                <div class="param speed">
+                  <p>3 950 <br> 450</p>
+                </div>
+                <div class="param moment">
+                  <p>1.0 <br> 1.1</p>
+                </div>
+                <div class="param power">
+                  <p>4</p>
+                </div>
+                <a href="{{route('pages.catalog.dunker.group', [
+                  'category' => $category['slug'],
+                  'group' => $group['slug']
+                ])}}" class="btn btn-next">
+                  <div class="span-arrow"></div>
+                </a>
               </div>
-              <div class="param length">
-                <p>50</p>
-              </div>
-              <div class="param voltage">
-                <p>12/24</p>
-              </div>
-              <div class="param speed">
-                <p>3 950 <br> 450</p>
-              </div>
-              <div class="param moment">
-                <p>1.0 <br> 1.1</p>
-              </div>
-              <div class="param power">
-                <p>4</p>
-              </div><a href="#" class="btn btn-next">
-                <div class="span-arrow"></div>
-              </a>
-            </div>
-          @endforeach 
-          <div class="block__bottom"><a href="#" class="btn btn-primary">Показать все позиции</a><a href="#" class="btn btn-next--blue">Индивидуальный заказ<span class="span-arrow"></span></a></div>
-        </div>
-      @endforeach
+            @endforeach 
+            <div class="block__bottom"><a href="#" class="btn btn-primary">Показать все позиции</a><a href="#" class="btn btn-next--blue">Индивидуальный заказ<span class="span-arrow"></span></a></div>
+          </div>
+        @endforeach
+      @endif
     </div>
   </div>
 </section>

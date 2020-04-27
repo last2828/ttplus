@@ -19,9 +19,9 @@ class CategoryController extends Controller
         $this->jianghai = ProductCategory::where('name', 'jianghai')->with('children')->first();
     }
 
-    public function index($category)
+    public function index($category, $group = null)
     {
-        $categories = ProductCategory::where('slug', $category)->with('group')->get();
+        $categories = ProductCategory::where('slug', $category)->with('group.product')->get();
         $dunker = $this->dunker;
         $jianghai = $this->jianghai;
         return view('front.pages.catalog.category', compact(['categories', 'dunker']));
@@ -30,8 +30,7 @@ class CategoryController extends Controller
     {
         $dunker = $this->dunker;
         $jianghai = $this->jianghai;
-        $categories = ProductCategory::where('name', 'dunkermotoren')->with('children.group.product.productAttribute.attribute')->get();
-        return $categories;
+        $categories = ProductCategory::where('name', 'dunkermotoren')->with('children.group.product.productAttribute.attribute')->first()['children'];
         return view('front.pages.catalog.category', compact(['dunker', 'jianghai', 'categories']));
     }
     public function jianghai()

@@ -27,8 +27,8 @@ Route::group(['namespace' => 'Front', 'as' => 'pages.'], function () {
         Route::group(['prefix' => 'dunkermotoren', 'as' => 'dunker.'], function () {
             Route::get('/', 'CategoryController@dunkermotoren')->name('index');
             Route::get('/{category}', 'CategoryController@index')->name('category');
-            Route::get('/{category}/{group}', 'CategoryController@index')->name('group');
-            Route::get('/{category}/{group}/{product}', 'CategoryController@index')->name('product');
+            Route::get('/{category}/{group?}', 'CategoryController@index')->name('group');
+            Route::get('/{category}/{group?}/detail/{product}', 'CategoryController@index')->name('product');
         });
 
 
