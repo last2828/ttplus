@@ -5,8 +5,6 @@ namespace App;
 use Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
-use phpDocumentor\Reflection\Types\Self_;
-use Transliterate;
 
 /**
  * Product
@@ -79,25 +77,16 @@ class Product extends Model
 
     public static function storeProduct($fields)
     {
-        //if 'slug' was not filled => transliterate 'name' to fill 'slug'
-        if($fields['slug'] == null)
-        {
-            $fields['slug'] = Transliterate::slugify($fields['name']);
-        }
+        //check slug and transliterate 'name' if slug = null
+        $fields = AppHelper::checkSlug($fields);
 
+        //create new product with
         $product = self::create($fields);
 
-//        $product = new self;
-//        $product->checkSlug($fields);
-//        $product->create($fields);
+        //check attributes and save if they exist
+        self::checkAttributes($fields, $product->id);
 
-        //save product attributes if they exist
-        if(!empty($fields['attributes']))
-            foreach($fields['attributes'] as $key => $attributesFields)
-            {
-                $attributesFields['product_id'] = $product->id;
-                ProductAttribute::create($attributesFields);
-            }
+        return true;
     }
 
     public static function getCurrentProductComponents($id)
@@ -114,35 +103,17 @@ class Product extends Model
 
     public static function updateProduct($fields, $id)
     {
-        //if 'slug' was not filled => transliterate 'name' to fill 'slug'
-        if($fields['slug'] == null)
-        {
-            $fields['slug'] = Transliterate::slugify($fields['name']);
-        }
-
-        //update values for old product attributes if they exist
-        if(!empty($fields['attributes_old'])) {
-            foreach($fields['attributes_old'] as $key => $attributesFields) {
-
-                $attributesFields['product_id'] = $id;
-
-                ProductAttribute::find($attributesFields['id'])->update($attributesFields);
-            }
-        }
-
-        //save new product attributes if they exist
-        if(!empty($fields['attributes'])){
-            foreach($fields['attributes'] as $key => $attributesFields) {
-
-                $attributesFields['product_id'] = $id;
-
-                ProductAttribute::create($attributesFields);
-            }
-        }
+        //check slug and transliterate 'name' if slug = null
+        $fields = AppHelper::checkSlug($fields);
 
         //update product in db
         $product = self::find($id);
         $product->update($fields);
+
+        //check attributes and save or change if they exist
+        self::checkAttributes($fields, $id);
+
+        return true;
     }
 
     public static function deleteProduct($id)
@@ -154,14 +125,27 @@ class Product extends Model
         ProductAttribute::where('product_id', $id)->delete();
     }
 
-    public function checkSlug($fields)
+    public static function checkAttributes($fields, $id)
     {
-        //if 'slug' was not filled => transliterate 'name' to fill 'slug'
-        if($fields['slug'] == null)
-        {
-            $fields['slug'] = Transliterate::slugify($fields['name']);
+        //save product attributes if they exist
+        if(!empty($fields['attributes']))
+            foreach($fields['attributes'] as $key => $attributesFields)
+            {
+                $attributesFields['product_id'] = $id;
+                ProductAttribute::create($attributesFields);
+            }
+
+        //update values for old product attributes if they exist
+        if(!empty($fields['attributes_old'])) {
+            foreach($fields['attributes_old'] as $key => $attributesFields) {
+
+                $attributesFields['product_id'] = $id;
+
+                ProductAttribute::find($attributesFields['id'])->update($attributesFields);
+            }
         }
 
-        return $fields;
+        return true;
     }
+
 }
