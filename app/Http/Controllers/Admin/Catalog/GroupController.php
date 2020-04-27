@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin\catalog;
 
 use App\Group;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\GroupValidator;
 use App\ProductCategory;
 use Illuminate\Http\Request;
 
@@ -37,10 +38,10 @@ class GroupController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  GroupValidator  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GroupValidator $request)
     {
         //convert data from object to array after validation
         $fields = $request->toArray();
@@ -84,11 +85,11 @@ class GroupController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  GroupValidator  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(GroupValidator $request, $id)
     {
         //convert data from object to array after validation
         $fields = $request->toArray();

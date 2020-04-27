@@ -15,12 +15,9 @@ class AttributeController extends Controller
      */
     public function index()
     {
-        return view(
-            'admin.attribute.attributes',
-            [
-                'attributes' => Attribute::all()
-            ]
-        );
+        $attributes = Attribute::all();
+
+        return view('admin.attribute.attributes', compact('attributes'));
     }
 
     /**
@@ -30,9 +27,7 @@ class AttributeController extends Controller
      */
     public function create()
     {
-        return view(
-          'admin.attribute.create-attribute'
-        );
+        return view('admin.attribute.create');
     }
 
     /**
@@ -67,12 +62,8 @@ class AttributeController extends Controller
      */
     public function edit($id)
     {
-        return view(
-            'admin.attribute.edit-attribute',
-            [
-                'attribute' => Attribute::find($id)
-            ]
-        );
+        $attribute = Attribute::find($id);
+        return view('admin.attribute.edit', compact('attribute'));
     }
 
     /**
@@ -85,8 +76,7 @@ class AttributeController extends Controller
     public function update(Request $request, $id)
     {
         $fields = $request->toArray();
-        $attribute = Attribute::find($id);
-        $attribute->update($fields);
+        Attribute::find($id)->update($fields);
         return redirect()->route('attributes.index');
     }
 

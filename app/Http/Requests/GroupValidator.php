@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class ProductValidator extends FormRequest
+class GroupValidator extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class ProductValidator extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -29,15 +29,13 @@ class ProductValidator extends FormRequest
                 'required',
                 'max:255',
                 Rule::unique('products', 'name')->ignore($this->product)
-                ],
+            ],
             'slug' => [
                 'max:255',
                 Rule::unique('products', 'slug')->ignore($this->product)
             ],
-            'attributes.*.value' => 'required',
-            'attributes.*.attribute_id' => 'required',
-            'attributes_old.*.value' => 'required',
-            'group_id' => 'required',
+
+            'category_id' => 'required'
         ];
     }
 
@@ -49,15 +47,10 @@ class ProductValidator extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Введите название товара',
-            'name.unique' => 'Товар с таким названием уже существует',
+            'name.required' => 'Введите название группы',
+            'name.unique' => 'Группа с таким названием уже существует',
             'slug.unique' => 'Введите уникальное значение',
-            'attributes.*.value.required' => 'Значение не может быть пустым',
-            'attributes.*.attribute_id.required' => 'Выберите характеристику',
-            'attributes_old.*.value.required' => 'Значение не может быть пустым',
-            'group_id.required' => 'Выберите группу товаров',
+            'category_id.required' => 'Выберите категорию для группы',
         ];
     }
-
-
 }
