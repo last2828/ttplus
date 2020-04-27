@@ -10,7 +10,6 @@ class AdminController extends Controller
 {
     public static function index()
     {
-//        return view('vendor/unisharp/laravel-filemanager/src/views/demo');
-        return PartialView('../vendor/unisharp/laravel-filemanager/src/views/demo');
+        return view('admin.dashboard');
     }
 }

@@ -176,7 +176,6 @@ return [
         App\Providers\RouteServiceProvider::class,
         ElForastero\Transliterate\ServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\BreadcrumbsServiceProvider::class,
-        UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
 
 
