@@ -59,7 +59,7 @@ class ProductController extends Controller
      * @param  ProductValidator $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductValidator $request)
     {
         $fields = $request->toArray();
 
@@ -67,9 +67,8 @@ class ProductController extends Controller
         {
             $fields['slug'] = Transliterate::slugify($fields['name']);
         }
-
+        dd($fields['attributes']);
         $product = Product::create($fields);
-
         if(!empty($fields['attributes']))
             foreach($fields['attributes'] as $key => $attributesFields)
             {

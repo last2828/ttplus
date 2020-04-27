@@ -22,8 +22,8 @@ class CreateProductsTable extends Migration
             $table->string('meta_keywords')->nullable();
             $table->text('meta_description')->nullable();
             $table->string('image')->nullable();
-            $table->integer('category_id');
-            $table->integer('group_id');
+            $table->integer('category_id')->nullable();;
+            $table->integer('group_id')->nullable();;
             $table->string('slug')->unique();
             $table->integer('status')->default('1');
             $table->timestamps();

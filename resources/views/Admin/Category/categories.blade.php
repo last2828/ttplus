@@ -72,7 +72,21 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+                                                <div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
+                                                    <div class="kt-form__group kt-form__group--inline">
+                                                        <div class="kt-form__label">
+                                                            <label>Категория:</label>
+                                                        </div>
+                                                        <div class="kt-form__control">
+                                                            <select class="form-control bootstrap-select" id="kt_form_status">
+                                                                <option value="">Все</option>
+                                                                @foreach($categoriesRoot as $category)
+                                                                    <option value="{{$category['name']}}">{{$category['name']}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -130,6 +144,9 @@
                     {
                         field: 'name',
                         title: 'Название',
+                        template: function(data) {
+                            return (data.parent_id !== null) ? ' - ' + data.name : data.name
+                        },
                     },
                 {
                         field: 'status',
@@ -169,10 +186,10 @@
                     }],
                 });
                 $('#kt_form_status').on('change', function() {
-                    datatable.search($(this).val().toLowerCase(), 'Status');
+                    datatable.search($(this).val().toLowerCase(), 'parent_name');
                 });
                 $('#kt_form_type').on('change', function() {
-                    datatable.search($(this).val().toLowerCase(), 'Type');
+                    datatable.search($(this).val().toLowerCase(), 'status');
                 });
                 $('#kt_form_status,#kt_form_type').selectpicker();
             };

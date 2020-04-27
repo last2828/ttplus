@@ -39,11 +39,11 @@ class ProductValidator extends FormRequest
                 'max:255',
                 Rule::unique('products', 'slug')->ignore($this->product)
             ],
-            'attributes.*.value' => 'required',
-            'attributes.*.attribute_id' => 'required',
-            'attributes_old.*.value' => 'required',
+            // 'attributes.*.value' => 'required',
+            // 'attributes.*.attribute_id' => 'required',
+            // 'attributes_old.*.value' => 'required',
             'group_id' => 'required',
-            'category_id' => 'required',
+            // 'category_id' => 'required',
         ];
     }
 

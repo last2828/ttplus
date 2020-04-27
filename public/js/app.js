@@ -145,7 +145,7 @@ var editor = grapesjs__WEBPACK_IMPORTED_MODULE_0___default.a.init({
     uploadName: 'file',
     multiUpload: false
   },
-  style: ".gjs-dashed img{\n      width: 100%\n  }\n  .gjs-dashed .row, .gjs-dashed .row-2{\n\t\tdisplay: flex;\n\t\tflex-wrap: wrap;\n\t\tpadding: 10px;\n\t\tborder: 2px solid;\n\t\tjustify-content: space-between;\n\t}\n\t.gjs-dashed * {\n\t\tpadding: 10px;\n\t}\n\t.gjs-dashed li{\n\t\tdisplay: flex;\n\t\talign-items: center;\n\t}\n\t.gjs-dashed .dot{\n\t\twidth: 10px;\n\t\theight: 10px;\n\t\tborder-radius: 50%;\n\t\tbackground: blue;\n\t}\n\n  "
+  style: ".gjs-dashed img{\n      width: 100%\n  }\n  .gjs-dashed .row, .gjs-dashed .row-2{\n\t\tdisplay: flex;\n\t\tflex-wrap: wrap;\n\t\tpadding: 10px;\n\t\tborder: 2px solid;\n\t\tjustify-content: space-between;\n\t}\n\t.gjs-dashed * {\n\t\tpadding: 10px;\n\t}\n\t.gjs-dashed li{\n\t\tdisplay: flex;\n\t\talign-items: center;\n\t}\n\t.gjs-dashed .dot{\n\t\twidth: 10px;\n\t\theight: 10px;\n\t\tborder-radius: 50%;\n\t\tbackground: blue;\n\t}\n  "
 }); //Обьявление переменной AssetsManager
 
 var am = editor.AssetManager; //Добавление всех фото в assets
@@ -437,26 +437,14 @@ $(iframeBody).on("paste", '[contenteditable="true"]', function (e) {
 
 /***/ }),
 
-/***/ "./resources/sass/front.scss":
-/*!***********************************!*\
-  !*** ./resources/sass/front.scss ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ 0:
-/*!*****************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/front.scss ./resources/sass/app.scss ***!
-  \*****************************************************************************************/
+/*!*************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/macbook/Work/1 КАРТЬЕ/tt.github.io/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/macbook/Work/1 КАРТЬЕ/tt.github.io/resources/sass/front.scss */"./resources/sass/front.scss");
 module.exports = __webpack_require__(/*! /Users/macbook/Work/1 КАРТЬЕ/tt.github.io/resources/sass/app.scss */"./resources/sass/app.scss");
 
 

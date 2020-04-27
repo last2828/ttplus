@@ -10,7 +10,7 @@ class CatalogController extends Controller
 {
     public function index()
     {
-        $dunkermotoren = ProductCategory::where('parent_id', 1)->get()->toArray();
+        $dunkermotoren = ProductCategory::where('name', 'Dunkermotoren')->with('children')->first()->toArray()['children'];
         return view('front.pages.catalog.index', compact('dunkermotoren'));
     }
 }

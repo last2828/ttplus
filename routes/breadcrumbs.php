@@ -105,3 +105,4 @@ Breadcrumbs::for('edit-attribute', function ($trail, $attribute) {
     $trail->parent('product-attributes');
     $trail->push($attribute->name, route('attributes.edit', $attribute->id));
 });
+

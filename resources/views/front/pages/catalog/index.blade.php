@@ -17,18 +17,18 @@
       <div class="card__content">
         <div class="content__column">
           @foreach (array_slice($dunkermotoren, 0, 5) as $item)
-          <p><a href="{{route('pages.catalog.category', $item['slug'])}}">{{$item['name']}}</a></p>
+          <p><a href="{{route('pages.catalog.dunker.category', $item['slug'])}}">{{$item['name']}}</a></p>
           @endforeach
         </div>
         <div class="content__column">
           @foreach (array_slice($dunkermotoren, 5) as $item)
-            <p>{{$item['name']}}</p>
+            <p><a href="{{route('pages.catalog.dunker.category', $item['slug'])}}">{{$item['name']}}</a></p>
           @endforeach
         </div>
       </div>
       <div class="card__bottom">
         <a href="#" class="btn btn-primary">Подробнее</a>
-        <a href="{{route('pages.catalog.dunkermotoren')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a>
+        <a href="{{route('pages.catalog.dunker.index')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a>
       </div>
     </div>
     <div class="catalog-card">

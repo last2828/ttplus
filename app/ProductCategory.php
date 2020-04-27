@@ -30,7 +30,9 @@ class ProductCategory extends Model
     public function group()
     {
         return $this->hasMany(
-            Group::class
+            Group::class,
+            'category_id',
+            'id'
         );
     }
 }

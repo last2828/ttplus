@@ -19,12 +19,13 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = ProductCategory::with('parent')->get();
+        $categoriesRoot = ProductCategory::whereIsRoot()->get();
         foreach($categories as $category){
             if (isset($category->parent['name'])) {
                 $category['parent_name'] = $category->parent['name'];
             }
         }
-        return view('admin.category.categories', compact('categories'));
+        return view('admin.category.categories', compact(['categories', 'categoriesRoot']));
     }
 
     /**

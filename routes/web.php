@@ -23,9 +23,17 @@ Route::group(['namespace' => 'Front', 'as' => 'pages.'], function () {
     
     Route::group(['prefix' => 'catalog', 'namespace' => 'Catalog', 'as' => 'catalog.'], function () {
         Route::get('/', 'CatalogController@index')->name('index');
-        Route::get('/dunkermotoren', 'CategoryController@dunkermotoren')->name('dunkermotoren');
+
+        Route::group(['prefix' => 'dunkermotoren', 'as' => 'dunker.'], function () {
+            Route::get('/', 'CategoryController@dunkermotoren')->name('index');
+            Route::get('/{category}', 'CategoryController@index')->name('category');
+            Route::get('/{category}/{group}', 'CategoryController@index')->name('group');
+            Route::get('/{category}/{group}/{product}', 'CategoryController@index')->name('product');
+        });
+
+
+
         Route::get('/jianghai', 'CategoryController@jianghai')->name('jianghai');
-        Route::get('/{category}', 'CategoryController@index')->name('category');
     });
 
     Route::group(['prefix' => 'info', 'namespace' => 'News', 'as' => 'news.'], function () {

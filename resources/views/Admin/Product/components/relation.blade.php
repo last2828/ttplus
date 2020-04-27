@@ -1,4 +1,4 @@
-{{--<div class="tab-pane" id="kt_tabs_1_3" role="tabpanel">--}}
+<div class="tab-pane" id="kt_tabs_1_3" role="tabpanel">
   {{--<div class="form-group row">--}}
     {{--<label class="col-form-label col-lg-3 col-sm-12">Главная категория</label>--}}
     {{--<div class="col-lg-4 col-md-9 col-sm-12">--}}
