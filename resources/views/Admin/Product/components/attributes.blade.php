@@ -1,4 +1,4 @@
-<div class="tab-pane " id="kt_tabs_1_4" role="tabpanel">
+<div class="tab-pane " id="kt_tabs_1_3" role="tabpanel">
     <label class="col-md-12 col-form-label">Характеристики</label>
     @if(isset($productAttributes))
     <div id="kt_repeater_2">

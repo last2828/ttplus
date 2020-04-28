@@ -12,4 +12,11 @@ class AdminController extends Controller
     {
         return view('admin.dashboard');
     }
+
+    public static function manager()
+    {
+        return view('admin.file-manager');
+    }
 }
+
+

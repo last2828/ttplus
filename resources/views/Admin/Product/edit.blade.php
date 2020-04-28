@@ -54,19 +54,15 @@
                                                     <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_2" role="tab">Данные</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_3" role="tab">Связи</a>
+                                                    <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_3" role="tab">Характеристики</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_4" role="tab">Характеристики</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_5" role="tab">Изображения</a>
+                                                    <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_4" role="tab">Изображения</a>
                                                 </li>
                                             </ul>
                                             <div class="tab-content">
                                                 @include('admin.product.components.general')
                                                 @include('admin.product.components.information')
-                                                @include('admin.product.components.relation')
                                                 @include('admin.product.components.attributes')
                                                 @include('admin.product.components.images')
                                             </div>

@@ -43,7 +43,6 @@ class ProductValidator extends FormRequest
             // 'attributes.*.attribute_id' => 'required',
             // 'attributes_old.*.value' => 'required',
             'group_id' => 'required',
-            // 'category_id' => 'required',
         ];
     }
 
@@ -64,8 +63,6 @@ class ProductValidator extends FormRequest
             'attributes.*.attribute_id.required' => 'Выберите характеристику',
             'attributes_old.*.value.required' => 'Значение не может быть пустым',
             'group_id.required' => 'Выберите группу товаров',
-            'category_id.required' => 'Выберите категорию',
-
         ];
     }
 

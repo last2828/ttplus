@@ -2,15 +2,8 @@
 
 namespace App\Http\Controllers\admin\catalog;
 
-use App\Group;
 use App\Product;
-use App\Attribute;
-use Transliterate;
-use App\ProductCategory;
-use App\ProductAttribute;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Route;
 use App\Http\Requests\ProductValidator;
 
 class ProductController extends Controller
@@ -22,17 +15,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        foreach($products as $product){
-            $product['category_name'] = $product->category['name'];
-            $product['group_name'] = $product->group['name'];
-        }
-        return view(
-            'admin.product.catalog',
-            [
-                'products' => $products,
-            ]
-        );
+        //get all products
+        $products = Product::getAllProducts();
+
+        //display catalog with products
+        return view('admin.product.catalog', $products);
     }
 
     /**
@@ -42,15 +29,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view(
-          'admin.product.create',
-          [
-//              'categories' => ProductCategory::all(),
-              'groups' => Group::all(),
-              'attributes' => Attribute::all(),
-              'route' => Route::currentRouteName()
-          ]
-        );
+        //get all components for create product
+        $components = Product::getProductComponents();
+
+        //display create form with components
+        return view('admin.product.create', $components);
     }
 
     /**
@@ -61,21 +44,13 @@ class ProductController extends Controller
      */
     public function store(ProductValidator $request)
     {
+        //convert data from object to array after validation
         $fields = $request->toArray();
 
-        if($fields['slug'] == null)
-        {
-            $fields['slug'] = Transliterate::slugify($fields['name']);
-        }
-        dd($fields['attributes']);
-        $product = Product::create($fields);
-        if(!empty($fields['attributes']))
-            foreach($fields['attributes'] as $key => $attributesFields)
-            {
-                    $attributesFields['product_id'] = $product->id;
-                    ProductAttribute::create($attributesFields);
-            }
+        //save new product
+        Product::storeProduct($fields);
 
+        //back to the product catalog
         return redirect()->route('products.index');
     }
 
@@ -98,17 +73,14 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        return view(
-            'admin.product.edit',
-            [
-                'product' => Product::find($id),
-                'route' => Route::currentRouteName(),
-//                'categories' => ProductCategory::all(),
-                'groups' => Group::all(),
-                'attributes' => Attribute::all(),
-                'productAttributes' => ProductAttribute::where('product_id', $id)->with('attribute')->get(),
-            ]
-        );
+        //get current product components
+        $currentProduct = Product::getCurrentProduct($id);
+
+        //get all components for update product
+        $components = Product::getProductComponents();
+
+        //display update form with components
+        return view('admin.product.edit', $currentProduct, $components);
     }
 
     /**
@@ -119,38 +91,14 @@ class ProductController extends Controller
      */
     public function update(ProductValidator $request, $id)
     {
+        //convert data from object to array after validation
         $fields = $request->toArray();
 
-        // check slug
-        if($fields['slug'] == null)
-        {
-            $fields['slug'] = Transliterate::slugify($fields['name']);
-        }
+        //update current product
+        Product::updateProduct($fields, $id);
 
-        // updating attributes fields in db
-        if(!empty($fields['attributes_old'])) {
-            foreach($fields['attributes_old'] as $key => $attributesFields) {
-
-                $attributesFields['product_id'] = $id;
-
-                ProductAttribute::find($attributesFields['id'])->update($attributesFields);
-            }
-        }
-
-        if(!empty($fields['attributes'])){
-            foreach($fields['attributes'] as $key => $attributesFields) {
-
-                $attributesFields['product_id'] = $id;
-
-                ProductAttribute::create($attributesFields);
-            }
-        }
-
-        // updating product fields in db
-        $product = Product::find($id);
-        $product->update($fields);
+        //back to the product catalog
         return redirect()->route('products.index');
-
     }
 
     /**
@@ -161,8 +109,10 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        Product::destroy($id);
-        ProductAttribute::where('product_id', $id)->delete();
+        //delete current product
+        Product::deleteProduct($id);
+
+        //back to the product catalog
         return redirect()->back();
     }
 }

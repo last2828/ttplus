@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers\admin\catalog;
 
-use App\Category;
-use App\CategoryGroup;
 use App\Group;
 use App\Http\Controllers\Controller;
 use App\ProductCategory;
 use Illuminate\Http\Request;
-use Transliterate;
 
 class GroupController extends Controller
 {
@@ -19,12 +16,8 @@ class GroupController extends Controller
      */
     public function index()
     {
-        return view(
-                'admin.group.groups',
-            [
-                'groups' => Group::all()
-            ]
-        );
+        $groups = Group::all();
+        return view('admin.group.groups', compact('groups'));
     }
 
     /**
@@ -34,13 +27,11 @@ class GroupController extends Controller
      */
     public function create()
     {
-        return view(
-            'admin.group.create-group',
-            [
-                'categories' => ProductCategory::all()
-            ]
+        //get components for group creating
+        $categories = ProductCategory::all();
 
-        );
+        //display create form with components
+        return view('admin.group.create', compact('categories'));
     }
 
     /**
@@ -51,16 +42,14 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
+        //convert data from object to array after validation
         $fields = $request->toArray();
 
-        if($fields['slug'] == null)
-        {
-            $fields['slug'] = Transliterate::slugify($fields['name']);
-        }
+        //save new group
+        Group::storeGroup($fields);
 
-        Group::create($fields);
+        //back to the group catalog
         return redirect()->route('groups.index');
-
     }
 
     /**
@@ -82,13 +71,14 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
-        return view(
-            'admin.group.edit-group',
-            [
-                'group' => Group::find($id),
-                'categories' => ProductCategory::all(),
-            ]
-        );
+        //get components for group creating
+        $categories = ProductCategory::all();
+
+        //find current group
+        $group = Group::find($id);
+
+        //display update form with components
+        return view('admin.group.edit', compact(['categories', 'group']));
     }
 
     /**
@@ -100,16 +90,13 @@ class GroupController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //convert data from object to array after validation
         $fields = $request->toArray();
 
-        // check slug
-        if($fields['slug'] == null)
-        {
-            $fields['slug'] = Transliterate::slugify($fields['name']);
-        }
+        //update current group
+        Group::updateGroup($fields, $id);
 
-        $group = Group::find($id);
-        $group->update($fields);
+        //back to the group catalog
         return redirect()->route('groups.index');
     }
 
@@ -121,7 +108,10 @@ class GroupController extends Controller
      */
     public function destroy($id)
     {
+        //delete group
         Group::destroy($id);
+
+        //back to the group catalog
         return redirect()->back();
     }
 }
