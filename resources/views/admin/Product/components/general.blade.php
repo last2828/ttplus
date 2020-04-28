@@ -8,7 +8,7 @@
 						aria-describedby=""
 						placeholder="{{ ($errors->has('name')) ? $errors->first('name') : 'Название товара' }}"
 						name="name"
-						value="{{(isset($product)) ? $product['name'] : ''}}"
+						value="{{(isset($product)) ? $product['name'] : old('name')}}"
 					>
 			</div>
 	</div>
