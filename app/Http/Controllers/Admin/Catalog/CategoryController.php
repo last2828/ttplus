@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\admin\catalog;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryValidator;
 use App\ProductCategory;
 use Illuminate\Http\Request;
-use Transliterate;
 
 class CategoryController extends Controller
 {
@@ -16,14 +16,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = ProductCategory::with('parent')->get();
-        $categoriesRoot = ProductCategory::whereIsRoot()->get();
-        foreach($categories as $category){
-            if (isset($category->parent['name'])) {
-                $category['parent_name'] = $category->parent['name'];
-            }
-        }
-        return view('admin.category.categories', compact(['categories', 'categoriesRoot']));
+        //get all categories
+        $categories = ProductCategory::allCategories();
+
+        //display category catalog
+        return view('admin.category.categories', $categories);
     }
 
     /**
@@ -33,37 +30,28 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view(
-          'admin.category.create-category',
-          [
-              'categories' => ProductCategory::all()
-          ]
-        );
+        //get components for create category
+        $categories = ProductCategory::all();
+
+        //display create form with components
+        return view('admin.category.create', compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  CategoryValidator $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryValidator $request)
     {
+        //convert data from object to array after validation
         $fields = $request->toArray();
 
-        if($fields['slug'])
-        {
-            $fields['slug'] = Transliterate::slugify($fields['slug']);
-        }else{
-            $fields['slug'] = Transliterate::slugify($fields['name']);
-        }
+        //save new category
+        ProductCategory::storeCategory($fields);
 
-        if($fields['parent_id'] == 'null')
-        {
-            $fields['parent_id'] = null;
-        }
-
-        ProductCategory::create($fields);
+        //back to the category catalog
         return redirect()->route('product_categories.index');
     }
 
@@ -86,40 +74,32 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        return view(
-            'admin.category.edit-category',
-            [
-                'category' => ProductCategory::find($id),
-                'categories' => ProductCategory::all(),
-            ]
-        );
+        //get components for update category
+        $categories = ProductCategory::all();
+
+        //find current category
+        $category = ProductCategory::find($id);
+
+        //display update form with components
+        return view('admin.category.edit', compact(['category', 'categories']));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  CategoryValidator  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryValidator $request, $id)
     {
+        //convert data from object to array after validation
         $fields = $request->toArray();
 
-        if($fields['slug'])
-        {
-            $fields['slug'] = Transliterate::slugify($fields['slug']);
-        }else{
-            $fields['slug'] = Transliterate::slugify($fields['name']);
-        }
+        //update current category
+        ProductCategory::updateCategory($fields, $id);
 
-        if($fields['parent_id'] == 'null')
-        {
-            $fields['parent_id'] = null;
-        }
-
-        $category = ProductCategory::find($id);
-        $category->update($fields);
+        //back to the category catalog
         return redirect()->route('product_categories.index');
     }
 
@@ -131,7 +111,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
+        //delete category
         ProductCategory::destroy($id);
+
+        //back to the category catalog
         return redirect()->back();
     }
 

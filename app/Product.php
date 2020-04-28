@@ -84,7 +84,7 @@ class Product extends Model
         //check slug and transliterate 'name' if slug = null
         $fields = AppHelper::checkSlug($fields);
 
-        //create new product with
+        //create new product with fields
         $product = self::create($fields);
 
         //check attributes and save if they exist
@@ -110,7 +110,7 @@ class Product extends Model
         //check slug and transliterate 'name' if slug = null
         $fields = AppHelper::checkSlug($fields);
 
-        //update product in db
+        //find and update product in db
         self::find($id)->update($fields);
 
         //check attributes and save or change if they exist

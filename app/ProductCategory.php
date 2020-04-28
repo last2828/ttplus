@@ -35,4 +35,51 @@ class ProductCategory extends Model
             'id'
         );
     }
+
+    public static function allCategories()
+    {
+        //get all categories with parents
+        $categories = ProductCategory::with('parent')->get();
+
+        //
+        $categoriesRoot = ProductCategory::whereIsRoot()->get();
+
+        //
+        foreach($categories as $category){
+            if (isset($category->parent['name'])) {
+                $category['parent_name'] = $category->parent['name'];
+            }
+        }
+
+        //return categories
+        return compact(['categories', 'categoriesRoot']);
+    }
+
+    public static function storeCategory($fields)
+    {
+        //check slug and transliterate 'name' if slug = null
+        $fields = AppHelper::checkSlug($fields);
+
+        //check category parent if they not exist
+        $fields = AppHelper::checkParent($fields);
+
+        //create new category with fields
+        self::create($fields);
+
+        return true;
+    }
+
+    public static function updateCategory($fields, $id)
+    {
+        //check slug and transliterate 'name' if slug = null
+        $fields = AppHelper::checkSlug($fields);
+
+        //check category parent if they not exist
+        $fields = AppHelper::checkParent($fields);
+
+        //update current category
+        ProductCategory::find($id)->update($fields);
+
+        return true;
+    }
 }

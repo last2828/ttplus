@@ -29,4 +29,20 @@ class Attribute extends Model
             ProductAttribute::class
         );
     }
+
+    public static function deleteAttribute($id)
+    {
+        //check - if current attribute not exist in any product delete from all tables
+        if(empty(ProductAttribute::where('attribute_id', $id)->get()))
+        {
+            self::destroy($id);
+            ProductAttribute::where('attribute_id', $id)->delete();
+            return true;
+        }
+        //else return error
+        else
+        {
+            return 'Данная характеристика добавлена к существующим товарам';
+        }
+    }
 }
