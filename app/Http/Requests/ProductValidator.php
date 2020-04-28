@@ -30,6 +30,11 @@ class ProductValidator extends FormRequest
                 'max:255',
                 Rule::unique('products', 'name')->ignore($this->product)
                 ],
+            'model' => [
+                'required',
+                'max:255',
+                Rule::unique('products', 'model')->ignore($this->product)
+            ],
             'slug' => [
                 'max:255',
                 Rule::unique('products', 'slug')->ignore($this->product)
@@ -51,6 +56,8 @@ class ProductValidator extends FormRequest
         return [
             'name.required' => 'Введите название товара',
             'name.unique' => 'Товар с таким названием уже существует',
+            'model.required' => 'Введите код товара',
+            'model.unique' => '"Код товара"" должен быть уникальным',
             'slug.unique' => 'Введите уникальное значение',
             'attributes.*.value.required' => 'Значение не может быть пустым',
             'attributes.*.attribute_id.required' => 'Выберите характеристику',

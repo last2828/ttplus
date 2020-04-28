@@ -33,7 +33,7 @@ class CategoryController extends Controller
     public function create()
     {
         return view(
-          'admin.category.create',
+          'admin.category.create-category',
           [
               'categories' => ProductCategory::all()
           ]
@@ -86,7 +86,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         return view(
-            'admin.category.edit',
+            'admin.category.edit-category',
             [
                 'category' => ProductCategory::find($id),
                 'categories' => ProductCategory::all(),
