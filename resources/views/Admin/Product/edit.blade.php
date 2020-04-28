@@ -56,15 +56,15 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_3" role="tab">Характеристики</a>
                                                 </li>
-                                                <li class="nav-item">
+                                                {{-- <li class="nav-item">
                                                     <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_4" role="tab">Изображения</a>
-                                                </li>
+                                                </li> --}}
                                             </ul>
                                             <div class="tab-content">
                                                 @include('admin.product.components.general')
                                                 @include('admin.product.components.information')
                                                 @include('admin.product.components.attributes')
-                                                @include('admin.product.components.images')
+                                                {{-- @include('admin.product.components.images') --}}
                                             </div>
                                         </div>
                                         <div class="kt-portlet__foot">
