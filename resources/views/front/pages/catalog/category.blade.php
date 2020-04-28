@@ -47,16 +47,15 @@
           <p>Номинальная мощность, <br> Вт</p>
         </div>
       </div>
-      @if (Route::currentRouteName() == 'pages.catalog.dunker.group')
-        @foreach ($categories as $category)
+      @if ($route == 'pages.catalog.dunker.group')
           <div class="product__block">
-            <h3>{{$category['name']}}</h3>
-            @foreach ($category['group'] as $group)
+            <h3>{{$group['name']}}</h3>
+            @foreach ($products as $product)
               <div class="product__series">
                 <div class="param series">
                   <div class="prod__img"><img src="img/catalog/product.jpg" alt=""></div>
                   <div class="prod__name">
-                    <p><span>Серия</span> <br> {{$group['name']}}</p>
+                    <p><span>Серия</span> <br> {{$product['name']}}</p>
                   </div>
                 </div>
                 <div class="param diameter">
@@ -77,9 +76,10 @@
                 <div class="param power">
                   <p>4</p>
                 </div>
-                <a href="{{route('pages.catalog.dunker.group', [
-                  'category' => $category['slug'],
-                  'group' => $group['slug']
+                <a href="{{route('pages.catalog.dunker.product', [
+                  'category' => $product->group->category['slug'],
+                  'group' => $product->group['slug'],
+                  'product' => $product['slug']
                 ])}}" class="btn btn-next">
                   <div class="span-arrow"></div>
                 </a>
@@ -87,7 +87,6 @@
             @endforeach 
             <div class="block__bottom"><a href="#" class="btn btn-primary">Показать все позиции</a><a href="#" class="btn btn-next--blue">Индивидуальный заказ<span class="span-arrow"></span></a></div>
           </div>
-        @endforeach
       @else
         @foreach ($categories as $category)
           <div class="product__block">

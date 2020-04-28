@@ -9,7 +9,6 @@ class ProductController extends Controller
 {
     public function index($product)
     {
-        dd($product);
         return view('front.pages.catalog.product');
     }
 }

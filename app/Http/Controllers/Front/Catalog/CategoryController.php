@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Front\Catalog;
 
+use App\Group;
+use App\Product;
 use App\ProductGroup;
 use App\ProductCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Route;
 
 class CategoryController extends Controller
 {
@@ -21,22 +24,29 @@ class CategoryController extends Controller
 
     public function index($category, $group = null)
     {
-        $categories = ProductCategory::where('slug', $category)->with('group.product')->get();
         $dunker = $this->dunker;
         $jianghai = $this->jianghai;
-        return view('front.pages.catalog.category', compact(['categories', 'dunker']));
+        $categories = ProductCategory::where('slug', $category)->with('group.product')->get();
+        $route = Route::currentRouteName();
+        if ($group) {
+            $group = Group::where('slug', $group)->first();
+            $products = Product::where('group_id', $group['id'])->get();
+        }
+        return view('front.pages.catalog.category', compact(['categories', 'dunker', 'route', 'products', 'group']));
     }
     public function dunkermotoren()
     {
         $dunker = $this->dunker;
         $jianghai = $this->jianghai;
         $categories = ProductCategory::where('name', 'dunkermotoren')->with('children.group.product.productAttribute.attribute')->first()['children'];
-        return view('front.pages.catalog.category', compact(['dunker', 'jianghai', 'categories']));
+        $route = Route::currentRouteName();
+        return view('front.pages.catalog.category', compact(['dunker', 'jianghai', 'categories', 'route']));
     }
     public function jianghai()
     {
         $dunker = $this->dunker;
         $jianghai = $this->jianghai;
-        return view('front.pages.catalog.category', compact(['dunker', 'jianghai']));
+        $route = Route::currentRouteName();
+        return view('front.pages.catalog.category', compact(['dunker', 'jianghai', 'route']));
     }
 }
