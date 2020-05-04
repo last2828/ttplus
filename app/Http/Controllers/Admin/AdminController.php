@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     public static function index()
     {
-        return redirect()->route('admin.products');
+        return redirect()->route('products.index');
     }
 
     public static function manager()
