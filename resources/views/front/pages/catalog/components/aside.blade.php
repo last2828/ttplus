@@ -145,58 +145,63 @@
     <div class="card__heading">
       <h4>Конденсаторы Jianghai</h4>
     </div>
-    <div class="card__content"><a href="#" class="btn btn-simple">Polyimer</a>
-      <div class="characteristics">
-        <ul>
-          <li>
-            <div class="dot-sm"></div><a href="#" class="btn">For external controller</a>
-          </li>
-          <li>
-            <div class="dot-sm"></div><a href="#" class="btn">With integrated controller</a>
-          </li>
-        </ul>
-      </div><a href="#" class="btn btn-simple">Radial</a>
-      <div class="characteristics">
-        <ul>
-          <li>
-            <div class="dot-sm"></div><a href="#" class="btn">For external controller</a>
-          </li>
-          <li>
-            <div class="dot-sm"></div><a href="#" class="btn">With integrated controller</a>
-          </li>
-        </ul>
-      </div><a href="#" class="btn btn-simple">Snap-in</a>
-      <div class="characteristics">
-        <ul>
-          <li>
-            <div class="dot-sm"></div><a href="#" class="btn">For external controller</a>
-          </li>
-          <li>
-            <div class="dot-sm"></div><a href="#" class="btn">With integrated controller</a>
-          </li>
-        </ul>
-      </div><a href="#" class="btn btn-simple">Screw</a>
-      <div class="characteristics">
-        <ul>
-          <li>
-            <div class="dot-sm"></div><a href="#" class="btn">For external controller</a>
-          </li>
-          <li>
-            <div class="dot-sm"></div><a href="#" class="btn">With integrated controller</a>
-          </li>
-        </ul>
-      </div><a href="#" class="btn btn-simple">Film capacitors</a>
-      <div class="characteristics">
-        <ul>
-          <li>
-            <div class="dot-sm"></div><a href="#" class="btn">For external controller</a>
-          </li>
-          <li>
-            <div class="dot-sm"></div><a href="#" class="btn">With integrated controller</a>
-          </li>
-        </ul>
-      </div>
+    <div class="card__content">
+    @foreach ($jianghai['children'] as $item)
+      <a href="{{route('pages.catalog.jianghai.category', $item['slug'])}}" class="btn btn-simple">{{$item['name']}}</a>
+    @endforeach
     </div>
+    {{--<div class="card__content"><a href="#" class="btn btn-simple">Polyimer</a>--}}
+      {{--<div class="characteristics">--}}
+        {{--<ul>--}}
+          {{--<li>--}}
+            {{--<div class="dot-sm"></div><a href="#" class="btn">For external controller</a>--}}
+          {{--</li>--}}
+          {{--<li>--}}
+            {{--<div class="dot-sm"></div><a href="#" class="btn">With integrated controller</a>--}}
+          {{--</li>--}}
+        {{--</ul>--}}
+      {{--</div><a href="#" class="btn btn-simple">Radial</a>--}}
+      {{--<div class="characteristics">--}}
+        {{--<ul>--}}
+          {{--<li>--}}
+            {{--<div class="dot-sm"></div><a href="#" class="btn">For external controller</a>--}}
+          {{--</li>--}}
+          {{--<li>--}}
+            {{--<div class="dot-sm"></div><a href="#" class="btn">With integrated controller</a>--}}
+          {{--</li>--}}
+        {{--</ul>--}}
+      {{--</div><a href="#" class="btn btn-simple">Snap-in</a>--}}
+      {{--<div class="characteristics">--}}
+        {{--<ul>--}}
+          {{--<li>--}}
+            {{--<div class="dot-sm"></div><a href="#" class="btn">For external controller</a>--}}
+          {{--</li>--}}
+          {{--<li>--}}
+            {{--<div class="dot-sm"></div><a href="#" class="btn">With integrated controller</a>--}}
+          {{--</li>--}}
+        {{--</ul>--}}
+      {{--</div><a href="#" class="btn btn-simple">Screw</a>--}}
+      {{--<div class="characteristics">--}}
+        {{--<ul>--}}
+          {{--<li>--}}
+            {{--<div class="dot-sm"></div><a href="#" class="btn">For external controller</a>--}}
+          {{--</li>--}}
+          {{--<li>--}}
+            {{--<div class="dot-sm"></div><a href="#" class="btn">With integrated controller</a>--}}
+          {{--</li>--}}
+        {{--</ul>--}}
+      {{--</div><a href="#" class="btn btn-simple">Film capacitors</a>--}}
+      {{--<div class="characteristics">--}}
+        {{--<ul>--}}
+          {{--<li>--}}
+            {{--<div class="dot-sm"></div><a href="#" class="btn">For external controller</a>--}}
+          {{--</li>--}}
+          {{--<li>--}}
+            {{--<div class="dot-sm"></div><a href="#" class="btn">With integrated controller</a>--}}
+          {{--</li>--}}
+        {{--</ul>--}}
+      {{--</div>--}}
+    {{--</div>--}}
   </div>
   
   <a href="#" class="btn btn-single-param__heading"><span class="span-text">Внешний диаметр, мм</span><span class="span-arrow"></span></a>

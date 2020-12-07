@@ -32,7 +32,9 @@ class CategoryController extends Controller
             $group = Group::where('slug', $group)->first();
             $products = Product::where('group_id', $group['id'])->get();
         }
-        return view('front.pages.catalog.category', compact(['categories', 'dunker', 'route', 'products', 'group']));
+
+        // send variable 'products'
+        return view('front.pages.catalog.category', compact(['categories', 'dunker', 'jianghai', 'route', 'group']));
     }
     public function dunkermotoren()
     {
@@ -42,11 +44,13 @@ class CategoryController extends Controller
         $route = Route::currentRouteName();
         return view('front.pages.catalog.category', compact(['dunker', 'jianghai', 'categories', 'route']));
     }
+
     public function jianghai()
     {
         $dunker = $this->dunker;
         $jianghai = $this->jianghai;
+        $categories = ProductCategory::where('name', 'jianghai')->with('children.group.product.productAttribute.attribute')->first()['children'];
         $route = Route::currentRouteName();
-        return view('front.pages.catalog.category', compact(['dunker', 'jianghai', 'route']));
+        return view('front.pages.catalog.category', compact(['dunker', 'jianghai', 'categories', 'route']));
     }
 }

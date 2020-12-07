@@ -30,8 +30,9 @@ class AttributeController extends Controller
      */
     public function create()
     {
-        //display create form
-        return view('admin.attribute.create');
+        return view(
+          'admin.attribute.create'
+        );
     }
 
     /**

@@ -84,9 +84,10 @@
                   <div class="span-arrow"></div>
                 </a>
               </div>
-            @endforeach 
+            @endforeach
             <div class="block__bottom"><a href="#" class="btn btn-primary">Показать все позиции</a><a href="#" class="btn btn-next--blue">Индивидуальный заказ<span class="span-arrow"></span></a></div>
           </div>
+
       @else
         @foreach ($categories as $category)
           <div class="product__block">
@@ -124,7 +125,7 @@
                   <div class="span-arrow"></div>
                 </a>
               </div>
-            @endforeach 
+            @endforeach
             <div class="block__bottom"><a href="#" class="btn btn-primary">Показать все позиции</a><a href="#" class="btn btn-next--blue">Индивидуальный заказ<span class="span-arrow"></span></a></div>
           </div>
         @endforeach

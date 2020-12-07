@@ -47,6 +47,7 @@ class Product extends Model
             'attribute_id'
         );
     }
+
     public function productAttribute()
     {
         return $this->belongsTo(ProductAttribute::class, 'id', 'product_id');

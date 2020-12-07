@@ -31,9 +31,12 @@ Route::group(['namespace' => 'Front', 'as' => 'pages.'], function () {
             Route::get('/{category}/{group?}/detail/{product}', 'ProductController@index')->name('product');
         });
 
+        Route::group(['prefix' => 'jianghai', 'as' => 'jianghai.'], function () {
+            Route::get('/', 'CategoryController@jianghai')->name('index');
+            Route::get('/{category}', 'CategoryController@index')->name('category');
+            Route::get('/{category}/detail/{product}', 'ProductController@index')->name('product');
+        });
 
-
-        Route::get('/jianghai', 'CategoryController@jianghai')->name('jianghai');
     });
 
     Route::group(['prefix' => 'info', 'namespace' => 'News', 'as' => 'news.'], function () {
