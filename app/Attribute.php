@@ -11,15 +11,13 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Attribute extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'units'];
 
-    public function product()
+    public function products()
     {
         return $this->belongsToMany(
             Product::class,
-            'product_attributes',
-            'attribute_id',
-            'product_id'
+            'product_attributes'
         );
     }
 
@@ -33,7 +31,7 @@ class Attribute extends Model
     public static function deleteAttribute($id)
     {
         //check - if current attribute not exist in any product delete from all tables
-        if(empty(ProductAttribute::where('attribute_id', $id)->get()))
+        if(!(empty(ProductAttribute::where('attribute_id', $id))))
         {
             self::destroy($id);
             ProductAttribute::where('attribute_id', $id)->delete();

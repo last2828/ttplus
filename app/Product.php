@@ -38,13 +38,11 @@ class Product extends Model
         );
     }
 
-    public function attribute()
+    public function attributes()
     {
         return $this->belongsToMany(
             Attribute::class,
             'product_attributes',
-            'product_id',
-            'attribute_id'
         );
     }
 
@@ -87,9 +85,10 @@ class Product extends Model
 
         //create new product with fields
         $product = self::create($fields);
+        $product->attach($fields['attributes']);
 
         //check attributes and save if they exist
-        self::checkAttributes($fields, $product->id);
+//        self::checkAttributes($fields, $product->id);
 
         return true;
     }
@@ -108,14 +107,35 @@ class Product extends Model
 
     public static function updateProduct($fields, $id)
     {
+//      dd($fields);
         //check slug and transliterate 'name' if slug = null
         $fields = AppHelper::checkSlug($fields);
-
         //find and update product in db
-        self::find($id)->update($fields);
+        $product = self::find($id);
+        $product->update($fields);
+//        $attributes = array_merge($fields['attributes'], $fields['attributes_old']);
 
+
+//        foreach($attributes as $attribute){
+//          $product->attributes()->attach(array($attribute['attribute_id'] => array('value' => $attribute['value'])));
+//        }
+
+        if(!empty($fields['attributes'])) {
+          foreach($fields['attributes'] as $attributes)
+          {
+            $product->attributes()->attach(array($attributes['attribute_id'] => array('value' => $attributes['value'])));
+          }
+        }
+
+        if(!empty($fields['attributes_old'])) {
+          foreach($fields['attributes_old'] as $attributes)
+          {
+            $product->attributes()->syncWithoutDetaching(array($attributes['attribute_id'] => array('value' => $attributes['value'])));
+          }
+        }
         //check attributes and save or change if they exist
-        self::checkAttributes($fields, $id);
+//        $attributes = self::checkAttributes($fields, $id);
+
 
         return true;
     }
@@ -132,24 +152,29 @@ class Product extends Model
     public static function checkAttributes($fields, $id)
     {
         //save product attributes if they exist
-        if(!empty($fields['attributes']))
-            foreach($fields['attributes'] as $key => $attributesFields)
-            {
-                $attributesFields['product_id'] = $id;
-                ProductAttribute::create($attributesFields);
-            }
+        if(!empty($fields['attributes'])) {
+          foreach($fields['attributes'] as $attributesFields)
+          {
+            $attributesNew['id'] = $attributesFields['attribute_id'];
+            $attributes['value'] = $attributesFields['value'];
+
+            $product->attributes()->syncWithoutDetaching(array($attributes['id'] => array('value' => $attributes['value'])));
+          }
+        }
+        dd($attributesNew);
 
         //update values for old product attributes if they exist
         if(!empty($fields['attributes_old'])) {
-            foreach($fields['attributes_old'] as $key => $attributesFields) {
-
-                $attributesFields['product_id'] = $id;
-
-                ProductAttribute::find($attributesFields['id'])->update($attributesFields);
+            foreach($fields['attributes_old'] as $key => $attributesFields)
+            {
+              $attributesOld['id'] = $attributesFields['attribute_id'];
+              $attributesOld['value'] = $attributesFields['value'];
             }
         }
 
-        return true;
+        $attributes = array_merge($attributesNew, $attributesOld);
+        dd($attributesNew);
+        return $attributes;
     }
 
 }

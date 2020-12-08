@@ -30,6 +30,10 @@ class AttributeValidator extends FormRequest
                 'max:255',
                 Rule::unique('attributes', 'name')->ignore($this->attribute)
             ],
+            'units' => [
+              'required',
+              'max:255',
+            ],
         ];
     }
 

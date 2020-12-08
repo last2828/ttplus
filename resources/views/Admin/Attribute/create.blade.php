@@ -45,7 +45,7 @@
                                     <form class="kt-form" method="POST" action="{{route('attributes.store')}}">
                                         @CSRF
                                         <div class="kt-portlet__body">
-                                            <div class="form-group form-group-last row">
+                                            <div class="form-group form-group row">
                                                 <label>Название характеристики</label>
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
                                                     <input type="text"
@@ -54,6 +54,17 @@
                                                            placeholder="{{ ($errors->has('name')) ? $errors->first('name') : 'Название характеристики' }}"
                                                            name="name"
                                                            value="{{old('name')}}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-group-last row">
+                                                <label>Еденицы измерения</label>
+                                                <div class="col-lg-12 col-md-9 col-sm-12">
+                                                    <input type="text"
+                                                           class="form-control {{($errors->has('units')) ? 'alert alert-outline-danger fade show' : ''}}"
+                                                           aria-describedby=""
+                                                           placeholder="{{ ($errors->has('units')) ? $errors->first('units') : 'Еденицы измерения' }}"
+                                                           name="units"
+                                                           value="{{old('units')}}">
                                                 </div>
                                             </div>
                                         </div>

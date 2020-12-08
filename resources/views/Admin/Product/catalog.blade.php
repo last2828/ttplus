@@ -67,7 +67,7 @@
                                                             <select class="form-control bootstrap-select" id="kt_form_status">
                                                                 <option value="">Все</option>
                                                                 @foreach($products as $product)
-                                                                    <option value="{{$product->category['id']}}">{{$product->category['name']}}</option>
+                                                                    <option value="{{$product->group->category->name}}">{{$product->group->category->name}}</option>
                                                                 @endforeach
                                                             </select>
                                                         </div>
