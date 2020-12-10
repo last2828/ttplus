@@ -1,7 +1,6 @@
 @extends('admin.layout')
 @section('content')
 
-
     <!-- begin:: Page -->
 
     <div class="kt-grid kt-grid--hor kt-grid--root">
@@ -82,7 +81,7 @@
                                                             <select class="form-control bootstrap-select" id="kt_form_status">
                                                                 <option value="">Все</option>
                                                                 @foreach($products as $product)
-                                                                    <option value="{{$product->group['id']}}">{{$product->group['name']}}</option>
+                                                                    <option value="{{$product->group->id}}">{{$product->group->name}}</option>
                                                                 @endforeach
                                                             </select>
                                                         </div>

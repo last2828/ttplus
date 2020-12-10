@@ -21,13 +21,6 @@ class Attribute extends Model
         );
     }
 
-    public function productAttributes()
-    {
-        return $this->hasMany(
-            ProductAttribute::class
-        );
-    }
-
     public static function deleteAttribute($id)
     {
         //check - if current attribute not exist in any product delete from all tables

@@ -17,20 +17,14 @@ class Group extends Model
         'slug',
         ];
 
-    public function product()
+    public function products()
     {
-        return $this->hasMany(
-            Product::class
-        );
+        return $this->hasMany(Product::class);
     }
 
     public function category()
     {
-        return $this->hasOne(
-            ProductCategory::class,
-            'id',
-            'category_id'
-        );
+        return $this->belongsTo(ProductCategory::class, 'category_id', 'id');
     }
 
     public static function storeGroup($fields)

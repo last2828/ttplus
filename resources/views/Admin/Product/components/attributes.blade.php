@@ -1,14 +1,14 @@
 <div class="tab-pane " id="kt_tabs_1_3" role="tabpanel">
     <label class="col-md-12 col-form-label">Характеристики</label>
-    @if(isset($productAttributes))
+    @if(isset($product) && !($product->attributes->isEmpty()))
     <div id="kt_repeater_2">
-        @foreach($productAttributes as $productAttribute)
             <div data-repeater-list="attributes_old" class="col-lg-12">
+                @foreach($product->attributes as $attribute)
                 <div data-repeater-item class="form-group row align-items-center">
                     <div class="col-md-4">
                         <div class="kt-form__group--inline">
                             <div class="kt-form__control">
-                                <p>{{$productAttribute->attribute['name']}}</p><input type="hidden" value="{{$productAttribute->id}}" name="id"><input type="hidden" value="{{$productAttribute->attribute_id}}" name="attribute_id">
+                                <p>{{$attribute->name}}</p><input type="hidden" value="{{$attribute->id}}" name="attribute_id">
                             </div>
                         </div>
                     </div>
@@ -19,7 +19,7 @@
                                        class="form-control {{($errors->has('attributes_old.*.value')) ? 'alert alert-outline-danger fade show' : ''}}"
                                        role="alert"
                                        placeholder="{{ ($errors->has('attributes_old.*.value')) ? $errors->first('attributes_old.*.value') : 'Введите значение характеристики'}}"
-                                       name="value" value="{{$productAttribute->value}}">
+                                       name="value" value="{{$attribute->pivot->value}}">
                             </div>
                         </div>
                     </div>
@@ -30,8 +30,8 @@
                         </a>
                     </div>
                 </div>
+                @endforeach
             </div>
-        @endforeach
     </div>
     @endif
     <div id="kt_repeater_1">

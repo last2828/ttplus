@@ -27,13 +27,9 @@ class ProductCategory extends Model
         'image'
     ];
 
-    public function group()
+    public function groups()
     {
-        return $this->hasMany(
-            Group::class,
-            'category_id',
-            'id'
-        );
+        return $this->hasMany(Group::class,'category_id','id');
     }
 
     public static function allCategories()
