@@ -26,21 +26,25 @@ class CategoryController extends Controller
     {
         $dunker = $this->dunker;
         $jianghai = $this->jianghai;
-        $categories = ProductCategory::where('slug', $category)->with('group.product')->get();
+
+        $categories = ProductCategory::where('slug', $category)->with('groups.products')->get();
         $route = Route::currentRouteName();
+
         if ($group) {
+
             $group = Group::where('slug', $group)->first();
             $products = Product::where('group_id', $group['id'])->get();
+            return view('front.pages.catalog.category', compact(['categories', 'dunker', 'jianghai', 'route', 'group', 'products']));
+
         }
 
-        // send variable 'products'
-        return view('front.pages.catalog.category', compact(['categories', 'dunker', 'jianghai', 'route', 'group']));
+      return view('front.pages.catalog.category', compact(['categories', 'dunker', 'jianghai', 'route']));
     }
     public function dunkermotoren()
     {
         $dunker = $this->dunker;
         $jianghai = $this->jianghai;
-        $categories = ProductCategory::where('name', 'dunkermotoren')->with('children.group.product.productAttribute.attribute')->first()['children'];
+        $categories = ProductCategory::where('name', 'dunkermotoren')->with('children.groups.products.attributes')->first();
         $route = Route::currentRouteName();
         return view('front.pages.catalog.category', compact(['dunker', 'jianghai', 'categories', 'route']));
     }
@@ -49,7 +53,7 @@ class CategoryController extends Controller
     {
         $dunker = $this->dunker;
         $jianghai = $this->jianghai;
-        $categories = ProductCategory::where('name', 'jianghai')->with('children.group.product.productAttribute.attribute')->first()['children'];
+        $categories = ProductCategory::where('name', 'jianghai')->with('children.groups.products.attributes')->first();
         $route = Route::currentRouteName();
         return view('front.pages.catalog.category', compact(['dunker', 'jianghai', 'categories', 'route']));
     }

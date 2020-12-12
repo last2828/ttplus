@@ -53,7 +53,7 @@
     </div>
     <div class="card__content">
     @foreach ($dunker['children'] as $item)
-      <a href="{{route('pages.catalog.dunker.category', $item['slug'])}}" class="btn btn-simple">{{$item['name']}}</a>
+      <a href="{{route('pages.catalog.dunkermotoren.category', $item['slug'])}}" class="btn btn-simple">{{$item['name']}}</a>
     @endforeach
     </div>
     {{-- <div class="card__content">

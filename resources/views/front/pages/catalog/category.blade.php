@@ -3,9 +3,23 @@
 @section('content')
 <section class="main-catalog__heading">
   <div class="container">
-    <div class="breadcrumbs"><a href="#" class="btn">Главная</a>
-      <p>/ Электродвигатели Dunkermotoren</p>
-    </div>
+
+    @if($route == 'pages.catalog.dunkermotoren.index')
+      {{Breadcrumbs::render('catalog-brand', $dunker)}}
+    @elseif($route == 'pages.catalog.dunkermotoren.category')
+      {{Breadcrumbs::render('catalog-brand-category', $dunker, $categories->first())}}
+    @elseif($route == 'pages.catalog.dunkermotoren.group')
+      {{Breadcrumbs::render('catalog-brand-category-group', $dunker, $categories->first(), $categories->first()->groups->first())}}
+    @elseif($route == 'pages.catalog.dunkermotoren.product')
+      {{Breadcrumbs::render('catalog-brand-category-group-product', $dunker, $categories->first(), $product)}}
+
+
+    @elseif($route == 'pages.catalog.jianghai.index')
+      {{Breadcrumbs::render('catalog-brand', $jianghai)}}
+    @elseif($route == 'pages.catalog.jianghai.category')
+      {{Breadcrumbs::render('catalog-brand-category', $jianghai, $categories->first())}}
+    @endif
+
     <h2>Электродвигатели Dunkermotoren</h2>
     <div class="heading__content">
       <div class="heading__text">
@@ -47,7 +61,7 @@
           <p>Номинальная мощность, <br> Вт</p>
         </div>
       </div>
-      @if ($route == 'pages.catalog.dunker.group')
+      @if ($route == 'pages.catalog.dunkermotoren.group')
           <div class="product__block">
             <h3>{{$group['name']}}</h3>
             @foreach ($products as $product)
@@ -76,7 +90,7 @@
                 <div class="param power">
                   <p>4</p>
                 </div>
-                <a href="{{route('pages.catalog.dunker.product', [
+                <a href="{{route('pages.catalog.dunkermotoren.product', [
                   'category' => $product->group->category['slug'],
                   'group' => $product->group['slug'],
                   'product' => $product['slug']
@@ -88,16 +102,16 @@
             <div class="block__bottom"><a href="#" class="btn btn-primary">Показать все позиции</a><a href="#" class="btn btn-next--blue">Индивидуальный заказ<span class="span-arrow"></span></a></div>
           </div>
 
-      @else
+      @elseif($route == 'pages.catalog.dunkermotoren.category' or $route == 'pages.catalog.jianghai.category')
         @foreach ($categories as $category)
           <div class="product__block">
-            <h3>{{$category['name']}}</h3>
-            @foreach ($category['group'] as $group)
+            <h3>{{$category->name}}</h3>
+            @foreach ($category->groups as $group)
               <div class="product__series">
                 <div class="param series">
                   <div class="prod__img"><img src="img/catalog/product.jpg" alt=""></div>
                   <div class="prod__name">
-                    <p><span>Серия</span> <br> {{$group['name']}}</p>
+                    <p><span>Серия</span> <br> {{$group->name}}</p>
                   </div>
                 </div>
                 <div class="param diameter">
@@ -118,7 +132,48 @@
                 <div class="param power">
                   <p>4</p>
                 </div>
-                <a href="{{route('pages.catalog.dunker.group', [
+                <a href="{{route('pages.catalog.dunkermotoren.group', [
+                  'category' => $category['slug'],
+                  'group' => $group['slug']
+                ])}}" class="btn btn-next">
+                  <div class="span-arrow"></div>
+                </a>
+              </div>
+            @endforeach
+            <div class="block__bottom"><a href="#" class="btn btn-primary">Показать все позиции</a><a href="#" class="btn btn-next--blue">Индивидуальный заказ<span class="span-arrow"></span></a></div>
+          </div>
+        @endforeach
+      @else
+        @foreach ($categories->children as $category)
+          <div class="product__block">
+            <h3>{{$category->name}}</h3>
+            @foreach ($category->groups as $group)
+              <div class="product__series">
+                <div class="param series">
+                  <div class="prod__img"><img src="img/catalog/product.jpg" alt=""></div>
+                  <div class="prod__name">
+                    <p><span>Серия</span> <br> {{$group->name}}</p>
+                  </div>
+                </div>
+                <div class="param diameter">
+                  <p>23</p>
+                </div>
+                <div class="param length">
+                  <p>50</p>
+                </div>
+                <div class="param voltage">
+                  <p>12/24</p>
+                </div>
+                <div class="param speed">
+                  <p>3 950 <br> 450</p>
+                </div>
+                <div class="param moment">
+                  <p>1.0 <br> 1.1</p>
+                </div>
+                <div class="param power">
+                  <p>4</p>
+                </div>
+                <a href="{{route('pages.catalog.dunkermotoren.group', [
                   'category' => $category['slug'],
                   'group' => $group['slug']
                 ])}}" class="btn btn-next">

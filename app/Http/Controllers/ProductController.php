@@ -12,6 +12,7 @@ class ProductController extends Controller
 
     public function index()
     {
+      dd('23');
         return view('form',
             ['categories' => Category::all()
         ]);

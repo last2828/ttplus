@@ -84,7 +84,7 @@ class Product extends Model
       $product = self::with('attributes')->find($id);
 
       //return product with components and route
-      return $product;
+      return compact('product');
     }
 
     public static function updateProduct($fields, $id)
