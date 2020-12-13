@@ -66,7 +66,7 @@
                                                             <select class="form-control bootstrap-select" id="kt_form_status">
                                                                 <option value="">Все</option>
                                                                 @foreach($products as $product)
-                                                                    <option value="{{$product->group->category->name}}">{{$product->group->category->name}}</option>
+                                                                    <option value="{{$product->category->name}}">{{$product->category->name}}</option>
                                                                 @endforeach
                                                             </select>
                                                         </div>
@@ -81,7 +81,9 @@
                                                             <select class="form-control bootstrap-select" id="kt_form_status">
                                                                 <option value="">Все</option>
                                                                 @foreach($products as $product)
+                                                                    @if(isset($product->group))
                                                                     <option value="{{$product->group->id}}">{{$product->group->name}}</option>
+                                                                    @endif
                                                                 @endforeach
                                                             </select>
                                                         </div>

@@ -4,10 +4,7 @@
 <section class="catalog-page">
   <div class="container">
     {{ Breadcrumbs::render('front-catalog') }}
-    {{--<div class="breadcrumbs"><a href="#" class="btn">Главная</a>--}}
-      {{--<p>/ Каталог</p>--}}
-    {{--</div>--}}
-    {{--<h2>Каталог</h2>--}}
+
   </div>
   <div class="product-cards">
     <div class="catalog-card">

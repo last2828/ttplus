@@ -5,6 +5,25 @@
           <input type="text" class="form-control" aria-describedby="" placeholder="Код товара" name="model" value="{{(isset($product)) ? $product['model'] : ''}}">
       </div>
   </div>
+  <div class="form-group row">
+    <label class="col-form-label col-lg-3 col-sm-12">Категория</label>
+    <div class="col-lg-4 col-md-9 col-sm-12">
+      <div class="input-group flex-nowrap mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1"><i class="flaticon2-graph-2"></i></span>
+        </div>
+        <select class="form-control kt-select2" id="kt_select2_group_1" name="category_id">
+          @foreach($categories as $category):
+          @if (isset($product))
+            <option {{($product->$category['id'] == $category['id']) ? 'selected' : ''}} value="{{$category['id']}}">{{$category['name']}}</option>
+          @else
+            <option value="{{$category['id']}}">{{$category['name']}}</option>
+          @endif
+          @endforeach
+        </select>
+      </div>
+    </div>
+  </div>
 <div class="form-group row">
     <label class="col-form-label col-lg-3 col-sm-12">Группа товаров</label>
     <div class="col-lg-4 col-md-9 col-sm-12">
@@ -17,6 +36,7 @@
                 @if (isset($product))
                     <option {{($product->group['id'] == $group['id']) ? 'selected' : ''}} value="{{$group['id']}}">{{$group['name']}}</option>
                 @else
+                    <option value="{{null}}" selected>Не выбрано</option>
                     <option value="{{$group['id']}}">{{$group['name']}}</option>
                 @endif
                 @endforeach

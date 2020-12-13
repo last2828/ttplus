@@ -46,6 +46,7 @@ class ProductController extends Controller
     {
         //convert data from object to array after validation
         $fields = $request->toArray();
+//        dd($fields);
 
         //save new product
         Product::storeProduct($fields);

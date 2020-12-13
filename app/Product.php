@@ -39,6 +39,11 @@ class Product extends Model
       return $this->belongsToMany(Attribute::class,'product_attributes')->withPivot('value');
     }
 
+    public function category()
+    {
+      return $this->belongsTo(ProductCategory::class);
+    }
+
     public static function getAllProducts()
     {
       $products = self::with('group.category')->get();
@@ -51,12 +56,13 @@ class Product extends Model
         //get all components for product creating
         $groups = Group::all();
         $attributes = Attribute::all();
+        $categories = ProductCategory::with('children')->get();
 
         //get route for check crud
         $route = Route::currentRouteName();
 
         //return product components and route
-        return compact(['groups', 'attributes', 'route']);
+        return compact(['groups', 'attributes', 'categories', 'route']);
     }
 
     public static function storeProduct($fields)

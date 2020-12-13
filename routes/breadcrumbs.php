@@ -132,10 +132,10 @@ Breadcrumbs::for('catalog-brand-category', function ($trail, $parent, $category)
 
 Breadcrumbs::for('catalog-brand-category-group', function ($trail, $parent, $category, $group) {
   $trail->parent('catalog-brand-category', $parent, $category);
-  $trail->push($group->name, route('pages.catalog.'. $parent->slug .'.group', $group->slug));
+  $trail->push($group->name);
 });
 
 Breadcrumbs::for('catalog-brand-category-product', function ($trail, $product) {
-  $trail->parent('catalog-brand-category', $product->group->category->parent, $product->group->category);
+  $trail->parent('catalog-brand-category', $product->category->parent, $product->category);
   $trail->push($product->name);
 });

@@ -28,13 +28,13 @@ Route::group(['namespace' => 'Front', 'as' => 'pages.'], function () {
             Route::get('/', 'CategoryController@dunkermotoren')->name('index');
             Route::get('/{category}', 'CategoryController@index')->name('category');
             Route::get('/{category}/{group?}', 'CategoryController@index')->name('group');
-            Route::get('/{category}/{group?}/detail/{product}', 'ProductController@index')->name('product');
+            Route::get('/{category}/{group?}/detail/{product}', 'ProductController@dunker')->name('product');
         });
 
         Route::group(['prefix' => 'jianghai', 'as' => 'jianghai.'], function () {
             Route::get('/', 'CategoryController@jianghai')->name('index');
             Route::get('/{category}', 'CategoryController@index')->name('category');
-            Route::get('/{category}/detail/{product}', 'ProductController@index')->name('product');
+            Route::get('/{category}/detail/{product}', 'ProductController@jianghai')->name('product');
         });
 
     });

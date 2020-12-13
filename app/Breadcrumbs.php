@@ -31,4 +31,5 @@ class Breadcrumbs extends Model
 
     endswitch;
   }
+
 }

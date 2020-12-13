@@ -27,7 +27,7 @@ class CategoryController extends Controller
         $dunker = $this->dunker;
         $jianghai = $this->jianghai;
 
-        $categories = ProductCategory::where('slug', $category)->with('groups.products')->get();
+        $categories = ProductCategory::where('slug', $category)->with(['parent', 'groups.products'])->get();
         $route = Route::currentRouteName();
 
         if ($group) {
@@ -37,8 +37,10 @@ class CategoryController extends Controller
             return view('front.pages.catalog.category', compact(['categories', 'dunker', 'jianghai', 'route', 'group', 'products']));
 
         }
+      $category = ProductCategory::where('slug', $category)->first();
+      $products = Product::where('category_id', $category->id)->get();
 
-      return view('front.pages.catalog.category', compact(['categories', 'dunker', 'jianghai', 'route']));
+      return view('front.pages.catalog.category', compact(['categories', 'dunker', 'jianghai', 'route', 'products']));
     }
     public function dunkermotoren()
     {

@@ -32,6 +32,11 @@ class ProductCategory extends Model
         return $this->hasMany(Group::class,'category_id','id');
     }
 
+  public function products()
+  {
+    return $this->hasMany(Product::class,'category_id','id');
+    }
+
     public static function allCategories()
     {
         //get all categories with parents
