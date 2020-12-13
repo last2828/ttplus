@@ -13,12 +13,9 @@
           <span class="input-group-text" id="basic-addon1"><i class="flaticon2-graph-2"></i></span>
         </div>
         <select class="form-control kt-select2" id="kt_select2_group_1" name="category_id">
+          <option value="">Не выбрано</option>
           @foreach($categories as $category):
-          @if (isset($product))
-            <option {{($product->$category['id'] == $category['id']) ? 'selected' : ''}} value="{{$category['id']}}">{{$category['name']}}</option>
-          @else
-            <option value="{{$category['id']}}">{{$category['name']}}</option>
-          @endif
+          <option {{(isset($product) && $product->category['id'] == $category['id']) ? 'selected' : ''}} value="{{$category['id']}}">{{$category['name']}}</option>
           @endforeach
         </select>
       </div>
@@ -31,15 +28,11 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1"><i class="flaticon2-graph-2"></i></span>
             </div>
-            <select class="form-control kt-select2" id="kt_select2_group_1" name="group_id">
-                @foreach($groups as $group):
-                @if (isset($product))
-                    <option {{($product->group['id'] == $group['id']) ? 'selected' : ''}} value="{{$group['id']}}">{{$group['name']}}</option>
-                @else
-                    <option value="{{null}}" selected>Не выбрано</option>
-                    <option value="{{$group['id']}}">{{$group['name']}}</option>
-                @endif
-                @endforeach
+            <select class="form-control kt-select2" id="kt_select3_group_2" name="group_id">
+              <option value="">Не выбрано</option>
+              @foreach($groups as $group):
+              <option {{(isset($product->group_id) && $product->group['id'] == $group['id']) ? 'selected' : ''}} value="{{$group['id']}}">{{$group['name']}}</option>
+              @endforeach
             </select>
         </div>
     </div>
