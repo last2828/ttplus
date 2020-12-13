@@ -4,21 +4,7 @@
 <section class="main-catalog__heading">
   <div class="container">
 
-    @if($route == 'pages.catalog.dunkermotoren.index')
-      {{Breadcrumbs::render('catalog-brand', $dunker)}}
-    @elseif($route == 'pages.catalog.dunkermotoren.category')
-      {{Breadcrumbs::render('catalog-brand-category', $dunker, $categories->first())}}
-    @elseif($route == 'pages.catalog.dunkermotoren.group')
-      {{Breadcrumbs::render('catalog-brand-category-group', $dunker, $categories->first(), $categories->first()->groups->first())}}
-    @elseif($route == 'pages.catalog.dunkermotoren.product')
-      {{Breadcrumbs::render('catalog-brand-category-group-product', $dunker, $categories->first(), $product)}}
-
-
-    @elseif($route == 'pages.catalog.jianghai.index')
-      {{Breadcrumbs::render('catalog-brand', $jianghai)}}
-    @elseif($route == 'pages.catalog.jianghai.category')
-      {{Breadcrumbs::render('catalog-brand-category', $jianghai, $categories->first())}}
-    @endif
+    {{\App\Breadcrumbs::renderBreadcrumbs($route, $dunker, $jianghai, $categories)}}
 
     <h2>Электродвигатели Dunkermotoren</h2>
     <div class="heading__content">

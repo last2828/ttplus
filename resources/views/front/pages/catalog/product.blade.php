@@ -3,11 +3,12 @@
 @section('content')
 <section class="product">
   <div class="container">
-    @dd($categories)
-    {{Breadcrumbs::render('')}}
-    <div class="breadcrumbs"><a href="#" class="btn">Главная / Электродвигатели Dunkermotoren</a>
-      <p><span> / GR/G | Brushed DC Motors / G 30.1, 12V</span></p>
-    </div>
+
+    {{Breadcrumbs::render('catalog-brand-category-product', $product)}}
+
+    {{--<div class="breadcrumbs"><a href="#" class="btn">Главная / Электродвигатели Dunkermotoren</a>--}}
+      {{--<p><span> / GR/G | Brushed DC Motors / G 30.1, 12V</span></p>--}}
+    {{--</div>--}}
     <div class="product-container">
       <h2>{{$product->name}}</h2>
       <div class="product__content">

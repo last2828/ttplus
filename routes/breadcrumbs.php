@@ -1,7 +1,7 @@
 <?php
 
 const FRONT = ['front' => true];
-const ADMIN = ['admin' => true];
+const ADMIN = ['front' => false];
 
 // Blog
 Breadcrumbs::for('blog', function ($trail) {
@@ -131,12 +131,11 @@ Breadcrumbs::for('catalog-brand-category', function ($trail, $parent, $category)
 });
 
 Breadcrumbs::for('catalog-brand-category-group', function ($trail, $parent, $category, $group) {
-  dd($category);
   $trail->parent('catalog-brand-category', $parent, $category);
-  $trail->push($category->groups->name, route('pages.catalog.'. $parent->slug .'.category', $category->group->slug));
+  $trail->push($group->name, route('pages.catalog.'. $parent->slug .'.group', $group->slug));
 });
 
-Breadcrumbs::for('catalog-brand-category-product', function ($trail, $parent, $category) {
-  $trail->parent('catalog-brand-category', $parent);
-  $trail->push($category->name, route('pages.catalog.'. $parent->slug .'.category', $category->slug));
+Breadcrumbs::for('catalog-brand-category-product', function ($trail, $product) {
+  $trail->parent('catalog-brand-category', $product->group->category->parent, $product->group->category);
+  $trail->push($product->name);
 });

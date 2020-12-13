@@ -10,7 +10,7 @@
     @endforeach
   </div>
 
-@elseif (count($breadcrumbs) && $breadcrumbs->first()->admin == true)
+@elseif (count($breadcrumbs) && $breadcrumbs->first()->front == false)
   <div class="kt-subheader   kt-grid__item" id="kt_subheader">
     <div class="kt-container  kt-container--fluid ">
 
