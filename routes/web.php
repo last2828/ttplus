@@ -24,16 +24,19 @@ Route::group(['namespace' => 'Front', 'as' => 'pages.'], function () {
     Route::group(['prefix' => 'catalog', 'namespace' => 'Catalog', 'as' => 'catalog.'], function () {
         Route::get('/', 'CatalogController@index')->name('index');
 
-        Route::group(['prefix' => 'dunkermotoren', 'as' => 'dunker.'], function () {
+        Route::group(['prefix' => 'dunkermotoren', 'as' => 'dunkermotoren.'], function () {
             Route::get('/', 'CategoryController@dunkermotoren')->name('index');
             Route::get('/{category}', 'CategoryController@index')->name('category');
             Route::get('/{category}/{group?}', 'CategoryController@index')->name('group');
-            Route::get('/{category}/{group?}/detail/{product}', 'ProductController@index')->name('product');
+            Route::get('/{category}/{group?}/detail/{product}', 'ProductController@dunker')->name('product');
         });
 
+        Route::group(['prefix' => 'jianghai', 'as' => 'jianghai.'], function () {
+            Route::get('/', 'CategoryController@jianghai')->name('index');
+            Route::get('/{category}', 'CategoryController@index')->name('category');
+            Route::get('/{category}/detail/{product}', 'ProductController@jianghai')->name('product');
+        });
 
-
-        Route::get('/jianghai', 'CategoryController@jianghai')->name('jianghai');
     });
 
     Route::group(['prefix' => 'info', 'namespace' => 'News', 'as' => 'news.'], function () {

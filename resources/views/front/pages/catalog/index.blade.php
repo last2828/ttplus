@@ -3,10 +3,8 @@
 @section('content')
 <section class="catalog-page">
   <div class="container">
-    <div class="breadcrumbs"><a href="#" class="btn">Главная</a>
-      <p>/ Каталог</p>
-    </div>
-    <h2>Каталог</h2>
+    {{ Breadcrumbs::render('front-catalog') }}
+
   </div>
   <div class="product-cards">
     <div class="catalog-card">
@@ -17,18 +15,18 @@
       <div class="card__content">
         <div class="content__column">
           @foreach (array_slice($dunkermotoren, 0, 5) as $item)
-          <p><a href="{{route('pages.catalog.dunker.category', $item['slug'])}}">{{$item['name']}}</a></p>
+          <p><a href="{{route('pages.catalog.dunkermotoren.category', $item['slug'])}}">{{$item['name']}}</a></p>
           @endforeach
         </div>
         <div class="content__column">
           @foreach (array_slice($dunkermotoren, 5) as $item)
-            <p><a href="{{route('pages.catalog.dunker.category', $item['slug'])}}">{{$item['name']}}</a></p>
+            <p><a href="{{route('pages.catalog.dunkermotoren.category', $item['slug'])}}">{{$item['name']}}</a></p>
           @endforeach
         </div>
       </div>
       <div class="card__bottom">
         <a href="#" class="btn btn-primary">Подробнее</a>
-        <a href="{{route('pages.catalog.dunker.index')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a>
+        <a href="{{route('pages.catalog.dunkermotoren.index')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a>
       </div>
     </div>
     <div class="catalog-card">
@@ -38,18 +36,19 @@
       </div>
       <div class="card__content">
         <div class="content__column">
-          <p>Polyimer</p>
-          <p>Snap-in</p>
-          <p>Film capacitors</p>
+          @foreach (array_slice($jianghai, 0, 3) as $item)
+            <p><a href="{{route('pages.catalog.jianghai.category', $item['slug'])}}">{{$item['name']}}</a></p>
+          @endforeach
         </div>
         <div class="content__column">
-          <p>Radial</p>
-          <p>Screw</p>
+          @foreach (array_slice($jianghai, 3) as $item)
+            <p><a href="{{route('pages.catalog.jianghai.category', $item['slug'])}}">{{$item['name']}}</a></p>
+          @endforeach
         </div>
       </div>
       <div class="card__bottom">
         <a href="#" class="btn btn-primary">Подробнее</a>
-        <a href="{{route('pages.catalog.jianghai')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a>
+        <a href="{{route('pages.catalog.jianghai.index')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a>
       </div>
     </div>
   </div>

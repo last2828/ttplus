@@ -1,8 +1,11 @@
 <?php
 
+const FRONT = ['front' => true];
+const ADMIN = ['front' => false];
+
 // Blog
 Breadcrumbs::for('blog', function ($trail) {
-    $trail->push('Блог', route('posts.index'));
+    $trail->push('Блог', route('posts.index'), ADMIN);
 });
 
 // Blog > Create Post
@@ -37,7 +40,7 @@ Breadcrumbs::for('edit-blog-category', function ($trail, $category) {
 
 // Product
 Breadcrumbs::for('catalog', function ($trail) {
-    $trail->push('Каталог', route('products.index'));
+    $trail->push('Каталог', route('products.index'), ADMIN);
 });
 
 // Product > Create
@@ -106,3 +109,33 @@ Breadcrumbs::for('edit-attribute', function ($trail, $attribute) {
     $trail->push($attribute->name, route('attributes.edit', $attribute->id));
 });
 
+
+//FRONTEND Breadcrumbs
+Breadcrumbs::for('front', function ($trail) {
+  $trail->push('Главная', route('pages.home'), FRONT);
+});
+
+Breadcrumbs::for('front-catalog', function ($trail) {
+  $trail->parent('front');
+  $trail->push('Каталог', route('pages.catalog.index'));
+});
+
+Breadcrumbs::for('catalog-brand', function ($trail, $category) {
+  $trail->parent('front');
+  $trail->push($category->name_ru, route('pages.catalog.' . $category->slug . '.index'));
+});
+
+Breadcrumbs::for('catalog-brand-category', function ($trail, $parent, $category) {
+  $trail->parent('catalog-brand', $parent);
+  $trail->push($category->name, route('pages.catalog.'. $parent->slug .'.category', $category->slug));
+});
+
+Breadcrumbs::for('catalog-brand-category-group', function ($trail, $parent, $category, $group) {
+  $trail->parent('catalog-brand-category', $parent, $category);
+  $trail->push($group->name);
+});
+
+Breadcrumbs::for('catalog-brand-category-product', function ($trail, $product) {
+  $trail->parent('catalog-brand-category', $product->category->parent, $product->category);
+  $trail->push($product->name);
+});

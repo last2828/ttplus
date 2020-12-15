@@ -19,7 +19,7 @@ class ProductController extends Controller
         $products = Product::getAllProducts();
 
         //display catalog with products
-        return view('admin.product.catalog', $products);
+        return view('admin.product.catalog', compact('products'));
     }
 
     /**
@@ -46,6 +46,7 @@ class ProductController extends Controller
     {
         //convert data from object to array after validation
         $fields = $request->toArray();
+//        dd($fields);
 
         //save new product
         Product::storeProduct($fields);

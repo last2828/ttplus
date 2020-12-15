@@ -16,7 +16,10 @@ class GroupController extends Controller
      */
     public function index()
     {
+        //get all groups
         $groups = Group::all();
+
+        //display group catalog
         return view('admin.group.groups', compact('groups'));
     }
 
@@ -27,7 +30,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //get components for group creating
+        //get components for create group
         $categories = ProductCategory::all();
 
         //display create form with components
@@ -71,7 +74,7 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
-        //get components for group creating
+        //get components for update group
         $categories = ProductCategory::all();
 
         //find current group
@@ -93,7 +96,7 @@ class GroupController extends Controller
         //convert data from object to array after validation
         $fields = $request->toArray();
 
-        //update current group
+        //find and update current group
         Group::updateGroup($fields, $id);
 
         //back to the group catalog

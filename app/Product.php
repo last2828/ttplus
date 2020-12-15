@@ -16,54 +16,39 @@ class Product extends Model
 {
 
     protected $fillable = [
-        'name',
-        'content',
-        'meta_title',
-        'meta_keywords',
-        'meta_description',
-        'model',
-        'category_id',
-        'group_id',
-        'slug',
-        'image',
-        'status'
+      'name',
+      'content',
+      'meta_title',
+      'meta_keywords',
+      'meta_description',
+      'model',
+      'category_id',
+      'group_id',
+      'slug',
+      'image',
+      'status'
     ];
 
     public function group()
     {
-        return $this->hasOne(
-            Group::class,
-            'id',
-            'group_id'
-        );
+      return $this->belongsTo(Group::class);
     }
 
-    public function attribute()
+    public function attributes()
     {
-        return $this->belongsToMany(
-            Attribute::class,
-            'product_attributes',
-            'product_id',
-            'attribute_id'
-        );
+      return $this->belongsToMany(Attribute::class,'product_attributes')->withPivot('value');
     }
-    public function productAttribute()
+
+    public function category()
     {
-        return $this->belongsTo(ProductAttribute::class, 'id', 'product_id');
+      return $this->belongsTo(ProductCategory::class);
     }
 
     public static function getAllProducts()
     {
-        //get all products from db
-        $products = self::all();
+      $products = self::with('group.category')->get();
 
-        //add 'group' fields in products array
-        foreach($products as $product){
-            $product['group_name'] = $product->group['name'];
-        }
-
-        //return all products
-        return compact('products');
+      return $products;
     }
 
     public static function getProductComponents()
@@ -71,84 +56,119 @@ class Product extends Model
         //get all components for product creating
         $groups = Group::all();
         $attributes = Attribute::all();
+        $categories = ProductCategory::with('children')->get();
 
         //get route for check crud
         $route = Route::currentRouteName();
 
         //return product components and route
-        return compact(['groups', 'attributes', 'route']);
+        return compact(['groups', 'attributes', 'categories', 'route']);
     }
 
     public static function storeProduct($fields)
     {
-        //check slug and transliterate 'name' if slug = null
-        $fields = AppHelper::checkSlug($fields);
+      //check slug and transliterate 'name' if slug = null
+      $fields = AppHelper::checkSlug($fields);
 
-        //create new product with
-        $product = self::create($fields);
+      //create new product with fields
+      $product = self::create($fields);
 
-        //check attributes and save if they exist
-        self::checkAttributes($fields, $product->id);
+      $attributes = $product->prepareAttributes($fields);
 
+      if($attributes)
+      {
+        $product->attachAttributes($attributes);
         return true;
+      }
+
+      return true;
     }
 
     public static function getCurrentProduct($id)
     {
-        //find this product
-        $product = self::find($id);
+      //find this product
+      $product = self::with('attributes')->find($id);
 
-        //get current product attributes
-        $productAttributes = ProductAttribute::where('product_id', $id)->with('attribute')->get();
-
-        //return product with components and route
-        return compact(['product', 'productAttributes']);
+      //return product with components and route
+      return compact('product');
     }
 
     public static function updateProduct($fields, $id)
     {
-        //check slug and transliterate 'name' if slug = null
-        $fields = AppHelper::checkSlug($fields);
+      //check slug and transliterate 'name' if slug = null
+      $fields = AppHelper::checkSlug($fields);
 
-        //update product in db
-        self::find($id)->update($fields);
+      //find and update product in db
+      $product = self::find($id);
+      $product->update($fields);
 
-        //check attributes and save or change if they exist
-        self::checkAttributes($fields, $id);
+      $attributes = $product->prepareAttributes($fields);
 
+      if($attributes)
+      {
+        $product->attributes()->detach();
+        $product->attachAttributes($attributes);
         return true;
+      }
+
+      return true;
     }
 
     public static function deleteProduct($id)
     {
-        //remove product from table 'products'
-        self::destroy($id);
+      $product = self::find($id);
+      $product->attributes()->detach();
+      $product->destroy($id);
 
-        //remove product attributes from table 'product_attributes'
-        ProductAttribute::where('product_id', $id)->delete();
+      return redirect()->back();
     }
 
-    public static function checkAttributes($fields, $id)
+
+    public function attachAttributes($attributes)
     {
-        //save product attributes if they exist
-        if(!empty($fields['attributes']))
-            foreach($fields['attributes'] as $key => $attributesFields)
-            {
-                $attributesFields['product_id'] = $id;
-                ProductAttribute::create($attributesFields);
-            }
+      foreach($attributes as $attribute) {
+        self::attributes()->attach($attribute['attribute_id'], array('value' => $attribute['value']));
+      }
 
-        //update values for old product attributes if they exist
-        if(!empty($fields['attributes_old'])) {
-            foreach($fields['attributes_old'] as $key => $attributesFields) {
+      return true;
+    }
 
-                $attributesFields['product_id'] = $id;
+    public function prepareAttributes($fields)
+    {
+      $new = $this->checkNewAttributes($fields);
+      $old = $this->checkOldAttributes($fields);
 
-                ProductAttribute::find($attributesFields['id'])->update($attributesFields);
-            }
-        }
+      switch(true) {
+        case ($new == true && $old == true):
+          return $attributes = array_merge($new, $old);
+          break;
+        case $new == false && $old  == true:
+          return $old;
+          break;
+        case $new == true && $old  == false:
+          return $new;
+          break;
+      }
 
-        return true;
+      return false;
+    }
+
+    public function checkNewAttributes($fields)
+    {
+      if(isset($fields['attributes'])) {
+        return $fields['attributes'];
+      }
+
+      return false;
+    }
+
+    public function checkOldAttributes($fields)
+    {
+      if(isset($fields['attributes_old'])) {
+        return $fields['attributes_old'];
+      }
+
+      return false;
     }
 
 }

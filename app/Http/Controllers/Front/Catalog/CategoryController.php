@@ -26,27 +26,37 @@ class CategoryController extends Controller
     {
         $dunker = $this->dunker;
         $jianghai = $this->jianghai;
-        $categories = ProductCategory::where('slug', $category)->with('group.product')->get();
+
+        $categories = ProductCategory::where('slug', $category)->with(['parent', 'groups.products'])->get();
         $route = Route::currentRouteName();
+
         if ($group) {
+
             $group = Group::where('slug', $group)->first();
             $products = Product::where('group_id', $group['id'])->get();
+            return view('front.pages.catalog.category', compact(['categories', 'dunker', 'jianghai', 'route', 'group', 'products']));
+
         }
-        return view('front.pages.catalog.category', compact(['categories', 'dunker', 'route', 'products', 'group']));
+      $category = ProductCategory::where('slug', $category)->first();
+      $products = Product::where('category_id', $category->id)->get();
+
+      return view('front.pages.catalog.category', compact(['categories', 'dunker', 'jianghai', 'route', 'products']));
     }
     public function dunkermotoren()
     {
         $dunker = $this->dunker;
         $jianghai = $this->jianghai;
-        $categories = ProductCategory::where('name', 'dunkermotoren')->with('children.group.product.productAttribute.attribute')->first()['children'];
+        $categories = ProductCategory::where('name', 'dunkermotoren')->with('children.groups.products.attributes')->first();
         $route = Route::currentRouteName();
         return view('front.pages.catalog.category', compact(['dunker', 'jianghai', 'categories', 'route']));
     }
+
     public function jianghai()
     {
         $dunker = $this->dunker;
         $jianghai = $this->jianghai;
+        $categories = ProductCategory::where('name', 'jianghai')->with('children.groups.products.attributes')->first();
         $route = Route::currentRouteName();
-        return view('front.pages.catalog.category', compact(['dunker', 'jianghai', 'route']));
+        return view('front.pages.catalog.category', compact(['dunker', 'jianghai', 'categories', 'route']));
     }
 }

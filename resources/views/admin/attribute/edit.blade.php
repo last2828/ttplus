@@ -12,6 +12,20 @@
 
                     <!-- end:: Subheader -->
 
+                    @if($errors->any())
+                        <div class="alert alert-outline-danger fade show" role="alert">
+                            <div class="alert-icon"><i class="flaticon-warning"></i></div>
+                            <div class="alert-text">Проверьте форму на ошибки</div>
+                            <div class="alert-text">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    @endif
+
                     <!-- begin:: Content -->
                     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
                         <div class="row">
@@ -32,10 +46,26 @@
                                         @method('PUT')
                                         @CSRF
                                         <div class="kt-portlet__body">
-                                            <div class="form-group form-group-last row">
+                                            <div class="form-group form-group row">
                                                 <label>Название характеристики</label>
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <input type="text" class="form-control" aria-describedby="" placeholder="Название характеристики" name="name" value="{{$attribute['name']}}">
+                                                    <input type="text"
+                                                           class="form-control {{($errors->has('name')) ? 'alert alert-outline-danger fade show' : ''}}"
+                                                           aria-describedby=""
+                                                           placeholder="{{ ($errors->has('name')) ? $errors->first('name') : 'Название характеристики' }}"
+                                                           name="name"
+                                                           value="{{($errors->has('name')) ? old('name') : $attribute['name']}}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-group-last row">
+                                                <label>Еденицы измерения</label>
+                                                <div class="col-lg-12 col-md-9 col-sm-12">
+                                                    <input type="text"
+                                                           class="form-control {{($errors->has('units')) ? 'alert alert-outline-danger fade show' : ''}}"
+                                                           aria-describedby=""
+                                                           placeholder="{{ ($errors->has('units')) ? $errors->first('units') : 'Еденицы измерения' }}"
+                                                           name="units"
+                                                           value="{{($errors->has('name')) ? old('name') : $attribute['units']}}">
                                                 </div>
                                             </div>
                                         </div>
