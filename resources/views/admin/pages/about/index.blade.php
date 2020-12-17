@@ -21,11 +21,15 @@
                   </div>
                   
                 </div>
-                <div class="kt-portlet__body">
-                  <div id="gjs">
-                    {!! $html->value !!}
-                    <style>{{$css->value}}</style>
-                  </div>
+                {{--<div class="kt-portlet__body">--}}
+                  {{--<div id="gjs">--}}
+                    {{--{!! $html->value !!}--}}
+                    {{--<style>{{$css->value}}</style>--}}
+                  {{--</div>--}}
+                  @include('admin.pages.about.components.company')
+                  {{--@include('admin.pages.about.components.partners')--}}
+                  @include('admin.pages.about.components.years')
+                  @include('admin.pages.about.components.documents')
                   
                 </div>
                 
