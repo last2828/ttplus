@@ -72,6 +72,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
         Route::put('/update', 'AboutController@update')->name('update');
     });
 
+    Route::group(['prefix' => 'contact', 'as' => 'contact.'], function () {
+      Route::get('/', 'ContactController@index')->name('index');
+      Route::put('/update', 'ContactController@update')->name('update');
+    });
+
 
 
 });

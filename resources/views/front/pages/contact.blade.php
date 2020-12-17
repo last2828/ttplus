@@ -3,35 +3,30 @@
 @section('content')
 <section class="contacts">
   <div class="container">
-    <div class="breadcrumbs"><a href="#" class="btn">Главная</a>
-      <p>/ Контакты</p>
-    </div>
-    <h2>Контакты</h2>
+    {{ Breadcrumbs::render('front-contact') }}
+    <h2>{{$contact->title}}</h2>
     <div class="contacts__content">
       <ul>
         <li>
           <div class="contacts-heading">
             <div class="dot"></div>
-            <h3>Адрес:</h3>
+            <h3>{{$contact->address_title}}</h3>
           </div>
-          <p>г.Санкт-Петербург, ул. Лодейнопольская, 5 литера А (здание КЦ "Петроконгресс")</p>
-          <p>Пешком от м.Чкаловская по ул. Большая Зеленина до ул. Лодейнопольская и повернуть направо. <br></p>
-          <p><span>Время в пути 6 минут.</span></p>
-          <p>Если едете на машине, то парковаться лучше либо на Лодейнопольской улице, либо на Петрозаводской.</p>
+          {!! $contact->address_description !!}
         </li>
         <li>
           <div class="contacts-heading">
             <div class="dot"></div>
-            <h3>Телефон:</h3>
+            <h3>{{$contact->phone_title}}</h3>
           </div>
-          <p>+7 (812) 303 98 63</p>
+          <p>{{$contact->phone_description}}</p>
         </li>
         <li>
           <div class="contacts-heading">
             <div class="dot"></div>
-            <h3>Факс:</h3>
+            <h3>{{$contact->fax_title}}</h3>
           </div>
-          <p>+7 (812) 335 89 07</p>
+          <p>{{$contact->fax_description}}</p>
         </li>
       </ul>
       <div class="maps">

@@ -10,21 +10,18 @@ class AboutController extends Controller
 {
     public function index()
     {
-        return view('admin.pages.about.index', [
-            'html' => PageField::where('key', 'about_html')->first(),
-            'css' => PageField::where('key', 'about_css')->first()
+        return view('admin.pages.about', [
+            'about' => PageField::where('key', 'about')->first()
         ]);
     }
+
     public function update(Request $request)
     {
-        $fields = $request->all();
+        $fields = $request->except(['_token', '_method']);
+        dd($fields);
 
-        PageField::where('key', 'about_html')->update([
-            'value' => $fields['html']
-        ]);
-        PageField::where('key', 'about_css')->update([
-            'value' => $fields['css']
-        ]);
+        PageField::where('key', 'about')->update($fields);
+
         return redirect()->route('about.index');
     }
 }

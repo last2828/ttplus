@@ -3,9 +3,9 @@
   <div class="breadcrumbs">
     @foreach ($breadcrumbs as $breadcrumb)
       @if ($breadcrumb->url && !$loop->last)
-        <a href="{{ $breadcrumb->url }}" class="btn"> {{ $breadcrumb->title }} /</a>
+        <a href="{{ $breadcrumb->url }}" class="btn"> {{ $breadcrumb->title }} /&nbsp;</a>
       @else
-        <p> {{ $breadcrumb->title }}</p>
+        <p class="breadcrumbs__current"> {{ $breadcrumb->title }}</p>
       @endif
     @endforeach
   </div>

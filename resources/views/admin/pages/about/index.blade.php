@@ -17,29 +17,29 @@
                 <div class="kt-portlet__head kt-portlet__head--lg">
                   <div class="kt-portlet__head-label">
                     <span class="kt-portlet__head-icon"><i class="kt-font-brand flaticon2-indent-dots"></i></span>
-                    <h3 class="kt-portlet__head-title">О компании</h3>
+                    <h3 class="kt-portlet__head-title">About block</h3>
                   </div>
-                  
+
                 </div>
-                {{--<div class="kt-portlet__body">--}}
-                  {{--<div id="gjs">--}}
-                    {{--{!! $html->value !!}--}}
-                    {{--<style>{{$css->value}}</style>--}}
-                  {{--</div>--}}
-                  @include('admin.pages.about.components.company')
-                  {{--@include('admin.pages.about.components.partners')--}}
-                  @include('admin.pages.about.components.years')
-                  @include('admin.pages.about.components.documents')
-                  
+
+                <form class="html_form" action="{{route('about.update')}}" method="POST">
+                  @csrf
+                  @method('PUT')
+
+                <div class="out">
+                  <section class="about-page">
+                    <div class="container">
+                      @include('admin.pages.about.components.company')
+                      @include('admin.pages.about.components.years')
+                    </div>
+                  </section>
+                  <section class="about__documents">
+{{--                    @include('admin.pages.about.components.documents')--}}
+                  </section>
                 </div>
                 
                 <div class="kt-portlet__foot">
                   <div class="kt-form__actions">
-                    <form class="html_form" action="{{route('about.update')}}" method="POST">
-                      @csrf
-                      @method('PUT')
-                      <input type="hidden" name="html" class="html">
-                      <input type="hidden" name="css" class="css">
                       <button type="submit" class="btn btn-primary">Сохранить</button>
                     </form>
                   </div>
@@ -55,6 +55,6 @@
 @endsection
 
 @section('script')
-
+  {{--<script type="text/javascript" src="{{asset('js/app.js')}}"></script>--}}
 @endsection
 

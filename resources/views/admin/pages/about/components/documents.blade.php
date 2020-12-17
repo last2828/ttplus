@@ -1,5 +1,4 @@
-<section class="about__documents">
-  <div class="tabs">
+<div class="tabs">
     <ul class="tabs__caption">
       <li class="active"><a class="btn tab-button">Награды</a></li>
       <li><a class="btn tab-button">Сертификаты и лицензии</a></li>
@@ -80,4 +79,3 @@
       <div class="swiper-mobile-pagination"></div>
     </div>
   </div>
-</section>

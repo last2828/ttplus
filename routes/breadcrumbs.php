@@ -3,6 +3,16 @@
 const FRONT = ['front' => true];
 const ADMIN = ['front' => false];
 
+// Pages
+Breadcrumbs::for('about', function ($trail) {
+  $trail->push('О компании', route('about.index'), ADMIN);
+});
+
+Breadcrumbs::for('contact', function ($trail) {
+  $trail->push('Контакты', route('contact.index'), ADMIN);
+});
+
+
 // Blog
 Breadcrumbs::for('blog', function ($trail) {
     $trail->push('Блог', route('posts.index'), ADMIN);
@@ -138,4 +148,14 @@ Breadcrumbs::for('catalog-brand-category-group', function ($trail, $parent, $cat
 Breadcrumbs::for('catalog-brand-category-product', function ($trail, $product) {
   $trail->parent('catalog-brand-category', $product->category->parent, $product->category);
   $trail->push($product->name);
+});
+
+Breadcrumbs::for('front-about', function ($trail) {
+  $trail->parent('front');
+  $trail->push('О компании');
+});
+
+Breadcrumbs::for('front-contact', function ($trail) {
+  $trail->parent('front');
+  $trail->push('Контакты');
 });
