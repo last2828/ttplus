@@ -1,21 +1,18 @@
 <?php
 
-const FRONT = ['front' => true];
-const ADMIN = ['front' => false];
-
 // Pages
 Breadcrumbs::for('about', function ($trail) {
-  $trail->push('О компании', route('about.index'), ADMIN);
+  $trail->push('О компании', route('about.index'), ['front' => false]);
 });
 
 Breadcrumbs::for('contact', function ($trail) {
-  $trail->push('Контакты', route('contact.index'), ADMIN);
+  $trail->push('Контакты', route('contact.index'), ['front' => false]);
 });
 
 
 // Blog
 Breadcrumbs::for('blog', function ($trail) {
-    $trail->push('Блог', route('posts.index'), ADMIN);
+    $trail->push('Блог', route('posts.index'), ['front' => false]);
 });
 
 // Blog > Create Post
@@ -50,7 +47,7 @@ Breadcrumbs::for('edit-blog-category', function ($trail, $category) {
 
 // Product
 Breadcrumbs::for('catalog', function ($trail) {
-    $trail->push('Каталог', route('products.index'), ADMIN);
+    $trail->push('Каталог', route('products.index'), ['front' => false]);
 });
 
 // Product > Create
@@ -122,7 +119,7 @@ Breadcrumbs::for('edit-attribute', function ($trail, $attribute) {
 
 //FRONTEND Breadcrumbs
 Breadcrumbs::for('front', function ($trail) {
-  $trail->push('Главная', route('pages.home'), FRONT);
+  $trail->push('Главная', route('pages.home'), ['front' => true]);
 });
 
 Breadcrumbs::for('front-catalog', function ($trail) {

@@ -3,10 +3,9 @@
 @section('content')
 <section class="about-page">
     <div class="container">
+
     {{ Breadcrumbs::render('front-about') }}
-        {{--<div class="breadcrumbs"><a href="#" class="btn">Главная</a>--}}
-            {{--<p class="breadcrumbs__current">/ О компании</p>--}}
-        {{--</div>--}}
+
         <h2>{{$about->title}}</h2>
         <p>{!! $about->description !!}</p>
         <div class="about__image"><img src="{{$about->head_image}}" alt=""></div>
