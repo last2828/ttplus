@@ -34,7 +34,7 @@
                     @method('PUT')
                     <div class="kt-portlet__body">
                       <div class="form-group row">
-                        <label>H1</label>
+                        <label>Заголовок</label>
                         <div class="col-lg-12 col-md-9 col-sm-12">
                           <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Заголовок" name="title" value="{{(isset($contact)) ? $contact['title'] : ''}}">
                         </div>

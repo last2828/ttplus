@@ -213,36 +213,6 @@
                         </div>
                       </div>
                     </div>
-
-                      {{--<div id="kt_repeater_2">--}}
-                        {{--<div data-repeater-list="awards_new" class="col-lg-12">--}}
-                          {{--<div data-repeater-item class="form-group row align-items-center">--}}
-                            {{--<div class="col-lg-3 col-md-3 col-sm-3">--}}
-                              {{--<div class="about__image"><img src="http://ttplus:8888//storage/unnamed.gif" alt="" width="50%"></div>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-md-6">--}}
-                              {{--<div class="input-group">--}}
-                                {{--<input type="text" id="image_label" class="form-control" name="image"--}}
-                                       {{--aria-label="Image" aria-describedby="button-image">--}}
-                                {{--<div class="input-group-append">--}}
-                                  {{--<button class="btn btn-outline-secondary" type="button" id="button-image">Select</button>--}}
-                                {{--</div>--}}
-                              {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-md-2">--}}
-                              {{--<a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">--}}
-                                {{--<i class="la la-trash-o"></i>--}}
-                                {{--Удалить--}}
-                              {{--</a>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-md-12">--}}
-                              {{--<a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">--}}
-                                {{--<i class="la la-plus"></i> Добавить--}}
-                              {{--</a>--}}
-                            {{--</div>--}}
-                          {{--</div>--}}
-                        {{--</div>--}}
-                      {{--</div>--}}
                     <div class="tab-pane" id="kt_tabs_1_5" role="tabpanel">
                       <label>Сертификаты и лицензии</label>
                       <div id="kt_repeater_2">
@@ -277,35 +247,6 @@
                         </div>
                       </div>
                     </div>
-                      {{--<div id="kt_repeater_4">--}}
-                        {{--<div data-repeater-list="licenses_new" class="col-lg-12">--}}
-                          {{--<div data-repeater-item class="form-group row align-items-center">--}}
-                            {{--<div class="col-lg-3 col-md-3 col-sm-3">--}}
-                              {{--<div class="about__image"><img src="http://ttplus:8888//storage/unnamed.gif" alt="" width="50%"></div>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-md-6">--}}
-                              {{--<div class="input-group">--}}
-                                {{--<input type="text" id="image_label" class="form-control" name="image"--}}
-                                       {{--aria-label="Image" aria-describedby="button-image">--}}
-                                {{--<div class="input-group-append">--}}
-                                  {{--<button class="btn btn-outline-secondary" type="button" id="button-image">Select</button>--}}
-                                {{--</div>--}}
-                              {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-md-2">--}}
-                              {{--<a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">--}}
-                                {{--<i class="la la-trash-o"></i>--}}
-                                {{--Удалить--}}
-                              {{--</a>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-md-12">--}}
-                              {{--<a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">--}}
-                                {{--<i class="la la-plus"></i> Добавить--}}
-                              {{--</a>--}}
-                            {{--</div>--}}
-                          {{--</div>--}}
-                        {{--</div>--}}
-                      {{--</div>--}}
                     <div class="tab-pane" id="kt_tabs_1_6" role="tabpanel">
                       <label>Выставки</label>
                       <div id="kt_repeater_3">
