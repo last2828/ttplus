@@ -22,177 +22,347 @@
                 </div>
               </div>
 
-              <form class="html_form" action="{{route('about.update')}}" method="POST">
-                @csrf
+              <!--begin::Form-->
+              <form class="kt-form" method="POST" action="{{route('about.update')}}" enctype="multipart/form-data">
+                @CSRF
                 @method('PUT')
-                <div class="out">
-                  <section class="about-page">
-                    <div class="container">
-                      <h2><input type="text" name="title" value="{{$about->title}}"></h2>
-                      <p><input type="text" name="description" value="{{$about->description}}"></p>
-                      <div class="about__image"><img src="{{$about->head_image}}" alt="" width="100%"></div>
-                      <div class="input-group">
-                        <input type="text" id="image_label" class="form-control" name="head_image"
-                               aria-label="Image" aria-describedby="button-image">
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-secondary" type="button" id="button-image">Select</button>
+                <div class="kt-portlet__body">
+                  <ul class="nav nav-tabs  nav-tabs-line" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" data-toggle="tab" href="#kt_tabs_1_1" role="tab">Общие</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_2" role="tab">Преимущества</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_3" role="tab">Даты и события</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_4" role="tab">Награды</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_5" role="tab">Сертификаты и лицензии</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_6" role="tab">Выставки</a>
+                    </li>
+                  </ul>
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="kt_tabs_1_1" role="tabpanel">
+                      <label>Заголовок и описание</label>
+                      <div class="form-group row">
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Заголовок" name="title" value="{{(isset($about)) ? $about['title'] : ''}}">
                         </div>
                       </div>
-                      <h2><input type="text" name="partner_title" value="{{$about->partner_title}}"></h2>
-                        <p class="partners"><input type="text" name="partner_title_description" value="{{$about->partner_title_description}}"></p>
-                      <ul>
-                        @foreach($about->features_content as $feature)
-                          <li>
-                            <div class="dot"></div>
-                            <p><input type="text" name="features_content[]" value="{{$feature}}"></p>
-                          </li>
-                        @endforeach
-                      </ul>
-
-                      <div class="about__quote">
-                        <div class="quotes"></div>
-                        <p><input type="text" name="quote_title" value="{{$about->quote_title}}"></p>
-                      </div>
-                      <h2><input type="text" name="years_title" value="{{$about->years_title}}"></h2>
-                      <div class="about__years">
-                        <div class="about__year">
-                          <div class="year"><input type="text" name="year_1['title']" value="{{$about->years_1['title']}}"></div>
-                          <p><input type="text" name="year_1['description']" value="{{$about->years_1['description']}}"></p>
-                        </div>
-                        <div class="about__year">
-                          <div class="year"><input type="text" name="year_2['title']" value="{{$about->years_2['title']}}"></div>
-                          <p><input type="text" name="year_2['description']" value="{{$about->years_2['description']}}"></p>
-                        </div>
-                        <div class="about__year">
-                          <div class="year"><input type="text" name="year_3['title']" value="{{$about->years_3['title']}}"></div>
-                          <p><input type="text" name="year_3['description']" value="{{$about->years_3['description']}}"></p>
+                      <div class="form-group row">
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <textarea class="form-control" aria-describedby="" placeholder="Описание" rows="3" name="description">{{(isset($about)) ? $about['description'] : ''}}</textarea>
                         </div>
                       </div>
-                      <div class="about__blocks">
-                        <div class="about__block">
-                          <h4><input type="text" name="block_1['title']" value="{{$about->blocks_1['title']}}"></h4>
-                          <p><input type="text" name="block_1['description']" value="{{$about->blocks_1['description']}}"></p>
-                        </div>
-                        <div class="about__block">
-                          <h4><input type="text" name="block_2['title']" value="{{$about->blocks_2['title']}}"></h4>
-                          <p><input type="text" name="block_2['description']" value="{{$about->blocks_2['description']}}"></p>
-                        </div>
-                        <div class="about__block">
-                          <h4><input type="text" name="block_3['title']" value="{{$about->blocks_3['title']}}"></h4>
-                          <p><input type="text" name="block_3['description']" value="{{$about->blocks_3['description']}}"></p>
+                      <div class="form-group row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                          <div class="about__image"><img src="{{$about->head_image}}" alt="" width="100%"></div>
                         </div>
                       </div>
-                    </div>
-                  </section>
-                  <section class="about__documents">
-                    <div class="tabs">
-                      <ul class="tabs__caption">
-                        <li class="active"><a class="btn tab-button">Награды</a></li>
-                        <li><a class="btn tab-button">Сертификаты и лицензии</a></li>
-                        <li><a class="btn tab-button">Выставки</a></li>
-                      </ul>
-                      <div class="tabs__content about__documents-tab active">
-                        @foreach($about->awards as $award)
-                        <div class="document"><img src="{{$award}}" alt="" width="15%"></div>
+                      <div class="form-group row">
                         <div class="input-group">
-                          <input type="text" id="image_label" class="form-control" name="image"
-                                 aria-label="Image" aria-describedby="button-image">
+                          <input type="text" id="image_label" class="form-control" name="head_image"
+                                 aria-label="Image" aria-describedby="button-image" value="{{$about->head_image}}">
                           <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" id="button-image">Select</button>
                           </div>
                         </div>
-                        @endforeach
                       </div>
-                      {{--<div class="tabs__content about__documents-tab">--}}
-                        {{--<div class="document"><img src="img/about/certificate.png" alt=""></div>--}}
-                      {{--</div>--}}
-                      {{--<div class="tabs__content about__documents-tab">--}}
-                        {{--<div class="document"><img src="img/about/certificate.png" alt=""></div>--}}
-                        {{--<div class="document"><img src="img/about/certificate.png" alt=""></div>--}}
-                      {{--</div>--}}
-                    </div><a href="#" class="btn btn-form">Показать все</a>
-                    {{--<div class="custom-select"><select id="tab-select">--}}
-                        {{--<option value="awards">Награды</option>--}}
-                        {{--<option value="certificates">Сертификаты и лицензии</option>--}}
-                        {{--<option value="exhibitions">Выставки</option>--}}
-                      {{--</select></div>--}}
-                    {{--<div id="awards" class="tabs__content-mobile">--}}
-                      {{--<div class="swiper-mobile">--}}
-                        {{--<div class="swiper-wrapper">--}}
-                          {{--<div class="swiper-slide">--}}
-                            {{--<div class="document__img"><img src="img/about/certificate.png" alt=""></div>--}}
-                          {{--</div>--}}
-                          {{--<div class="swiper-slide">--}}
-                            {{--<div class="document__img"><img src="img/about/certificate.png" alt=""></div>--}}
-                          {{--</div>--}}
-                          {{--<div class="swiper-slide">--}}
-                            {{--<div class="document__img"><img src="img/about/certificate.png" alt=""></div>--}}
-                          {{--</div>--}}
-                          {{--<div class="swiper-slide">--}}
-                            {{--<div class="document__img"><img src="img/about/certificate.png" alt=""></div>--}}
+                    </div>
+
+                    <div class="tab-pane" id="kt_tabs_1_2" role="tabpanel">
+                      <label>Партнеры</label>
+                      <div class="form-group row">
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Партнеры" name="partner_title" value="{{(isset($about)) ? $about['partner_title'] : ''}}">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <textarea class="form-control" aria-describedby="" placeholder="Цитата" rows="3" name="partner_title_description">{{(isset($about)) ? $about['partner_title_description'] : ''}}</textarea>
+                        </div>
+                      </div>
+                      <label>Преимущества</label>
+                      @foreach($about->features_content as $feature)
+                      <div class="form-group row">
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <textarea class="form-control" aria-describedby="" placeholder="Преимущества" rows="3" name="features_content[]">{{$feature}}</textarea>
+                        </div>
+                      </div>
+                      @endforeach
+                      <label>Цитата</label>
+                      <div class="form-group row">
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <textarea class="form-control" aria-describedby="" placeholder="Цитата" rows="3" name="quote_title">{{(isset($about)) ? $about['quote_title'] : ''}}</textarea>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane" id="kt_tabs_1_3" role="tabpanel">
+                      <label>Заголовок</label>
+                      <div class="form-group row">
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Даты" name="years_title" value="{{(isset($about)) ? $about['years_title'] : ''}}">
+                        </div>
+                      </div>
+                      <label>Дата 1</label>
+                      <div class="form-group row">
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Заголовок даты 1" name="years_1[title]" value="{{(isset($about)) ? $about->years_1['title'] : ''}}">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <textarea class="form-control" aria-describedby="" placeholder="Описание даты 1" rows="3" name="years_1[description]">{{(isset($about)) ? $about->years_1['description'] : ''}}</textarea>
+                        </div>
+                      </div>
+                      <label>Дата 2</label>
+                      <div class="form-group row">
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Заголовок даты 2" name="years_2[title]" value="{{(isset($about)) ? $about->years_2['title'] : ''}}">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <textarea class="form-control" aria-describedby="" placeholder="Описание даты 2" rows="3" name="years_2[description]">{{(isset($about)) ? $about->years_2['description'] : ''}}</textarea>
+                        </div>
+                      </div>
+                      <label>Дата 3</label>
+                      <div class="form-group row">
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Заголовок даты 3" name="years_3[title]" value="{{(isset($about)) ? $about->years_3['title'] : ''}}">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <textarea class="form-control" aria-describedby="" placeholder="Описание даты 3" rows="3" name="years_3[description]">{{(isset($about)) ? $about->years_3['description'] : ''}}</textarea>
+                        </div>
+                      </div>
+                      <label>Событие 1</label>
+                      <div class="form-group row">
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Заголовок даты 1" name="blocks_1[title]" value="{{(isset($about)) ? $about->blocks_1['title'] : ''}}">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <textarea class="form-control" aria-describedby="" placeholder="Описание даты 1" rows="3" name="blocks_1[description]">{{(isset($about)) ? $about->blocks_1['description'] : ''}}</textarea>
+                        </div>
+                      </div>
+                      <label>Событие 2</label>
+                      <div class="form-group row">
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Заголовок даты 1" name="blocks_2[title]" value="{{(isset($about)) ? $about->blocks_2['title'] : ''}}">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <textarea class="form-control" aria-describedby="" placeholder="Описание даты 1" rows="3" name="blocks_2[description]">{{(isset($about)) ? $about->blocks_2['description'] : ''}}</textarea>
+                        </div>
+                      </div>
+                      <label>Событие 3</label>
+                      <div class="form-group row">
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Заголовок даты 1" name="blocks_3[title]" value="{{(isset($about)) ? $about->blocks_3['title'] : ''}}">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <textarea class="form-control" aria-describedby="" placeholder="Описание даты 1" rows="3" name="blocks_3[description]">{{(isset($about)) ? $about->blocks_3['description'] : ''}}</textarea>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane" id="kt_tabs_1_4" role="tabpanel">
+                      <label>Награды</label>
+                      <div id="kt_repeater_1">
+                        <div data-repeater-list="awards" class="col-lg-12">
+                          @foreach($about->awards as $award)
+                            <div data-repeater-item class="form-group row align-items-center">
+                              <div class="col-lg-3 col-md-3 col-sm-3">
+                                <div class="about__image"><img src="{{$award['image']}}" alt="" width="50%"></div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="input-group">
+                                  <input type="text" id="image_label" class="form-control" name="image"
+                                         aria-label="Image" aria-describedby="button-image" value="{{$award['image']}}">
+                                  <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-image">Select</button>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-2">
+                                <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
+                                  <i class="la la-trash-o"></i>
+                                  Удалить
+                                </a>
+                              </div>
+                            </div>
+                          @endforeach
+                        </div>
+                        <div class="col-md-12">
+                          <a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">
+                            <i class="la la-plus"></i> Добавить
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                      {{--<div id="kt_repeater_2">--}}
+                        {{--<div data-repeater-list="awards_new" class="col-lg-12">--}}
+                          {{--<div data-repeater-item class="form-group row align-items-center">--}}
+                            {{--<div class="col-lg-3 col-md-3 col-sm-3">--}}
+                              {{--<div class="about__image"><img src="http://ttplus:8888//storage/unnamed.gif" alt="" width="50%"></div>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-6">--}}
+                              {{--<div class="input-group">--}}
+                                {{--<input type="text" id="image_label" class="form-control" name="image"--}}
+                                       {{--aria-label="Image" aria-describedby="button-image">--}}
+                                {{--<div class="input-group-append">--}}
+                                  {{--<button class="btn btn-outline-secondary" type="button" id="button-image">Select</button>--}}
+                                {{--</div>--}}
+                              {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-2">--}}
+                              {{--<a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">--}}
+                                {{--<i class="la la-trash-o"></i>--}}
+                                {{--Удалить--}}
+                              {{--</a>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-12">--}}
+                              {{--<a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">--}}
+                                {{--<i class="la la-plus"></i> Добавить--}}
+                              {{--</a>--}}
+                            {{--</div>--}}
                           {{--</div>--}}
                         {{--</div>--}}
-                        {{--<div class="swiper-mobile-pagination"></div>--}}
                       {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div id="certificates" class="tabs__content-mobile">--}}
-                      {{--<div class="swiper-mobile">--}}
-                        {{--<div class="swiper-wrapper">--}}
-                          {{--<div class="swiper-slide">--}}
-                            {{--<div class="document__img"><img src="img/about/certificate.png" alt=""></div>--}}
-                          {{--</div>--}}
-                          {{--<div class="swiper-slide">--}}
-                            {{--<div class="document__img"><img src="img/about/certificate.png" alt=""></div>--}}
-                          {{--</div>--}}
-                          {{--<div class="swiper-slide">--}}
-                            {{--<div class="document__img"><img src="img/about/certificate.png" alt=""></div>--}}
-                          {{--</div>--}}
-                          {{--<div class="swiper-slide">--}}
-                            {{--<div class="document__img"><img src="img/about/certificate.png" alt=""></div>--}}
+                    <div class="tab-pane" id="kt_tabs_1_5" role="tabpanel">
+                      <label>Сертификаты и лицензии</label>
+                      <div id="kt_repeater_2">
+                        <div data-repeater-list="licenses" class="col-lg-12">
+                          @foreach($about->licenses as $licens)
+                            <div data-repeater-item class="form-group row align-items-center">
+                              <div class="col-lg-3 col-md-3 col-sm-3">
+                                <div class="about__image"><img src="{{$licens['image']}}" alt="" width="50%"></div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="input-group">
+                                  <input type="text" id="image_label" class="form-control" name="image"
+                                         aria-label="Image" aria-describedby="button-image" value="{{$licens['image']}}">
+                                  <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-image">Select</button>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-2">
+                                <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
+                                  <i class="la la-trash-o"></i>
+                                  Удалить
+                                </a>
+                              </div>
+                            </div>
+                          @endforeach
+                        </div>
+                        <div class="col-md-12">
+                          <a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">
+                            <i class="la la-plus"></i> Добавить
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                      {{--<div id="kt_repeater_4">--}}
+                        {{--<div data-repeater-list="licenses_new" class="col-lg-12">--}}
+                          {{--<div data-repeater-item class="form-group row align-items-center">--}}
+                            {{--<div class="col-lg-3 col-md-3 col-sm-3">--}}
+                              {{--<div class="about__image"><img src="http://ttplus:8888//storage/unnamed.gif" alt="" width="50%"></div>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-6">--}}
+                              {{--<div class="input-group">--}}
+                                {{--<input type="text" id="image_label" class="form-control" name="image"--}}
+                                       {{--aria-label="Image" aria-describedby="button-image">--}}
+                                {{--<div class="input-group-append">--}}
+                                  {{--<button class="btn btn-outline-secondary" type="button" id="button-image">Select</button>--}}
+                                {{--</div>--}}
+                              {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-2">--}}
+                              {{--<a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">--}}
+                                {{--<i class="la la-trash-o"></i>--}}
+                                {{--Удалить--}}
+                              {{--</a>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-12">--}}
+                              {{--<a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">--}}
+                                {{--<i class="la la-plus"></i> Добавить--}}
+                              {{--</a>--}}
+                            {{--</div>--}}
                           {{--</div>--}}
                         {{--</div>--}}
-                        {{--<div class="swiper-mobile-pagination"></div>--}}
                       {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div id="exhibitions" class="tabs__content-mobile">--}}
-                      {{--<div class="swiper-mobile">--}}
-                        {{--<div class="swiper-wrapper">--}}
-                          {{--<div class="swiper-slide">--}}
-                            {{--<div class="document__img"><img src="img/about/certificate.png" alt=""></div>--}}
-                          {{--</div>--}}
-                          {{--<div class="swiper-slide">--}}
-                            {{--<div class="document__img"><img src="img/about/certificate.png" alt=""></div>--}}
-                          {{--</div>--}}
-                          {{--<div class="swiper-slide">--}}
-                            {{--<div class="document__img"><img src="img/about/certificate.png" alt=""></div>--}}
-                          {{--</div>--}}
-                          {{--<div class="swiper-slide">--}}
-                            {{--<div class="document__img"><img src="img/about/certificate.png" alt=""></div>--}}
-                          {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="swiper-mobile-pagination"></div>--}}
-                      {{--</div>--}}
-                    {{--</div>--}}
-                  </section>
-                </div>
-                <div class="kt-portlet__foot">
-                  <div class="kt-form__actions">
-                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                    <div class="tab-pane" id="kt_tabs_1_6" role="tabpanel">
+                      <label>Выставки</label>
+                      <div id="kt_repeater_3">
+                        <div data-repeater-list="shows" class="col-lg-12">
+                          @foreach($about->shows as $show)
+                            <div data-repeater-item class="form-group row align-items-center">
+                              <div class="col-lg-3 col-md-3 col-sm-3">
+                                <div class="about__image"><img src="{{$show['image']}}" alt="" width="50%"></div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="input-group">
+                                  <input type="text" id="image_label" class="form-control" name="image"
+                                         aria-label="Image" aria-describedby="button-image" value="{{$show['image']}}">
+                                  <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-image">Select</button>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-2">
+                                <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
+                                  <i class="la la-trash-o"></i>
+                                  Удалить
+                                </a>
+                              </div>
+                            </div>
+                          @endforeach
+                        </div>
+                        <div class="col-md-12">
+                          <a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">
+                            <i class="la la-plus"></i> Добавить
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="kt-portlet__foot">
+                    <div class="kt-form__actions">
+                      <button type="submit" class="btn btn-primary">Сохранить</button>
+                      <button type="reset" class="btn btn-secondary">Отмена</button>
+                    </div>
                   </div>
                 </div>
               </form>
+              <!--end::Form-->
             </div>
           </div>
         </div>
       </div><!-- end:: Content -->
     </div>
   </div>
-
   <!-- end:: Page -->
 @endsection
 
 @section('script')
   {{--<script type="text/javascript" src="{{asset('js/app.js')}}"></script>--}}
+
+  <script src="{{asset('assets/js/pages/crud/forms/widgets/form-repeater.js')}}" type="text/javascript"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
 

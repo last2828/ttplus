@@ -56,31 +56,37 @@ class PageSeeder extends Seeder
           'description' => 'Начинаем поставлять керамические изоляторы для высоковольтных контакторов и линий электропередачи. Помимо стандартных решений мы предлагаем варианты специального исполнения согласно техническому заданию заказчика.'
         ],
         'awards' => [
-          'img/about/certificate.png',
-          'img/about/certificate.png',
-          'img/about/certificate.png'
+          [
+            'image' => 'img/about/certificate.png',
+          ],
+          [
+            'image' => 'img/about/certificate.png',
+          ],
         ],
         'licenses' => [
-          'img/about/certificate.png'
+          [
+            'image' => 'img/about/certificate.png',
+          ],
         ],
         'shows' => [
-          'img/about/certificate.png',
-          'img/about/certificate.png'
+          [
+            'image' => 'img/about/certificate.png',
+          ],
+          [
+            'image' => 'img/about/certificate.png',
+          ],
         ],
       ]);
 
       PageField::create([
         'key' => 'contact',
         'title' => 'Контакты',
-        'address_title' => 'Адрес:',
-        'address_description' => '<p>г.Санкт-Петербург, ул. Лодейнопольская, 5 литера А (здание КЦ "Петроконгресс")</p>
+        'address' => '<p>г.Санкт-Петербург, ул. Лодейнопольская, 5 литера А (здание КЦ "Петроконгресс")</p>
                 <p>Пешком от м.Чкаловская по ул. Большая Зеленина до ул. Лодейнопольская и повернуть направо. <br></p>
                 <p><span>Время в пути 6 минут.</span></p>
                 <p>Если едете на машине, то парковаться лучше либо на Лодейнопольской улице, либо на Петрозаводской.</p>',
-        'phone_title' => 'Телефон:',
-        'phone_description' => '+7 (812) 303 98 63',
-        'fax_title' => 'Факс:',
-        'fax_description' => '+7 (812) 335 89 07',
+        'phone' => '+7 (812) 303 98 63',
+        'fax' => '+7 (812) 335 89 07',
       ]);
     }
 }

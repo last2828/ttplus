@@ -34,12 +34,9 @@ class CreatePageFieldsTable extends Migration
           $table->json('licenses')->nullable();
           $table->json('shows')->nullable();
 
-          $table->string('address_title')->nullable();
-          $table->text('address_description')->nullable();
-          $table->string('phone_title')->nullable();
-          $table->text('phone_description')->nullable();
-          $table->string('fax_title')->nullable();
-          $table->text('fax_description')->nullable();
+          $table->text('address')->nullable();
+          $table->string('phone')->nullable();
+          $table->string('fax')->nullable();
 
 //          $table->string('key')->nullable();
 //          $table->longText('value');

@@ -10,23 +10,23 @@
         <li>
           <div class="contacts-heading">
             <div class="dot"></div>
-            <h3>{{$contact->address_title}}</h3>
+            <h3>Адрес:</h3>
           </div>
-          {!! $contact->address_description !!}
+          {!! $contact->address !!}
         </li>
         <li>
           <div class="contacts-heading">
             <div class="dot"></div>
-            <h3>{{$contact->phone_title}}</h3>
+            <h3>Телефон:</h3>
           </div>
-          <p>{{$contact->phone_description}}</p>
+          <p>{{$contact->phone}}</p>
         </li>
         <li>
           <div class="contacts-heading">
             <div class="dot"></div>
-            <h3>{{$contact->fax_title}}</h3>
+            <h3>Факс:</h3>
           </div>
-          <p>{{$contact->fax_description}}</p>
+          <p>{{$contact->fax}}</p>
         </li>
       </ul>
       <div class="maps">

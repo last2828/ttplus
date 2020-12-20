@@ -18,7 +18,27 @@ class AboutController extends Controller
     public function update(Request $request)
     {
         $fields = $request->except(['_token', '_method']);
-        dd($fields);
+
+
+          if (empty($fields['awards'])) {
+            $fields['awards'] = [
+              ['image' => null]
+            ];
+          }
+
+          if (empty($fields['licenses'])) {
+            $fields['licenses'] = [
+              ['image' => null]
+            ];
+          }
+
+          if (empty($fields['shows'])) {
+            $fields['shows'] = [
+              ['image' => null]
+            ];
+          }
+
+//          dd($fields);
 
         PageField::where('key', 'about')->update($fields);
 

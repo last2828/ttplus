@@ -17,7 +17,8 @@ class ContactController extends Controller
 
   public function update(Request $request)
   {
-    $fields = $request->all();
+
+    $fields = $request->except(['_token', '_method']);
 
     PageField::where('key', 'contact')->update($fields);
 

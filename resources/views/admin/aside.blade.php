@@ -127,7 +127,7 @@
             <a class="kt-menu__link" href="{{route('about.index')}}"><i class="kt-menu__link-icon flaticon-tabs"></i><span class="kt-menu__link-text">О компании</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
           </li>
           <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu" data-ktmenu-submenu-toggle="hover">
-            <a class="kt-menu__link" href="#"><i class="kt-menu__link-icon flaticon-tabs"></i><span class="kt-menu__link-text">Контакты</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+            <a class="kt-menu__link" href="{{route('contact.index')}}"><i class="kt-menu__link-icon flaticon-tabs"></i><span class="kt-menu__link-text">Контакты</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
           </li>
         </ul>
       </div>

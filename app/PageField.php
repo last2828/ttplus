@@ -40,11 +40,8 @@ class PageField extends Model
     'licenses',
     'shows',
 
-    'address_title',
-    'address_description',
-    'phone_title',
-    'phone_description',
-    'fax_title',
-    'fax_description',
+    'address',
+    'phone',
+    'fax',
   ];
 }
