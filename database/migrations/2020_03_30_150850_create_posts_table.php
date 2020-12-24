@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration
             $table->text('meta_description')->nullable();
             $table->string('image')->nullable();
             $table->integer('category_id')->nullable();
+            $table->integer('type_id');
             $table->string('slug')->unique();
             $table->integer('status')->default('1');
             $table->timestamps();

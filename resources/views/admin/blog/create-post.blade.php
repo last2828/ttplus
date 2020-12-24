@@ -74,27 +74,47 @@
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane" id="kt_tabs_1_2" role="tabpanel">
+                                                    {{--<div class="form-group row">--}}
+                                                        {{--<label class="col-form-label col-lg-3 col-sm-12">Главная категория</label>--}}
+                                                        {{--<div class="col-lg-4 col-md-9 col-sm-12">--}}
+                                                            {{--<select class="form-control kt-select2" id="kt_select2_2" name="category_id">--}}
+                                                                {{--<option value="null" selected>Не выбрано</option>--}}
+                                                                {{--@foreach($categories as $category):--}}
+                                                                {{--<option value="{{$category->id}}">{{$category->name}}</option>--}}
+                                                                {{--@endforeach--}}
+                                                            {{--</select>--}}
+                                                        {{--</div>--}}
+                                                    {{--</div>--}}
                                                     <div class="form-group row">
-                                                        <label class="col-form-label col-lg-3 col-sm-12">Главная категория</label>
+                                                        <label class="col-form-label col-lg-3 col-sm-12">Тип записи</label>
                                                         <div class="col-lg-4 col-md-9 col-sm-12">
-                                                            <select class="form-control kt-select2" id="kt_select2_2" name="category_id">
-                                                                <option value="null" selected>Не выбрано</option>
-                                                                @foreach($categories as $category):
-                                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                                            <select class="form-control kt-select2" id="kt_select2_2" name="type_id">
+                                                                @foreach($types as $type)
+                                                                    <option value="{{$type->id}}">{{$type->name}}</option>
                                                                 @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label class="col-form-label col-lg-3 col-sm-12">Изображение статьи</label>
-                                                        <div class="col-lg-4 col-md-9 col-sm-12">
-                                                            <div class="dropzone dropzone-default" id="kt_dropzone_1">
-                                                                <div class="dropzone-msg dz-message needsclick">
-                                                                    <h3 class="dropzone-msg-title">Перетащите файл сюда или нажмите для загрузки</h3>
-                                                                </div>
+                                                        <label>Изображение статьи</label>
+                                                        <div class="input-group">
+                                                            <input type="text" id="image_label" class="form-control" name="image"
+                                                                   aria-label="Image" aria-describedby="button-image">
+                                                            <div class="input-group-append">
+                                                                <button class="btn btn-outline-secondary" type="button" id="button-image">Select</button>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    {{--<div class="form-group row">--}}
+                                                        {{--<label class="col-form-label col-lg-3 col-sm-12">Изображение статьи</label>--}}
+                                                        {{--<div class="col-lg-4 col-md-9 col-sm-12">--}}
+                                                            {{--<div class="dropzone dropzone-default" id="kt_dropzone_1">--}}
+                                                                {{--<div class="dropzone-msg dz-message needsclick">--}}
+                                                                    {{--<h3 class="dropzone-msg-title">Перетащите файл сюда или нажмите для загрузки</h3>--}}
+                                                                {{--</div>--}}
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
+                                                    {{--</div>--}}
                                                     <div class="form-group form-group-last row">
                                                         <label>Slug</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
@@ -161,5 +181,21 @@
         }
       }
     });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+
+        document.getElementById('button-image').addEventListener('click', (event) => {
+          event.preventDefault();
+
+          window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
+        });
+      });
+
+      // set file link
+      function fmSetLink($url) {
+        document.getElementById('image_label').value = $url;
+      }
     </script>
 @endsection

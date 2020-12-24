@@ -14,10 +14,10 @@
               <p id="text">Немецкое качество с более чем полувековой историей</p>
               <div class="content__bottom">
                 <div id="button-1">
-                  <a href="#" class="btn btn-primary">Подробнее</a>
+                  <a href="{{route('pages.catalog.dunkermotoren.index')}}" class="btn btn-primary">Подробнее</a>
                 </div>
                 <div id="button-2">
-                  <a href="#" class="btn btn-next--blue">В каталог<span class="span-arrow"></span></a>
+                  <a href="{{route('pages.catalog.dunkermotoren.index')}}" class="btn btn-next--blue">В каталог<span class="span-arrow"></span></a>
                 </div>
               </div>
             </div>
@@ -27,7 +27,7 @@
                 <div class="sp-circle"></div>
                 <div class="sp-text">Смотреть видео</div>
               </a></div>
-            <div class="intro__bottom"><a href="#" class="btn btn-next--blue">В каталог<span class="span-arrow"></span></a></div>
+            <div class="intro__bottom"><a href="route('pages.catalog.dunkermotoren.index')" class="btn btn-next--blue">В каталог<span class="span-arrow"></span></a></div>
             <div class="intro__card" id="category">
               <div class="card__image"><img src="img/main/intro-sm.png" alt=""></div>
               <div class="card__content">
@@ -43,13 +43,13 @@
             <div class="intro__content">
               <h2 class="heading">Конденсаторы Jianghai</h2>
               <p>Современные электролитические конденсаторы от крупнейшего китайского производителя</p>
-              <div class="content__bottom"><a href="#" class="btn btn-primary">Подробнее</a><a href="#" class="btn btn-next--blue">В каталог<span class="span-arrow"></span></a></div>
+              <div class="content__bottom"><a href="{{route('pages.catalog.jianghai.index')}}" class="btn btn-primary">Подробнее</a><a href="{{route('pages.catalog.jianghai.index')}}" class="btn btn-next--blue">В каталог<span class="span-arrow"></span></a></div>
             </div>
             <div class="intro__image"><img src="img/main/intro-1-lg.png" alt=""><a href="#" class="btn-play">
                 <div class="sp-circle"></div>
                 <div class="sp-text">Смотреть видео</div>
               </a></div>
-            <div class="intro__bottom"><a href="#" class="btn btn-next--blue">В каталог<span class="span-arrow"></span></a></div>
+            <div class="intro__bottom"><a href="{{route('pages.catalog.jianghai.index')}}" class="btn btn-next--blue">В каталог<span class="span-arrow"></span></a></div>
             <div class="intro__card">
               <div class="card__image"><img src="img/main/intro-1-sm.png" alt=""></div>
               <div class="card__content">
@@ -57,7 +57,7 @@
                 <p>Radial</p>
                 <p>Snap-in</p>
                 <p>Screw</p>
-              </div><a href="#" class="btn btn-intro">
+              </div><a href="{{route('pages.catalog.jianghai.index')}}" class="btn btn-intro">
                 <div class="sp-text">Смотреть все</div>
               </a>
             </div>
@@ -145,14 +145,14 @@
           <div class="card__content">
             <p>Электродвигатели <span>Dunkermotoren</span></p>
           </div>
-          <div class="card__bottom"><a href="#" class="btn btn-primary">Подробнее</a><a href="#" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a></div>
+          <div class="card__bottom"><a href="{{route('pages.catalog.dunkermotoren.index')}}" class="btn btn-primary">Подробнее</a><a href="{{route('pages.catalog.dunkermotoren.index')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a></div>
         </div>
         <div class="catalog-card">
           <div class="card__image"><img src="img/main/card-2.png" alt=""></div>
           <div class="card__content">
             <p>Электролитические и пленочные конденсаторы <span>Jianghai</span></p>
           </div>
-          <div class="card__bottom"><a href="#" class="btn btn-primary">Подробнее</a><a href="#" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a></div>
+          <div class="card__bottom"><a href="{{route('pages.catalog.jianghai.index')}}" class="btn btn-primary">Подробнее</a><a href="{{route('pages.catalog.jianghai.index')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a></div>
         </div>
       </div>
     </div>
@@ -160,13 +160,20 @@
 </section>
 <section class="offer">
   <div class="container">
-    <form>
+    <form method="POST" action="">
+      @csrf
       <div class="form__container">
         <h2>Индивидуальное предложение</h2>
         <p>Кратко опишите задачу и мы подготовим для Вас индивидуальное предложение:</p>
-        <div class="inputs__container"><input type="text" placeholder="Ваше имя"><input type="tel" placeholder="Ваш телефон" id="tel"><input type="email" placeholder="E-mail"><input type="text" placeholder="Комментарий"></div>
+        <div class="inputs__container">
+          <input type="text" placeholder="Ваше имя" name="name">
+          <input type="tel" placeholder="Ваш телефон" id="tel" name="phone">
+          <input type="email" placeholder="E-mail" name="email">
+          <input type="text" placeholder="Комментарий" name="comment">
+        </div>
         <div class="form-bottom">
-          <div class="policy"><input type="checkbox" id="policy-offer" checked class="policy__input"><label for="policy-offer" class="policy__label"></label><label for="policy-offer" class="policy__label--text"><a href="#">Я даю свое согласие на обработку персональных данных</a></label></div><a href="#" class="btn btn-form">Получить</a>
+          <div class="policy"><input type="checkbox" id="policy-offer" checked class="policy__input"><label for="policy-offer" class="policy__label"></label><label for="policy-offer" class="policy__label--text"><a href="#">Я даю свое согласие на обработку персональных данных</a></label></div>
+          <button type="submit" class="btn btn-form">Получить</button>
         </div>
       </div>
     </form>
@@ -175,44 +182,32 @@
 <section class="info">
   <div class="container">
     <div class="info__heading">
-      <h2 class="heading">Полезная информация</h2><a href="#" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Смотреть <br> всё</span></a>
+      <h2 class="heading">Полезная информация</h2><a href="{{route('pages.news.index')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Смотреть <br> всё</span></a>
     </div>
     <div class="info__cards">
+      @foreach($posts as $post)
       <div class="info__card">
-        <div class="card__image"><img src="img/main/bitmap.png" alt=""></div>
+        <div class="card__image"><img src="{{$post->image}}" alt=""></div>
         <div class="card__bottom">
-          <p><span> Электрическая прочность </span> электролитических конденсаторов</p><a href="#" class="btn btn-primary">Читать полностью</a>
+          <p>{{$post->title}}<a href="{{route('pages.news.article', $post->slug)}}" class="btn btn-primary">Читать полностью</a>
         </div>
       </div>
-      <div class="info__card">
-        <div class="card__image"><img src="img/main/bitmap.png" alt=""></div>
-        <div class="card__bottom">
-          <p><span> Электрическая прочность </span> электролитических конденсаторов</p><a href="#" class="btn btn-primary">Читать полностью</a>
-        </div>
-      </div>
-      <div class="info__card">
-        <div class="card__image"><img src="img/main/bitmap.png" alt=""></div>
-        <div class="card__bottom">
-          <p><span> Электрическая прочность </span> электролитических конденсаторов</p><a href="#" class="btn btn-primary">Читать полностью</a>
-        </div>
-      </div>
-      <div class="info__card">
-        <div class="card__image"><img src="img/main/bitmap.png" alt=""></div>
-        <div class="card__bottom">
-          <p><span> Электрическая прочность </span> электролитических конденсаторов</p><a href="#" class="btn btn-primary">Читать полностью</a>
-        </div>
-      </div>
+      @endforeach
     </div>
-    <div class="info__bottom"><a href="#" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Смотреть <br> всё</span></a></div>
+    <div class="info__bottom"><a href="{{route('pages.news.index')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Смотреть <br> всё</span></a></div>
   </div>
 </section>
 <section class="subscribe">
   <div class="container">
-    <form>
+    <form method="POST" action="">
+      @csrf
       <div class="form__container">
         <h2>Подписаться на обновления</h2>
-        <p>Вы будете получать уведомления о новых статьях, новостях компании и новых товарах на свой e-mail:</p><input type="email" placeholder="E-mail">
-        <div class="policy"><input type="checkbox" id="policy-subscribe" checked class="policy__input"><label for="policy-subscribe" class="policy__label"></label><label for="policy-subscribe" class="policy__label--text"><a href="#">Я даю свое согласие на обработку персональных данных</a></label></div><a href="#" class="btn btn-form">Получить</a>
+        <p>Вы будете получать уведомления о новых статьях, новостях компании и новых товарах на свой e-mail:</p>
+          <input type="email" placeholder="E-mail" name="email">
+        <div class="policy">
+          <input type="checkbox" id="policy-subscribe" checked class="policy__input"><label for="policy-subscribe" class="policy__label"></label><label for="policy-subscribe" class="policy__label--text"><a href="#">Я даю свое согласие на обработку персональных данных</a></label></div>
+        <button type="submit" class="btn btn-form">Получить</button>
       </div>
     </form>
   </div>

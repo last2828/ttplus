@@ -22,15 +22,19 @@ class Post extends Model
         'meta_description',
         'image',
         'category_id',
+        'type_id',
         'status',
         'slug'
     ];
 
     public function category()
     {
-        return $this->belongsTo(
-            Category::class
-        );
+        return $this->belongsTo(Category::class);
+    }
+
+    public function type()
+    {
+      return $this->belongsTo(Type::class);
     }
 
 }

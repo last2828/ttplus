@@ -46,7 +46,6 @@ Route::group(['namespace' => 'Front', 'as' => 'pages.'], function () {
 
 
     Route::get('/about-us', 'AboutController@index')->name('about');
-    Route::get('/about-us/style', 'AboutController@style');
     Route::get('/contact', 'ContactController@index')->name('contact');
 });
 
@@ -64,7 +63,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 
     Route::group(['prefix' => 'blog', 'namespace' => 'Blog'], function () {
         Route::resources(['posts' => 'PostController']);
-        Route::resources(['categories' => 'CategoryController']);
+//        Route::resources(['categories' => 'CategoryController']);
     });
 
     Route::group(['prefix' => 'about', 'as' => 'about.'], function () {

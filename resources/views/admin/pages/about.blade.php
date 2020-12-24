@@ -67,10 +67,10 @@
                       </div>
                       <div class="form-group row">
                         <div class="input-group">
-                          <input type="text" id="image_label" class="form-control" name="head_image"
+                          <input type="text" id="image_label" class="form-control image_label" name="head_image"
                                  aria-label="Image" aria-describedby="button-image" value="{{$about->head_image}}">
                           <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="button-image">Select</button>
+                            <button class="btn btn-outline-secondary button-image" type="button" id="button-image">Select</button>
                           </div>
                         </div>
                       </div>
@@ -190,10 +190,10 @@
                               </div>
                               <div class="col-md-6">
                                 <div class="input-group">
-                                  <input type="text" id="image_label" class="form-control" name="image"
+                                  <input type="text" id="image_label" class="form-control image_label" name="image"
                                          aria-label="Image" aria-describedby="button-image" value="{{$award['image']}}">
                                   <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="button-image">Select</button>
+                                    <button class="btn btn-outline-secondary button-image" type="button" id="button-image">Select</button>
                                   </div>
                                 </div>
                               </div>
@@ -224,10 +224,10 @@
                               </div>
                               <div class="col-md-6">
                                 <div class="input-group">
-                                  <input type="text" id="image_label" class="form-control" name="image"
+                                  <input type="text" id="image_label" class="form-control image_label" name="image"
                                          aria-label="Image" aria-describedby="button-image" value="{{$licens['image']}}">
                                   <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="button-image">Select</button>
+                                    <button class="btn btn-outline-secondary button-image" type="button" id="button-image">Select</button>
                                   </div>
                                 </div>
                               </div>
@@ -258,10 +258,10 @@
                               </div>
                               <div class="col-md-6">
                                 <div class="input-group">
-                                  <input type="text" id="image_label" class="form-control" name="image"
+                                  <input type="text" id="image_label" class="form-control image_label" name="image"
                                          aria-label="Image" aria-describedby="button-image" value="{{$show['image']}}">
                                   <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="button-image">Select</button>
+                                    <button class="btn btn-outline-secondary button-image" type="button" id="button-image">Select</button>
                                   </div>
                                 </div>
                               </div>
@@ -307,7 +307,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
 
-      document.getElementById('button-image').addEventListener('click', (event) => {
+      document.querySelector('.button-image').addEventListener('click', (event) => {
         event.preventDefault();
 
         window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
@@ -316,7 +316,7 @@
 
     // set file link
     function fmSetLink($url) {
-      document.getElementById('image_label').value = $url;
+      document.querySelector('.image_label').value = $url;
     }
   </script>
 @endsection

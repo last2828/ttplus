@@ -156,3 +156,13 @@ Breadcrumbs::for('front-contact', function ($trail) {
   $trail->parent('front');
   $trail->push('Контакты');
 });
+
+Breadcrumbs::for('front-news', function ($trail) {
+  $trail->parent('front');
+  $trail->push('Полезная информация', route('pages.news.index'));
+});
+
+Breadcrumbs::for('front-post', function ($trail, $post) {
+  $trail->parent('front-news');
+  $trail->push('Статья: «' . $post->title . '»');
+});

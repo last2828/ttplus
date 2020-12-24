@@ -38,8 +38,6 @@ class AboutController extends Controller
             ];
           }
 
-//          dd($fields);
-
         PageField::where('key', 'about')->update($fields);
 
         return redirect()->route('about.index');

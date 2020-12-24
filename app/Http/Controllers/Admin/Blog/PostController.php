@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin\blog;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Type;
 use Illuminate\Http\Request;
 use Transliterate;
 
@@ -18,16 +19,8 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        foreach($posts as $post){
-            $post['category_name'] = $post->category['name'];
-        }
 
-        return view(
-            'admin.blog.posts',
-            [
-                'posts' => $posts
-            ]
-        );
+        return view('admin.blog.posts', compact('posts'));
     }
 
     /**
@@ -37,12 +30,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view(
-            'admin.blog.create-post',
-            [
-                'categories' => Category::all()
-            ]
-        );
+      $types = Type::all();
+
+      return view('admin.blog.create-post', compact('types'));
     }
 
     /**
@@ -53,6 +43,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
         $fields = $request->toArray();
 
         if($fields['slug'])
@@ -60,11 +51,6 @@ class PostController extends Controller
             $fields['slug'] = Transliterate::slugify($fields['slug']);
         }else{
             $fields['slug'] = Transliterate::slugify($fields['title']);
-        }
-
-        if($fields['category_id'] == 'null')
-        {
-            $fields['category_id'] = null;
         }
 
         Post::create($fields);
@@ -90,13 +76,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        return view(
-            'admin.blog.edit-post',
-            [
-                'post' => Post::find($id),
-                'categories' => Category::all()
-            ]
-        );
+      $post = Post::with('type')->find($id);
+      $types = Type::all();
+
+      return view('admin.blog.edit-post', compact(['post', 'types']));
     }
 
     /**
@@ -115,11 +98,6 @@ class PostController extends Controller
             $fields['slug'] = Transliterate::slugify($fields['slug']);
         }else{
             $fields['slug'] = Transliterate::slugify($fields['title']);
-        }
-
-        if($fields['category_id'] == 'null')
-        {
-            $fields['category_id'] = null;
         }
 
         $post = Post::find($id);

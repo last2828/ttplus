@@ -3,12 +3,33 @@
 namespace App\Http\Controllers\Front\News;
 
 use App\Http\Controllers\Controller;
+use App\Post;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    public function index()
+    public function index($slug)
     {
-        return view('front.pages.news.article');
+      $post = Post::where('slug', $slug)->first();
+
+      $abovePost = Post::where('id', '>', $post->id)
+        ->orderBy('id', 'asc')
+        ->first();
+
+      if(empty($abovePost))
+      {
+        $abovePost = Post::first();
+      }
+
+      $belowPost = Post::where('id', '<', $post->id)
+        ->orderBy('id', 'desc')
+        ->first();
+
+      if(empty($belowPost))
+      {
+        $belowPost = Post::orderBy('id', 'desc')->first();
+      }
+
+      return view('front.pages.news.article', compact(['post', 'abovePost', 'belowPost']));
     }
 }

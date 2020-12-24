@@ -59,6 +59,15 @@
         li
           padding-left: 30px
           position: relative
+          &::before
+            content: ''
+            position: absolute
+            top: 50%
+            left: 0
+            width: 5px
+            height: 5px
+            background-color: #2468eb
+            border-radius: 50%
           +r($md)
             padding-left: 20px
           p

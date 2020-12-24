@@ -6,34 +6,9 @@
 
     {{Breadcrumbs::render('catalog-brand-category-product', $product)}}
 
-    {{--<div class="breadcrumbs"><a href="#" class="btn">Главная / Электродвигатели Dunkermotoren</a>--}}
-      {{--<p><span> / GR/G | Brushed DC Motors / G 30.1, 12V</span></p>--}}
-    {{--</div>--}}
     <div class="product-container">
       <h2>{{$product->name}}</h2>
       <div class="product__content">
-        {{--<ul>--}}
-          {{--<li>--}}
-            {{--<div class="dot-sm"></div>--}}
-            {{--<p>Stronger permanent magnet DC motor</p>--}}
-          {{--</li>--}}
-          {{--<li>--}}
-            {{--<div class="dot-sm"></div>--}}
-            {{--<p>Mechanical commutation through multi bar commutator provides long lifetime</p>--}}
-          {{--</li>--}}
-          {{--<li>--}}
-            {{--<div class="dot-sm"></div>--}}
-            {{--<p>Operation in both directions of rotation</p>--}}
-          {{--</li>--}}
-          {{--<li>--}}
-            {{--<div class="dot-sm"></div>--}}
-            {{--<p>Sleeve bearing at motor shaft is standard</p>--}}
-          {{--</li>--}}
-          {{--<li>--}}
-            {{--<div class="dot-sm"></div>--}}
-            {{--<p>Optionally with ball bearing, custom shaft length and diameter, lead version</p>--}}
-          {{--</li>--}}
-        {{--</ul>--}}
         {!! $product->content !!}
         <div class="product__image-container">
           <div class="product__image"><img src="{{asset($product->image)}}" alt="product"></div>

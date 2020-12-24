@@ -3,9 +3,9 @@
 @section('content')
 <section class="info-page">
   <div class="container">
-    <div class="breadcrumbs"><a href="#" class="btn">Главная</a>
-      <p>/ Полезная информация</p>
-    </div>
+
+    {{Breadcrumbs::render('front-news')}}
+
     <h2>Полезная информация</h2>
     <div class="tabs">
       <ul class="tabs__caption">
@@ -19,73 +19,49 @@
           <option value="video">Видео</option>
         </select></div>
       <div id="documents" class="tabs__content active tabs__content-mobile">
-        <div class="info__cards">
-          <div class="info__card">
-            <div class="card__image"><img src="img/main/bitmap.png" alt=""></div>
-            <div class="card__bottom">
-              <p><span> Электрическая прочность </span> электролитических конденсаторов</p><a href="{{route('pages.news.article', 'slug')}}" class="btn btn-primary">Читать полностью</a>
+        @if(!$postsDocument->isEmpty())
+          <div class="info__cards">
+            @foreach($postsDocument as $post)
+            <div class="info__card">
+              <div class="card__image"><img src="{{$post->image}}" alt=""></div>
+              <div class="card__bottom">
+                <p>{{$post->title}}<a href="{{route('pages.news.article', $post->slug)}}" class="btn btn-primary">Читать полностью</a>
+              </div>
             </div>
+            @endforeach
           </div>
-          <div class="info__card">
-            <div class="card__image"><img src="img/main/bitmap.png" alt=""></div>
-            <div class="card__bottom">
-              <p><span> Электрическая прочность </span> электролитических конденсаторов</p><a href="#" class="btn btn-primary">Читать полностью</a>
-            </div>
-          </div>
-          <div class="info__card">
-            <div class="card__image"><img src="img/main/bitmap.png" alt=""></div>
-            <div class="card__bottom">
-              <p><span> Электрическая прочность </span> электролитических конденсаторов</p><a href="#" class="btn btn-primary">Читать полностью</a>
-            </div>
-          </div>
-          <div class="info__card">
-            <div class="card__image"><img src="img/main/bitmap.png" alt=""></div>
-            <div class="card__bottom">
-              <p><span> Электрическая прочность </span> электролитических конденсаторов</p><a href="#" class="btn btn-primary">Читать полностью</a>
-            </div>
-          </div>
-        </div>
-        <div class="info__bottom"><a href="#" class="btn btn-prev"><span class="span-arrow"></span><span class="span-text">Предыдущая страница</span></a><a href="#" class="btn btn-next"><span class="span-text">Следующая страница</span><span class="span-arrow"></span></a></div>
+          <div class="info__bottom"><a href="#" class="btn btn-prev"><span class="span-arrow"></span><span class="span-text">Предыдущая страница</span></a><a href="#" class="btn btn-next"><span class="span-text">Следующая страница</span><span class="span-arrow"></span></a></div>
+        @endif
       </div>
       <div id="articles" class="tabs__content about__documents-tab tabs__content-mobile">
-        <div class="info__cards">
-          <div class="info__card">
-            <div class="card__image"><img src="img/main/bitmap.png" alt=""></div>
-            <div class="card__bottom">
-              <p><span> Электрическая прочность </span> электролитических конденсаторов</p><a href="#" class="btn btn-primary">Читать полностью</a>
+        @if(!$postsArticle->isEmpty())
+          <div class="info__cards">
+            @foreach($postsArticle as $post)
+            <div class="info__card">
+              <div class="card__image"><img src="{{$post->image}}" alt=""></div>
+              <div class="card__bottom">
+                <p>{{$post->title}}<a href="{{route('pages.news.article', $post->slug)}}" class="btn btn-primary">Читать полностью</a>
+              </div>
             </div>
+            @endforeach
           </div>
-          <div class="info__card">
-            <div class="card__image"><img src="img/main/bitmap.png" alt=""></div>
-            <div class="card__bottom">
-              <p><span> Электрическая прочность </span> электролитических конденсаторов</p><a href="#" class="btn btn-primary">Читать полностью</a>
-            </div>
-          </div>
-          <div class="info__card">
-            <div class="card__image"><img src="img/main/bitmap.png" alt=""></div>
-            <div class="card__bottom">
-              <p><span> Электрическая прочность </span> электролитических конденсаторов</p><a href="#" class="btn btn-primary">Читать полностью</a>
-            </div>
-          </div>
-        </div>
-        <div class="info__bottom"><a href="#" class="btn btn-prev"><span class="span-arrow"></span><span class="span-text">Предыдущая страница</span></a><a href="#" class="btn btn-next"><span class="span-text">Следующая страница</span><span class="span-arrow"></span></a></div>
+          <div class="info__bottom"><a href="#" class="btn btn-prev"><span class="span-arrow"></span><span class="span-text">Предыдущая страница</span></a><a href="#" class="btn btn-next"><span class="span-text">Следующая страница</span><span class="span-arrow"></span></a></div>
+        @endif
       </div>
       <div id="video" class="tabs__content about__documents-tab tabs__content-mobile">
-        <div class="info__cards">
-          <div class="info__card">
-            <div class="card__image"><img src="img/main/bitmap.png" alt=""></div>
-            <div class="card__bottom">
-              <p><span> Электрическая прочность </span> электролитических конденсаторов</p><a href="#" class="btn btn-primary">Читать полностью</a>
+        @if(!$postsVideo->isEmpty())
+          <div class="info__cards">
+            @foreach($postsVideo as $post)
+            <div class="info__card">
+              <div class="card__image"><img src="{{$post->image}}" alt=""></div>
+              <div class="card__bottom">
+                <p>{{$post->title}}<a href="{{route('pages.news.article', $post->slug)}}" class="btn btn-primary">Читать полностью</a>
+              </div>
             </div>
+            @endforeach
           </div>
-          <div class="info__card">
-            <div class="card__image"><img src="img/main/bitmap.png" alt=""></div>
-            <div class="card__bottom">
-              <p><span> Электрическая прочность </span> электролитических конденсаторов</p><a href="#" class="btn btn-primary">Читать полностью</a>
-            </div>
-          </div>
-        </div>
-        <div class="info__bottom"><a href="#" class="btn btn-prev"><span class="span-arrow"></span><span class="span-text">Предыдущая страница</span></a><a href="#" class="btn btn-next"><span class="span-text">Следующая страница</span><span class="span-arrow"></span></a></div>
+          <div class="info__bottom"><a href="#" class="btn btn-prev"><span class="span-arrow"></span><span class="span-text">Предыдущая страница</span></a><a href="#" class="btn btn-next"><span class="span-text">Следующая страница</span><span class="span-arrow"></span></a></div>
+        @endif
       </div>
     </div>
   </div>

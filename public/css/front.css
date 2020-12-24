@@ -4758,6 +4758,17 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   position: relative;
 }
 
+.product .container .product-container .product__content li::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background-color: #2468eb;
+  border-radius: 50%;
+}
+
 @media only screen and (max-width: 1679px) {
   .product .container .product-container .product__content li {
     padding-left: 20px;
