@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://unpkg.com/grapick/dist/grapick.min.css);html,
+html,
 body,
 div,
 span,
@@ -5585,7 +5585,8 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   }
 }
 
-.catalog-page .product-cards .catalog-card .card__content .content__column p {
+.catalog-page .product-cards .catalog-card .card__content .content__column p,
+.catalog-page .product-cards .catalog-card .card__content .content__column a {
   cursor: pointer;
   text-align: left;
   font-size: 20px;
@@ -5596,19 +5597,27 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   padding-bottom: 15px;
 }
 
+.catalog-page .product-cards .catalog-card .card__content .content__column p a,
+.catalog-page .product-cards .catalog-card .card__content .content__column a a {
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 1919px) {
-  .catalog-page .product-cards .catalog-card .card__content .content__column p {
+  .catalog-page .product-cards .catalog-card .card__content .content__column p,
+  .catalog-page .product-cards .catalog-card .card__content .content__column a {
     font-size: 17px;
   }
 }
 
 @media only screen and (max-width: 1679px) {
-  .catalog-page .product-cards .catalog-card .card__content .content__column p {
+  .catalog-page .product-cards .catalog-card .card__content .content__column p,
+  .catalog-page .product-cards .catalog-card .card__content .content__column a {
     font-size: 14px;
   }
 }
 
-.catalog-page .product-cards .catalog-card .card__content .content__column p:hover {
+.catalog-page .product-cards .catalog-card .card__content .content__column p:hover,
+.catalog-page .product-cards .catalog-card .card__content .content__column a:hover {
   color: #2468eb;
 }
 

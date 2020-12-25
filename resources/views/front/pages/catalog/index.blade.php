@@ -4,6 +4,7 @@
 <section class="catalog-page">
   <div class="container">
     {{ Breadcrumbs::render('front-catalog') }}
+    <h2>Каталог</h2>
 
   </div>
   <div class="product-cards">
@@ -14,18 +15,18 @@
       </div>
       <div class="card__content">
         <div class="content__column">
-          @foreach (array_slice($dunkermotoren, 0, 5) as $item)
+          @foreach (array_slice($dunkermotoren, 0, 6) as $item)
           <p><a href="{{route('pages.catalog.dunkermotoren.category', $item['slug'])}}">{{$item['name']}}</a></p>
           @endforeach
         </div>
         <div class="content__column">
-          @foreach (array_slice($dunkermotoren, 5) as $item)
+          @foreach (array_slice($dunkermotoren, 6) as $item)
             <p><a href="{{route('pages.catalog.dunkermotoren.category', $item['slug'])}}">{{$item['name']}}</a></p>
           @endforeach
         </div>
       </div>
       <div class="card__bottom">
-        <a href="#" class="btn btn-primary">Подробнее</a>
+        <a href="{{route('pages.catalog.dunkermotoren.index')}}" class="btn btn-primary">Подробнее</a>
         <a href="{{route('pages.catalog.dunkermotoren.index')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a>
       </div>
     </div>
@@ -47,7 +48,7 @@
         </div>
       </div>
       <div class="card__bottom">
-        <a href="#" class="btn btn-primary">Подробнее</a>
+        <a href="{{route('pages.catalog.jianghai.index')}}" class="btn btn-primary">Подробнее</a>
         <a href="{{route('pages.catalog.jianghai.index')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a>
       </div>
     </div>

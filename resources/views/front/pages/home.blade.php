@@ -10,31 +10,31 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="intro__content">
-              <h2 class="heading" id="title">Электродвигатели Dunkermotoren</h2>
-              <p id="text">Немецкое качество с более чем полувековой историей</p>
+              <h2 class="heading" >Электродвигатели Dunkermotoren</h2>
+              <p>Немецкое качество с более чем полувековой историей</p>
               <div class="content__bottom">
-                <div id="button-1">
+                <div>
                   <a href="{{route('pages.catalog.dunkermotoren.index')}}" class="btn btn-primary">Подробнее</a>
                 </div>
-                <div id="button-2">
+                <div>
                   <a href="{{route('pages.catalog.dunkermotoren.index')}}" class="btn btn-next--blue">В каталог<span class="span-arrow"></span></a>
                 </div>
               </div>
             </div>
             <div class="intro__image">
-              <div id="image"><img src="img/main/intro-lg.png" alt=""></div>
-              <a href="#" id="video" class="btn-play">
+              <div><img src="img/main/intro-lg.png" alt=""></div>
+              <a href="#" class="btn-play">
                 <div class="sp-circle"></div>
                 <div class="sp-text">Смотреть видео</div>
               </a></div>
-            <div class="intro__bottom"><a href="route('pages.catalog.dunkermotoren.index')" class="btn btn-next--blue">В каталог<span class="span-arrow"></span></a></div>
-            <div class="intro__card" id="category">
+            <div class="intro__bottom"><a href="{{route('pages.catalog.dunkermotoren.index')}}" class="btn btn-next--blue">В каталог<span class="span-arrow"></span></a></div>
+            <div class="intro__card">
               <div class="card__image"><img src="img/main/intro-sm.png" alt=""></div>
               <div class="card__content">
                 <p>BG | EC Motors</p>
                 <p>GR/G | Brushed <br> DC Motors</p>
                 <p>KD/DR | AC motors</p>
-              </div><a href="#" class="btn btn-intro">
+              </div><a href="{{route('pages.catalog.dunkermotoren.index')}}" class="btn btn-intro">
                 <div class="sp-text">Смотреть все</div>
               </a>
             </div>
@@ -69,28 +69,28 @@
   </section>
   <section class="about">
     <div class="container">
-      <h2 class="heading" id="about_heading">О компании</h2>
+      <h2 class="heading">О компании</h2>
       <div class="about__content">
-        <div class="about__block-text" id="about_text">
+        <div class="about__block-text">
           <p>Dunkermotoren GmbH - немецкая производственная компания, которая с момента основания в 1950 году специализируется на высокоточных малогабаритных моторах и редукторах.</p>
           <p>Качество, профессионализм, высокий уровень сервиса, ориентированность на потребности клиента, оперативность и высокие экологические стандарты - отличительные черты продукции компании.</p>
           <p>В 1991 Дункенмоторен стал первым производителем в малых моторов в мире прошедших сертификацию ISO 9001.</p><a href="#" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Подробнее о компании</span></a>
         </div>
         <div class="about__cards">
-          <div class="about__card card-1">
-            <div class="card__image"><img src="img/deadline.svg" alt=""></div>
+          <div class="about__card">
+            <div class="card__image"><img src="{{asset('img/deadline.svg')}}" alt=""></div>
             <p>Строгое <br> соблюдение<br> сроков поставки</p>
           </div>
-          <div class="about__card card-1">
-            <div class="card__image"><img src="img/help.svg" alt=""></div>
+          <div class="about__card">
+            <div class="card__image"><img src="{{asset('img/help.svg')}}" alt=""></div>
             <p>Техническое сопровождение<br> и поддержка</p>
           </div>
-          <div class="about__card card-2">
-            <div class="card__image"><img src="img/warehouse.svg" alt=""></div>
+          <div class="about__card">
+            <div class="card__image"><img src="{{asset('img/warehouse.svg')}}" alt=""></div>
             <p>Склады <br> в Москве и <br> Санкт-Петербурге</p>
           </div>
-          <div class="about__card card-2">
-            <div class="card__image"><img src="img/wallet.svg" alt=""></div>
+          <div class="about__card">
+            <div class="card__image"><img src="{{asset('img/wallet.svg')}}" alt=""></div>
             <p>Кредитование</p>
           </div>
         </div>
