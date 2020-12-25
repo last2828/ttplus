@@ -4,7 +4,7 @@
 <section class="about-page">
     <div class="container">
 
-    {{ Breadcrumbs::render('front-about') }}
+        {{ Breadcrumbs::render('front-about') }}
 
         <h2>{{$about->title}}</h2>
         <p>{!! $about->description !!}</p>

@@ -136,43 +136,56 @@
         margin: 50px 30px
       +r($xs)
         margin: 40px 20px 35px 35px
-  .about__year
-    min-height: 286px
+  .about__years
+    display: -webkit-box
+    display: -ms-flexbox
     display: flex
-    flex-direction: column
-    justify-content: center
-    border-radius: 5px
-    border: solid 1px #b1bdd4
-    padding: 70px 0 90px 85px
-    +r($lg)
-      padding: 60px 0 80px 70px
-    +r($md)
-      padding: 50px 0 40px 60px
-    +r(1210)
-      padding: 45px 30px 35px
-      margin-bottom: 25px
-    +r($xs)
-      width: 100%
-      max-width: 300px
-      min-height: 100%
-    .year
-      font-size: 46px
-      letter-spacing: 4.6px
-      font-weight: bold
-      line-height: normal
-      color: $blue
-      margin-bottom: 35px
+    -webkit-box-pack: justify
+    -ms-flex-pack: justify
+    justify-content: space-between
+    margin-top: 65px
+    -webkit-box-align: stretch
+    -ms-flex-align: stretch
+    align-items: stretch
+    .about__year
+      min-height: 286px
+      //display: flex
+      //flex-direction: column
+      //justify-content: center
+      border-radius: 5px
+      border: solid 1px #b1bdd4
+      padding: 70px 0 90px 85px
       +r($lg)
-        font-size: 40px
-        letter-spacing: 4px
-        margin-bottom: 25px
+        width: 440px
+        padding: 60px 0 80px 70px
       +r($md)
-        font-size: 33px
-        letter-spacing: 3.3px
+        width: 360px
+        padding: 50px 0 40px 60px
+      +r(1210)
+        padding: 45px 30px 35px
+        margin-bottom: 25px
       +r($xs)
-        font-size: 27px
-        letter-spacing: 2.7px
-        margin-bottom: 20px
+        width: 100%
+        max-width: 300px
+        min-height: 100%
+      .year
+        font-size: 46px
+        letter-spacing: 4.6px
+        font-weight: bold
+        line-height: normal
+        color: $blue
+        margin-bottom: 35px
+        +r($lg)
+          font-size: 40px
+          letter-spacing: 4px
+          margin-bottom: 25px
+        +r($md)
+          font-size: 33px
+          letter-spacing: 3.3px
+        +r($xs)
+          font-size: 27px
+          letter-spacing: 2.7px
+          margin-bottom: 20px
   .about__block
     margin-top: 45px
     width: 100%
