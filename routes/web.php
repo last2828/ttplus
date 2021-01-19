@@ -20,6 +20,7 @@ Route::get('/photos/delete/{id}', 'Admin\PhotoController@delete');
 
 Route::group(['namespace' => 'Front', 'as' => 'pages.'], function () {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::post('/offers-store', 'OfferController@store')->name('offers.store');
     
     Route::group(['prefix' => 'catalog', 'namespace' => 'Catalog', 'as' => 'catalog.'], function () {
         Route::get('/', 'CatalogController@index')->name('index');

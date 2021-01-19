@@ -160,7 +160,7 @@
 </section>
 <section class="offer">
   <div class="container">
-    <form method="POST" action="">
+    <form method="POST" action="{{route('pages.offers.store')}}">
       @csrf
       <div class="form__container">
         <h2>Индивидуальное предложение</h2>
