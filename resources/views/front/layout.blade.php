@@ -2,7 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Index Page</title>
+  @if($route == 'pages.catalog.jianghai.category' or $route == 'pages.catalog.dunkermotoren.category')
+    <title>{{($categories->first()['meta_title']) ? $categories->first()['meta_title'] : 'Категория TTplus'}}</title>
+    <meta name="description" content="{{($categories->first()['meta_description']) ? $categories->first()['meta_description'] : 'Категория TTplus'}}">
+    <meta name="keywords" content="{{($categories->first()['meta_keywords']) ? $categories->first()['meta_keywords'] : 'Категория TTplus'}}">
+  @elseif($route == 'pages.catalog.jianghai.product' or $route == 'pages.catalog.dunker.product')
+    <title>{{($product->meta_title) ? $product->meta_title : 'Продукт'}}</title>
+    <meta name="description" content="{{($product->meta_description) ? $product->meta_description : 'Продукт'}}">
+    <meta name="keywords" content="{{($product->meta_keywords) ? $product->meta_keywords : 'Продукт'}}">
+  @endif
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#fff">

@@ -1,6 +1,7 @@
 @extends('front.layout')
 
 @section('content')
+
 <section class="main-catalog__heading">
   <div class="container">
 
