@@ -1,21 +1,25 @@
 <?php
 
-namespace App;
+namespace App\Models\Catalog;
 
+use App\Models\AppHelper;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * App\Group
  *
  * @mixin \Eloquent
  */
-class Group extends Model
+class ProductGroup extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'name',
         'category_id',
         'slug',
-        ];
+    ];
 
     public function products()
     {

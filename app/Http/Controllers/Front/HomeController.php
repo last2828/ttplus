@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Http\Controllers\Controller;
-use App\Post;
-use Illuminate\Http\Request;
+use App\Models\Blog\Post;
 
-class HomeController extends Controller
+class HomeController extends BaseController
 {
     public function index()
     {

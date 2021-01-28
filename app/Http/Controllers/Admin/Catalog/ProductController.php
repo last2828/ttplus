@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\admin\catalog;
+namespace App\Http\Controllers\Admin\Catalog;
 
-use App\Product;
-use App\Http\Controllers\Controller;
+use App\Models\Catalog\Product;
 use App\Http\Requests\ProductValidator;
 
 class ProductController extends Controller

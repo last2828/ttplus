@@ -13,11 +13,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
-Route::get('/photos', 'Admin\PhotoController@index');
-Route::post('/photos/upload', 'Admin\PhotoController@upload');
-Route::get('/photos/delete/{id}', 'Admin\PhotoController@delete');
-
 Route::group(['namespace' => 'Front', 'as' => 'pages.'], function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::post('/offers-store', 'OfferController@store')->name('offers.store');
@@ -50,41 +45,35 @@ Route::group(['namespace' => 'Front', 'as' => 'pages.'], function () {
     Route::get('/contact', 'ContactController@index')->name('contact');
 });
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function () {
-    
-    Route::get('/', 'AdminController@index')->name('dashboard');
-    Route::get('/upload-file', 'AdminController@manager')->name('file-manager');
+Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'], function () {
 
-    Route::group(['prefix' => 'catalog', 'namespace' => 'Catalog'], function () {
+    Route::get('/', 'AdminController@index')->name('dashboard');
+
+    Route::group(['prefix' => 'gallery'], function() {
+        Route::get('/upload-file', 'PhotoController@manager')->name('file-manager');
+        Route::get('/photos', 'PhotoController@index');
+        Route::post('/photos/upload', 'PhotoController@upload');
+        Route::get('/photos/delete/{id}', 'PhotoController@delete');
+    });
+
+    Route::resources(['prefix' => 'blog', 'as' => 'blog.', 'namespace' => 'Blog', 'posts' => 'PostController']);
+
+    Route::group(['prefix' => 'catalog', 'as' => 'catalog.', 'namespace' => 'Catalog'], function () {
         Route::resources(['products' => 'ProductController']);
         Route::resources(['attributes' => 'AttributeController']);
         Route::resources(['groups' => 'GroupController']);
         Route::resources(['product_categories' => 'CategoryController']);
     });
 
-    Route::group(['prefix' => 'blog', 'namespace' => 'Blog'], function () {
-        Route::resources(['posts' => 'PostController']);
-//        Route::resources(['categories' => 'CategoryController']);
+    Route::group(['as' => 'info_pages.', 'namespace' => 'InfoPages'], function () {
+        Route::get('/about/', 'AboutController@index')->name('index');
+        Route::put('/about/update', 'AboutController@update')->name('update');
+        Route::get('/contact', 'ContactController@index')->name('index');
+        Route::put('/contact/update', 'ContactController@update')->name('update');
     });
-
-    Route::group(['prefix' => 'about', 'as' => 'about.'], function () {
-        Route::get('/', 'AboutController@index')->name('index');
-        Route::put('/update', 'AboutController@update')->name('update');
-    });
-
-    Route::group(['prefix' => 'contact', 'as' => 'contact.'], function () {
-      Route::get('/', 'ContactController@index')->name('index');
-      Route::put('/update', 'ContactController@update')->name('update');
-    });
-
-
-
 });
 
 
 Auth::routes();
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-
-
-Route::get('/home', 'HomeController@index')->name('home');

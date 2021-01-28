@@ -1,16 +1,19 @@
 <?php
 
-namespace App;
+namespace App\Models\Catalog;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Attribute
  *
  * @mixin \Eloquent
  */
-class Attribute extends Model
+class ProductAttribute extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = ['name', 'units'];
     public function products()
     {

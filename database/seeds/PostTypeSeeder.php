@@ -1,6 +1,6 @@
 <?php
 
-use App\Type;
+use App\Models\Blog\PostType;
 use Illuminate\Database\Seeder;
 
 class PostTypeSeeder extends Seeder
@@ -12,16 +12,16 @@ class PostTypeSeeder extends Seeder
      */
     public function run()
     {
-      Type::truncate();
+      PostType::truncate();
 
-      Type::create([
+      PostType::create([
         'name' => 'Статья'
       ]);
 
-      Type::create([
+      PostType::create([
         'name' => 'Документ'
       ]);
-      Type::create([
+      PostType::create([
         'name' => 'Видео'
       ]);
     }

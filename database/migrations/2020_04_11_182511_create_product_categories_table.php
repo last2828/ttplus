@@ -26,6 +26,7 @@ class CreateProductCategoriesTable extends Migration
             $table->string('image')->nullable();
             $table->integer('status')->default('1');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

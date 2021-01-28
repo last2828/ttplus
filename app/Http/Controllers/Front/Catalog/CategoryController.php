@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Front\Catalog;
 
-use App\Group;
-use App\Product;
-use App\ProductGroup;
-use App\ProductCategory;
+
+use App\Http\Controllers\Front\BaseController;
+use App\Models\Catalog\Product;
+use App\Models\Catalog\ProductCategory;
+use App\Models\Catalog\ProductGroup;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
-class CategoryController extends Controller
+class CategoryController extends BaseController
 {
     public $dunker = '';
     public $jianghai = '';
@@ -32,7 +32,7 @@ class CategoryController extends Controller
 
         if ($group) {
 
-            $group = Group::where('slug', $group)->first();
+            $group = ProductGroup::where('slug', $group)->first();
             $products = Product::where('group_id', $group['id'])->get();
             return view('front.pages.catalog.category', compact(['categories', 'dunker', 'jianghai', 'route', 'group', 'products']));
 

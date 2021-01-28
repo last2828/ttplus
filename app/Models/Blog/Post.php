@@ -1,9 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models\Blog;
 
 use Eloquent;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Post
@@ -13,7 +14,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    //
+    use SoftDeletes;
+
     protected $fillable = [
         'title',
         'content',
@@ -27,14 +29,9 @@ class Post extends Model
         'slug'
     ];
 
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
-
     public function type()
     {
-      return $this->belongsTo(Type::class);
+      return $this->belongsTo(PostType::class);
     }
 
 }

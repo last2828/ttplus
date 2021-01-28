@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Front\News;
 
-use App\Http\Controllers\Controller;
-use App\Post;
+use App\Http\Controllers\Front\BaseController;
+use App\Models\Blog\Post;
 use Illuminate\Http\Request;
 
-class ArticleController extends Controller
+class ArticleController extends BaseController
 {
     public function index($slug)
     {

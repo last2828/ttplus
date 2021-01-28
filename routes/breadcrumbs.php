@@ -47,19 +47,19 @@ Breadcrumbs::for('edit-blog-category', function ($trail, $category) {
 
 // Product
 Breadcrumbs::for('catalog', function ($trail) {
-    $trail->push('Каталог', route('products.index'), ['front' => false]);
+    $trail->push('Каталог', route('admin.catalog.products.index'), ['front' => false]);
 });
 
 // Product > Create
 Breadcrumbs::for('create-product', function ($trail) {
     $trail->parent('catalog');
-    $trail->push('Создать', route('products.create'));
+    $trail->push('Создать', route('admin.catalog.products.create'));
 });
 
 // Product > Edit
 Breadcrumbs::for('edit-product', function ($trail, $product) {
     $trail->parent('catalog');
-    $trail->push($product->name, route('products.edit', $product->id));
+    $trail->push($product->name, route('admin.catalog.products.edit', $product->id));
 });
 
 // Product > Groups

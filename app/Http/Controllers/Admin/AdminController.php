@@ -2,20 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use function Composer\Autoload\includeFile;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class AdminController extends BaseController
 {
     public static function index()
     {
-        return redirect()->route('products.index');
-    }
-
-    public static function manager()
-    {
-        return view('admin.file-manager');
+        return redirect()->route('admin.catalog.products.index');
     }
 }
 

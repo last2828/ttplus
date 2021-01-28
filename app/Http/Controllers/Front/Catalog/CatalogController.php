@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Front\Catalog;
 
-use App\ProductCategory;
+use App\Http\Controllers\Front\BaseController;
+use App\Models\Catalog\ProductCategory;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class CatalogController extends Controller
+class CatalogController extends BaseController
 {
     public function index()
     {

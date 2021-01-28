@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Front;
+namespace App\Http\Controllers\Front\InfoPages;
 
-use App\Http\Controllers\Controller;
-use App\PageField;
+use App\Http\Controllers\Front\BaseController;
+use App\Models\PageField;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class ContactController extends BaseController
 {
     public function index()
     {

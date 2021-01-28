@@ -1,12 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\admin\blog;
+namespace App\Http\Controllers\Admin\Blog;
 
-use App\Category;
-use App\Http\Controllers\Controller;
-use App\Post;
 use Illuminate\Http\Request;
-use Transliterate;
 
 class CategoryController extends Controller
 {
@@ -17,12 +13,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view(
-            'admin.blog.categories',
-            [
-                'categories' => Category::all()
-            ]
-        );
+//        return view(
+//            'admin.blog.categories',
+//            [
+//                'categories' => PostCategory::all()
+//            ]
+//        );
     }
 
     /**
@@ -32,12 +28,12 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view(
-            'admin.blog.create-category',
-            [
-                'categories' => Category::all()
-            ]
-        );
+//        return view(
+//            'admin.blog.create-category',
+//            [
+//                'categories' => PostCategory::all()
+//            ]
+//        );
     }
 
     /**
@@ -49,22 +45,22 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
 
-        $fields = $request->toArray();
-
-        if($fields['slug'])
-        {
-            $fields['slug'] = Transliterate::slugify($fields['slug']);
-        }else{
-            $fields['slug'] = Transliterate::slugify($fields['name']);
-        }
-
-        if($fields['parent_id'] == 'null')
-        {
-            $fields['parent_id'] = null;
-        }
-
-        Category::create($fields);
-        return redirect()->route('categories.index');
+//        $fields = $request->toArray();
+//
+//        if($fields['slug'])
+//        {
+//            $fields['slug'] = Transliterate::slugify($fields['slug']);
+//        }else{
+//            $fields['slug'] = Transliterate::slugify($fields['name']);
+//        }
+//
+//        if($fields['parent_id'] == 'null')
+//        {
+//            $fields['parent_id'] = null;
+//        }
+//
+//        PostCategory::create($fields);
+//        return redirect()->route('categories.index');
 
     }
 
@@ -87,13 +83,13 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        return view(
-            'admin.blog.edit-category',
-            [
-                'category' => Category::find($id),
-                'categories' => Category::all()
-            ]
-        );
+//        return view(
+//            'admin.blog.edit-category',
+//            [
+//                'category' => PostCategory::find($id),
+//                'categories' => PostCategory::all()
+//            ]
+//        );
 
     }
 
@@ -106,23 +102,23 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $fields = $request->toArray();
-
-        if($fields['slug'])
-        {
-            $fields['slug'] = Transliterate::slugify($fields['slug']);
-        }else{
-            $fields['slug'] = Transliterate::slugify($fields['name']);
-        }
-
-        if($fields['parent_id'] == 'null')
-        {
-            $fields['parent_id'] = null;
-        }
-
-        $category = Category::find($id);
-        $category->update($fields);
-        return redirect()->route('categories.index');
+//        $fields = $request->toArray();
+//
+//        if($fields['slug'])
+//        {
+//            $fields['slug'] = Transliterate::slugify($fields['slug']);
+//        }else{
+//            $fields['slug'] = Transliterate::slugify($fields['name']);
+//        }
+//
+//        if($fields['parent_id'] == 'null')
+//        {
+//            $fields['parent_id'] = null;
+//        }
+//
+//        $category = PostCategory::find($id);
+//        $category->update($fields);
+//        return redirect()->route('categories.index');
     }
 
     /**
@@ -133,7 +129,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::destroy($id);
-        return redirect()->back();
+//        PostCategory::destroy($id);
+//        return redirect()->back();
     }
 }

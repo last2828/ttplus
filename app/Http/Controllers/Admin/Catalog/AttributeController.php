@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\admin\catalog;
+namespace App\Http\Controllers\Admin\Catalog;
 
-use App\Attribute;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\AttributeValidator;
+use App\Models\Catalog\ProductAttribute;
 use Illuminate\Http\Request;
 
 class AttributeController extends Controller
@@ -17,7 +16,7 @@ class AttributeController extends Controller
     public function index()
     {
         //get all groups
-        $attributes = Attribute::all();
+        $attributes = ProductAttribute::all();
 
         //display attribute catalog
         return view('admin.attribute.attributes', compact('attributes'));
@@ -48,7 +47,7 @@ class AttributeController extends Controller
         $fields = $request->toArray();
 
         //save new attribute
-        Attribute::create($fields);
+        ProductAttribute::create($fields);
 
         //back to the attribute catalog
         return redirect()->route('attributes.index');
@@ -74,7 +73,7 @@ class AttributeController extends Controller
     public function edit($id)
     {
         //find current attribute
-        $attribute = Attribute::find($id);
+        $attribute = ProductAttribute::find($id);
 
         //display update form with components
         return view('admin.attribute.edit', compact('attribute'));
@@ -93,7 +92,7 @@ class AttributeController extends Controller
         $fields = $request->toArray();
 
         //find and update current attribute
-        Attribute::find($id)->update($fields);
+        ProductAttribute::find($id)->update($fields);
 
         //back to the attribute catalog
         return redirect()->route('attributes.index');
@@ -108,7 +107,7 @@ class AttributeController extends Controller
     public function destroy($id)
     {
         //delete attribute
-        Attribute::deleteAttribute($id);
+        ProductAttribute::deleteAttribute($id);
 
         //back to the attribute catalog
         return redirect()->back();

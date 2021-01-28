@@ -1,9 +1,9 @@
 <?php
 
-use App\Group;
+use App\Models\Catalog\ProductGroup;
 use Illuminate\Database\Seeder;
 
-class GroupProductSeeder extends Seeder
+class ProductGroupSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class GroupProductSeeder extends Seeder
      */
     public function run()
     {
-        Group::truncate();
+        ProductGroup::truncate();
 
         $groups = [
           [
@@ -453,7 +453,7 @@ class GroupProductSeeder extends Seeder
         ];
 
         foreach($groups as $group){
-          Group::create($group);
+          ProductGroup::create($group);
         }
     }
 }

@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use App\Attribute;
 
-class AttributeSeeder extends Seeder
+use App\Models\Catalog\ProductAttribute;
+use Illuminate\Database\Seeder;
+
+class ProductAttributeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +13,7 @@ class AttributeSeeder extends Seeder
      */
     public function run()
     {
-        Attribute::truncate();
+        ProductAttribute::truncate();
 
         $attributesBrushlessDC = [
           [
@@ -79,7 +80,7 @@ class AttributeSeeder extends Seeder
 
         foreach($attributesBrushlessDC as $attribute)
         {
-          Attribute::create($attribute);
+          ProductAttribute::create($attribute);
         }
 
     }

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Front\Catalog;
 
-use App\Http\Controllers\Controller;
-use App\Product;
+use App\Http\Controllers\Front\BaseController;
+use App\Models\Catalog\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-class ProductController extends Controller
+class ProductController extends BaseController
 {
   public function dunker($category, $group, $product)
   {

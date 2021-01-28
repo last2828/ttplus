@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\admin\catalog;
+namespace App\Http\Controllers\Admin\Catalog;
 
-use App\Group;
-use App\Http\Controllers\Controller;
-use App\ProductCategory;
+use App\Models\Catalog\ProductCategory;
+use App\Models\Catalog\ProductGroup;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -17,7 +16,7 @@ class GroupController extends Controller
     public function index()
     {
         //get all groups
-        $groups = Group::all();
+        $groups = ProductGroup::all();
 
         //display group catalog
         return view('admin.group.groups', compact('groups'));
@@ -49,7 +48,7 @@ class GroupController extends Controller
         $fields = $request->toArray();
 
         //save new group
-        Group::storeGroup($fields);
+        ProductGroup::storeGroup($fields);
 
         //back to the group catalog
         return redirect()->route('groups.index');
@@ -78,7 +77,7 @@ class GroupController extends Controller
         $categories = ProductCategory::all();
 
         //find current group
-        $group = Group::find($id);
+        $group = ProductGroup::find($id);
 
         //display update form with components
         return view('admin.group.edit', compact(['categories', 'group']));
@@ -97,7 +96,7 @@ class GroupController extends Controller
         $fields = $request->toArray();
 
         //find and update current group
-        Group::updateGroup($fields, $id);
+        ProductGroup::updateGroup($fields, $id);
 
         //back to the group catalog
         return redirect()->route('groups.index');
@@ -112,7 +111,7 @@ class GroupController extends Controller
     public function destroy($id)
     {
         //delete group
-        Group::destroy($id);
+        ProductGroup::destroy($id);
 
         //back to the group catalog
         return redirect()->back();

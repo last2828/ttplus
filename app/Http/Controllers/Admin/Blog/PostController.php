@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\admin\blog;
+namespace App\Http\Controllers\Admin\Blog;
 
-use App\Category;
-use App\Http\Controllers\Controller;
-use App\Post;
-use App\Type;
+use App\Models\Blog\Post;
+use App\Models\Blog\PostType;
 use Illuminate\Http\Request;
 use Transliterate;
 
@@ -30,7 +28,7 @@ class PostController extends Controller
      */
     public function create()
     {
-      $types = Type::all();
+      $types = PostType::all();
 
       return view('admin.blog.create-post', compact('types'));
     }
@@ -77,7 +75,7 @@ class PostController extends Controller
     public function edit($id)
     {
       $post = Post::with('type')->find($id);
-      $types = Type::all();
+      $types = PostType::all();
 
       return view('admin.blog.edit-post', compact(['post', 'types']));
     }

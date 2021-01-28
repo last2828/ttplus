@@ -1,6 +1,6 @@
 <?php
 
-use App\PageField;
+use App\Models\PageField;
 use Illuminate\Database\Seeder;
 
 class PageSeeder extends Seeder
@@ -10,7 +10,7 @@ class PageSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+  public function run()
     {
       PageField::truncate();
 

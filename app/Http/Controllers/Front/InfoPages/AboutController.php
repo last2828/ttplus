@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Front;
+namespace App\Http\Controllers\Front\InfoPages;
 
-use App\PageField;
+use App\Http\Controllers\Front\BaseController;
+use App\Models\PageField;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class AboutController extends Controller
+class AboutController extends BaseController
 {
     public function index()
     {

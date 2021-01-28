@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\admin\catalog;
+namespace App\Http\Controllers\Admin\Catalog;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryValidator;
-use App\ProductCategory;
+use App\Models\Catalog\ProductCategory;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller

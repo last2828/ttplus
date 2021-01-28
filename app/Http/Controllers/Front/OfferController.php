@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Http\Controllers\Controller;
-use App\Offer;
+use App\Models\Offer;
 use Illuminate\Http\Request;
 
-class OfferController extends Controller
+class OfferController extends BaseController
 {
   public function store(Request $request)
   {

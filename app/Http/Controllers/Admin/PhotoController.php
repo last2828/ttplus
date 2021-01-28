@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use function Composer\Autoload\includeFile;
 use Illuminate\Http\Request;
 
-class PhotoController extends Controller
+class PhotoController extends BaseController
 {
     public function index()
     {
@@ -17,14 +17,22 @@ class PhotoController extends Controller
         }
         return $newFiles;
     }
+
     public function upload(Request $request)
     {
         $name = $request->file('file')->getClientOriginalName();
         $pathName = $request->file('file')->storeAs('uploads', $name);
         return Storage::url($pathName);
     }
+
     public function delete($id)
     {
         Storage::disk('public')->delete('/uploads/' . $id);
     }
+
+    public static function manager()
+    {
+        return view('admin.file-manager');
+    }
+
 }
