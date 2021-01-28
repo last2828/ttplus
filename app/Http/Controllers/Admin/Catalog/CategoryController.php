@@ -17,10 +17,10 @@ class CategoryController extends Controller
     public function index()
     {
         //get all categories
-        $categories = ProductCategory::allCategories();
+        $categories = ProductCategory::all();
 
         //display category catalog
-        return view('admin.category.categories', $categories);
+        return view('admin.category.categories', compact('categories'));
     }
 
     /**
@@ -49,7 +49,7 @@ class CategoryController extends Controller
         $fields = $request->toArray();
 
         //save new category
-        ProductCategory::storeCategory($fields);
+        ProductCategory::storeProductCategory($fields);
 
         //back to the category catalog
         return redirect()->route('product_categories.index');
@@ -97,7 +97,7 @@ class CategoryController extends Controller
         $fields = $request->toArray();
 
         //update current category
-        ProductCategory::updateCategory($fields, $id);
+        ProductCategory::updateProductCategory($fields, $id);
 
         //back to the category catalog
         return redirect()->route('product_categories.index');

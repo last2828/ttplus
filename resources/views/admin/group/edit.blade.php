@@ -50,7 +50,7 @@
                                             <div class="form-group form-group-last row">
                                                 <label>Slug</label>
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <input type="text" class="form-control" aria-describedby="" placeholder="slug" name="slug" value="{{$group['slug']}}">
+                                                    <input type="text" class="form-control" aria-describedby="" placeholder="Адрес страницы" name="slug" value="{{$group['slug']}}">
                                                 </div>
                                             </div>
                                         </div>

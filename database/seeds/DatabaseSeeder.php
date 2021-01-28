@@ -1,5 +1,7 @@
 <?php
 
+use App\Post;
+use App\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(PageSeeder::class);
         $this->call(PostTypeSeeder::class);
+        factory(Post::class, 30)->create();
     }
 }

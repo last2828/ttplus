@@ -58,7 +58,7 @@
   <div class="form-group row">
       <label>Slug</label>
       <div class="col-lg-12 col-md-9 col-sm-12">
-          <input type="text" class="form-control" aria-describedby="" placeholder="slug" name="slug" value="{{(isset($product)) ? $product['slug'] : ''}}">
+          <input type="text" class="form-control" aria-describedby="" placeholder="Адрес страницы" name="slug" value="{{(isset($product)) ? $product['slug'] : ''}}">
       </div>
   </div>
   <div class="form-group row">

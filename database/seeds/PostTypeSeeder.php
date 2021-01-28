@@ -15,14 +15,14 @@ class PostTypeSeeder extends Seeder
       Type::truncate();
 
       Type::create([
-        'name' => 'post'
+        'name' => 'Статья'
       ]);
 
       Type::create([
-        'name' => 'file'
+        'name' => 'Документ'
       ]);
       Type::create([
-        'name' => 'video'
+        'name' => 'Видео'
       ]);
     }
 }

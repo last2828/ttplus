@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\Model;
 class Attribute extends Model
 {
     protected $fillable = ['name', 'units'];
-
     public function products()
     {
         return $this->belongsToMany(

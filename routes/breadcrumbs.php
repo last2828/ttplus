@@ -83,19 +83,19 @@ Breadcrumbs::for('edit-group', function ($trail, $group) {
 // Product > Categories
 Breadcrumbs::for('product-categories', function ($trail) {
     $trail->parent('catalog');
-    $trail->push('Категории товаров', route('categories.index'));
+    $trail->push('Категории товаров', route('product_categories.index'));
 });
 
 // Product > Categories > Create
 Breadcrumbs::for('create-category', function ($trail) {
     $trail->parent('product-categories');
-    $trail->push('Новая', route('categories.create'));
+    $trail->push('Новая', route('product_categories.create'));
 });
 
 // Product > Categories > Edit
 Breadcrumbs::for('edit-category', function ($trail, $category) {
     $trail->parent('product-categories');
-    $trail->push($category->name, route('categories.edit', $category->id));
+    $trail->push($category->name, route('product_categories.edit', $category->id));
 });
 
 // Product > Attributes

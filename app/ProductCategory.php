@@ -35,4 +35,34 @@ class ProductCategory extends Model
       'id'
     );
   }
+
+  public static function storeProductCategory($fields)
+  {
+    //check slug and transliterate 'name' if slug = null
+    $fields = AppHelper::checkSlug($fields);
+
+    if($fields['parent_id'] == null){
+      $fields['parent_id'] = '0';
+    }
+    //create new product with fields
+    self::create($fields);
+
+    return true;
+  }
+
+  public static function updateProductCategory($fields, $id)
+  {
+    //check slug and transliterate 'name' if slug = null
+    $fields = AppHelper::checkSlug($fields);
+
+    if($fields['parent_id'] == null){
+      $fields['parent_id'] = '0';
+    }
+
+    //find and update product in db
+    $product = self::find($id);
+    $product->update($fields);
+
+    return true;
+  }
 }
