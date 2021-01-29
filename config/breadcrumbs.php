@@ -23,7 +23,7 @@ return [
     |
     */
 
-    'view' => 'admin.breadcrumbs',
+    'view' => 'admin.layouts.breadcrumbs',
 
     /*
     |--------------------------------------------------------------------------

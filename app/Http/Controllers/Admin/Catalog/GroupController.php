@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Catalog;
 
+use App\Http\Requests\Catalog\ProductGroupStoreRequest;
+use App\Http\Requests\Catalog\ProductGroupUpdateRequest;
 use App\Models\Catalog\ProductCategory;
 use App\Models\Catalog\ProductGroup;
-use Illuminate\Http\Request;
 
 class GroupController extends Controller
 {
@@ -15,11 +16,9 @@ class GroupController extends Controller
      */
     public function index()
     {
-        //get all groups
         $groups = ProductGroup::all();
 
-        //display group catalog
-        return view('admin.group.groups', compact('groups'));
+        return view('admin.catalog.groups.index', compact('groups'));
     }
 
     /**
@@ -29,40 +28,23 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //get components for create group
         $categories = ProductCategory::all();
 
-        //display create form with components
-        return view('admin.group.create', compact('categories'));
+        return view('admin.catalog.groups.create', compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  ProductGroupStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductGroupStoreRequest $request)
     {
-        //convert data from object to array after validation
         $fields = $request->toArray();
-
-        //save new group
         ProductGroup::storeGroup($fields);
 
-        //back to the group catalog
-        return redirect()->route('groups.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect()->route('admin.catalog.groups.index');
     }
 
     /**
@@ -73,33 +55,25 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
-        //get components for update group
         $categories = ProductCategory::all();
-
-        //find current group
         $group = ProductGroup::find($id);
 
-        //display update form with components
-        return view('admin.group.edit', compact(['categories', 'group']));
+        return view('admin.catalog.groups.edit', compact('categories', 'group'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  ProductGroupUpdateRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductGroupUpdateRequest $request, $id)
     {
-        //convert data from object to array after validation
         $fields = $request->toArray();
-
-        //find and update current group
         ProductGroup::updateGroup($fields, $id);
 
-        //back to the group catalog
-        return redirect()->route('groups.index');
+        return redirect()->route('admin.catalog.groups.index');
     }
 
     /**
@@ -110,10 +84,8 @@ class GroupController extends Controller
      */
     public function destroy($id)
     {
-        //delete group
         ProductGroup::destroy($id);
 
-        //back to the group catalog
         return redirect()->back();
     }
 }

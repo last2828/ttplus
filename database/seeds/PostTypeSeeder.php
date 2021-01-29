@@ -12,17 +12,17 @@ class PostTypeSeeder extends Seeder
      */
     public function run()
     {
-      PostType::truncate();
+        DB::table('post_types')->delete();
 
-      PostType::create([
-        'name' => 'Статья'
-      ]);
+        PostType::create([
+            'name' => 'Статья'
+        ]);
 
-      PostType::create([
-        'name' => 'Документ'
-      ]);
-      PostType::create([
-        'name' => 'Видео'
-      ]);
+        PostType::create([
+            'name' => 'Документ'
+        ]);
+        PostType::create([
+            'name' => 'Видео'
+        ]);
     }
 }

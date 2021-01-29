@@ -20,6 +20,7 @@ class CreateOffersTable extends Migration
             $table->string('phone')->unique();
             $table->longText('comment');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

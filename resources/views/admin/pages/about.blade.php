@@ -1,5 +1,4 @@
-@extends('admin.layout')
-<link rel="stylesheet" href="">
+@extends('admin.layouts.layout')
 @section('content')
 
   <!-- begin:: Page -->
@@ -23,7 +22,7 @@
               </div>
 
               <!--begin::Form-->
-              <form class="kt-form" method="POST" action="{{route('about.update')}}" enctype="multipart/form-data">
+              <form class="kt-form" method="POST" action="{{route('admin.info_pages.about.update')}}" enctype="multipart/form-data">
                 @CSRF
                 @method('PUT')
                 <div class="kt-portlet__body">

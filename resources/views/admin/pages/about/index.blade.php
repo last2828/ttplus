@@ -1,6 +1,4 @@
-
-@extends('admin.layout')
-<link rel="stylesheet" href="">
+@extends('admin.layouts.layout')
 @section('content')
 
     <!-- begin:: Page -->

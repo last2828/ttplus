@@ -12,7 +12,8 @@ class ProductGroupSeeder extends Seeder
      */
     public function run()
     {
-        ProductGroup::truncate();
+        DB::table('product_groups')->delete();
+
 
         $groups = [
           [

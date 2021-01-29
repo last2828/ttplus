@@ -45,9 +45,10 @@ class ProductCategory extends Model
         //check slug and transliterate 'name' if slug = null
         $fields = AppHelper::checkSlug($fields);
 
-        if($fields['parent_id'] == null){
+        if(empty($fields->parent_id)){
             $fields['parent_id'] = '0';
         }
+
         //create new product with fields
         self::create($fields);
 
@@ -59,10 +60,9 @@ class ProductCategory extends Model
         //check slug and transliterate 'name' if slug = null
         $fields = AppHelper::checkSlug($fields);
 
-        if($fields['parent_id'] == null){
+        if(empty($fields->parent_id)){
             $fields['parent_id'] = '0';
         }
-
         //find and update product in db
         $product = self::find($id);
         $product->update($fields);

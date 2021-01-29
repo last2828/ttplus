@@ -18,6 +18,7 @@ class CreateProductAttributesTable extends Migration
             $table->string('name');
             $table->string('units');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

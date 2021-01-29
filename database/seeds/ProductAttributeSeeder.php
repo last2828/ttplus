@@ -13,7 +13,7 @@ class ProductAttributeSeeder extends Seeder
      */
     public function run()
     {
-        ProductAttribute::truncate();
+        DB::table('product_attributes')->delete();
 
         $attributesBrushlessDC = [
           [

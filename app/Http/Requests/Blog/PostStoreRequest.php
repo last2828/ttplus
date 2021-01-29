@@ -3,9 +3,8 @@
 namespace App\Http\Requests\Blog;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class PostUpdateRequest extends FormRequest
+class PostStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,13 +24,10 @@ class PostUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
-            'slug' => [
-                'max:255',
-                Rule::unique('posts', 'slug')->ignore($this->product)
-            ],
+            'title' => 'required|max:255',
+            'slug' => 'max:255|unique:posts, slug',
             'type_id' => 'required|exists:post_types, id',
-            'status' => 'required|boolean'
+            'status' => 'required|boolean',
         ];
     }
 
@@ -43,7 +39,7 @@ class PostUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Введите название записи',
+            'name.required' => 'Введите название товара',
             'slug.unique' => 'Введите уникальное значение',
             'type_id.required' => 'Выберите тип записи',
             'type_id.exists' => 'Выберите тип записи из указанных в списке',

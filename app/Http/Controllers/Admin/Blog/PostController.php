@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Blog;
 
+use App\Http\Requests\Blog\PostStoreRequest;
+use App\Http\Requests\Blog\PostUpdateRequest;
 use App\Models\Blog\Post;
 use App\Models\Blog\PostType;
-use Illuminate\Http\Request;
 use Transliterate;
 
 class PostController extends Controller
@@ -18,7 +19,7 @@ class PostController extends Controller
     {
         $posts = Post::all();
 
-        return view('admin.blog.posts', compact('posts'));
+        return view('admin.blog.posts.index', compact('posts'));
     }
 
     /**
@@ -30,18 +31,17 @@ class PostController extends Controller
     {
       $types = PostType::all();
 
-      return view('admin.blog.create-post', compact('types'));
+      return view('admin.blog.posts.create', compact('types'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  PostStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostStoreRequest $request)
     {
-
         $fields = $request->toArray();
 
         if($fields['slug'])
@@ -52,18 +52,7 @@ class PostController extends Controller
         }
 
         Post::create($fields);
-        return redirect()->route('posts.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect()->route('admin.blog.posts.index');
     }
 
     /**
@@ -77,17 +66,17 @@ class PostController extends Controller
       $post = Post::with('type')->find($id);
       $types = PostType::all();
 
-      return view('admin.blog.edit-post', compact(['post', 'types']));
+      return view('admin.blog.posts.edit', compact('post', 'types'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  PostUpdateRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostUpdateRequest $request, $id)
     {
         $fields = $request->toArray();
 
@@ -100,7 +89,7 @@ class PostController extends Controller
 
         $post = Post::find($id);
         $post->update($fields);
-        return redirect()->route('posts.index');
+        return redirect()->route('admin.blog.posts.index');
     }
 
     /**

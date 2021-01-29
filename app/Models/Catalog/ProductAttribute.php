@@ -19,7 +19,7 @@ class ProductAttribute extends Model
     {
         return $this->belongsToMany(
             Product::class,
-            'product_attributes'
+            'product_product_attributes'
         );
     }
 

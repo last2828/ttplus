@@ -3,8 +3,9 @@
 namespace App\Http\Requests\Catalog;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class ProductGroupUpdateRequest extends FormRequest
+class ProductAttributeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +25,12 @@ class ProductGroupUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
-            'slug' => 'unique:product_groups,slug',
-            'category_id' => 'exists:product_categories,id'
+            'name' => [
+                'required',
+                'max:255',
+                Rule::unique('product_attributes', 'name')->ignore($this->attribute)
+            ],
+            'units' => 'required|max:255'
         ];
     }
 
@@ -38,9 +42,9 @@ class ProductGroupUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Введите название группы товаров',
-            'slug.unique' => 'Введите уникальное значение',
-            'category_id.exists' => 'Выберите категорию из указанных в списке',
+            'name.required' => 'Введите название характеристики',
+            'name.unique' => 'Характеристика с таким названием уже существует',
+            'units.required' => 'Введите единицы измерения',
         ];
     }
 }

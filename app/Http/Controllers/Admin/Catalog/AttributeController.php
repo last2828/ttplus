@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Admin\Catalog;
 
-use App\Http\Requests\AttributeValidator;
+use App\Http\Requests\Catalog\ProductAttributeRequest;
 use App\Models\Catalog\ProductAttribute;
-use Illuminate\Http\Request;
 
 class AttributeController extends Controller
 {
@@ -15,11 +14,9 @@ class AttributeController extends Controller
      */
     public function index()
     {
-        //get all groups
         $attributes = ProductAttribute::all();
 
-        //display attribute catalog
-        return view('admin.attribute.attributes', compact('attributes'));
+        return view('admin.catalog.attributes.index', compact('attributes'));
     }
 
     /**
@@ -29,39 +26,22 @@ class AttributeController extends Controller
      */
     public function create()
     {
-        return view(
-          'admin.attribute.create'
-        );
+        return view('admin.catalog.attributes.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  AttributeValidator  $request
+     * @param  ProductAttributeRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AttributeValidator $request)
+    public function store(ProductAttributeRequest $request)
     {
-        //convert data from object to array after validation
         $request->validated();
         $fields = $request->toArray();
-
-        //save new attribute
         ProductAttribute::create($fields);
 
-        //back to the attribute catalog
-        return redirect()->route('attributes.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect()->route('admin.catalog.attributes.index');
     }
 
     /**
@@ -72,30 +52,24 @@ class AttributeController extends Controller
      */
     public function edit($id)
     {
-        //find current attribute
         $attribute = ProductAttribute::find($id);
 
-        //display update form with components
-        return view('admin.attribute.edit', compact('attribute'));
+        return view('admin.catalog.attributes.edit', compact('attribute'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  AttributeValidator  $request
+     * @param  ProductAttributeRequest $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AttributeValidator $request, $id)
+    public function update(ProductAttributeRequest $request, $id)
     {
-        //convert data from object to array after validation
         $fields = $request->toArray();
-
-        //find and update current attribute
         ProductAttribute::find($id)->update($fields);
 
-        //back to the attribute catalog
-        return redirect()->route('attributes.index');
+        return redirect()->route('admin.catalog.attributes.index');
     }
 
     /**
@@ -106,10 +80,8 @@ class AttributeController extends Controller
      */
     public function destroy($id)
     {
-        //delete attribute
         ProductAttribute::deleteAttribute($id);
 
-        //back to the attribute catalog
         return redirect()->back();
     }
 }

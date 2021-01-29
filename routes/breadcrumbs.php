@@ -2,48 +2,48 @@
 
 // Pages
 Breadcrumbs::for('about', function ($trail) {
-  $trail->push('О компании', route('about.index'), ['front' => false]);
+  $trail->push('О компании', route('admin.info_pages.about.index'), ['front' => false]);
 });
 
 Breadcrumbs::for('contact', function ($trail) {
-  $trail->push('Контакты', route('contact.index'), ['front' => false]);
+  $trail->push('Контакты', route('admin.info_pages.contact.index'), ['front' => false]);
 });
 
 
 // Blog
 Breadcrumbs::for('blog', function ($trail) {
-    $trail->push('Блог', route('posts.index'), ['front' => false]);
+    $trail->push('Блог', route('admin.blog.posts.index'), ['front' => false]);
 });
 
 // Blog > Create Post
 Breadcrumbs::for('create-post', function ($trail) {
     $trail->parent('blog');
-    $trail->push('Добавить статью', route('posts.create'));
+    $trail->push('Добавить статью', route('admin.blog.posts.create'));
 });
 
 // Blog > Edit Post
 Breadcrumbs::for('edit-post', function ($trail, $post) {
     $trail->parent('blog');
-    $trail->push($post->title, route('posts.edit', $post->id));
+    $trail->push($post->title, route('admin.blog.posts.edit', $post->id));
 });
 
 // Blog > Categories
-Breadcrumbs::for('blog-categories', function ($trail) {
-    $trail->parent('blog');
-    $trail->push('Категории блога', route('categories.index'));
-});
+//Breadcrumbs::for('blog-categories', function ($trail) {
+//    $trail->parent('blog');
+//    $trail->push('Категории блога', route('admin.blog.categories.index'));
+//});
 
 // Blog > Category > Create
-Breadcrumbs::for('create-blog-category', function ($trail) {
-    $trail->parent('blog-categories');
-    $trail->push('Создать', route('categories.create'));
-});
+//Breadcrumbs::for('create-blog-category', function ($trail) {
+//    $trail->parent('blog-categories');
+//    $trail->push('Создать', route('admin.blog.categories.create'));
+//});
 
 // Blog > Category > Edit
-Breadcrumbs::for('edit-blog-category', function ($trail, $category) {
-    $trail->parent('blog-categories');
-    $trail->push($category->name, route('categories.edit', $category->id));
-});
+//Breadcrumbs::for('edit-blog-category', function ($trail, $category) {
+//    $trail->parent('blog-categories');
+//    $trail->push($category->name, route('admin.blog.categories.edit', $category->id));
+//});
 
 // Product
 Breadcrumbs::for('catalog', function ($trail) {
@@ -65,55 +65,55 @@ Breadcrumbs::for('edit-product', function ($trail, $product) {
 // Product > Groups
 Breadcrumbs::for('product-groups', function ($trail) {
     $trail->parent('catalog');
-    $trail->push('Группы товаров', route('groups.index'));
+    $trail->push('Группы товаров', route('admin.catalog.groups.index'));
 });
 
 // Product > Groups > Create
 Breadcrumbs::for('create-group', function ($trail) {
     $trail->parent('product-groups');
-    $trail->push('Новая группа', route('groups.create'));
+    $trail->push('Новая группа', route('admin.catalog.groups.create'));
 });
 
 // Product > Groups > Edit
 Breadcrumbs::for('edit-group', function ($trail, $group) {
     $trail->parent('product-groups');
-    $trail->push($group->name, route('groups.edit', $group->id));
+    $trail->push($group->name, route('admin.catalog.groups.edit', $group->id));
 });
 
 // Product > Categories
 Breadcrumbs::for('product-categories', function ($trail) {
     $trail->parent('catalog');
-    $trail->push('Категории товаров', route('product_categories.index'));
+    $trail->push('Категории товаров', route('admin.catalog.product_categories.index'));
 });
 
 // Product > Categories > Create
 Breadcrumbs::for('create-category', function ($trail) {
     $trail->parent('product-categories');
-    $trail->push('Новая', route('product_categories.create'));
+    $trail->push('Новая', route('admin.catalog.product_categories.create'));
 });
 
 // Product > Categories > Edit
 Breadcrumbs::for('edit-category', function ($trail, $category) {
     $trail->parent('product-categories');
-    $trail->push($category->name, route('product_categories.edit', $category->id));
+    $trail->push($category->name, route('admin.catalog.product_categories.edit', $category->id));
 });
 
 // Product > Attributes
 Breadcrumbs::for('product-attributes', function ($trail) {
     $trail->parent('catalog');
-    $trail->push('Характеристики товаров', route('attributes.index'));
+    $trail->push('Характеристики товаров', route('admin.catalog.attributes.index'));
 });
 
 // Product > Attributes > Create
 Breadcrumbs::for('create-attribute', function ($trail) {
     $trail->parent('product-attributes');
-    $trail->push('Новая', route('attributes.create'));
+    $trail->push('Новая', route('admin.catalog.attributes.create'));
 });
 
 // Product > Attributes > Edit
 Breadcrumbs::for('edit-attribute', function ($trail, $attribute) {
     $trail->parent('product-attributes');
-    $trail->push($attribute->name, route('attributes.edit', $attribute->id));
+    $trail->push($attribute->name, route('admin.catalog.attributes.edit', $attribute->id));
 });
 
 

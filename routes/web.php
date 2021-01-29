@@ -56,7 +56,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.', 'na
         Route::get('/photos/delete/{id}', 'PhotoController@delete');
     });
 
-    Route::resources(['prefix' => 'blog', 'as' => 'blog.', 'namespace' => 'Blog', 'posts' => 'PostController']);
+    Route::group(['prefix' => 'blog', 'as' => 'blog.', 'namespace' => 'Blog'], function () {
+        Route::resources(['posts' => 'PostController']);
+    });
 
     Route::group(['prefix' => 'catalog', 'as' => 'catalog.', 'namespace' => 'Catalog'], function () {
         Route::resources(['products' => 'ProductController']);
@@ -66,10 +68,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.', 'na
     });
 
     Route::group(['as' => 'info_pages.', 'namespace' => 'InfoPages'], function () {
-        Route::get('/about/', 'AboutController@index')->name('index');
-        Route::put('/about/update', 'AboutController@update')->name('update');
-        Route::get('/contact', 'ContactController@index')->name('index');
-        Route::put('/contact/update', 'ContactController@update')->name('update');
+        Route::get('/about/', 'AboutController@index')->name('about.index');
+        Route::put('/about/update', 'AboutController@update')->name('about.update');
+        Route::get('/contact', 'ContactController@index')->name('contact.index');
+        Route::put('/contact/update', 'ContactController@update')->name('contact.update');
     });
 });
 

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin\Catalog;
 
-use App\Http\Requests\CategoryValidator;
+use App\Http\Requests\Catalog\ProductCategoryStoreRequest;
+use App\Http\Requests\Catalog\ProductCategoryUpdateRequest;
 use App\Models\Catalog\ProductCategory;
-use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -15,11 +15,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //get all categories
         $categories = ProductCategory::all();
 
-        //display category catalog
-        return view('admin.category.categories', compact('categories'));
+        return view('admin.catalog.categories.index', compact('categories'));
     }
 
     /**
@@ -29,40 +27,23 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //get components for create category
         $categories = ProductCategory::all();
 
-        //display create form with components
-        return view('admin.category.create', compact('categories'));
+        return view('admin.catalog.categories.create', compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  CategoryValidator $request
+     * @param  ProductCategoryStoreRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryValidator $request)
+    public function store(ProductCategoryStoreRequest $request)
     {
-        //convert data from object to array after validation
         $fields = $request->toArray();
-
-        //save new category
         ProductCategory::storeProductCategory($fields);
 
-        //back to the category catalog
-        return redirect()->route('product_categories.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect()->route('admin.catalog.product_categories.index');
     }
 
     /**
@@ -73,33 +54,25 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //get components for update category
         $categories = ProductCategory::all();
-
-        //find current category
         $category = ProductCategory::find($id);
 
-        //display update form with components
-        return view('admin.category.edit', compact(['category', 'categories']));
+        return view('admin.catalog.categories.edit', compact('category', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  CategoryValidator  $request
+     * @param  ProductCategoryUpdateRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryValidator $request, $id)
+    public function update(ProductCategoryUpdateRequest $request, $id)
     {
-        //convert data from object to array after validation
         $fields = $request->toArray();
-
-        //update current category
         ProductCategory::updateProductCategory($fields, $id);
 
-        //back to the category catalog
-        return redirect()->route('product_categories.index');
+        return redirect()->route('admin.catalog.product_categories.index');
     }
 
     /**
@@ -110,11 +83,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //delete category
         ProductCategory::destroy($id);
 
-        //back to the category catalog
         return redirect()->back();
     }
-
 }
