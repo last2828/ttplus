@@ -1,132 +1,133 @@
 @extends('admin.layouts.layout')
 @section('content')
 
-    <!-- begin:: Page -->
+@php /** @var \App\Models\Catalog\Product $products */ @endphp
+<!-- begin:: Page -->
 
-    <div class="kt-grid kt-grid--hor kt-grid--root">
-        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
+<div class="kt-grid kt-grid--hor kt-grid--root">
+    <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
 
-            <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
 
-                <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
+            <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
 
-                    <!-- begin:: Subheader -->
+                <!-- begin:: Subheader -->
 
-                    {{Breadcrumbs::render('catalog')}}
+                {{Breadcrumbs::render('catalog')}}
 
-                    <!-- end:: Subheader -->
+                <!-- end:: Subheader -->
 
-                    <!-- begin:: Content -->
-                    <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-                        <div class="kt-portlet kt-portlet--mobile">
-                            <div class="kt-portlet__head kt-portlet__head--lg">
-                                <div class="kt-portlet__head-label">
-										<span class="kt-portlet__head-icon">
-											<i class="kt-font-brand flaticon2-list-2"></i>
-										</span>
-                                    <h3 class="kt-portlet__head-title">
-                                        Товары
-                                    </h3>
-                                </div>
-                                <div class="kt-portlet__head-toolbar">
-                                    <div class="kt-portlet__head-wrapper">
-                                        &nbsp;
-                                        <div class="dropdown dropdown-inline">
-                                            <a href="{{route('admin.catalog.products.create')}}">
-                                                <button type="button" class="btn btn-brand btn-icon-sm" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="flaticon2-plus"></i> Добавить
-                                                </button>
-                                            </a>
-                                        </div>
+                <!-- begin:: Content -->
+                <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+                    <div class="kt-portlet kt-portlet--mobile">
+                        <div class="kt-portlet__head kt-portlet__head--lg">
+                            <div class="kt-portlet__head-label">
+                                    <span class="kt-portlet__head-icon">
+                                        <i class="kt-font-brand flaticon2-list-2"></i>
+                                    </span>
+                                <h3 class="kt-portlet__head-title">
+                                    Товары
+                                </h3>
+                            </div>
+                            <div class="kt-portlet__head-toolbar">
+                                <div class="kt-portlet__head-wrapper">
+                                    &nbsp;
+                                    <div class="dropdown dropdown-inline">
+                                        <a href="{{route('admin.catalog.products.create')}}">
+                                            <button type="button" class="btn btn-brand btn-icon-sm" aria-haspopup="true" aria-expanded="false">
+                                                <i class="flaticon2-plus"></i> Добавить
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="kt-portlet__body">
+                        <div class="kt-portlet__body">
 
-                                <!--begin: Search Form -->
-                                <div class="kt-form kt-form--label-right kt-margin-t-20 kt-margin-b-10">
-                                    <div class="row align-items-center">
-                                        <div class="col-xl-8 order-2 order-xl-1">
-                                            <div class="row align-items-center">
-                                                <div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
-                                                    <div class="kt-input-icon kt-input-icon--left">
-                                                        <input type="text" class="form-control" placeholder="Поиск..." id="generalSearch">
-                                                        <span class="kt-input-icon__icon kt-input-icon__icon--left">
-																<span><i class="la la-search"></i></span>
-															</span>
+                            <!--begin: Search Form -->
+                            <div class="kt-form kt-form--label-right kt-margin-t-20 kt-margin-b-10">
+                                <div class="row align-items-center">
+                                    <div class="col-xl-8 order-2 order-xl-1">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
+                                                <div class="kt-input-icon kt-input-icon--left">
+                                                    <input type="text" class="form-control" placeholder="Поиск..." id="generalSearch">
+                                                    <span class="kt-input-icon__icon kt-input-icon__icon--left">
+                                                            <span><i class="la la-search"></i></span>
+                                                        </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
+                                                <div class="kt-form__group kt-form__group--inline">
+                                                    <div class="kt-form__label">
+                                                        <label>Категория:</label>
+                                                    </div>
+                                                    <div class="kt-form__control">
+                                                        <select class="form-control bootstrap-select" id="kt_form_status">
+                                                            <option value="">Все</option>
+                                                            @foreach($products as $product)
+                                                                <option value="{{$product->category->name}}">{{$product->category->name}}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
-                                                    <div class="kt-form__group kt-form__group--inline">
-                                                        <div class="kt-form__label">
-                                                            <label>Категория:</label>
-                                                        </div>
-                                                        <div class="kt-form__control">
-                                                            <select class="form-control bootstrap-select" id="kt_form_status">
-                                                                <option value="">Все</option>
-                                                                @foreach($products as $product)
-                                                                    <option value="{{$product->category->name}}">{{$product->category->name}}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
+                                            </div>
+                                            <div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
+                                                <div class="kt-form__group kt-form__group--inline">
+                                                    <div class="kt-form__label">
+                                                        <label>Группа:</label>
+                                                    </div>
+                                                    <div class="kt-form__control">
+                                                        <select class="form-control bootstrap-select" id="kt_form_status">
+                                                            <option value="">Все</option>
+                                                            @foreach($products as $product)
+                                                                @if(isset($product->group))
+                                                                <option value="{{$product->group->id}}">{{$product->group->name}}</option>
+                                                                @endif
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
-                                                    <div class="kt-form__group kt-form__group--inline">
-                                                        <div class="kt-form__label">
-                                                            <label>Группа:</label>
-                                                        </div>
-                                                        <div class="kt-form__control">
-                                                            <select class="form-control bootstrap-select" id="kt_form_status">
-                                                                <option value="">Все</option>
-                                                                @foreach($products as $product)
-                                                                    @if(isset($product->group))
-                                                                    <option value="{{$product->group->id}}">{{$product->group->name}}</option>
-                                                                    @endif
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
+                                            </div>
+                                            <div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
+                                                <div class="kt-form__group kt-form__group--inline">
+                                                    <div class="kt-form__label">
+                                                        <label>Статус:</label>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
-                                                    <div class="kt-form__group kt-form__group--inline">
-                                                        <div class="kt-form__label">
-                                                            <label>Статус:</label>
-                                                        </div>
-                                                        <div class="kt-form__control">
-                                                            <select class="form-control bootstrap-select" id="kt_form_type">
-                                                                <option value="">Все</option>
-                                                                <option value="1">Включено</option>
-                                                                <option value="0">Отключено</option>
-                                                            </select>
-                                                        </div>
+                                                    <div class="kt-form__control">
+                                                        <select class="form-control bootstrap-select" id="kt_form_type">
+                                                            <option value="">Все</option>
+                                                            <option value="1">Включено</option>
+                                                            <option value="0">Отключено</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-                                <!--end: Search Form -->
                             </div>
-                            <div class="kt-portlet__body kt-portlet__body--fit">
 
-                                <!--begin: Datatable -->
-                                <div class="kt-datatable" id="ajax_data"></div>
+                            <!--end: Search Form -->
+                        </div>
+                        <div class="kt-portlet__body kt-portlet__body--fit">
 
-                                <!--end: Datatable -->
-                            </div>
+                            <!--begin: Datatable -->
+                            <div class="kt-datatable" id="ajax_data"></div>
+
+                            <!--end: Datatable -->
                         </div>
                     </div>
-
-                    <!-- end:: Content -->
                 </div>
+
+                <!-- end:: Content -->
             </div>
         </div>
     </div>
+</div>
 
-    <!-- end:: Page -->
+<!-- end:: Page -->
 @endsection
 
 @section('script')

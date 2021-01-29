@@ -1,3 +1,4 @@
+@php /** @var \DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs $breadcrumbs  */@endphp
 @if (count($breadcrumbs) && $breadcrumbs->first()->front == true)
 
   <div class="breadcrumbs">

@@ -89,6 +89,7 @@
                                                         <div class="col-lg-4 col-md-9 col-sm-12">
                                                             <select class="form-control kt-select2" id="kt_select2_2" name="parent_id">
                                                                 <option value="" selected>Не выбрано</option>
+                                                                @php /** @var \App\Models\Catalog\ProductCategory $categories */@endphp
                                                                 @foreach($categories as $category)
                                                                     <option value="{{$category->id}}">{{$category->name}}</option>
                                                                 @endforeach

@@ -7,20 +7,30 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
+    /**
+     * Show the form for editing content for contact page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
-      return view('admin.pages.contact', [
-        'contact' => PageField::where('key', 'contact')->first()
-      ]);
+        $contactPage = PageField::where('key', 'contact')->first();
+
+        return view('admin.pages.contact', compact('contactPage'));
     }
 
-  public function update(Request $request)
-  {
+    /**
+     * Update contact page in storage
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Request $request)
+    {
+        $fields = $request->except(['_token', '_method']);
 
-    $fields = $request->except(['_token', '_method']);
+        PageField::where('key', 'contact')->update($fields);
 
-    PageField::where('key', 'contact')->update($fields);
-
-    return redirect()->route('contact.index');
-  }
+        return redirect()->route('contact.index');
+    }
 }

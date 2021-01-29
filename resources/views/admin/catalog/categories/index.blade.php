@@ -1,6 +1,7 @@
 @extends('admin.layouts.layout')
 @section('content')
 
+@php /** @var \App\Models\Catalog\ProductCategory $categories */@endphp
     <!-- begin:: Page -->
 
     <div class="kt-grid kt-grid--hor kt-grid--root">

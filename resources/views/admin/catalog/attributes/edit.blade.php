@@ -7,7 +7,7 @@
             <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
                 <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
                     <!-- begin:: Subheader -->
-
+                    @php /** @var \App\Models\Catalog\ProductAttribute $attribute */@endphp
                     {{Breadcrumbs::render('edit-attribute', $attribute)}}
 
                     <!-- end:: Subheader -->
@@ -33,6 +33,7 @@
                                     <form class="kt-form" method="POST" action="{{route('admin.catalog.attributes.update', $attribute->id)}}">
                                         @method('PUT')
                                         @CSRF
+                                        @php /** @var \Illuminate\Support\ViewErrorBag $errors */@endphp
                                         <div class="kt-portlet__body">
                                             <div class="form-group form-group row">
                                                 <label>Название характеристики</label>

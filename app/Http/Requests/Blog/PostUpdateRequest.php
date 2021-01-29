@@ -28,9 +28,9 @@ class PostUpdateRequest extends FormRequest
             'name' => 'required|max:255',
             'slug' => [
                 'max:255',
-                Rule::unique('posts', 'slug')->ignore($this->product)
+                Rule::unique('posts','slug')->ignore($this->product)
             ],
-            'type_id' => 'required|exists:post_types, id',
+            'type_id' => 'required|exists:post_types,id',
             'status' => 'required|boolean'
         ];
     }

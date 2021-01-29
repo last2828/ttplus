@@ -1,13 +1,16 @@
+
 <div class="tab-pane active" id="kt_tabs_1_1" role="tabpanel">
 	<div class="form-group row">
 			<label>Название товара*</label>
 			<div class="col-lg-12 col-md-9 col-sm-12">
 					<input type="text"
+					   @php /** @var \Illuminate\Support\ViewErrorBag $errors */@endphp
 						class="form-control {{($errors->has('name')) ? 'alert alert-outline-danger fade show' : ''}}"
 						role="alert"
 						aria-describedby=""
 						placeholder="{{ ($errors->has('name')) ? $errors->first('name') : 'Название товара' }}"
 						name="name"
+					   @php /** @var \App\Models\Catalog\Product $product */@endphp
 						value="{{(isset($product)) ? $product['name'] : old('name')}}"
 					>
 			</div>

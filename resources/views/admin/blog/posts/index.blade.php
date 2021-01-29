@@ -1,5 +1,8 @@
 @extends('admin.layouts.layout')
 @section('content')
+
+@php /** @var \App\Models\Blog\Post $posts */@endphp
+
     <!-- begin:: Page -->
 
     <div class="kt-grid kt-grid--hor kt-grid--root">

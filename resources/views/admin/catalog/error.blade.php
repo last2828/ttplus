@@ -1,3 +1,4 @@
+@php /** @var \Illuminate\Support\ViewErrorBag $errors */ @endphp
 @if($errors->any())
   <div class="alert alert-outline-danger fade show" role="alert">
     <div class="alert-icon"><i class="flaticon-warning"></i></div>

@@ -26,7 +26,7 @@ class ProductGroupStoreRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'slug' => 'unique:product_groups,slug',
-            'category_id' => 'exists:product_categories,id'
+            'category_id' => 'required|exists:product_categories,id'
         ];
     }
 
@@ -41,6 +41,7 @@ class ProductGroupStoreRequest extends FormRequest
             'name.required' => 'Введите название группы товаров',
             'slug.unique' => 'Введите уникальное значение',
             'category_id.exists' => 'Выберите категорию из указанных в списке',
+            'category_id.required' => 'Выберите категорию из указанных в списке'
         ];
     }
 }

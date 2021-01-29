@@ -43,15 +43,11 @@
                                             <li class="nav-item">
                                                 <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_3" role="tab">Характеристики</a>
                                             </li>
-                                            {{-- <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_4" role="tab">Изображения</a>
-                                            </li> --}}
                                         </ul>
                                         <div class="tab-content">
                                             @include('admin.catalog.products.components.general')
                                             @include('admin.catalog.products.components.information')
                                             @include('admin.catalog.products.components.attributes')
-                                            {{-- @include('admin.product.components.images') --}}
                                         </div>
                                     </div>
                                     <div class="kt-portlet__foot">

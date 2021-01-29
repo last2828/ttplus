@@ -41,7 +41,7 @@ class ProductCategoryUpdateRequest extends FormRequest
                 Rule::notIn($this->product_category)
             ],
             'status' => 'required|boolean',
-            'image' => 'image'
+            'image' => 'sometimes|nullable|image'
         ];
     }
 

@@ -25,8 +25,8 @@ class PostStoreRequest extends FormRequest
     {
         return [
             'title' => 'required|max:255',
-            'slug' => 'max:255|unique:posts, slug',
-            'type_id' => 'required|exists:post_types, id',
+            'slug' => 'max:255|unique:posts,slug',
+            'type_id' => 'required|exists:post_types,id',
             'status' => 'required|boolean',
         ];
     }

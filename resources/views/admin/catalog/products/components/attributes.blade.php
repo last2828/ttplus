@@ -1,5 +1,10 @@
 <div class="tab-pane " id="kt_tabs_1_3" role="tabpanel">
     <label class="col-md-12 col-form-label">Характеристики</label>
+    @php
+        /** @var \App\Models\Catalog\Product $product */
+        /** @var \Illuminate\Support\ViewErrorBag $errors */
+    @endphp
+
     @if(isset($product) && !($product->attributes->isEmpty()))
     <div id="kt_repeater_2">
             <div data-repeater-list="attributes_old" class="col-lg-12">

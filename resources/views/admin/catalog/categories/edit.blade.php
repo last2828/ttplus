@@ -1,6 +1,7 @@
 @extends('admin.layouts.layout')
 @section('content')
 
+@php /** @var \App\Models\Catalog\ProductCategory $category */@endphp
     <!-- begin:: Page -->
     <div class="kt-grid kt-grid--hor kt-grid--root">
         <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
@@ -90,6 +91,7 @@
                                                         <div class="col-lg-4 col-md-9 col-sm-12">
                                                             <select class="form-control kt-select2" id="kt_select2_2" name="parent_id">
                                                                 <option value="">Не выбрано</option>
+                                                                @php /** @var \App\Models\Catalog\ProductCategory $categories */@endphp
                                                                 @foreach($categories as $cat)
                                                                     @if(!($cat['id'] == $category->id))
                                                                         <option {{($cat['id'] == $category->parent_id) ? 'selected' : ''}} value="{{$cat['id']}}">{{$cat['name']}}</option>

@@ -43,9 +43,9 @@ class ProductUpdateRequest extends FormRequest
             'attributes.*.attribute_id' => 'required|exists:product_attributes,id',
             'attributes_old.*.value' => 'required',
             'category_id' => 'required|exists:product_categories,id',
-            'group_id' => 'exists:product_groups,id',
+            'group_id' => 'sometimes|nullable|exists:product_groups,id',
             'status' => 'required|boolean',
-            'image' => 'image'
+            'image' => 'sometimes|nullable|image'
         ];
     }
 

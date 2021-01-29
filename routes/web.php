@@ -50,10 +50,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.', 'na
     Route::get('/', 'AdminController@index')->name('dashboard');
 
     Route::group(['prefix' => 'gallery'], function() {
-        Route::get('/upload-file', 'PhotoController@manager')->name('file-manager');
-        Route::get('/photos', 'PhotoController@index');
-        Route::post('/photos/upload', 'PhotoController@upload');
-        Route::get('/photos/delete/{id}', 'PhotoController@delete');
+        Route::get('/upload-file', 'ImageController@manager')->name('file-manager');
+        Route::get('/photos', 'ImageController@index');
+        Route::post('/photos/upload', 'ImageController@upload');
+        Route::get('/photos/delete/{id}', 'ImageController@delete');
     });
 
     Route::group(['prefix' => 'blog', 'as' => 'blog.', 'namespace' => 'Blog'], function () {

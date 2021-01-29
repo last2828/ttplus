@@ -32,6 +32,8 @@
                                     <!--begin::Form-->
                                     <form class="kt-form" method="POST" action="{{route('admin.catalog.attributes.store')}}">
                                         @CSRF
+
+                                        @php /** @var \Illuminate\Support\ViewErrorBag $errors */@endphp
                                         <div class="kt-portlet__body">
                                             <div class="form-group form-group row">
                                                 <label>Название характеристики</label>

@@ -43,6 +43,7 @@
                                                 <label class="col-form-label col-lg-3 col-sm-12">Категория</label>
                                                 <div class="col-lg-4 col-md-9 col-sm-12">
                                                     <select class="form-control kt-select2" id="kt_select2_2" name="category_id">
+                                                        @php /** @var \App\Models\Catalog\ProductCategory $categories */@endphp
                                                         @foreach($categories as $category)
                                                                 <option value="{{$category['id']}}">{{$category['name']}}</option>
                                                         @endforeach

@@ -8,6 +8,7 @@
                 <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
                     <!-- begin:: Subheader -->
 
+                    @php /** @var \App\Models\Catalog\ProductGroup $group */@endphp
                     {{Breadcrumbs::render('edit-group', $group)}}
 
                     <!-- end:: Subheader -->
@@ -44,8 +45,10 @@
                                                 <label class="col-form-label col-lg-3 col-sm-12">Категория</label>
                                                 <div class="col-lg-4 col-md-9 col-sm-12">
                                                     <select class="form-control kt-select2" id="kt_select2_2" name="category_id">
-                                                        @foreach($categories as $category)
-                                                            <option {{($group->category['id'] == $category['id']) ? 'selected' : ''}} value="{{$category['id']}}">{{$category['name']}}</option>@endforeach
+                                                    @php /** @var \App\Models\Catalog\ProductCategory $categories */@endphp
+                                                    @foreach($categories as $category)
+                                                        <option {{($group->category['id'] == $category['id']) ? 'selected' : ''}} value="{{$category['id']}}">{{$category['name']}}</option>
+                                                    @endforeach
                                                     </select>
                                                 </div>
                                             </div>

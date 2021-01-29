@@ -1,6 +1,8 @@
 @extends('admin.layouts.layout')
 @section('content')
 
+@php /** @var \App\Models\Blog\Post $post */@endphp
+
     <!-- begin:: Page -->
     <div class="kt-grid kt-grid--hor kt-grid--root">
         <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
@@ -79,21 +81,11 @@
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane" id="kt_tabs_1_2" role="tabpanel">
-                                                    {{--<div class="form-group row">--}}
-                                                        {{--<label class="col-form-label col-lg-3 col-sm-12">Главная категория</label>--}}
-                                                        {{--<div class="col-lg-4 col-md-9 col-sm-12">--}}
-                                                            {{--<select class="form-control kt-select2" id="kt_select2_2" name="category_id">--}}
-                                                                    {{--<option value="null">Не выбрано</option>--}}
-                                                                    {{--@foreach($categories as $category)--}}
-                                                                            {{--<option {{($post->category['id'] == $category->id) ? 'selected' : ''}} value="{{$category['id']}}">{{$category['name']}}</option>--}}
-                                                                    {{--@endforeach--}}
-                                                            {{--</select>--}}
-                                                        {{--</div>--}}
-                                                    {{--</div>--}}
                                                     <div class="form-group row">
                                                         <label class="col-form-label col-lg-3 col-sm-12">Тип записи</label>
                                                         <div class="col-lg-4 col-md-9 col-sm-12">
                                                             <select class="form-control kt-select2" id="kt_select2_2" name="type_id">
+                                                                @php /** @var \App\Models\Blog\PostType $types */@endphp
                                                                 @foreach($types as $type)
                                                                 <option {{($type->id == $post->type->id) ? 'selected' : ''}} value="{{$type->id}}">{{$type->name}}</option>
                                                                 @endforeach
@@ -110,16 +102,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {{--<div class="form-group row">--}}
-                                                        {{--<label class="col-form-label col-lg-3 col-sm-12">Изображение статьи</label>--}}
-                                                        {{--<div class="col-lg-4 col-md-9 col-sm-12">--}}
-                                                            {{--<div class="dropzone dropzone-default" id="kt_dropzone_1">--}}
-                                                                {{--<div class="dropzone-msg dz-message needsclick">--}}
-                                                                    {{--<h3 class="dropzone-msg-title">Перетащите файл сюда или нажмите для загрузки</h3>--}}
-                                                                {{--</div>--}}
-                                                            {{--</div>--}}
-                                                        {{--</div>--}}
-                                                    {{--</div>--}}
                                                     <div class="form-group form-group-last row">
                                                         <label>Slug</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">

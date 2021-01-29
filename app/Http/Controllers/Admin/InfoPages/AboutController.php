@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
+    /**
+     * Show the form for editing content for about page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         return view('admin.pages.about', [
@@ -14,6 +19,12 @@ class AboutController extends Controller
         ]);
     }
 
+    /**
+     * Update about page in storage
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(Request $request)
     {
         $fields = $request->except(['_token', '_method']);
