@@ -12,12 +12,28 @@ use Illuminate\Support\Facades\Route;
  * Product
  *
  * @mixin Eloquent
+ *
+ * @property string             $name
+ * @property string             $content
+ * @property string             $meta_title
+ * @property string             $meta_keywords
+ * @property string             $meta_description
+ * @property string             $model
+ * @property ProductCategory    $category
+ * @property ProductGroup       $group
+ * @property string             $slug
+ * @property string             $image
+ * @property boolean            $status
  */
 
 class Product extends Model
 {
+
     use SoftDeletes;
 
+    /**
+     * @var array
+     */
     protected $fillable = [
         'name',
         'content',
@@ -32,26 +48,28 @@ class Product extends Model
         'status'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function group()
     {
         return $this->belongsTo(ProductGroup::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function attributes()
     {
         return $this->belongsToMany(ProductAttribute::class,'product_product_attributes')->withPivot('value');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function category()
     {
-        return $this->belongsTo(ProductCategory::class);
-    }
-
-    public static function getAllProducts()
-    {
-        $products = self::with('group.category')->get();
-
-        return $products;
+        return $this->belongsTo(ProductCategory::class, 'category_id', 'id');
     }
 
     public static function getProductComponents()

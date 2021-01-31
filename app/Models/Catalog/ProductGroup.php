@@ -10,25 +10,38 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * App\Group
  *
  * @mixin \Eloquent
+ *
+ * @property string             $name
+ * @property ProductCategory    $category
+ * @property string             $slug
  */
 class ProductGroup extends Model
 {
     use SoftDeletes;
 
+    /**
+     * @var array
+     */
     protected $fillable = [
         'name',
         'category_id',
         'slug',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function products()
     {
         return $this->hasMany(Product::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function category()
     {
-        return $this->belongsTo(ProductCategory::class, 'category_id', 'id');
+        return $this->belongsTo(ProductCategory::class,'category_id','id');
     }
 
     public static function storeGroup($fields)

@@ -3,7 +3,7 @@
     <div class="form-group row">
         <label>Код товара</label>
         <div class="col-lg-12 col-md-9 col-sm-12">
-            <input type="text" class="form-control" aria-describedby="" placeholder="Код товара" name="model" value="{{(isset($product)) ? $product['model'] : ''}}">
+            <input type="text" class="form-control" aria-describedby="" placeholder="Код товара" name="model" value="{{(isset($product)) ? $product->model : ''}}">
         </div>
     </div>
     <div class="form-group row">
@@ -17,7 +17,7 @@
                     <option value="">Не выбрано</option>
                     @php /** @var \App\Models\Catalog\ProductCategory $categories */ @endphp
                     @foreach($categories as $category):
-                    <option {{(isset($product) && $product->category['id'] == $category['id']) ? 'selected' : ''}} value="{{$category['id']}}">{{$category['name']}}</option>
+                    <option {{(isset($product) && $product->category->id == $category->id) ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -34,7 +34,7 @@
                     <option value="">Не выбрано</option>
                     @php /** @var \App\Models\Catalog\ProductGroup $groups */ @endphp
                     @foreach($groups as $group):
-                    <option {{(isset($product->group_id) && $product->group['id'] == $group['id']) ? 'selected' : ''}} value="{{$group['id']}}">{{$group['name']}}</option>
+                    <option {{(isset($product->group_id) && $product->group->id == $group->id) ? 'selected' : ''}} value="{{$group->id}}">{{$group->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -54,7 +54,7 @@
     <div class="form-group row">
         <label>Slug</label>
         <div class="col-lg-12 col-md-9 col-sm-12">
-            <input type="text" class="form-control" aria-describedby="" placeholder="Адрес страницы" name="slug" value="{{(isset($product)) ? $product['slug'] : ''}}">
+            <input type="text" class="form-control" aria-describedby="" placeholder="Адрес страницы" name="slug" value="{{(isset($product)) ? $product->slug : ''}}">
         </div>
     </div>
     <div class="form-group row">
@@ -64,7 +64,7 @@
                 <option value="1">Включено</option>
                 <option
                     @if (isset($product))
-                    {{($product['status'] == 0 ? 'selected' : '')}}
+                    {{($product->status == 0 ? 'selected' : '')}}
                     @endif
                     value="0">Отключено
                 </option>

@@ -9,18 +9,25 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * Attribute
  *
  * @mixin \Eloquent
+ *
+ * @property string $name
+ * @property string $units
  */
 class ProductAttribute extends Model
 {
     use SoftDeletes;
 
+    /**
+     * @var array
+     */
     protected $fillable = ['name', 'units'];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function products()
     {
-        return $this->belongsToMany(
-            Product::class,
-            'product_product_attributes'
-        );
+        return $this->belongsToMany(Product::class,'product_product_attributes');
     }
 
     public static function deleteAttribute($id)

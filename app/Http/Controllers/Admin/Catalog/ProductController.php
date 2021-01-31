@@ -5,9 +5,47 @@ namespace App\Http\Controllers\Admin\Catalog;
 use App\Models\Catalog\Product;
 use App\Http\Requests\Catalog\ProductStoreRequest;
 use App\Http\Requests\Catalog\ProductUpdateRequest;
+use App\Models\Catalog\ProductAttribute;
+use App\Repositories\Catalog\ProductAttributeRepository;
+use App\Repositories\Catalog\ProductCategoryRepository;
+use App\Repositories\Catalog\ProductGroupRepository;
+use App\Repositories\Catalog\ProductRepository;
 
 class ProductController extends Controller
 {
+    /**
+     * @var ProductRepository
+     */
+    private $productRepository;
+
+    /**
+     * @var ProductCategoryRepository
+     */
+    private $productCategoryRepository;
+
+    /**
+     * @var ProductGroupRepository
+     */
+    private $productGroupRepository;
+
+    /**
+     * @var ProductAttributeRepository
+     */
+    private $productAttributeRepository;
+
+    /**
+     * ProductController constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->productRepository = app(ProductRepository::class);
+        $this->productCategoryRepository = app(ProductCategoryRepository::class);
+        $this->productGroupRepository = app(ProductGroupRepository::class);
+        $this->productAttributeRepository = app(ProductAttributeRepository::class);
+    }
+
     /**
      * Display a listing of the products.
      *
@@ -15,7 +53,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::getAllProducts();
+        $products = $this->productRepository->getAllCatalogForAdmin();
 
         return view('admin.catalog.products.index', compact('products'));
     }
@@ -27,9 +65,12 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $components = Product::getProductComponents();
+        // Получаем нужные параметры для создания нового продукта
+        $groups = $this->productGroupRepository->getAllForProductSelect();
+        $categories = $this->productCategoryRepository->getAllForProductSelect();
+        $attributes = $this->productAttributeRepository->getAllForProductSelect();
 
-        return view('admin.catalog.products.create', $components);
+        return view('admin.catalog.products.create', compact('groups', 'categories', 'attributes'));
     }
 
     /**
@@ -54,10 +95,16 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $currentProduct = Product::getCurrentProduct($id);
-        $components = Product::getProductComponents();
+        $product = $this->productRepository->getEditByIdForAdmin($id);
 
-        return view('admin.catalog.products.edit', $currentProduct, $components);
+        // Получаем нужные параметры для обновления продукта
+        $groups = $this->productGroupRepository->getAllForProductSelect();
+        $categories = $this->productCategoryRepository->getAllForProductSelect();
+        $attributes = $this->productAttributeRepository->getAllForProductSelect();
+
+
+        return view('admin.catalog.products.edit',
+            compact('product', 'groups', 'categories', 'attributes'));
     }
 
     /**

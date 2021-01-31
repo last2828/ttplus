@@ -11,6 +11,17 @@ use Eloquent;
 /**
  *
  * @mixin Eloquent
+ *
+ * @property string             $name
+ * @property string             $name_ru
+ * @property string             $content
+ * @property string             $meta_title
+ * @property string             $meta_description
+ * @property string             $meta_keywords
+ * @property ProductCategory    $parent
+ * @property string             $slug
+ * @property boolean            $status
+ * @property $string            $image
  */
 
 class ProductCategory extends Model
@@ -18,6 +29,9 @@ class ProductCategory extends Model
     use NodeTrait;
     use SoftDeletes;
 
+    /**
+     * @var array
+     */
     protected $fillable = [
         'name',
         'name_ru',
@@ -31,13 +45,12 @@ class ProductCategory extends Model
         'image'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function groups()
     {
-        return $this->hasMany(
-            ProductGroup::class,
-            'category_id',
-            'id'
-        );
+        return $this->hasMany(ProductGroup::class,'category_id','id');
     }
 
     public static function storeProductCategory($fields)
