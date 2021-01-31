@@ -10,6 +10,7 @@ use App\Repositories\Catalog\ProductAttributeRepository;
 use App\Repositories\Catalog\ProductCategoryRepository;
 use App\Repositories\Catalog\ProductGroupRepository;
 use App\Repositories\Catalog\ProductRepository;
+use Illuminate\Support\Facades\Route;
 
 class ProductController extends BaseController
 {
@@ -70,7 +71,8 @@ class ProductController extends BaseController
         $categories = $this->productCategoryRepository->getAllForSelect();
         $attributes = $this->productAttributeRepository->getAllForSelect();
 
-        return view('admin.catalog.products.create', compact('groups', 'categories', 'attributes'));
+        return view('admin.catalog.products.create',
+            compact('groups', 'categories', 'attributes'));
     }
 
     /**
@@ -101,7 +103,6 @@ class ProductController extends BaseController
         $groups = $this->productGroupRepository->getAllForSelect();
         $categories = $this->productCategoryRepository->getAllForSelect();
         $attributes = $this->productAttributeRepository->getAllForSelect();
-
 
         return view('admin.catalog.products.edit',
             compact('product', 'groups', 'categories', 'attributes'));

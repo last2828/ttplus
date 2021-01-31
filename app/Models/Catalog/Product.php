@@ -71,20 +71,20 @@ class Product extends Model
     {
         return $this->belongsTo(ProductCategory::class, 'category_id', 'id');
     }
-
-    public static function getProductComponents()
-    {
-        //get all components for product creating
-        $groups = ProductGroup::all();
-        $attributes = ProductAttribute::all();
-        $categories = ProductCategory::with('children')->get();
-
-        //get route for check crud
-        $route = Route::currentRouteName();
-
-        //return product components and route
-        return compact(['groups', 'attributes', 'categories', 'route']);
-    }
+//
+//    public static function getProductComponents()
+//    {
+//        //get all components for product creating
+//        $groups = ProductGroup::all();
+//        $attributes = ProductAttribute::all();
+//        $categories = ProductCategory::with('children')->get();
+//
+//        //get route for check crud
+//        $route = Route::currentRouteName();
+//
+//        //return product components and route
+//        return compact(['groups', 'attributes', 'categories', 'route']);
+//    }
 
     public static function storeProduct($fields)
     {
@@ -103,15 +103,6 @@ class Product extends Model
         }
 
         return true;
-    }
-
-    public static function getCurrentProduct($id)
-    {
-        //find this product
-        $product = self::with('attributes')->find($id);
-
-        //return product with components and route
-        return compact('product');
     }
 
     public static function updateProduct($fields, $id)

@@ -49,6 +49,7 @@ class ProductRepository extends CoreRepository
     public function getEditByIdForAdmin($id)
     {
         $columns = [
+            'id',
             'name',
             'content',
             'meta_title',
@@ -65,8 +66,7 @@ class ProductRepository extends CoreRepository
         $result = $this->startCondition()
                         ->select($columns)
                         ->with(['category:id,name', 'group:id,name', 'attributes:id,name,units'])
-                        ->find($id)
-                        ->first();
+                        ->find($id);
 
         return $result;
     }

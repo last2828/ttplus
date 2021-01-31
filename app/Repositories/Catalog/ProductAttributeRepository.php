@@ -66,8 +66,8 @@ class ProductAttributeRepository extends CoreRepository
 
         $result = $this->startCondition()
                         ->select($columns)
-                        ->find($id)
-                        ->first();
+                        ->toBase()
+                        ->find($id);
 
         return $result;
     }
