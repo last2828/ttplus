@@ -5,9 +5,25 @@ namespace App\Http\Controllers\Admin\Catalog;
 use App\Http\Requests\Catalog\ProductCategoryStoreRequest;
 use App\Http\Requests\Catalog\ProductCategoryUpdateRequest;
 use App\Models\Catalog\ProductCategory;
+use App\Repositories\Catalog\ProductCategoryRepository;
 
-class CategoryController extends Controller
+class CategoryController extends BaseController
 {
+    /**
+     * @var ProductCategoryRepository
+     */
+    private $productCategoryRepository;
+
+    /**
+     * CategoryController constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->productCategoryRepository = app(ProductCategoryRepository::class);
+    }
+
     /**
      * Display a listing of the product categories.
      *
@@ -15,7 +31,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = ProductCategory::all();
+        $categories = $this->productCategoryRepository->getAllForAdminList();
 
         return view('admin.catalog.categories.index', compact('categories'));
     }
@@ -27,7 +43,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $categories = ProductCategory::all();
+        $categories = $this->productCategoryRepository->getAllForSelect();;
 
         return view('admin.catalog.categories.create', compact('categories'));
     }
@@ -54,10 +70,10 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $categories = ProductCategory::all();
-        $category = ProductCategory::find($id);
+        $selectCategories = $this->productCategoryRepository->getAllForSelect();
+        $category = $this->productCategoryRepository->getEditByIdForAdmin($id);
 
-        return view('admin.catalog.categories.edit', compact('category', 'categories'));
+        return view('admin.catalog.categories.edit', compact('category', 'selectCategories'));
     }
 
     /**

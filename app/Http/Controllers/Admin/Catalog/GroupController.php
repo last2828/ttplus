@@ -4,11 +4,33 @@ namespace App\Http\Controllers\Admin\Catalog;
 
 use App\Http\Requests\Catalog\ProductGroupStoreRequest;
 use App\Http\Requests\Catalog\ProductGroupUpdateRequest;
-use App\Models\Catalog\ProductCategory;
 use App\Models\Catalog\ProductGroup;
+use App\Repositories\Catalog\ProductCategoryRepository;
+use App\Repositories\Catalog\ProductGroupRepository;
 
-class GroupController extends Controller
+class GroupController extends BaseController
 {
+    /**
+     * @var ProductGroupRepository
+     */
+    private $productGroupRepository;
+
+    /**
+     * @var ProductCategoryRepository
+     */
+    private $productCategoryRepository;
+
+    /**
+     * GroupController constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->productGroupRepository = app(ProductGroupRepository::class);
+        $this->productCategoryRepository = app(ProductCategoryRepository::class);
+    }
+
     /**
      * Display a listing of the product groups.
      *
@@ -16,7 +38,7 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $groups = ProductGroup::all();
+        $groups = $this->productGroupRepository->getAllForAdminList();
 
         return view('admin.catalog.groups.index', compact('groups'));
     }
@@ -28,7 +50,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        $categories = ProductCategory::all();
+        $categories = $this->productCategoryRepository->getAllForSelect();
 
         return view('admin.catalog.groups.create', compact('categories'));
     }
@@ -55,8 +77,9 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
-        $categories = ProductCategory::all();
-        $group = ProductGroup::find($id);
+        $group = $this->productGroupRepository->getEditByIdForAdmin($id);
+
+        $categories = $this->productCategoryRepository->getAllForSelect();
 
         return view('admin.catalog.groups.edit', compact('categories', 'group'));
     }

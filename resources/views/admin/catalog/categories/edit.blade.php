@@ -91,10 +91,11 @@
                                                         <div class="col-lg-4 col-md-9 col-sm-12">
                                                             <select class="form-control kt-select2" id="kt_select2_2" name="parent_id">
                                                                 <option value="">Не выбрано</option>
-                                                                @php /** @var \App\Models\Catalog\ProductCategory $categories */@endphp
-                                                                @foreach($categories as $cat)
-                                                                    @if(!($cat['id'] == $category->id))
-                                                                        <option {{($cat['id'] == $category->parent_id) ? 'selected' : ''}} value="{{$cat['id']}}">{{$cat['name']}}</option>
+                                                                @php /** @var \App\Models\Catalog\ProductCategory $item */ @endphp
+
+                                                                @foreach($selectCategories as $item)
+                                                                    @if(!($item->id == $category->id))
+                                                                        <option {{($item->id == $category->parent_id) ? 'selected' : ''}} value="{{$item->id}}">{{$item->name}}</option>
                                                                     @endif
                                                                 @endforeach
                                                             </select>
@@ -121,7 +122,7 @@
                                                         <div class=" col-lg-4 col-md-9 col-sm-12">
                                                             <select class="form-control kt-select2" id="kt_select2_10" name="status">
                                                                 <option value="1">Включено</option>
-                                                                <option {{($category['status'] == 0 ? 'selected' : '')}} value="0">Отключено</option>
+                                                                <option {{($category->status == 0 ? 'selected' : '')}} value="0">Отключено</option>
                                                             </select>
                                                         </div>
                                                     </div>

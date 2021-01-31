@@ -8,7 +8,7 @@ use App\Models\Blog\Post;
 use App\Models\Blog\PostType;
 use Transliterate;
 
-class PostController extends Controller
+class PostBaseController extends BaseController
 {
     /**
      * Display a listing of the posts.

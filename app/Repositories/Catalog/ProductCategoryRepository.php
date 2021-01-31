@@ -27,14 +27,61 @@ class ProductCategoryRepository extends CoreRepository
      *
      * @return mixed
      */
-    public function getAllForProductSelect()
+    public function getAllForSelect()
     {
         $columns = ['id', 'name'];
 
         $result = $this->startCondition()
-            ->select($columns)
-            ->toBase()
-            ->get();
+                        ->select($columns)
+                        ->toBase()
+                        ->get();
+
+        return $result;
+    }
+
+    /**
+     * Get category data for editing
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function getEditByIdForAdmin($id)
+    {
+        $columns = [
+            'name',
+            'name_ru',
+            'content',
+            'meta_title',
+            'meta_description',
+            'meta_keyword',
+            'parent_id',
+            'slug',
+            'status',
+            'image'
+        ];
+
+        $result = $this->startCondition()
+                        ->select($columns)
+            //            ->with('parent:id,name')
+                        ->find($id)
+                        ->first();
+
+        return $result;
+    }
+
+    /**
+     * Get categories list data for catalog in admin panel
+     *
+     * @return mixed
+     */
+    public function getAllForAdminList()
+    {
+        $columns = ['id', 'name', 'status', 'parent_id'];
+
+        $result = $this->startCondition()
+                        ->select($columns)
+                        ->toBase()
+                        ->get();
 
         return $result;
     }

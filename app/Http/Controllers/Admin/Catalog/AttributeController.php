@@ -4,9 +4,25 @@ namespace App\Http\Controllers\Admin\Catalog;
 
 use App\Http\Requests\Catalog\ProductAttributeRequest;
 use App\Models\Catalog\ProductAttribute;
+use App\Repositories\Catalog\ProductAttributeRepository;
 
-class AttributeController extends Controller
+class AttributeController extends BaseController
 {
+    /**
+     * @var ProductAttributeRepository
+     */
+    private $productAttributeRepository;
+
+    /**
+     * AttributeController constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->productAttributeRepository = app(ProductAttributeRepository::class);
+    }
+
     /**
      * Display a listing of the product attributes.
      *
@@ -14,7 +30,7 @@ class AttributeController extends Controller
      */
     public function index()
     {
-        $attributes = ProductAttribute::all();
+        $attributes = $this->productAttributeRepository->getAllForAdminList();
 
         return view('admin.catalog.attributes.index', compact('attributes'));
     }
@@ -52,7 +68,7 @@ class AttributeController extends Controller
      */
     public function edit($id)
     {
-        $attribute = ProductAttribute::find($id);
+        $attribute = $this->productAttributeRepository->getEditByIdForAdmin($id);
 
         return view('admin.catalog.attributes.edit', compact('attribute'));
     }

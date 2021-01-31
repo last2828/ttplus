@@ -15,7 +15,7 @@
                 </div>
                 <select class="form-control kt-select2" id="kt_select2_group_1" name="category_id">
                     <option value="">Не выбрано</option>
-                    @php /** @var \App\Models\Catalog\ProductCategory $categories */ @endphp
+                    @php /** @var \App\Models\Catalog\ProductCategory $category */ @endphp
                     @foreach($categories as $category):
                     <option {{(isset($product) && $product->category->id == $category->id) ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
@@ -32,7 +32,7 @@
                 </div>
                 <select class="form-control kt-select2" id="kt_select3_group_2" name="group_id">
                     <option value="">Не выбрано</option>
-                    @php /** @var \App\Models\Catalog\ProductGroup $groups */ @endphp
+                    @php /** @var \App\Models\Catalog\ProductGroup $group */ @endphp
                     @foreach($groups as $group):
                     <option {{(isset($product->group_id) && $product->group->id == $group->id) ? 'selected' : ''}} value="{{$group->id}}">{{$group->name}}</option>
                     @endforeach

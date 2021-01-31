@@ -21,14 +21,53 @@ class ProductAttributeRepository extends CoreRepository
      *
      * @return mixed
      */
-    public function getAllForProductSelect()
+    public function getAllForSelect()
     {
         $columns = ['id', 'name'];
 
         $result = $this->startCondition()
-            ->select($columns)
-            ->toBase()
-            ->get();
+                        ->select($columns)
+                        ->toBase()
+                        ->get();
+
+        return $result;
+    }
+
+    /**
+     * Get attributes list data for catalog in admin panel
+     *
+     * @return mixed
+     */
+    public function getAllForAdminList()
+    {
+        $columns = ['id', 'name', 'units'];
+
+        $result = $this->startCondition()
+                        ->select($columns)
+                        ->toBase()
+                        ->get();
+
+        return $result;
+    }
+
+    /**
+     * Get attribute data for editing
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function getEditByIdForAdmin($id)
+    {
+        $columns = [
+            'id',
+            'name',
+            'units',
+        ];
+
+        $result = $this->startCondition()
+                        ->select($columns)
+                        ->find($id)
+                        ->first();
 
         return $result;
     }

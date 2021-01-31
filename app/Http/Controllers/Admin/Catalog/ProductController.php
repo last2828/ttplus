@@ -11,7 +11,7 @@ use App\Repositories\Catalog\ProductCategoryRepository;
 use App\Repositories\Catalog\ProductGroupRepository;
 use App\Repositories\Catalog\ProductRepository;
 
-class ProductController extends Controller
+class ProductController extends BaseController
 {
     /**
      * @var ProductRepository
@@ -66,9 +66,9 @@ class ProductController extends Controller
     public function create()
     {
         // Получаем нужные параметры для создания нового продукта
-        $groups = $this->productGroupRepository->getAllForProductSelect();
-        $categories = $this->productCategoryRepository->getAllForProductSelect();
-        $attributes = $this->productAttributeRepository->getAllForProductSelect();
+        $groups = $this->productGroupRepository->getAllForSelect();
+        $categories = $this->productCategoryRepository->getAllForSelect();
+        $attributes = $this->productAttributeRepository->getAllForSelect();
 
         return view('admin.catalog.products.create', compact('groups', 'categories', 'attributes'));
     }
@@ -98,9 +98,9 @@ class ProductController extends Controller
         $product = $this->productRepository->getEditByIdForAdmin($id);
 
         // Получаем нужные параметры для обновления продукта
-        $groups = $this->productGroupRepository->getAllForProductSelect();
-        $categories = $this->productCategoryRepository->getAllForProductSelect();
-        $attributes = $this->productAttributeRepository->getAllForProductSelect();
+        $groups = $this->productGroupRepository->getAllForSelect();
+        $categories = $this->productCategoryRepository->getAllForSelect();
+        $attributes = $this->productAttributeRepository->getAllForSelect();
 
 
         return view('admin.catalog.products.edit',

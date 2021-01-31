@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\InfoPages;
 use App\Models\PageField;
 use Illuminate\Http\Request;
 
-class AboutController extends Controller
+class AboutBaseController extends BaseController
 {
     /**
      * Show the form for editing content for about page
