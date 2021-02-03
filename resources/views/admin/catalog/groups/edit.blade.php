@@ -44,12 +44,27 @@
                                             <div class="form-group row">
                                                 <label class="col-form-label col-lg-3 col-sm-12">Категория</label>
                                                 <div class="col-lg-4 col-md-9 col-sm-12">
-                                                    <select class="form-control kt-select2" id="kt_select2_2" name="category_id">
-                                                    @php /** @var \App\Models\Catalog\ProductCategory $category */@endphp
-                                                    @foreach($categories as $category)
-                                                        <option {{($group->category->id == $category->id) ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
-                                                    @endforeach
-                                                    </select>
+                                                    <div class="input-group flex-nowrap mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1"><i class="flaticon2-graph-2"></i></span>
+                                                        </div>
+                                                        <select class="form-control kt-select2" id="kt_select2_2" name="category_id">
+                                                        @php /** @var \App\Models\Catalog\ProductCategory $category */@endphp
+                                                        @foreach($selectCategories as $category)
+                                                            <option {{($group->category->id == $category->id) ? 'selected' : ''}} value="{{$category->id}}">{{($category->parent) ? '- ' . $category->name : $category->name}}</option>
+                                                        @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label>Изображение</label>
+                                                <div class="input-group">
+                                                    <input type="text" id="image_label" class="form-control" name="image"
+                                                           aria-label="Image" aria-describedby="button-image" value="{{($group->image) ? $group->image : ''}}">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary" type="button" id="button-image">Select</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group form-group-last row">
@@ -82,4 +97,24 @@
     </div>
     <!-- end:: Page -->
 
+@endsection
+
+@section('script')
+
+    <script src="{{asset('assets/js/pages/crud/forms/widgets/select2.js')}}" type="text/javascript"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            document.getElementById('button-image').addEventListener('click', (event) => {
+                event.preventDefault();
+
+                window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
+            });
+        });
+
+        // set file link
+        function fmSetLink($url) {
+            document.getElementById('image_label').value = $url;
+        }
+    </script>
 @endsection

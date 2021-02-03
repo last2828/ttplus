@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Blog\Post;
+use App\Models\Catalog\Product;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PageSeeder::class);
         $this->call(PostTypeSeeder::class);
         factory(Post::class, 30)->create();
+        factory(Product::class, 100)->create();
     }
 }

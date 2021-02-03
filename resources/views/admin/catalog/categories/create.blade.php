@@ -91,7 +91,7 @@
                                                                 <option value="" selected>Не выбрано</option>
                                                                 @php /** @var \App\Models\Catalog\ProductCategory $item */@endphp
                                                                 @foreach($selectCategories as $item)
-                                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                                    <option value="{{$item->id}}">{{($item->parent) ? '- ' . $item->name : $item->name}}</option>
                                                                 @endforeach
                                                             </select>
                                                         </div>

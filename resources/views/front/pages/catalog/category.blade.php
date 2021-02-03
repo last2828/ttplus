@@ -5,7 +5,7 @@
 <section class="main-catalog__heading">
   <div class="container">
 
-    {{\App\Breadcrumbs::renderBreadcrumbs($route, $dunker, $jianghai, $categories)}}
+    {{\App\Models\Breadcrumbs::renderBreadcrumbs($route, $dunker, $jianghai, $categories)}}
 
     <h2>Электродвигатели Dunkermotoren</h2>
     <div class="heading__content">
@@ -54,7 +54,7 @@
             @foreach ($products as $product)
               <div class="product__series">
                 <div class="param series">
-                  <div class="prod__img"><img src="img/catalog/product.jpg" alt=""></div>
+                  <div class="prod__img"><img src="{{$product->image}}" alt=""></div>
                   <div class="prod__name">
                     <p><span>Серия</span> <br> {{$product['name']}}</p>
                   </div>
@@ -94,7 +94,7 @@
           @foreach ($products as $product)
             <div class="product__series">
               <div class="param series">
-                <div class="prod__img"><img src="img/catalog/product.jpg" alt=""></div>
+                <div class="prod__img"><img src="{{$product->image}}" alt=""></div>
                 <div class="prod__name">
                   <p><span>Серия</span> <br> {{$product['name']}}</p>
                 </div>
@@ -135,7 +135,7 @@
             @foreach ($category->groups as $group)
               <div class="product__series">
                 <div class="param series">
-                  <div class="prod__img"><img src="img/catalog/product.jpg" alt=""></div>
+                  <div class="prod__img"><img src="{{$group->image}}" alt=""></div>
                   <div class="prod__name">
                     <p><span>Серия</span> <br> {{$group->name}}</p>
                   </div>
@@ -176,7 +176,7 @@
             @foreach ($category->groups as $group)
               <div class="product__series">
                 <div class="param series">
-                  <div class="prod__img"><img src="img/catalog/product.jpg" alt=""></div>
+                  <div class="prod__img"><img src="{{$group->image}}" alt=""></div>
                   <div class="prod__name">
                     <p><span>Серия</span> <br> {{$group->name}}</p>
                   </div>

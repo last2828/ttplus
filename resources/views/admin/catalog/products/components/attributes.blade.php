@@ -49,7 +49,7 @@
                                 <select name="attribute_id" class="form-control">
                                     {{ ($errors->has('attributes.*.attribute_id')) ? $errors->first('attributes.*.attribute_id') : ''}}
                                     @php /** @var \App\Models\Catalog\ProductAttribute $attribute */ @endphp
-                                    @foreach($attributes as $attribute)
+                                    @foreach($selectAttributes as $attribute)
                                         <option value="{{$attribute->id}}">{{$attribute->name}}</option>
                                     @endforeach
                                 </select>

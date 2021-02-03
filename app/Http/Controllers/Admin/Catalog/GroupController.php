@@ -50,9 +50,9 @@ class GroupController extends BaseController
      */
     public function create()
     {
-        $categories = $this->productCategoryRepository->getAllForSelect();
+        $selectCategories = $this->productCategoryRepository->getAllForSelect();
 
-        return view('admin.catalog.groups.create', compact('categories'));
+        return view('admin.catalog.groups.create', compact('selectCategories'));
     }
 
     /**
@@ -79,9 +79,9 @@ class GroupController extends BaseController
     {
         $group = $this->productGroupRepository->getEditByIdForAdmin($id);
 
-        $categories = $this->productCategoryRepository->getAllForSelect();
+        $selectCategories = $this->productCategoryRepository->getAllForSelect();
 
-        return view('admin.catalog.groups.edit', compact('categories', 'group'));
+        return view('admin.catalog.groups.edit', compact('selectCategories', 'group'));
     }
 
     /**

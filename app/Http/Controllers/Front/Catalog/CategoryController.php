@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Front\Catalog;
 
-
 use App\Http\Controllers\Front\BaseController;
 use App\Models\Catalog\Product;
 use App\Models\Catalog\ProductCategory;
 use App\Models\Catalog\ProductGroup;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 class CategoryController extends BaseController
@@ -42,6 +40,7 @@ class CategoryController extends BaseController
 
       return view('front.pages.catalog.category', compact(['categories', 'dunker', 'jianghai', 'route', 'products']));
     }
+
     public function dunkermotoren()
     {
         $dunker = $this->dunker;

@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Front\Catalog;
 
 use App\Http\Controllers\Front\BaseController;
 use App\Models\Catalog\ProductCategory;
-use Illuminate\Http\Request;
 
 class CatalogController extends BaseController
 {

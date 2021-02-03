@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Catalog;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ProductGroupUpdateRequest extends FormRequest
 {
@@ -25,7 +26,10 @@ class ProductGroupUpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'slug' => 'unique:product_groups,slug',
+            'slug' => [
+                'max:255',
+                Rule::unique('product_groups', 'slug')->ignore($this->group)
+            ],
             'category_id' => 'required|exists:product_categories,id'
         ];
     }

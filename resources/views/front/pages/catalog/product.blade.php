@@ -11,7 +11,7 @@
       <div class="product__content">
         {!! $product->content !!}
         <div class="product__image-container">
-          <div class="product__image"><img src="{{asset($product->image)}}" alt="product"></div>
+          <div class="product__image"><img src="{{$product->image}}" alt="product"></div>
         </div>
       </div><a href="#" class="btn btn-pdf">
         <div class="btn-pdf__img"></div>

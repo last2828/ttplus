@@ -51,7 +51,8 @@ class ProductGroupRepository extends CoreRepository
             'id',
             'name',
             'slug',
-            'category_id'
+            'category_id',
+            'image'
         ];
 
         $result = $this->startCondition()

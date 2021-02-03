@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string             $name
  * @property ProductCategory    $category
  * @property string             $slug
+ * @property string             $image
  */
 class ProductGroup extends Model
 {
@@ -26,6 +27,7 @@ class ProductGroup extends Model
         'name',
         'category_id',
         'slug',
+        'image'
     ];
 
     /**
@@ -33,7 +35,7 @@ class ProductGroup extends Model
      */
     public function products()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Product::class, 'group_id', 'id');
     }
 
     /**

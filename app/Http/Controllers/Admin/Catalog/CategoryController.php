@@ -43,9 +43,9 @@ class CategoryController extends BaseController
      */
     public function create()
     {
-        $categories = $this->productCategoryRepository->getAllForSelect();;
+        $selectCategories = $this->productCategoryRepository->getAllForSelect();;
 
-        return view('admin.catalog.categories.create', compact('categories'));
+        return view('admin.catalog.categories.create', compact('selectCategories'));
     }
 
     /**

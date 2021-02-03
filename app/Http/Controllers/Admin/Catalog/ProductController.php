@@ -67,12 +67,12 @@ class ProductController extends BaseController
     public function create()
     {
         // Получаем нужные параметры для создания нового продукта
-        $groups = $this->productGroupRepository->getAllForSelect();
-        $categories = $this->productCategoryRepository->getAllForSelect();
-        $attributes = $this->productAttributeRepository->getAllForSelect();
+        $selectGroups = $this->productGroupRepository->getAllForSelect();
+        $selectCategories = $this->productCategoryRepository->getAllForSelect();
+        $selectAttributes = $this->productAttributeRepository->getAllForSelect();
 
         return view('admin.catalog.products.create',
-            compact('groups', 'categories', 'attributes'));
+            compact('selectGroups', 'selectCategories', 'selectAttributes'));
     }
 
     /**
@@ -100,12 +100,12 @@ class ProductController extends BaseController
         $product = $this->productRepository->getEditByIdForAdmin($id);
 
         // Получаем нужные параметры для обновления продукта
-        $groups = $this->productGroupRepository->getAllForSelect();
-        $categories = $this->productCategoryRepository->getAllForSelect();
-        $attributes = $this->productAttributeRepository->getAllForSelect();
+        $selectGroups = $this->productGroupRepository->getAllForSelect();
+        $selectCategories = $this->productCategoryRepository->getAllForSelect();
+        $selectAttributes = $this->productAttributeRepository->getAllForSelect();
 
         return view('admin.catalog.products.edit',
-            compact('product', 'groups', 'categories', 'attributes'));
+            compact('product', 'selectGroups', 'selectCategories', 'selectAttributes'));
     }
 
     /**
@@ -117,6 +117,7 @@ class ProductController extends BaseController
      */
     public function update(ProductUpdateRequest $request, $id)
     {
+        dd($request->all());
         $fields = $request->toArray();
         Product::updateProduct($fields, $id);
 

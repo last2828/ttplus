@@ -13,28 +13,29 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1"><i class="flaticon2-graph-2"></i></span>
                 </div>
-                <select class="form-control kt-select2" id="kt_select2_group_1" name="category_id">
+                <select class="form-control kt-select2 category-select" id="" name="category_id">
                     <option value="">Не выбрано</option>
                     @php /** @var \App\Models\Catalog\ProductCategory $category */ @endphp
-                    @foreach($categories as $category):
-                    <option {{(isset($product) && $product->category->id == $category->id) ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
+                    @foreach($selectCategories as $category):
+                    <option id="option-category-{{$category->id}}" {{(isset($product) && $product->category->id == $category->id) ? 'selected' : ''}} value="{{$category->id}}">{{($category->parent) ? '- ' . $category->name : $category->name}}</option>
                     @endforeach
                 </select>
             </div>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group row" id="product_groups">
         <label class="col-form-label col-lg-3 col-sm-12">Группа товаров</label>
         <div class="col-lg-4 col-md-9 col-sm-12">
             <div class="input-group flex-nowrap mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1"><i class="flaticon2-graph-2"></i></span>
                 </div>
-                <select class="form-control kt-select2" id="kt_select3_group_2" name="group_id">
+                <select class="form-control kt-select2 group-select" id="" name="group_id">
+                    {{--kt_select2_group_2--}}
                     <option value="">Не выбрано</option>
                     @php /** @var \App\Models\Catalog\ProductGroup $group */ @endphp
-                    @foreach($groups as $group):
-                    <option {{(isset($product->group_id) && $product->group->id == $group->id) ? 'selected' : ''}} value="{{$group->id}}">{{$group->name}}</option>
+                    @foreach($selectGroups as $group):
+                    <option id="option-{{$group->id}}" {{(isset($product->group_id) && $product->group->id == $group->id) ? 'selected' : ''}} value="{{$group->id}}">{{$group->name}}</option>
                     @endforeach
                 </select>
             </div>

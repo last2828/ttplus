@@ -73,9 +73,10 @@ class ProductCategory extends Model
         //check slug and transliterate 'name' if slug = null
         $fields = AppHelper::checkSlug($fields);
 
-        if(empty($fields->parent_id)){
+        if(empty($fields['parent_id'])){
             $fields['parent_id'] = '0';
         }
+
         //find and update product in db
         $product = self::find($id);
         $product->update($fields);

@@ -92,10 +92,9 @@
                                                             <select class="form-control kt-select2" id="kt_select2_2" name="parent_id">
                                                                 <option value="">Не выбрано</option>
                                                                 @php /** @var \App\Models\Catalog\ProductCategory $item */ @endphp
-
                                                                 @foreach($selectCategories as $item)
                                                                     @if(!($item->id == $category->id))
-                                                                        <option {{($item->id == $category->parent_id) ? 'selected' : ''}} value="{{$item->id}}">{{$item->name}}</option>
+                                                                        <option {{($item->id == $category->parent_id) ? 'selected' : ''}} value="{{$item->id}}">{{($item->parent) ? '- ' . $item->name : $item->name}}</option>
                                                                     @endif
                                                                 @endforeach
                                                             </select>

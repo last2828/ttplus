@@ -29,11 +29,11 @@ class ProductCategoryRepository extends CoreRepository
      */
     public function getAllForSelect()
     {
-        $columns = ['id', 'name'];
+        $columns = ['id', 'name', 'parent_id'];
 
         $result = $this->startCondition()
                         ->select($columns)
-                        ->toBase()
+                        ->with('parent:id,name')
                         ->get();
 
         return $result;
@@ -54,7 +54,7 @@ class ProductCategoryRepository extends CoreRepository
             'content',
             'meta_title',
             'meta_description',
-            'meta_keyword',
+            'meta_keywords',
             'parent_id',
             'slug',
             'status',
@@ -63,7 +63,7 @@ class ProductCategoryRepository extends CoreRepository
 
         $result = $this->startCondition()
                         ->select($columns)
-//                        ->with('children:id,name')
+                        ->with('parent:id,name')
                         ->find($id);
 
         return $result;
@@ -80,7 +80,7 @@ class ProductCategoryRepository extends CoreRepository
 
         $result = $this->startCondition()
                         ->select($columns)
-                        ->toBase()
+                        ->with('parent:id,name')
                         ->get();
 
         return $result;

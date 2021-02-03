@@ -923,7 +923,6 @@ button.swiper-pagination-bullet {
   height: 100%;
   background: #000;
   opacity: 0.6;
-  -webkit-filter: blur(50px);
   filter: blur(50px);
   z-index: 0;
 }
@@ -1221,12 +1220,6 @@ button.swiper-pagination-bullet {
   }
 }
 
-.header .container .search .input input::-webkit-input-placeholder {
-  font-size: 24px;
-  letter-spacing: 1.5px;
-  color: #ced9ef;
-}
-
 .header .container .search .input input::-moz-placeholder {
   font-size: 24px;
   letter-spacing: 1.5px;
@@ -1239,12 +1232,6 @@ button.swiper-pagination-bullet {
   color: #ced9ef;
 }
 
-.header .container .search .input input::-ms-input-placeholder {
-  font-size: 24px;
-  letter-spacing: 1.5px;
-  color: #ced9ef;
-}
-
 .header .container .search .input input::placeholder {
   font-size: 24px;
   letter-spacing: 1.5px;
@@ -1252,19 +1239,11 @@ button.swiper-pagination-bullet {
 }
 
 @media only screen and (max-width: 1919px) {
-  .header .container .search .input input::-webkit-input-placeholder {
-    font-size: 21px;
-    letter-spacing: 1.3px;
-  }
   .header .container .search .input input::-moz-placeholder {
     font-size: 21px;
     letter-spacing: 1.3px;
   }
   .header .container .search .input input:-ms-input-placeholder {
-    font-size: 21px;
-    letter-spacing: 1.3px;
-  }
-  .header .container .search .input input::-ms-input-placeholder {
     font-size: 21px;
     letter-spacing: 1.3px;
   }
@@ -1275,19 +1254,11 @@ button.swiper-pagination-bullet {
 }
 
 @media only screen and (max-width: 1679px) {
-  .header .container .search .input input::-webkit-input-placeholder {
-    font-size: 17px;
-    letter-spacing: 1.06px;
-  }
   .header .container .search .input input::-moz-placeholder {
     font-size: 17px;
     letter-spacing: 1.06px;
   }
   .header .container .search .input input:-ms-input-placeholder {
-    font-size: 17px;
-    letter-spacing: 1.06px;
-  }
-  .header .container .search .input input::-ms-input-placeholder {
     font-size: 17px;
     letter-spacing: 1.06px;
   }
@@ -2547,15 +2518,6 @@ form input:focus {
   }
 }
 
-form input::-webkit-input-placeholder {
-  font-family: "Gilroy";
-  font-weight: 500;
-  line-height: normal;
-  color: #6a7281;
-  font-size: 21.1px;
-  letter-spacing: 2.11px;
-}
-
 form input::-moz-placeholder {
   font-family: "Gilroy";
   font-weight: 500;
@@ -2574,15 +2536,6 @@ form input:-ms-input-placeholder {
   letter-spacing: 2.11px;
 }
 
-form input::-ms-input-placeholder {
-  font-family: "Gilroy";
-  font-weight: 500;
-  line-height: normal;
-  color: #6a7281;
-  font-size: 21.1px;
-  letter-spacing: 2.11px;
-}
-
 form input::placeholder {
   font-family: "Gilroy";
   font-weight: 500;
@@ -2593,19 +2546,11 @@ form input::placeholder {
 }
 
 @media only screen and (max-width: 1919px) {
-  form input::-webkit-input-placeholder {
-    font-size: 18px;
-    letter-spacing: 1.8px;
-  }
   form input::-moz-placeholder {
     font-size: 18px;
     letter-spacing: 1.8px;
   }
   form input:-ms-input-placeholder {
-    font-size: 18px;
-    letter-spacing: 1.8px;
-  }
-  form input::-ms-input-placeholder {
     font-size: 18px;
     letter-spacing: 1.8px;
   }
@@ -2616,19 +2561,11 @@ form input::placeholder {
 }
 
 @media only screen and (max-width: 1679px) {
-  form input::-webkit-input-placeholder {
-    font-size: 15px;
-    letter-spacing: 1.5px;
-  }
   form input::-moz-placeholder {
     font-size: 15px;
     letter-spacing: 1.5px;
   }
   form input:-ms-input-placeholder {
-    font-size: 15px;
-    letter-spacing: 1.5px;
-  }
-  form input::-ms-input-placeholder {
     font-size: 15px;
     letter-spacing: 1.5px;
   }
@@ -2671,15 +2608,6 @@ form .range-num input {
   }
 }
 
-form .range-num input::-webkit-input-placeholder {
-  font-family: "Gilroy";
-  font-size: 20px;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #4a4a4a;
-}
-
 form .range-num input::-moz-placeholder {
   font-family: "Gilroy";
   font-size: 20px;
@@ -2698,15 +2626,6 @@ form .range-num input:-ms-input-placeholder {
   color: #4a4a4a;
 }
 
-form .range-num input::-ms-input-placeholder {
-  font-family: "Gilroy";
-  font-size: 20px;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #4a4a4a;
-}
-
 form .range-num input::placeholder {
   font-family: "Gilroy";
   font-size: 20px;
@@ -2717,16 +2636,10 @@ form .range-num input::placeholder {
 }
 
 @media only screen and (max-width: 1919px) {
-  form .range-num input::-webkit-input-placeholder {
-    font-size: 17px;
-  }
   form .range-num input::-moz-placeholder {
     font-size: 17px;
   }
   form .range-num input:-ms-input-placeholder {
-    font-size: 17px;
-  }
-  form .range-num input::-ms-input-placeholder {
     font-size: 17px;
   }
   form .range-num input::placeholder {
@@ -2735,16 +2648,10 @@ form .range-num input::placeholder {
 }
 
 @media only screen and (max-width: 1679px) {
-  form .range-num input::-webkit-input-placeholder {
-    font-size: 14px;
-  }
   form .range-num input::-moz-placeholder {
     font-size: 14px;
   }
   form .range-num input:-ms-input-placeholder {
-    font-size: 14px;
-  }
-  form .range-num input::-ms-input-placeholder {
     font-size: 14px;
   }
   form .range-num input::placeholder {

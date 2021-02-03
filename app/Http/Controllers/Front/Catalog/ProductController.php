@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Front\Catalog;
 
 use App\Http\Controllers\Front\BaseController;
 use App\Models\Catalog\Product;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 class ProductController extends BaseController

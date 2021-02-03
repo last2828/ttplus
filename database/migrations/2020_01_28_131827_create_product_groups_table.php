@@ -17,6 +17,7 @@ class CreateProductGroupsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('slug')->unique();
+            $table->string('image')->nullable();
             $table->bigInteger('category_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
