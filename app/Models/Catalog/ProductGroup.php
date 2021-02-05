@@ -4,6 +4,7 @@ namespace App\Models\Catalog;
 
 use App\Models\AppHelper;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -13,6 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * @property string             $name
  * @property ProductCategory    $category
+ * @property Product            $products
  * @property string             $slug
  * @property string             $image
  */

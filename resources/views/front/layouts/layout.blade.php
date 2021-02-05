@@ -23,11 +23,11 @@
 
     <!--BEGIN out-->
     <div class="out">
-      @include('front.header')
+      @include('front.layouts.header')
 
       @yield('content')
 
-      @include('front.footer')
+      @include('front.layouts.footer')
     </div>
     <!--END out-->
 

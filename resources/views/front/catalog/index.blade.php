@@ -1,4 +1,4 @@
-@extends('front.layout')
+@extends('front.layouts.layout')
 
 @section('content')
 <section class="catalog-page">
@@ -15,13 +15,13 @@
       </div>
       <div class="card__content">
         <div class="content__column">
-          @foreach (array_slice($dunkermotoren, 0, 6) as $item)
-          <p><a href="{{route('pages.catalog.dunkermotoren.category', $item['slug'])}}">{{$item['name']}}</a></p>
+          @foreach (array_slice($dunkermotorenSubCategories, 0, 6) as $category)
+          <p><a href="{{route('pages.category.index', $category['slug'])}}">{{$category['name']}}</a></p>
           @endforeach
         </div>
         <div class="content__column">
-          @foreach (array_slice($dunkermotoren, 6) as $item)
-            <p><a href="{{route('pages.catalog.dunkermotoren.category', $item['slug'])}}">{{$item['name']}}</a></p>
+          @foreach (array_slice($dunkermotorenSubCategories, 6) as $category)
+            <p><a href="{{route('pages.category.index', $category['slug'])}}">{{$category['name']}}</a></p>
           @endforeach
         </div>
       </div>
@@ -37,13 +37,13 @@
       </div>
       <div class="card__content">
         <div class="content__column">
-          @foreach (array_slice($jianghai, 0, 3) as $item)
-            <p><a href="{{route('pages.catalog.jianghai.category', $item['slug'])}}">{{$item['name']}}</a></p>
+          @foreach (array_slice($jianghaiSubCategories, 0, 3) as $category)
+            <p><a href="{{route('pages.category.index', $category['slug'])}}">{{$category['name']}}</a></p>
           @endforeach
         </div>
         <div class="content__column">
-          @foreach (array_slice($jianghai, 3) as $item)
-            <p><a href="{{route('pages.catalog.jianghai.category', $item['slug'])}}">{{$item['name']}}</a></p>
+          @foreach (array_slice($jianghaiSubCategories, 3) as $category)
+            <p><a href="{{route('pages.category.index', $category['slug'])}}">{{$category['name']}}</a></p>
           @endforeach
         </div>
       </div>

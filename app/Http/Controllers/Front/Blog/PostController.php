@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Front\News;
+namespace App\Http\Controllers\Front\Blog;
 
 use App\Http\Controllers\Front\BaseController;
 use App\Models\Blog\Post;
 use Illuminate\Http\Request;
 
-class ArticleController extends BaseController
+class PostController extends BaseController
 {
     public function index($slug)
     {

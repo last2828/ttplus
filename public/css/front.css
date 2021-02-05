@@ -8985,7 +8985,7 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
 }
 
 .bg_div {
-  background-image: url("/img/intro-bg-lg.svg");
+  background-image: url(/images/intro-bg-lg.svg?d1eec5e49cbd3c3d1cc056671ba2381a);
   background-position-y: -210px;
   height: 2086px;
   position: absolute !important;
@@ -9016,7 +9016,7 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
 
 @media only screen and (max-width: 767px) {
   .bg_div {
-    background-image: url("/img/intro-bg-sm.svg");
+    background-image: url(/images/intro-bg-sm.svg?91d8423ceb2610356ac776becc0a060c);
   }
 }
 

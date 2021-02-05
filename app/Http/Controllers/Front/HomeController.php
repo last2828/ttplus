@@ -2,13 +2,47 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Models\Blog\Post;
+use App\Models\PageField;
+use App\Repositories\Blog\PostRepository;
 
 class HomeController extends BaseController
 {
-    public function index()
+
+    /**
+     * Show index page
+     *
+     * @param PostRepository $postRepository
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index(PostRepository $postRepository)
     {
-      $posts = Post::limit(4)->get();
-      return view('front.pages.home', compact('posts'));
+        $posts = $postRepository->getForIndexPage(4);
+
+        return view('front.pages.home', compact('posts'));
+    }
+
+    /**
+     * Show about page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function about()
+    {
+        $data = PageField::where('key', 'about')->first();
+
+        return view('front.pages.about', compact('data'));
+    }
+
+    /**
+     * Show contact page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function contact()
+    {
+        $data = PageField::where('key', 'contact')->first();
+
+        return view('front.pages.contact', compact('data'));
     }
 }

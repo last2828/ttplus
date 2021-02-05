@@ -1,18 +1,18 @@
 
-@extends('front.layout')
+@extends('front.layouts.layout')
 @section('content')
 <section class="about-page">
     <div class="container">
 
         {{ Breadcrumbs::render('front-about') }}
 
-        <h2>{{$about->title}}</h2>
-        <p>{!! $about->description !!}</p>
-        <div class="about__image"><img src="{{$about->head_image}}" alt=""></div>
-        <h2>{{$about->partner_title}}</h2>
-        <p class="partners">{{$about->partner_title_description}}</p>
+        <h2>{{$data->title}}</h2>
+        <p>{!! $data->description !!}</p>
+        <div class="about__image"><img src="{{$data->head_image}}" alt=""></div>
+        <h2>{{$data->partner_title}}</h2>
+        <p class="partners">{{$data->partner_title_description}}</p>
         <ul>
-            @foreach($about->features_content as $feature)
+            @foreach($data->features_content as $feature)
             <li>
                 <div class="dot"></div>
                 <p>{{$feature}}</p>
@@ -21,35 +21,35 @@
         </ul>
         <div class="about__quote">
             <div class="quotes"></div>
-            <p>{{$about->quote_title}}</p>
+            <p>{{$data->quote_title}}</p>
         </div>
-        <h2>{{$about->years_title}}</h2>
+        <h2>{{$data->years_title}}</h2>
         <div class="about__years">
             <div class="about__year">
-                <div class="year">{{$about->years_1['title']}}</div>
-                <p>{{$about->years_1['description']}}</p>
+                <div class="year">{{$data->years_1['title']}}</div>
+                <p>{{$data->years_1['description']}}</p>
             </div>
             <div class="about__year">
-                <div class="year">{{$about->years_2['title']}}</div>
-                <p>{{$about->years_2['description']}}</p>
+                <div class="year">{{$data->years_2['title']}}</div>
+                <p>{{$data->years_2['description']}}</p>
             </div>
             <div class="about__year">
-                <div class="year">{{$about->years_3['title']}}</div>
-                <p>{{$about->years_3['description']}}</p>
+                <div class="year">{{$data->years_3['title']}}</div>
+                <p>{{$data->years_3['description']}}</p>
             </div>
         </div>
         <div class="about__blocks">
             <div class="about__block">
-                <h4>{{$about->blocks_1['title']}}</h4>
-                <p>{{$about->blocks_1['description']}}</p>
+                <h4>{{$data->blocks_1['title']}}</h4>
+                <p>{{$data->blocks_1['description']}}</p>
             </div>
             <div class="about__block">
-                <h4>{{$about->blocks_2['title']}}</h4>
-                <p>{{$about->blocks_2['description']}}</p>
+                <h4>{{$data->blocks_2['title']}}</h4>
+                <p>{{$data->blocks_2['description']}}</p>
             </div>
             <div class="about__block">
-                <h4>{{$about->blocks_3['title']}}</h4>
-                <p>{{$about->blocks_3['description']}}</p>
+                <h4>{{$data->blocks_3['title']}}</h4>
+                <p>{{$data->blocks_3['description']}}</p>
             </div>
         </div>
     </div>
@@ -62,17 +62,17 @@
             <li><a class="btn tab-button">Выставки</a></li>
         </ul>
         <div class="tabs__content about__documents-tab active">
-            @foreach($about->awards as $award)
+            @foreach($data->awards as $award)
             <div class="document"><img src="img/about/certificate.png" alt=""></div>
             @endforeach
         </div>
         <div class="tabs__content about__documents-tab">
-            @foreach($about->licenses as $licens)
+            @foreach($data->licenses as $licens)
             <div class="document"><img src="img/about/certificate.png" alt=""></div>
             @endforeach
         </div>
         <div class="tabs__content about__documents-tab">
-            @foreach($about->shows as $show)
+            @foreach($data->shows as $show)
             <div class="document"><img src="img/about/certificate.png" alt=""></div>
             @endforeach
         </div>

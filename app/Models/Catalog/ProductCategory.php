@@ -19,6 +19,8 @@ use Eloquent;
  * @property string             $meta_description
  * @property string             $meta_keywords
  * @property ProductCategory    $parent
+ * @property Product            $products
+ * @property ProductGroup       $groups
  * @property string             $slug
  * @property boolean            $status
  * @property $string            $image
@@ -51,6 +53,14 @@ class ProductCategory extends Model
     public function groups()
     {
         return $this->hasMany(ProductGroup::class,'category_id','id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function products()
+    {
+        return $this->hasMany(Product::class,'category_id','id');
     }
 
     public static function storeProductCategory($fields)

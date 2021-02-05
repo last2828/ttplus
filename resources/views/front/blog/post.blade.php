@@ -1,4 +1,4 @@
-@extends('front.layout')
+@extends('front.layouts.layout')
 
 @section('content')
 <section class="articles">

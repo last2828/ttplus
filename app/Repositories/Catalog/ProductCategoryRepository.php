@@ -85,4 +85,34 @@ class ProductCategoryRepository extends CoreRepository
 
         return $result;
     }
+
+    /**
+     * Get sub categories data by parent name for catalog in frontend
+     *
+     * @param $parentName
+     * @return array
+     */
+    public function getSubCategoriesByParentName($parentName)
+    {
+        $result = $this->startCondition()
+                        ->select('id')
+                        ->where('name', $parentName)
+                        ->with('children:name,slug,parent_id')
+                        ->first()
+                        ->toArray()['children'];
+
+        return $result;
+    }
+
+    public function getAllCategoriesForAside()
+    {
+        $columns = ['id', 'name_ru'];
+
+        $result = $this->startCondition()
+                        ->select($columns)
+                        ->with('children:name,slug,parent_id')
+                        ->get();
+
+        return $result;
+    }
 }

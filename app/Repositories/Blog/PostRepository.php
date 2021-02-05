@@ -1,15 +1,43 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: cyrill
- * Date: 30.01.2021
- * Time: 21:11
- */
 
 namespace App\Repositories\Blog;
 
+use App\Repositories\CoreRepository;
+use App\Models\Blog\Post as Model;
 
-class PostRepository
+/**
+ * Class PostRepository
+ *
+ * @package App\Repositories\Blog
+ */
+class PostRepository extends CoreRepository
 {
+    /**
+     * Get model for creating repository
+     *
+     * @return string
+     */
+    protected function getModelClass()
+    {
+        return Model::class;
+    }
 
+    /**
+     * Получаем несколько постов для главной страницы сайта
+     *
+     * @param integer $limit
+     *
+     * @return mixed
+     */
+    public function getForIndexPage($limit)
+    {
+        $columns = ['title', 'slug', 'image'];
+
+        $result = $this->startCondition()
+                        ->select($columns)
+                        ->limit($limit)
+                        ->get();
+
+        return $result;
+    }
 }

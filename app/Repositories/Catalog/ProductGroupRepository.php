@@ -13,7 +13,7 @@ use App\Models\Catalog\ProductGroup as Model;
 class ProductGroupRepository extends CoreRepository
 {
     /**
-     * Get model name for creating repository
+     * Get model for creating repository
      *
      * @return string
      */
