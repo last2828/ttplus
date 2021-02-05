@@ -15,35 +15,25 @@
     \Route::get('/', 'HomeController@index')->name('home');
     \Route::get('/contact', 'HomeController@contact')->name('contact');
     \Route::get('/about-us', 'HomeController@about')->name('about');
-    \Route::post('/offers-store', 'OfferController@store')->name('offers.store');
-
-    \Route::group(['prefix' => 'category', 'namespace' => 'Catalog', 'as' => 'category.'], function() {
-        \Route::get('/{category}', 'CategoryController@index')->name('index');
-    });
 
     \Route::group(['prefix' => 'catalog', 'namespace' => 'Catalog', 'as' => 'catalog.'], function () {
         \Route::get('/', 'CatalogController@index')->name('index');
+        \Route::get('/{category}', 'CatalogController@mainCategoryList')->name('maincategory');
 
-
-
-        \Route::group(['prefix' => 'dunkermotoren', 'as' => 'dunkermotoren.'], function () {
-            \Route::get('/', 'CategoryController@dunkermotoren')->name('index');
-            \Route::get('/{category}', 'CategoryController@index')->name('category');
-            \Route::get('/{category}/{group?}', 'CategoryController@index')->name('group');
-            \Route::get('/{category}/{group?}/detail/{product}', 'ProductController@dunker')->name('product');
+        \Route::group(['prefix' => 'category', 'as' => 'category.'], function() {
+            \Route::get('/{category}', 'CatalogController@subCategoryList')->name('subcategory');
+            \Route::get('/{category}/{group?}', 'CatalogController@subCategoryList')->name('group');
         });
 
-        \Route::group(['prefix' => 'jianghai', 'as' => 'jianghai.'], function () {
-            \Route::get('/', 'CategoryController@jianghai')->name('index');
-            \Route::get('/{category}', 'CategoryController@index')->name('category');
-            \Route::get('/{category}/detail/{product}', 'ProductController@jianghai')->name('product');
-        });
+        \Route::get('/detail/{product}', 'CatalogController@showProduct')->name('product');
     });
 
     \Route::group(['prefix' => 'info', 'namespace' => 'News', 'as' => 'news.'], function () {
         \Route::get('/', 'NewsController@index')->name('index');
         \Route::get('/{slug}', 'ArticleController@index')->name('article');
     });
+
+    \Route::post('/offers-store', 'OfferController@store')->name('offers.store');
 });
 
 \Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'], function () {
@@ -71,4 +61,4 @@
 
 Auth::routes();
 
-\Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+\Route::get('logout', 'Auth\LoginController@logout')->name('logout')->middleware('auth');

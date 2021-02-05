@@ -23,7 +23,7 @@ use Eloquent;
  * @property ProductGroup       $groups
  * @property string             $slug
  * @property boolean            $status
- * @property $string            $image
+ * @property string             $image
  */
 
 class ProductCategory extends Model

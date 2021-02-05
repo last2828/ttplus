@@ -104,6 +104,9 @@ class ProductCategoryRepository extends CoreRepository
         return $result;
     }
 
+    /**
+     * @return mixed
+     */
     public function getAllCategoriesForAside()
     {
         $columns = ['id', 'name_ru'];
@@ -112,6 +115,66 @@ class ProductCategoryRepository extends CoreRepository
                         ->select($columns)
                         ->with('children:name,slug,parent_id')
                         ->get();
+
+        return $result;
+    }
+
+    /**
+     * Get category data for frontend showing
+     *
+     * @param $slug
+     * @return mixed
+     */
+    public function getOneMainBySlug($slug)
+    {
+        $columns = [
+            'id',
+            'name',
+            'content',
+            'meta_title',
+            'meta_keywords',
+            'meta_description',
+            'slug',
+            'image'
+        ];
+
+        $result = $this->startCondition()
+                        ->select($columns)
+                        ->with('children:id,parent_id,name,image,slug')
+                        ->where('slug', $slug)
+                        ->first();
+
+        return $result;
+    }
+
+    /**
+     * Get category data for frontend showing
+     *
+     * @param $slug
+     * @return mixed
+     */
+    public function getOneSubBySlug($slug)
+    {
+        $columns = [
+            'id',
+            'name',
+            'content',
+            'meta_title',
+            'meta_keywords',
+            'meta_description',
+            'slug',
+            'image'
+        ];
+
+        $result = $this->startCondition()
+                        ->select($columns)
+                        ->with(['groups' => function($query){
+                            $query->select('id', 'category_id', 'name', 'slug')
+                                    ->with('products:id,group_id,name,slug')
+                                    ->get();
+                        }])
+                        ->where('slug', $slug)
+                        ->first();
 
         return $result;
     }

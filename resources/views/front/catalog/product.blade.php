@@ -4,8 +4,9 @@
 <section class="product">
   <div class="container">
 
-    {{Breadcrumbs::render('catalog-brand-category-product', $product)}}
+{{--    {{Breadcrumbs::render('catalog-brand-category-product', $product)}}--}}
 
+    @php /** @var \App\Models\Catalog\Product $product */ @endphp
     <div class="product-container">
       <h2>{{$product->name}}</h2>
       <div class="product__content">
@@ -32,6 +33,7 @@
     </div>
     <div class="tabs__content active">
       <table>
+        @php /** @var \App\Models\Catalog\ProductAttribute $attribute */ @endphp
         @foreach($product->attributes as $attribute)
         <tr>
           <td class="zero-column"></td>

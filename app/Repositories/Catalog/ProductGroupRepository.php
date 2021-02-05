@@ -79,4 +79,28 @@ class ProductGroupRepository extends CoreRepository
 
         return $result;
     }
+
+    /**
+     * Get group data for frontend showing
+     *
+     * @param $slug
+     * @return mixed
+     */
+    public function getOneSubBySlug($slug)
+    {
+        $columns = [
+            'id',
+            'name',
+            'slug',
+            'image'
+        ];
+
+        $result = $this->startCondition()
+                        ->select($columns)
+                        ->with('products:group_id,name,slug,image')
+                        ->where('slug', $slug)
+                        ->first();
+
+        return $result;
+    }
 }

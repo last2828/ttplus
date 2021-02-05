@@ -70,4 +70,31 @@ class ProductRepository extends CoreRepository
 
         return $result;
     }
+
+    /**
+     * Get product data for frontend showing
+     *
+     * @param $slug
+     * @return mixed
+     */
+    public function getOneBySlug($slug)
+    {
+        $columns = [
+            'name',
+            'content',
+            'meta_title',
+            'meta_keywords',
+            'meta_description',
+            'slug',
+            'image'
+        ];
+
+        $result = $this->startCondition()
+                        ->select($columns)
+                        ->with('attributes:id,name,units')
+                        ->where('slug', $slug)
+                        ->first();
+
+        return $result;
+    }
 }

@@ -15,19 +15,20 @@
       </div>
       <div class="card__content">
         <div class="content__column">
+          @php /** @var array $category */@endphp
           @foreach (array_slice($dunkermotorenSubCategories, 0, 6) as $category)
-          <p><a href="{{route('pages.category.index', $category['slug'])}}">{{$category['name']}}</a></p>
+          <p><a href="{{route('pages.catalog.category.subcategory', $category['slug'])}}">{{$category['name']}}</a></p>
           @endforeach
         </div>
         <div class="content__column">
           @foreach (array_slice($dunkermotorenSubCategories, 6) as $category)
-            <p><a href="{{route('pages.category.index', $category['slug'])}}">{{$category['name']}}</a></p>
+            <p><a href="{{route('pages.catalog.category.subcategory', $category['slug'])}}">{{$category['name']}}</a></p>
           @endforeach
         </div>
       </div>
       <div class="card__bottom">
-        <a href="{{route('pages.catalog.dunkermotoren.index')}}" class="btn btn-primary">Подробнее</a>
-        <a href="{{route('pages.catalog.dunkermotoren.index')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a>
+        <a href="{{route('pages.catalog.maincategory', ['dunkermotoren'])}}" class="btn btn-primary">Подробнее</a>
+        <a href="{{route('pages.catalog.maincategory', ['dunkermotoren'])}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a>
       </div>
     </div>
     <div class="catalog-card">
@@ -37,19 +38,20 @@
       </div>
       <div class="card__content">
         <div class="content__column">
+          @php /** @var array $category */@endphp
           @foreach (array_slice($jianghaiSubCategories, 0, 3) as $category)
-            <p><a href="{{route('pages.category.index', $category['slug'])}}">{{$category['name']}}</a></p>
+            <p><a href="{{route('pages.catalog.category.subcategory', $category['slug'])}}">{{$category['name']}}</a></p>
           @endforeach
         </div>
         <div class="content__column">
           @foreach (array_slice($jianghaiSubCategories, 3) as $category)
-            <p><a href="{{route('pages.category.index', $category['slug'])}}">{{$category['name']}}</a></p>
+            <p><a href="{{route('pages.catalog.category.subcategory', $category['slug'])}}">{{$category['name']}}</a></p>
           @endforeach
         </div>
       </div>
       <div class="card__bottom">
-        <a href="{{route('pages.catalog.jianghai.index')}}" class="btn btn-primary">Подробнее</a>
-        <a href="{{route('pages.catalog.jianghai.index')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a>
+        <a href="{{route('pages.catalog.maincategory', ['jianghai'])}}" class="btn btn-primary">Подробнее</a>
+        <a href="{{route('pages.catalog.maincategory', ['jianghai'])}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a>
       </div>
     </div>
   </div>
