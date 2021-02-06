@@ -39,7 +39,7 @@ class PostStoreRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Введите название товара',
+            'title.required' => 'Введите название записи',
             'slug.unique' => 'Введите уникальное значение',
             'type_id.required' => 'Выберите тип записи',
             'type_id.exists' => 'Выберите тип записи из указанных в списке',

@@ -1,7 +1,12 @@
 @extends('front.layouts.layout')
 
 @section('content')
-    @include('front.catalog.components.description-section')
+    <section class="main-catalog__heading">
+        <div class="container">
+            {{Breadcrumbs::render('catalog-brand', $category)}}
+            @include('front.catalog.components.description-section')
+        </div>
+    </section>
     <section class="main-catalog__content">
         <div class="container"><a href="#" class="btn btn-single-param__heading btn-filter"><span class="span-text">Фильтры</span><span class="span-arrow"></span></a>
 
@@ -37,7 +42,6 @@
                 <div class="product__block">
                     @include('front.catalog.components.subcategories-list', ['list' => $category, 'categories' => $subCategories])
                 </div>
-                {{ $subCategories->links() }}
             </div>
         </div>
     </section>

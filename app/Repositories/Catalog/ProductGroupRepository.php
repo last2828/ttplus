@@ -92,12 +92,17 @@ class ProductGroupRepository extends CoreRepository
             'id',
             'name',
             'slug',
-            'image'
+            'image',
+            'category_id'
         ];
 
         $result = $this->startCondition()
                         ->select($columns)
-                        ->with('products:group_id,name,slug,image')
+                        ->with(['products:group_id,name,slug,image', 'category' => function($query) {
+                            $query->select('id', 'parent_id', 'name', 'slug')
+                                ->with('parent:id,name,slug')
+                                ->get();
+                        }])
                         ->where('slug', $slug)
                         ->first();
 

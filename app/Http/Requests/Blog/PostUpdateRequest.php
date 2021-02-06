@@ -25,10 +25,10 @@ class PostUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
+            'title' => 'required|max:255',
             'slug' => [
                 'max:255',
-                Rule::unique('posts','slug')->ignore($this->product)
+                Rule::unique('posts','slug')->ignore($this->post)
             ],
             'type_id' => 'required|exists:post_types,id',
             'status' => 'required|boolean'
@@ -43,7 +43,7 @@ class PostUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Введите название записи',
+            'title.required' => 'Введите название записи',
             'slug.unique' => 'Введите уникальное значение',
             'type_id.required' => 'Выберите тип записи',
             'type_id.exists' => 'Выберите тип записи из указанных в списке',

@@ -86,12 +86,17 @@ class ProductRepository extends CoreRepository
             'meta_keywords',
             'meta_description',
             'slug',
+            'category_id',
             'image'
         ];
 
         $result = $this->startCondition()
                         ->select($columns)
-                        ->with('attributes:id,name,units')
+                        ->with(['attributes:id,name,units', 'category' => function($query) {
+                            $query->select('id', 'name', 'slug', 'parent_id')
+                                    ->with('parent:id,name,slug')
+                                    ->first();
+                        }])
                         ->where('slug', $slug)
                         ->first();
 

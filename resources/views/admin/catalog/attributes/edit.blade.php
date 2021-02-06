@@ -43,7 +43,7 @@
                                                            aria-describedby=""
                                                            placeholder="{{ ($errors->has('name')) ? $errors->first('name') : 'Название характеристики' }}"
                                                            name="name"
-                                                           value="{{($errors->has('name')) ? old('name') : $attribute['name']}}">
+                                                           value="{{($errors->has('name')) ? old('name') : $attribute->name}}">
                                                 </div>
                                             </div>
                                             <div class="form-group form-group-last row">
@@ -54,7 +54,7 @@
                                                            aria-describedby=""
                                                            placeholder="{{ ($errors->has('units')) ? $errors->first('units') : 'Еденицы измерения' }}"
                                                            name="units"
-                                                           value="{{($errors->has('name')) ? old('name') : $attribute['units']}}">
+                                                           value="{{($errors->has('name')) ? old('name') : $attribute->units}}">
                                                 </div>
                                             </div>
                                         </div>

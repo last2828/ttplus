@@ -32,3 +32,4 @@
         </a>
     </div>
 @endforeach
+@include('front.layouts.pagination', ['paginator' => $subCategories])

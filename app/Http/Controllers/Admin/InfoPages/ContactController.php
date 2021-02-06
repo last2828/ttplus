@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\InfoPages;
 use App\Models\PageField;
 use Illuminate\Http\Request;
 
-class ContactBaseController extends BaseController
+class ContactController extends BaseController
 {
     /**
      * Show the form for editing content for contact page

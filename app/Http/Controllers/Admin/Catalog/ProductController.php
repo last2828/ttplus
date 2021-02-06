@@ -117,7 +117,6 @@ class ProductController extends BaseController
      */
     public function update(ProductUpdateRequest $request, $id)
     {
-        dd($request->all());
         $fields = $request->toArray();
         Product::updateProduct($fields, $id);
 

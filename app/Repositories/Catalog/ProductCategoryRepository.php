@@ -162,17 +162,20 @@ class ProductCategoryRepository extends CoreRepository
             'meta_title',
             'meta_keywords',
             'meta_description',
+            'parent_id',
             'slug',
             'image'
         ];
 
         $result = $this->startCondition()
                         ->select($columns)
-                        ->with(['groups' => function($query){
-                            $query->select('id', 'category_id', 'name', 'slug')
-                                    ->with('products:id,group_id,name,slug')
-                                    ->get();
-                        }])
+                        ->with(['parent:id,name,slug',
+                                'groups' => function($query) {
+                                    $query->select('id', 'category_id', 'name', 'slug')
+                                            ->with('products:id,group_id,name,slug')
+                                            ->get();
+                                    }
+                                ])
                         ->where('slug', $slug)
                         ->first();
 

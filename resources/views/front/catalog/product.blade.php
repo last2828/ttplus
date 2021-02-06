@@ -4,7 +4,7 @@
 <section class="product">
   <div class="container">
 
-{{--    {{Breadcrumbs::render('catalog-brand-category-product', $product)}}--}}
+    {{Breadcrumbs::render('catalog-brand-category-product', $product)}}
 
     @php /** @var \App\Models\Catalog\Product $product */ @endphp
     <div class="product-container">

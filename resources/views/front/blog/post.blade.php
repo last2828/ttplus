@@ -4,7 +4,7 @@
   <section class="articles">
     <div class="container">
 
-      {{--{{Breadcrumbs::render('front-post', $post)}}--}}
+      {{Breadcrumbs::render('front-post', $post)}}
 
       @php
         /**

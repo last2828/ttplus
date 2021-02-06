@@ -4,7 +4,7 @@
     <section class="info-page">
         <div class="container">
 
-            {{--{{Breadcrumbs::render('front-news')}}--}}
+            {{ Breadcrumbs::render('front-news') }}
 
             <h2>Полезная информация</h2>
             <div class="tabs">
