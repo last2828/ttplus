@@ -8,7 +8,7 @@
     <div class="menu">
       <ul>
         <li><a href="{{route('pages.catalog.index')}}" class="{{(Request::is('catalog*') ? 'active' : '')}}">Каталог</a></li>
-        <li><a href="{{route('pages.news.index')}}" class="{{(Request::is('catalog"*') ? 'active' : '')}}">Статьи</a></li>
+        <li><a href="{{route('pages.posts.index')}}" class="{{(Request::is('catalog"*') ? 'active' : '')}}">Статьи</a></li>
         <li><a href="{{route('pages.about')}}" class="{{(Request::is('about*') ? 'active' : '')}}">О компании</a></li>
         <li><a href="{{route('pages.contact')}}" class="{{(Request::is('contact*') ? 'active' : '')}}">Контакты</a></li>
       </ul>

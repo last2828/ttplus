@@ -3,33 +3,51 @@
 namespace App\Http\Controllers\Front\Blog;
 
 use App\Http\Controllers\Front\BaseController;
-use App\Models\Blog\Post;
-use Illuminate\Http\Request;
+use App\Repositories\Blog\PostRepository;
+use Request;
 
 class PostController extends BaseController
 {
-    public function index($slug)
+    /**
+     * @var PostRepository
+     */
+    private $postRepository;
+
+    /**
+     * PostController constructor.
+     */
+    public function __construct()
     {
-      $post = Post::where('slug', $slug)->first();
+        parent::__construct();
 
-      $abovePost = Post::where('id', '>', $post->id)
-        ->orderBy('id', 'asc')
-        ->first();
+        $this->postRepository = app(PostRepository::class);
+    }
 
-      if(empty($abovePost))
-      {
-        $abovePost = Post::first();
-      }
+    /**
+     * Get all posts by type for blog index page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index()
+    {
+        $type = Request::get('type') ? Request::get('type') : 2;
+        $posts = $this->postRepository->getAllForBlogByType($type, 8);
 
-      $belowPost = Post::where('id', '<', $post->id)
-        ->orderBy('id', 'desc')
-        ->first();
+        return view('front.blog.index', compact('posts'));
+    }
 
-      if(empty($belowPost))
-      {
-        $belowPost = Post::orderBy('id', 'desc')->first();
-      }
+    /**
+     * Show one post by id with below and above posts
+     *
+     * @param $slug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function show($slug)
+    {
+        $post = $this->postRepository->getOneBySlug($slug);
+        $abovePost = $this->postRepository->getAboveById($post->id);
+        $belowPost = $this->postRepository->getBelowById($post->id);
 
-      return view('front.pages.news.article', compact(['post', 'abovePost', 'belowPost']));
+        return view('front.blog.post', compact('post', 'belowPost', 'abovePost'));
     }
 }

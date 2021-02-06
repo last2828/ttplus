@@ -28,9 +28,9 @@
         \Route::get('/detail/{product}', 'CatalogController@showProduct')->name('product');
     });
 
-    \Route::group(['prefix' => 'info', 'namespace' => 'News', 'as' => 'news.'], function () {
-        \Route::get('/', 'NewsController@index')->name('index');
-        \Route::get('/{slug}', 'ArticleController@index')->name('article');
+    \Route::group(['prefix' => 'info', 'namespace' => 'Blog', 'as' => 'posts.'], function () {
+        \Route::get('/', 'PostController@index')->name('index');
+        \Route::get('/{slug}', 'PostController@show')->name('show');
     });
 
     \Route::post('/offers-store', 'OfferController@store')->name('offers.store');
