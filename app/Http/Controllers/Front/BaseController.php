@@ -3,12 +3,21 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Butschster\Head\Contracts\MetaTags\MetaInterface;
 
 abstract class BaseController extends Controller
 {
-    public function __construct()
-    {
+    /**
+     * @var MetaInterface
+     */
+    protected $meta;
 
+    /**
+     * BaseController constructor.
+     * @param MetaInterface $meta
+     */
+    public function __construct(MetaInterface $meta)
+    {
+        $this->meta = $meta;
     }
 }

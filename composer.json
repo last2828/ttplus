@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2",
         "alexusmai/laravel-file-manager": "^2.4",
+        "butschster/meta-tags": "^1.14",
         "davejamesmiller/laravel-breadcrumbs": "^5.3",
         "elforastero/transliterate": "^3.0",
         "fideloper/proxy": "^4.0",

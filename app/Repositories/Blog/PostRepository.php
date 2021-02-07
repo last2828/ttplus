@@ -65,7 +65,16 @@ class PostRepository extends CoreRepository
      */
     public function getOneBySlug($slug)
     {
-        $columns = ['id', 'title', 'image', 'content', 'slug'];
+        $columns = [
+            'id',
+            'title',
+            'image',
+            'content',
+            'slug',
+            'meta_title',
+            'meta_keywords',
+            'meta_description'
+        ];
 
         $result = $this->startCondition()
                         ->select($columns)

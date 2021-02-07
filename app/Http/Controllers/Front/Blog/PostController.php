@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front\Blog;
 
 use App\Http\Controllers\Front\BaseController;
 use App\Repositories\Blog\PostRepository;
+use Butschster\Head\Contracts\MetaTags\MetaInterface;
 use Request;
 
 class PostController extends BaseController
@@ -15,10 +16,11 @@ class PostController extends BaseController
 
     /**
      * PostController constructor.
+     * @param MetaInterface $meta
      */
-    public function __construct()
+    public function __construct(MetaInterface $meta)
     {
-        parent::__construct();
+        parent::__construct($meta);
 
         $this->postRepository = app(PostRepository::class);
     }
@@ -33,7 +35,11 @@ class PostController extends BaseController
         $type = Request::get('type') ? Request::get('type') : 2;
         $posts = $this->postRepository->getAllForBlogByType($type, 8);
 
-        return view('front.blog.index', compact('posts'));
+        $meta = $this->meta->setTitle('Новости компании TTplus')
+                            ->setKeywords('Новости компании TTplus')
+                            ->setDescription('Новости компании TTplus');
+
+        return view('front.blog.index', compact('posts', 'meta'));
     }
 
     /**
@@ -48,6 +54,10 @@ class PostController extends BaseController
         $abovePost = $this->postRepository->getAboveById($post->id);
         $belowPost = $this->postRepository->getBelowById($post->id);
 
-        return view('front.blog.post', compact('post', 'belowPost', 'abovePost'));
+        $meta = $this->meta->setTitle($post->meta_title)
+                            ->setKeywords($post->meta_keywords)
+                            ->setDescription($post->meta_description);
+
+        return view('front.blog.post', compact('post', 'belowPost', 'abovePost', 'meta'));
     }
 }

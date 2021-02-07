@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Front\Catalog;
 
-use App\Http\Controllers\Front\BaseController;
 use App\Repositories\Catalog\ProductCategoryRepository;
 use App\Repositories\Catalog\ProductGroupRepository;
 use App\Repositories\Catalog\ProductRepository;
+use Butschster\Head\Contracts\MetaTags\MetaInterface;
 
 class CatalogController extends BaseController
 {
@@ -25,11 +25,12 @@ class CatalogController extends BaseController
     private $productGroupRepository;
 
     /**
-     * CategoryController constructor.
+     * CatalogController constructor.
+     * @param MetaInterface $meta
      */
-    public function __construct()
+    public function __construct(MetaInterface $meta)
     {
-        parent::__construct();
+        parent::__construct($meta);
 
         $this->productCategoryRepository = app(ProductCategoryRepository::class);
         $this->productRepository = app(ProductRepository::class);
@@ -43,6 +44,10 @@ class CatalogController extends BaseController
      */
     public function index()
     {
+        $meta = $this->meta->setTitle('Каталог Dunkermotoren и Jianghai')
+                            ->setKeywords('Каталог Dunkermotoren и Jianghai')
+                            ->setDescription('Каталог Dunkermotoren и Jianghai');
+
         $dunkermotorenSubCategories = $this->productCategoryRepository
                                         ->getSubCategoriesByParentName('Dunkermotoren');
 
@@ -50,7 +55,7 @@ class CatalogController extends BaseController
                                         ->getSubCategoriesByParentName('Jianghai');
 
         return view('front.catalog.index',
-            compact('dunkermotorenSubCategories', 'jianghaiSubCategories'));
+            compact('dunkermotorenSubCategories', 'jianghaiSubCategories', 'meta'));
     }
 
     /**
@@ -63,7 +68,11 @@ class CatalogController extends BaseController
     {
         $product = $this->productRepository->getOneBySlug($productSlug);
 
-        return view('front.catalog.product', compact('product'));
+        $meta = $this->meta->setTitle($product->meta_title)
+                            ->setKeywords($product->meta_keywords)
+                            ->setDescription($product->meta_description);
+
+        return view('front.catalog.product', compact('product', 'meta'));
     }
 
     /**
@@ -78,7 +87,13 @@ class CatalogController extends BaseController
         $category = $this->productCategoryRepository->getOneMainBySlug($categorySlug);
         $subCategories = $category->children()->paginate(7);
 
-        return view('front.catalog.maincategory', compact('categoriesAside', 'category', 'subCategories'));
+
+        $meta = $this->meta->setTitle($category->meta_title)
+                            ->setKeywords($category->meta_keywords)
+                            ->setDescription($category->meta_description);
+
+        return view('front.catalog.maincategory',
+            compact('categoriesAside', 'category', 'subCategories', 'meta'));
     }
 
     /**
@@ -97,8 +112,13 @@ class CatalogController extends BaseController
                 $group = $this->productGroupRepository->getOneSubBySlug($groupSlug);
                 $products = $group->products()->paginate(7);
 
+                $meta = $this->meta->setTitle($group->meta_title)
+                                    ->setKeywords($group->meta_keywords)
+                                    ->setDescription($group->meta_description);
+
                 if ($group and $products) {
-                    return view('front.catalog.subcategory', compact('categoriesAside', 'group', 'products'));
+                    return view('front.catalog.subcategory',
+                        compact('categoriesAside', 'group', 'products', 'meta'));
                 }
 
                 return abort(404);
@@ -107,8 +127,13 @@ class CatalogController extends BaseController
             $category = $this->productCategoryRepository->getOneSubBySlug($categorySlug);
             $groups = $category->groups()->paginate(4);
 
+            $meta = $this->meta->setTitle($category->meta_title)
+                                ->setKeywords($category->meta_keywords)
+                                ->setDescription($category->meta_description);
+
             if ($category and $groups) {
-                return view('front.catalog.subcategory', compact('categoriesAside', 'category', 'groups'));
+                return view('front.catalog.subcategory',
+                    compact('categoriesAside', 'category', 'groups', 'meta'));
             }
 
             return abort(404);
