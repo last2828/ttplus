@@ -12,7 +12,6 @@ class HomeController extends BaseController
      * Show index page
      *
      * @param PostRepository $postRepository
-     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index(PostRepository $postRepository)
@@ -44,5 +43,21 @@ class HomeController extends BaseController
         $data = PageField::where('key', 'contact')->first();
 
         return view('front.pages.contact', compact('data'));
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function dunkermotoren()
+    {
+        return view('front.pages.dunkermotoren');
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function jianghai()
+    {
+        return view('front.pages.jianghai');
     }
 }

@@ -15,6 +15,8 @@
     \Route::get('/', 'HomeController@index')->name('home');
     \Route::get('/contact', 'HomeController@contact')->name('contact');
     \Route::get('/about-us', 'HomeController@about')->name('about');
+    \Route::get('/about/dunkermotoren', 'HomeController@dunkermotoren')->name('dunkermotoren');
+    \Route::get('/about/jianghai', 'HomeController@jianghai')->name('jianghai');
 
     \Route::group(['prefix' => 'catalog', 'namespace' => 'Catalog', 'as' => 'catalog.'], function () {
         \Route::get('/', 'CatalogController@index')->name('index');
@@ -53,9 +55,9 @@
 
     \Route::group(['as' => 'info_pages.', 'namespace' => 'InfoPages'], function () {
         \Route::get('/about/', 'AboutController@index')->name('about.index');
-        \Route::put('/about/update', 'AboutController@update')->name('about.update');
+        \Route::patch('/about/update', 'AboutController@update')->name('about.update');
         \Route::get('/contact', 'ContactController@index')->name('contact.index');
-        \Route::put('/contact/update', 'ContactController@update')->name('contact.update');
+        \Route::patch('/contact/update', 'ContactController@update')->name('contact.update');
     });
 });
 
