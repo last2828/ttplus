@@ -36,6 +36,7 @@
     });
 
     \Route::post('/offers-store', 'OfferController@store')->name('offers.store');
+    \Route::post('/subscription', 'OfferController@subscription')->name('subscription.store');
 });
 
 \Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'], function () {

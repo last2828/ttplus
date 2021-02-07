@@ -1,14 +1,19 @@
 @php /** @var \Illuminate\Support\ViewErrorBag $errors */ @endphp
-@if($errors->any())
+@if ($errors->any())
   <div class="alert alert-outline-danger fade show" role="alert">
     <div class="alert-icon"><i class="flaticon-warning"></i></div>
     <div class="alert-text">Проверьте форму на ошибки</div>
     <div class="alert-text">
       <ul>
-        @foreach($errors->all() as $error)
+        @foreach ($errors->all() as $error)
           <li>{{$error}}</li>
         @endforeach
       </ul>
     </div>
+  </div>
+  @elseif (session()->has('success'))
+  <div class="alert alert-outline-danger fade show" role="alert">
+    <div class="alert-icon"><i class="flaticon-warning"></i></div>
+    <div class="alert-text">{{ session('success') }}</div>
   </div>
 @endif
