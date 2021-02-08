@@ -50,6 +50,6 @@ class AboutController extends BaseController
 
         PageField::where('key', 'about')->update($fields);
 
-        return redirect()->route('about.index');
+        return redirect()->route('admin.info_pages.about.index');
     }
 }

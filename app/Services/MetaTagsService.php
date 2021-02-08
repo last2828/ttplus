@@ -21,12 +21,12 @@ class MetaTagsService extends CoreService
     }
 
     /**
-     * @param $title
-     * @param $keywords
-     * @param $description
-     * @return mixed
+     * @param null $title
+     * @param null $keywords
+     * @param null $description
+     * @return MetaInterface
      */
-    public function getMetaTags($title, $keywords, $description)
+    public function getMetaTags($title = null, $keywords = null, $description = null)
     {
         $meta = $this->meta->setTitle($title)
                             ->setKeywords($keywords)

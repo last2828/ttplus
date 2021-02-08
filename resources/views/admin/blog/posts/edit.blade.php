@@ -33,7 +33,7 @@
                                     </div>
                                     <!--begin::Form-->
                                     <form class="kt-form" method="POST" action="{{route('admin.blog.posts.update', $post->id)}}">
-                                        @method('PUT')
+                                        @method('PATCH')
                                         @CSRF
                                         <div class="kt-portlet__body">
                                             <ul class="nav nav-tabs  nav-tabs-line" role="tablist">

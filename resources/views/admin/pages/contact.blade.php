@@ -30,33 +30,53 @@
                   <!--begin::Form-->
                   <form class="kt-form" method="POST" action="{{route('admin.info_pages.contact.update')}}" enctype="multipart/form-data">
                     @CSRF
-                    @method('PUT')
+                    @method('PATCH')
                     <div class="kt-portlet__body">
                       <div class="form-group row">
                         <label>Заголовок</label>
                         <div class="col-lg-12 col-md-9 col-sm-12">
-                          <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Заголовок" name="title" value="{{(isset($contact)) ? $contact['title'] : ''}}">
+                          <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Заголовок" name="title" value="{{(isset($page)) ? $page['title'] : ''}}">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label>Meta title</label>
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Мета заголовок" name="meta_title" value="{{(isset($page)) ? $page['meta_title'] : ''}}">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label>Meta keywords</label>
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Ключевые слова" name="meta_keywords" value="{{(isset($page)) ? $page['meta_keywords'] : ''}}">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label>Meta description</label>
+                        <div class="col-lg-12 col-md-9 col-sm-12">
+                          <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Мета описание" name="meta_description" value="{{(isset($page)) ? $page['meta_description'] : ''}}">
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label>Адрес</label>
                         <div class="col-lg-12 col-md-9 col-sm-12">
-                          <textarea class="form-control" aria-describedby="" placeholder="Адрес" rows="5" name="address">{{(isset($contact)) ? $contact['address'] : ''}}</textarea>
+                          <textarea class="form-control" aria-describedby="" placeholder="Адрес" rows="5" name="address">{{(isset($page)) ? $page['address'] : ''}}</textarea>
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label>Телефон</label>
                         <div class="col-lg-12 col-md-9 col-sm-12">
-                          <input type="text" class="form-control" aria-describedby="" placeholder="Телефон" name="phone" value="{{(isset($contact)) ? $contact['phone'] : ''}}">
+                          <input type="text" class="form-control" aria-describedby="" placeholder="Телефон" name="phone" value="{{(isset($page)) ? $page['phone'] : ''}}">
                         </div>
                       </div>
 
                       <div class="form-group row">
                         <label>Факс</label>
                         <div class="col-lg-12 col-md-9 col-sm-12">
-                          <input type="text" class="form-control" aria-describedby="" placeholder="Факс" name="fax" value="{{(isset($contact)) ? $contact['fax'] : ''}}">
+                          <input type="text" class="form-control" aria-describedby="" placeholder="Факс" name="fax" value="{{(isset($page)) ? $page['fax'] : ''}}">
                         </div>
                       </div>
                       <div class="kt-portlet__foot">

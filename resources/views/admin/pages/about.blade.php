@@ -24,7 +24,7 @@
               <!--begin::Form-->
               <form class="kt-form" method="POST" action="{{route('admin.info_pages.about.update')}}" enctype="multipart/form-data">
                 @CSRF
-                @method('PUT')
+                @method('PATCH')
                 <div class="kt-portlet__body">
                   <ul class="nav nav-tabs  nav-tabs-line" role="tablist">
                     <li class="nav-item">

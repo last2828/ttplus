@@ -14,9 +14,9 @@ class ContactController extends BaseController
      */
     public function index()
     {
-        $contactPage = PageField::where('key', 'contact')->first();
+        $page = PageField::where('key', 'contact')->first();
 
-        return view('admin.pages.contact', compact('contactPage'));
+        return view('admin.pages.contact', compact('page'));
     }
 
     /**
@@ -31,6 +31,6 @@ class ContactController extends BaseController
 
         PageField::where('key', 'contact')->update($fields);
 
-        return redirect()->route('contact.index');
+        return redirect()->route('admin.info_pages.contact.index');
     }
 }

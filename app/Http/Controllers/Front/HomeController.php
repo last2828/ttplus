@@ -44,7 +44,7 @@ class HomeController extends BaseController
     public function about()
     {
         $page = PageField::where('key', 'about')->first();
-        $meta = $this->meta->getMetaTags($page->meta_title, $page->meta->keywords, $page->meta->description);
+        $meta = $this->meta->getMetaTags($page->meta_title, $page->meta_keywords, $page->meta_description);
 
         return view('front.pages.about', compact('page','meta'));
     }
@@ -57,7 +57,7 @@ class HomeController extends BaseController
     public function contact()
     {
         $page = PageField::where('key', 'contact')->first();
-        $meta = $this->meta->getMetaTags($page->meta_title, $page->meta->keywords, $page->meta->description);
+        $meta = $this->meta->getMetaTags($page->meta_title, $page->meta_keywords, $page->meta_description);
 
         return view('front.pages.contact', compact('page', 'meta'));
     }

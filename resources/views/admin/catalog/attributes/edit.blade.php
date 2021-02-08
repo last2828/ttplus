@@ -31,7 +31,7 @@
                                     </div>
                                     <!--begin::Form-->
                                     <form class="kt-form" method="POST" action="{{route('admin.catalog.attributes.update', $attribute->id)}}">
-                                        @method('PUT')
+                                        @method('PATCH')
                                         @CSRF
                                         @php /** @var \Illuminate\Support\ViewErrorBag $errors */@endphp
                                         <div class="kt-portlet__body">

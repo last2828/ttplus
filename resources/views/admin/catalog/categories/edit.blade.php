@@ -32,7 +32,7 @@
                                     </div>
                                     <!--begin::Form-->
                                     <form class="kt-form" method="POST" action="{{route('admin.catalog.product_categories.update', $category->id)}}">
-                                        @method('PUT')
+                                        @method('PATCH')
                                         @CSRF
                                         <div class="kt-portlet__body">
                                             <ul class="nav nav-tabs  nav-tabs-line" role="tablist">

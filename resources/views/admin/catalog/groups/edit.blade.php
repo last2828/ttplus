@@ -32,7 +32,7 @@
                                     </div>
                                     <!--begin::Form-->
                                     <form class="kt-form" method="POST" action="{{route('admin.catalog.groups.update', $group->id)}}">
-                                        @method('PUT')
+                                        @method('PATCH')
                                         @CSRF
                                         <div class="kt-portlet__body">
                                             <div class="form-group form-group row">
