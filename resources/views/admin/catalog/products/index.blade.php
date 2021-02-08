@@ -64,10 +64,10 @@
                                                         <label>Категория:</label>
                                                     </div>
                                                     <div class="kt-form__control">
-                                                        <select class="form-control bootstrap-select" id="kt_form_status">
+                                                        <select class="form-control bootstrap-select" id="kt_form_category">
                                                             <option value="">Все</option>
                                                             @foreach($products as $product)
-                                                                <option value="{{$product->category->name}}">{{$product->category->name}}</option>
+                                                                <option value="{{$product->category->id}}">{{$product->category->name}}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -79,27 +79,11 @@
                                                         <label>Группа:</label>
                                                     </div>
                                                     <div class="kt-form__control">
-                                                        <select class="form-control bootstrap-select" id="kt_form_status">
+                                                        <select class="form-control bootstrap-select" id="kt_form_group">
                                                             <option value="">Все</option>
                                                             @foreach($products as $product)
-                                                                @if(isset($product->group))
                                                                 <option value="{{$product->group->id}}">{{$product->group->name}}</option>
-                                                                @endif
                                                             @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
-                                                <div class="kt-form__group kt-form__group--inline">
-                                                    <div class="kt-form__label">
-                                                        <label>Статус:</label>
-                                                    </div>
-                                                    <div class="kt-form__control">
-                                                        <select class="form-control bootstrap-select" id="kt_form_type">
-                                                            <option value="">Все</option>
-                                                            <option value="1">Включено</option>
-                                                            <option value="0">Отключено</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -161,9 +145,12 @@
                         field: 'name',
                         title: 'Название',
                     },{
-                        field: 'group_name',
+                        field: 'category.name',
+                        title: 'Категория',
+                    },{
+                        field: 'group.name',
                         title: 'Группа',
-                    }, {
+                    },{
                         field: 'status',
                         title: 'Статус',
                         template: function(data) {
@@ -195,13 +182,16 @@
 
                     }],
                 });
-                $('#kt_form_status').on('change', function() {
-                    datatable.search($(this).val().toLowerCase(), 'Status');
+                // $('#kt_form_status').on('change', function() {
+                //     datatable.search($(this).val().toLowerCase(), 'status');
+                // });
+                $('#kt_form_category').on('change', function() {
+                    datatable.search($(this).val().toLowerCase(), 'category.id');
                 });
-                $('#kt_form_type').on('change', function() {
-                    datatable.search($(this).val().toLowerCase(), 'Type');
+                $('#kt_form_group').on('change', function() {
+                    datatable.search($(this).val().toLowerCase(), 'group.id');
                 });
-                $('#kt_form_status,#kt_form_type').selectpicker();
+                $('#kt_form_category,#kt_form_group').selectpicker();
             };
             return {
                 // public functions
