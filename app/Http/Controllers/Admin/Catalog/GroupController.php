@@ -64,7 +64,7 @@ class GroupController extends BaseController
     public function store(ProductGroupStoreRequest $request)
     {
         $fields = $request->toArray();
-        ProductGroup::storeGroup($fields);
+        ProductGroup::create($fields);
 
         return redirect()->route('admin.catalog.groups.index');
     }
@@ -78,7 +78,6 @@ class GroupController extends BaseController
     public function edit($id)
     {
         $group = $this->productGroupRepository->getEditByIdForAdmin($id);
-
         $selectCategories = $this->productCategoryRepository->getAllForSelect();
 
         return view('admin.catalog.groups.edit', compact('selectCategories', 'group'));
@@ -94,7 +93,7 @@ class GroupController extends BaseController
     public function update(ProductGroupUpdateRequest $request, $id)
     {
         $fields = $request->toArray();
-        ProductGroup::updateGroup($fields, $id);
+        ProductGroup::find($id)->update($fields);
 
         return redirect()->route('admin.catalog.groups.index');
     }

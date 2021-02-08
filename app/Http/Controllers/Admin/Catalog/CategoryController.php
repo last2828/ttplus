@@ -57,7 +57,7 @@ class CategoryController extends BaseController
     public function store(ProductCategoryStoreRequest $request)
     {
         $fields = $request->toArray();
-        ProductCategory::storeProductCategory($fields);
+        ProductCategory::create($fields);
 
         return redirect()->route('admin.catalog.product_categories.index');
     }
@@ -86,7 +86,7 @@ class CategoryController extends BaseController
     public function update(ProductCategoryUpdateRequest $request, $id)
     {
         $fields = $request->toArray();
-        ProductCategory::updateProductCategory($fields, $id);
+        ProductCategory::find($id)->update($fields);
 
         return redirect()->route('admin.catalog.product_categories.index');
     }
