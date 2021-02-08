@@ -2,11 +2,9 @@
 
 namespace App\Models\Catalog;
 
-use App\Models\AppHelper;
 use Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Route;
 
 /**
  * Product
@@ -29,7 +27,6 @@ use Illuminate\Support\Facades\Route;
 
 class Product extends Model
 {
-
     use SoftDeletes;
 
     /**
@@ -73,66 +70,32 @@ class Product extends Model
         return $this->belongsTo(ProductCategory::class, 'category_id', 'id');
     }
 
-    public static function storeProduct($fields)
+    /**
+     * Set attributes for relation many-to-many
+     * @param $fields
+     * @return bool
+     */
+    public function setAttributes($fields)
     {
-        //check slug and transliterate 'name' if slug = null
-        $fields = AppHelper::checkSlug($fields);
-
-        //create new product with fields
-        $product = self::create($fields);
-
-        $attributes = $product->prepareAttributes($fields);
+        $attributes = $this->prepareAttributes($fields);
+        $this->attributes()->detach();
 
         if($attributes)
         {
-            $product->attachAttributes($attributes);
+            $this->attachAttributes($attributes);
             return true;
         }
 
-        return true;
+        return false;
     }
 
-    public static function updateProduct($fields, $id)
-    {
-        //check slug and transliterate 'name' if slug = null
-        $fields = AppHelper::checkSlug($fields);
-
-        //find and update product in db
-        $product = self::find($id);
-        $product->update($fields);
-
-        $attributes = $product->prepareAttributes($fields);
-
-        if($attributes)
-        {
-            $product->attributes()->detach();
-            $product->attachAttributes($attributes);
-            return true;
-        }
-
-        return true;
-    }
-
-    public static function deleteProduct($id)
-    {
-        $product = self::find($id);
-        $product->attributes()->detach();
-        $product->destroy($id);
-
-        return redirect()->back();
-    }
-
-
-    public function attachAttributes($attributes)
-    {
-        foreach($attributes as $attribute) {
-            self::attributes()->attach($attribute['attribute_id'], array('value' => $attribute['value']));
-        }
-
-        return true;
-    }
-
-    public function prepareAttributes($fields)
+    /**
+     * Prepare attributes array if they isset
+     *
+     * @param $fields
+     * @return array|bool
+     */
+    private function prepareAttributes($fields)
     {
         $new = $this->checkNewAttributes($fields);
         $old = $this->checkOldAttributes($fields);
@@ -152,7 +115,13 @@ class Product extends Model
         return false;
     }
 
-    public function checkNewAttributes($fields)
+    /**
+     * Check fields for new attributes
+     *
+     * @param $fields
+     * @return bool
+     */
+    private function checkNewAttributes($fields)
     {
         if(isset($fields['attributes'])) {
             return $fields['attributes'];
@@ -161,7 +130,13 @@ class Product extends Model
         return false;
     }
 
-    public function checkOldAttributes($fields)
+    /**
+     * Check fields for old attributes
+     *
+     * @param $fields
+     * @return bool
+     */
+    private function checkOldAttributes($fields)
     {
         if(isset($fields['attributes_old'])) {
             return $fields['attributes_old'];
@@ -170,4 +145,18 @@ class Product extends Model
         return false;
     }
 
+    /**
+     * Attach attributes for Product model
+     *
+     * @param $attributes
+     * @return bool
+     */
+    private function attachAttributes($attributes)
+    {
+        foreach($attributes as $attribute) {
+            self::attributes()->attach($attribute['attribute_id'], array('value' => $attribute['value']));
+        }
+
+        return true;
+    }
 }

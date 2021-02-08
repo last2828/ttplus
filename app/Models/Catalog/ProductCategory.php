@@ -2,7 +2,6 @@
 
 namespace App\Models\Catalog;
 
-use App\Models\AppHelper;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Kalnoy\Nestedset\NodeTrait;

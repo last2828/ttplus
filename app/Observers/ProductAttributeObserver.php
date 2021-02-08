@@ -7,6 +7,16 @@ use App\Models\Catalog\ProductAttribute;
 class ProductAttributeObserver
 {
     /**
+     * Handle the product attribute "creating" event.
+     *
+     * @param ProductAttribute $productAttribute
+     */
+    public function creating(ProductAttribute $productAttribute)
+    {
+        //
+    }
+
+    /**
      * Handle the product attribute "created" event.
      *
      * @param  \App\Models\Catalog\ProductAttribute  $productAttribute
@@ -18,6 +28,15 @@ class ProductAttributeObserver
     }
 
     /**
+     * Handle the product attribute "updating" event.
+     *
+     * @param ProductAttribute $productAttribute
+     */
+    public function updating(ProductAttribute $productAttribute)
+    {
+        //
+    }
+    /**
      * Handle the product attribute "updated" event.
      *
      * @param  \App\Models\Catalog\ProductAttribute  $productAttribute
@@ -26,6 +45,16 @@ class ProductAttributeObserver
     public function updated(ProductAttribute $productAttribute)
     {
         //
+    }
+
+    /**
+     * Handle the product attribute "deleting" event.
+     *
+     * @param ProductAttribute $productAttribute
+     */
+    public function deleting(ProductAttribute $productAttribute)
+    {
+        $this->checkRelationWithProducts($productAttribute);
     }
 
     /**
@@ -40,24 +69,13 @@ class ProductAttributeObserver
     }
 
     /**
-     * Handle the product attribute "restored" event.
-     *
-     * @param  \App\Models\Catalog\ProductAttribute  $productAttribute
-     * @return void
+     * @param ProductAttribute $productAttribute
+     * @return bool
      */
-    public function restored(ProductAttribute $productAttribute)
+    protected function checkRelationWithProducts(ProductAttribute $productAttribute)
     {
-        //
-    }
-
-    /**
-     * Handle the product attribute "force deleted" event.
-     *
-     * @param  \App\Models\Catalog\ProductAttribute  $productAttribute
-     * @return void
-     */
-    public function forceDeleted(ProductAttribute $productAttribute)
-    {
-        //
+        if ($productAttribute->products->isNotEmpty()) {
+            return false;
+        }
     }
 }

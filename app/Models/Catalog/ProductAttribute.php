@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * @property string $name
  * @property string $units
+ * @property Product $products
  */
 class ProductAttribute extends Model
 {
@@ -28,21 +29,5 @@ class ProductAttribute extends Model
     public function products()
     {
         return $this->belongsToMany(Product::class,'product_product_attributes');
-    }
-
-    public static function deleteAttribute($id)
-    {
-        //check - if current attribute not exist in any product delete from all tables
-        if(!(empty(ProductAttribute::where('attribute_id', $id))))
-        {
-            self::destroy($id);
-            ProductAttribute::where('attribute_id', $id)->delete();
-            return true;
-        }
-        //else return error
-        else
-        {
-            return 'Данная характеристика добавлена к существующим товарам';
-        }
     }
 }

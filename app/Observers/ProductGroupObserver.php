@@ -8,6 +8,8 @@ use Illuminate\Support\Str;
 class ProductGroupObserver
 {
     /**
+     * Handle the product group "creating" event.
+     *
      * @param ProductGroup $productGroup
      */
     public function creating(ProductGroup $productGroup)
@@ -27,6 +29,8 @@ class ProductGroupObserver
     }
 
     /**
+     * Handle the product group "updating" event.
+     *
      * @param ProductGroup $productGroup
      */
     public function updating(ProductGroup $productGroup)
@@ -46,6 +50,8 @@ class ProductGroupObserver
     }
 
     /**
+     * Handle the product group "deleting" event.
+     *
      * @param ProductGroup $productGroup
      */
     public function deleting(ProductGroup $productGroup)
@@ -60,44 +66,6 @@ class ProductGroupObserver
      * @return void
      */
     public function deleted(ProductGroup $productGroup)
-    {
-        //
-    }
-
-    /**
-     * @param ProductGroup $productGroup
-     */
-    public function restoring(ProductGroup $productGroup)
-    {
-        //
-    }
-
-    /**
-     * Handle the product group "restored" event.
-     *
-     * @param  \App\Models\Catalog\ProductGroup  $productGroup
-     * @return void
-     */
-    public function restored(ProductGroup $productGroup)
-    {
-        //
-    }
-
-    /**
-     * @param ProductGroup $productGroup
-     */
-    public function forceDeleting(ProductGroup $productGroup)
-    {
-        //
-    }
-
-    /**
-     * Handle the product group "force deleted" event.
-     *
-     * @param  \App\Models\Catalog\ProductGroup  $productGroup
-     * @return void
-     */
-    public function forceDeleted(ProductGroup $productGroup)
     {
         //
     }

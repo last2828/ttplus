@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin\Catalog;
 
 use App\Http\Requests\Catalog\ProductAttributeRequest;
-use App\Models\Catalog\ProductAttribute;
 use App\Repositories\Catalog\ProductAttributeRepository;
+use App\Models\Catalog\ProductAttribute;
 
 class AttributeController extends BaseController
 {
@@ -53,7 +53,6 @@ class AttributeController extends BaseController
      */
     public function store(ProductAttributeRequest $request)
     {
-        $request->validated();
         $fields = $request->toArray();
         ProductAttribute::create($fields);
 
@@ -96,7 +95,7 @@ class AttributeController extends BaseController
      */
     public function destroy($id)
     {
-        ProductAttribute::deleteAttribute($id);
+        ProductAttribute::destroy($id);
 
         return redirect()->back();
     }

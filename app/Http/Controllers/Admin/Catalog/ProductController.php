@@ -84,7 +84,10 @@ class ProductController extends BaseController
     public function store(ProductStoreRequest $request)
     {
         $fields = $request->toArray();
-        Product::storeProduct($fields);
+
+        $product = new Product;
+        $product->save($fields);
+        $product->setAttributes($fields);
 
         return redirect()->route('admin.catalog.products.index');
     }
@@ -118,7 +121,10 @@ class ProductController extends BaseController
     public function update(ProductUpdateRequest $request, $id)
     {
         $fields = $request->toArray();
-        Product::updateProduct($fields, $id);
+
+        $product = Product::find($id);
+        $product->update($fields);
+        $product->setAttributes($fields);
 
         return redirect()->route('admin.catalog.products.index');
     }
@@ -131,7 +137,7 @@ class ProductController extends BaseController
      */
     public function destroy($id)
     {
-        Product::deleteProduct($id);
+        Product::destroy($id);
 
         return redirect()->back();
     }

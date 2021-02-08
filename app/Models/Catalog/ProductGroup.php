@@ -2,9 +2,7 @@
 
 namespace App\Models\Catalog;
 
-use App\Models\AppHelper;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**

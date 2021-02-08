@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Front\Catalog;
 
 use App\Http\Controllers\Front\BaseController as GuestBaseController;
-use Butschster\Head\Contracts\MetaTags\MetaInterface;
+use App\Services\MetaTagsService;
 
 abstract class BaseController extends GuestBaseController
 {
     /**
      * BaseController constructor.
-     * @param MetaInterface $meta
+     * @param MetaTagsService $meta
      */
-    public function __construct(MetaInterface $meta)
+    public function __construct(MetaTagsService $meta)
     {
         parent::__construct($meta);
     }

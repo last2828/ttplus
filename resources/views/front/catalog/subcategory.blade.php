@@ -69,7 +69,7 @@
           @foreach ($groups as $group)
             <div class="product__block">
               @include('front.catalog.components.products-list', ['list' => $group, 'products' => $group->products->take(3)])
-              <div class="block__bottom"><a href="{{ route('pages.catalog.category.group', ['category' => $category->slug, 'group' => $group->slug]) }}" class="btn btn-primary">Показать все позиции</a><a href="#" class="btn btn-next--blue">Индивидуальный заказ<span class="span-arrow"></span></a></div>
+              <div class="block__bottom"><a href="{{ route('pages.catalog.category.group', $group->slug) }}" class="btn btn-primary">Показать все позиции</a><a href="#" class="btn btn-next--blue">Индивидуальный заказ<span class="span-arrow"></span></a></div>
             </div>
           @endforeach
           @include('front.layouts.pagination', ['paginator' => $groups])

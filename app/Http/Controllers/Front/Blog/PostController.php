@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Front\Blog;
 
 use App\Http\Controllers\Front\BaseController;
 use App\Repositories\Blog\PostRepository;
-use Butschster\Head\Contracts\MetaTags\MetaInterface;
+use App\Services\MetaTagsService;
 use Request;
 
 class PostController extends BaseController
@@ -16,9 +16,9 @@ class PostController extends BaseController
 
     /**
      * PostController constructor.
-     * @param MetaInterface $meta
+     * @param MetaTagsService $meta
      */
-    public function __construct(MetaInterface $meta)
+    public function __construct(MetaTagsService $meta)
     {
         parent::__construct($meta);
 
@@ -35,9 +35,12 @@ class PostController extends BaseController
         $type = Request::get('type') ? Request::get('type') : 2;
         $posts = $this->postRepository->getAllForBlogByType($type, 8);
 
-        $meta = $this->meta->setTitle('Новости компании TTplus')
-                            ->setKeywords('Новости компании TTplus')
-                            ->setDescription('Новости компании TTplus');
+        $tags = [
+            'title' => 'Новости компании TTplus',
+            'keywords' => 'Новости компании TTplus',
+            'description' => 'Новости компании TTplus'
+        ];
+        $meta = $this->meta->getMetaTags($tags['title'], $tags['keywords'], $tags['description']);
 
         return view('front.blog.index', compact('posts', 'meta'));
     }
@@ -53,10 +56,7 @@ class PostController extends BaseController
         $post = $this->postRepository->getOneBySlug($slug);
         $abovePost = $this->postRepository->getAboveById($post->id);
         $belowPost = $this->postRepository->getBelowById($post->id);
-
-        $meta = $this->meta->setTitle($post->meta_title)
-                            ->setKeywords($post->meta_keywords)
-                            ->setDescription($post->meta_description);
+        $meta = $this->meta->getMetaTags($post->meta_title, $post->meta_keywords, $post->meta_description);
 
         return view('front.blog.post', compact('post', 'belowPost', 'abovePost', 'meta'));
     }

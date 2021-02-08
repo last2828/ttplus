@@ -6,13 +6,13 @@
 
         {{ Breadcrumbs::render('front-about') }}
 
-        <h2>{{$data->title}}</h2>
-        <p>{!! $data->description !!}</p>
-        <div class="about__image"><img src="{{$data->head_image}}" alt=""></div>
-        <h2>{{$data->partner_title}}</h2>
-        <p class="partners">{{$data->partner_title_description}}</p>
+        <h2>{{$page->title}}</h2>
+        <p>{!! $page->description !!}</p>
+        <div class="about__image"><img src="{{$page->head_image}}" alt=""></div>
+        <h2>{{$page->partner_title}}</h2>
+        <p class="partners">{{$page->partner_title_description}}</p>
         <ul>
-            @foreach($data->features_content as $feature)
+            @foreach($page->features_content as $feature)
             <li>
                 <div class="dot"></div>
                 <p>{{$feature}}</p>
@@ -21,35 +21,35 @@
         </ul>
         <div class="about__quote">
             <div class="quotes"></div>
-            <p>{{$data->quote_title}}</p>
+            <p>{{$page->quote_title}}</p>
         </div>
-        <h2>{{$data->years_title}}</h2>
+        <h2>{{$page->years_title}}</h2>
         <div class="about__years">
             <div class="about__year">
-                <div class="year">{{$data->years_1['title']}}</div>
-                <p>{{$data->years_1['description']}}</p>
+                <div class="year">{{$page->years_1['title']}}</div>
+                <p>{{$page->years_1['description']}}</p>
             </div>
             <div class="about__year">
-                <div class="year">{{$data->years_2['title']}}</div>
-                <p>{{$data->years_2['description']}}</p>
+                <div class="year">{{$page->years_2['title']}}</div>
+                <p>{{$page->years_2['description']}}</p>
             </div>
             <div class="about__year">
-                <div class="year">{{$data->years_3['title']}}</div>
-                <p>{{$data->years_3['description']}}</p>
+                <div class="year">{{$page->years_3['title']}}</div>
+                <p>{{$page->years_3['description']}}</p>
             </div>
         </div>
         <div class="about__blocks">
             <div class="about__block">
-                <h4>{{$data->blocks_1['title']}}</h4>
-                <p>{{$data->blocks_1['description']}}</p>
+                <h4>{{$page->blocks_1['title']}}</h4>
+                <p>{{$page->blocks_1['description']}}</p>
             </div>
             <div class="about__block">
-                <h4>{{$data->blocks_2['title']}}</h4>
-                <p>{{$data->blocks_2['description']}}</p>
+                <h4>{{$page->blocks_2['title']}}</h4>
+                <p>{{$page->blocks_2['description']}}</p>
             </div>
             <div class="about__block">
-                <h4>{{$data->blocks_3['title']}}</h4>
-                <p>{{$data->blocks_3['description']}}</p>
+                <h4>{{$page->blocks_3['title']}}</h4>
+                <p>{{$page->blocks_3['description']}}</p>
             </div>
         </div>
     </div>
@@ -62,17 +62,17 @@
             <li><a class="btn tab-button">Выставки</a></li>
         </ul>
         <div class="tabs__content about__documents-tab active">
-            @foreach($data->awards as $award)
+            @foreach($page->awards as $award)
             <div class="document"><img src="img/about/certificate.png" alt=""></div>
             @endforeach
         </div>
         <div class="tabs__content about__documents-tab">
-            @foreach($data->licenses as $licens)
+            @foreach($page->licenses as $licens)
             <div class="document"><img src="img/about/certificate.png" alt=""></div>
             @endforeach
         </div>
         <div class="tabs__content about__documents-tab">
-            @foreach($data->shows as $show)
+            @foreach($page->shows as $show)
             <div class="document"><img src="img/about/certificate.png" alt=""></div>
             @endforeach
         </div>

@@ -22,9 +22,9 @@
         \Route::get('/', 'CatalogController@index')->name('index');
         \Route::get('/{category}', 'CatalogController@mainCategoryList')->name('maincategory');
 
-        \Route::group(['prefix' => 'category', 'as' => 'category.'], function() {
-            \Route::get('/{category}', 'CatalogController@subCategoryList')->name('subcategory');
-            \Route::get('/{category}/{group?}', 'CatalogController@subCategoryList')->name('group');
+        \Route::group(['as' => 'category.'], function() {
+            \Route::get('/category/{category}', 'CatalogController@subCategoryList')->name('subcategory');
+            \Route::get('/group/{group}', 'CatalogController@subGroupList')->name('group');
         });
 
         \Route::get('/detail/{product}', 'CatalogController@showProduct')->name('product');

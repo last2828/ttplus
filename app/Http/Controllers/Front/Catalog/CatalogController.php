@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Front\Catalog;
 use App\Repositories\Catalog\ProductCategoryRepository;
 use App\Repositories\Catalog\ProductGroupRepository;
 use App\Repositories\Catalog\ProductRepository;
-use Butschster\Head\Contracts\MetaTags\MetaInterface;
+use App\Services\MetaTagsService;
 
 class CatalogController extends BaseController
 {
@@ -26,9 +26,9 @@ class CatalogController extends BaseController
 
     /**
      * CatalogController constructor.
-     * @param MetaInterface $meta
+     * @param MetaTagsService $meta
      */
-    public function __construct(MetaInterface $meta)
+    public function __construct(MetaTagsService $meta)
     {
         parent::__construct($meta);
 
@@ -44,9 +44,12 @@ class CatalogController extends BaseController
      */
     public function index()
     {
-        $meta = $this->meta->setTitle('Каталог Dunkermotoren и Jianghai')
-                            ->setKeywords('Каталог Dunkermotoren и Jianghai')
-                            ->setDescription('Каталог Dunkermotoren и Jianghai');
+        $tags = [
+            'title' => 'Каталог Dunkermotoren и Jianghai',
+            'keywords' => 'Каталог Dunkermotoren и Jianghai',
+            'description' => 'Каталог Dunkermotoren и Jianghai'
+        ];
+        $meta = $this->meta->getMetaTags($tags['title'], $tags['keywords'], $tags['description']);
 
         $dunkermotorenSubCategories = $this->productCategoryRepository
                                         ->getSubCategoriesByParentName('Dunkermotoren');
@@ -67,10 +70,7 @@ class CatalogController extends BaseController
     public function showProduct($productSlug)
     {
         $product = $this->productRepository->getOneBySlug($productSlug);
-
-        $meta = $this->meta->setTitle($product->meta_title)
-                            ->setKeywords($product->meta_keywords)
-                            ->setDescription($product->meta_description);
+        $meta = $this->meta->getMetaTags($product->meta_title, $product->meta_keywords, $product->meta_description);
 
         return view('front.catalog.product', compact('product', 'meta'));
     }
@@ -86,11 +86,7 @@ class CatalogController extends BaseController
         $categoriesAside = $this->productCategoryRepository->getAllCategoriesForAside();
         $category = $this->productCategoryRepository->getOneMainBySlug($categorySlug);
         $subCategories = $category->children()->paginate(7);
-
-
-        $meta = $this->meta->setTitle($category->meta_title)
-                            ->setKeywords($category->meta_keywords)
-                            ->setDescription($category->meta_description);
+        $meta = $this->meta->getMetaTags($category->meta_title, $category->meta_keywords, $category->meta_description);
 
         return view('front.catalog.maincategory',
             compact('categoriesAside', 'category', 'subCategories', 'meta'));
@@ -100,43 +96,39 @@ class CatalogController extends BaseController
      * Show products list by sub category
      *
      * @param $categorySlug
-     * @param null $groupSlug
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function subCategoryList($categorySlug, $groupSlug = null)
+    public function subCategoryList($categorySlug)
     {
         $categoriesAside = $this->productCategoryRepository->getAllCategoriesForAside();
+        $category = $this->productCategoryRepository->getOneSubBySlug($categorySlug);
+        $groups = $category->groups()->paginate(4);
+        $meta = $this->meta->getMetaTags($category->meta_title, $category->meta_keywords, $category->meta_description);
 
-        if ($categoriesAside) {
-            if ($groupSlug) {
-                $group = $this->productGroupRepository->getOneSubBySlug($groupSlug);
-                $products = $group->products()->paginate(7);
+        if ($category and $groups) {
+            return view('front.catalog.subcategory',
+                compact('categoriesAside', 'category', 'groups', 'meta'));
+        }
 
-                $meta = $this->meta->setTitle($group->meta_title)
-                                    ->setKeywords($group->meta_keywords)
-                                    ->setDescription($group->meta_description);
+        return abort(404);
+    }
 
-                if ($group and $products) {
-                    return view('front.catalog.subcategory',
-                        compact('categoriesAside', 'group', 'products', 'meta'));
-                }
+    /**
+     * Show products list by sub group
+     *
+     * @param $groupSlug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function subGroupList($groupSlug)
+    {
+        $categoriesAside = $this->productCategoryRepository->getAllCategoriesForAside();
+        $group = $this->productGroupRepository->getOneSubBySlug($groupSlug);
+        $products = $group->products()->paginate(7);
+        $meta = $this->meta->getMetaTags($group->meta_title, $group->meta_keywords, $group->meta_description);
 
-                return abort(404);
-            }
-
-            $category = $this->productCategoryRepository->getOneSubBySlug($categorySlug);
-            $groups = $category->groups()->paginate(4);
-
-            $meta = $this->meta->setTitle($category->meta_title)
-                                ->setKeywords($category->meta_keywords)
-                                ->setDescription($category->meta_description);
-
-            if ($category and $groups) {
-                return view('front.catalog.subcategory',
-                    compact('categoriesAside', 'category', 'groups', 'meta'));
-            }
-
-            return abort(404);
+        if ($group and $products) {
+            return view('front.catalog.subcategory',
+                compact('categoriesAside', 'group', 'products', 'meta'));
         }
 
         return abort(404);

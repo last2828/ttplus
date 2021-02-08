@@ -121,8 +121,45 @@ class PostRepository extends CoreRepository
         return $result;
     }
 
-    public function getFirstPost()
+    /**
+     * @return mixed
+     */
+    public function getAllForAdminList()
     {
-        
+        $columns = ['id', 'title', 'status'];
+
+        $result = $this->startCondition()
+                        ->select($columns)
+                        ->toBase()
+                        ->get();
+
+        return $result;
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getOnyForEditById($id)
+    {
+        $columns = [
+            'id',
+            'title',
+            'image',
+            'content',
+            'slug',
+            'meta_title',
+            'meta_keywords',
+            'meta_description',
+            'type_id',
+            'status'
+        ];
+
+        $result = $this->startCondition()
+                        ->select($columns)
+                        ->with('type:id,name')
+                        ->find($id);
+
+        return $result;
     }
 }

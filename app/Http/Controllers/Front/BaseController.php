@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Services\MetaTagsService;
 use Butschster\Head\Contracts\MetaTags\MetaInterface;
 
 abstract class BaseController extends Controller
@@ -14,9 +15,9 @@ abstract class BaseController extends Controller
 
     /**
      * BaseController constructor.
-     * @param MetaInterface $meta
+     * @param MetaTagsService $meta
      */
-    public function __construct(MetaInterface $meta)
+    public function __construct(MetaTagsService $meta)
     {
         $this->meta = $meta;
     }

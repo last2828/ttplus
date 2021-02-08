@@ -4,12 +4,33 @@ namespace App\Http\Controllers\Admin\Blog;
 
 use App\Http\Requests\Blog\PostStoreRequest;
 use App\Http\Requests\Blog\PostUpdateRequest;
+use App\Repositories\Blog\PostRepository;
+use App\Repositories\Blog\PostTypeRepository;
 use App\Models\Blog\Post;
-use App\Models\Blog\PostType;
-use Transliterate;
 
 class PostController extends BaseController
 {
+    /**
+     * @var PostRepository
+     */
+    protected $postRepository;
+
+    /**
+     * @var PostTypeRepository
+     */
+    protected $postTypeRepository;
+
+    /**
+     * PostController constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->postRepository = app(PostRepository::class);
+        $this->postTypeRepository = app(PostTypeRepository::class);
+    }
+
     /**
      * Display a listing of the posts.
      *
@@ -17,7 +38,7 @@ class PostController extends BaseController
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = $this->postRepository->getAllForAdminList();
 
         return view('admin.blog.posts.index', compact('posts'));
     }
@@ -29,9 +50,9 @@ class PostController extends BaseController
      */
     public function create()
     {
-      $types = PostType::all();
+        $types = $this->postTypeRepository->getAllForSelect();
 
-      return view('admin.blog.posts.create', compact('types'));
+        return view('admin.blog.posts.create', compact('types'));
     }
 
     /**
@@ -43,15 +64,8 @@ class PostController extends BaseController
     public function store(PostStoreRequest $request)
     {
         $fields = $request->toArray();
-
-        if($fields['slug'])
-        {
-            $fields['slug'] = Transliterate::slugify($fields['slug']);
-        }else{
-            $fields['slug'] = Transliterate::slugify($fields['title']);
-        }
-
         Post::create($fields);
+
         return redirect()->route('admin.blog.posts.index');
     }
 
@@ -63,10 +77,10 @@ class PostController extends BaseController
      */
     public function edit($id)
     {
-      $post = Post::with('type')->find($id);
-      $types = PostType::all();
+        $post = $this->postRepository->getOnyForEditById($id);
+        $types = $this->postTypeRepository->getAllForSelect();
 
-      return view('admin.blog.posts.edit', compact('post', 'types'));
+        return view('admin.blog.posts.edit', compact('post', 'types'));
     }
 
     /**
@@ -79,16 +93,8 @@ class PostController extends BaseController
     public function update(PostUpdateRequest $request, $id)
     {
         $fields = $request->toArray();
+        Post::find($id)->update($fields);
 
-        if($fields['slug'])
-        {
-            $fields['slug'] = Transliterate::slugify($fields['slug']);
-        }else{
-            $fields['slug'] = Transliterate::slugify($fields['title']);
-        }
-
-        $post = Post::find($id);
-        $post->update($fields);
         return redirect()->route('admin.blog.posts.index');
     }
 
@@ -101,6 +107,7 @@ class PostController extends BaseController
     public function destroy($id)
     {
         Post::destroy($id);
+
         return redirect()->back();
     }
 }

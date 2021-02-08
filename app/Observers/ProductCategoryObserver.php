@@ -8,6 +8,8 @@ use Illuminate\Support\Str;
 class ProductCategoryObserver
 {
     /**
+     * Handle the product category "creating" event.
+     *
      * @param ProductCategory $productCategory
      */
     public function creating(ProductCategory $productCategory)
@@ -28,6 +30,8 @@ class ProductCategoryObserver
     }
 
     /**
+     * Handle the product category "updating" event.
+     *
      * @param ProductCategory $productCategory
      */
     public function updating(ProductCategory $productCategory)
@@ -48,6 +52,8 @@ class ProductCategoryObserver
     }
 
     /**
+     * Handle the product category "deleting" event.
+     *
      * @param ProductCategory $productCategory
      */
     public function deleting(ProductCategory $productCategory)
@@ -62,43 +68,6 @@ class ProductCategoryObserver
      * @return void
      */
     public function deleted(ProductCategory $productCategory)
-    {
-        //
-    }
-
-    /**
-     * @param ProductCategory $productCategory
-     */
-    public function restoring(ProductCategory $productCategory)
-    {
-        //
-    }
-    /**
-     * Handle the product category "restored" event.
-     *
-     * @param  \App\Models\Catalog\ProductCategory  $productCategory
-     * @return void
-     */
-    public function restored(ProductCategory $productCategory)
-    {
-        //
-    }
-
-    /**
-     * @param ProductCategory $productCategory
-     */
-    public function forceDeleting(ProductCategory $productCategory)
-    {
-        //
-    }
-
-    /**
-     * Handle the product category "force deleted" event.
-     *
-     * @param  \App\Models\Catalog\ProductCategory  $productCategory
-     * @return void
-     */
-    public function forceDeleted(ProductCategory $productCategory)
     {
         //
     }
