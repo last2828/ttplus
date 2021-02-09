@@ -65,3 +65,5 @@
 Auth::routes();
 
 \Route::get('logout', 'Auth\LoginController@logout')->name('logout')->middleware('auth');
+
+\Route::get('/products', 'Front\Catalog\CatalogController@filterProduct')->name('filter');

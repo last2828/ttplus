@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Front\Catalog;
 
+use App\Filters\ProductFilter;
+use App\Models\Catalog\Product;
 use App\Repositories\Catalog\ProductCategoryRepository;
 use App\Repositories\Catalog\ProductGroupRepository;
 use App\Repositories\Catalog\ProductRepository;
@@ -132,5 +134,12 @@ class CatalogController extends BaseController
         }
 
         return abort(404);
+    }
+
+    public function filterProduct(ProductFilter $filters)
+    {
+        $res = Product::filter($filters)->get();
+
+        dd($res);
     }
 }
