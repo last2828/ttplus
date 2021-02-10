@@ -48,7 +48,6 @@ abstract class CoreFilter
     {
         $this->builder = $builder;
         foreach ($this->filters() as $filter => $params) {
-
             if (method_exists($this, $filter)) {
 
                 if (is_array($params)) {
@@ -65,6 +64,8 @@ abstract class CoreFilter
     }
 
     /**
+     * Преобразовываем несколько параметров атрибута в массив
+     *
      * @param $param
      * @return array
      */

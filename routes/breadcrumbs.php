@@ -2,17 +2,10 @@
 /*
  * Breadcrumbs for Admin panel
  *
- * About page
+ * Info page
  */
-Breadcrumbs::for('about', function ($trail) {
-  $trail->push('О компании', route('admin.info_pages.about.index'), ['front' => false]);
-});
-
-/*
- * Contact page
- */
-Breadcrumbs::for('contact', function ($trail) {
-  $trail->push('Контакты', route('admin.info_pages.contact.index'), ['front' => false]);
+Breadcrumbs::for('info-page', function ($trail, $page) {
+  $trail->push($page->title, route('admin.info_pages.index', $page->key), ['front' => false]);
 });
 
 /*

@@ -8,11 +8,11 @@
         <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
           <!-- begin:: Subheader -->
 
-        {{Breadcrumbs::render('contact')}}
+        {{--{{Breadcrumbs::render('info-page', $page)}}--}}
 
         <!-- end:: Subheader -->
 
-        <!-- begin:: Content -->
+          <!-- begin:: Content -->
           <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
             <div class="row">
               <div class="col-md-12">
@@ -28,7 +28,7 @@
                     </div>
                   </div>
                   <!--begin::Form-->
-                  <form class="kt-form" method="POST" action="{{route('admin.info_pages.contact.update')}}" enctype="multipart/form-data">
+                  <form class="kt-form" method="POST" action="{{route('admin.info_pages.update', $page->key)}}" enctype="multipart/form-data">
                     @CSRF
                     @method('PATCH')
                     <div class="kt-portlet__body">
@@ -38,27 +38,7 @@
                           <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Заголовок" name="title" value="{{(isset($page)) ? $page['title'] : ''}}">
                         </div>
                       </div>
-                      <div class="form-group row">
-                        <label>Meta title</label>
-                        <div class="col-lg-12 col-md-9 col-sm-12">
-                          <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Мета заголовок" name="meta_title" value="{{(isset($page)) ? $page['meta_title'] : ''}}">
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <label>Meta keywords</label>
-                        <div class="col-lg-12 col-md-9 col-sm-12">
-                          <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Ключевые слова" name="meta_keywords" value="{{(isset($page)) ? $page['meta_keywords'] : ''}}">
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <label>Meta description</label>
-                        <div class="col-lg-12 col-md-9 col-sm-12">
-                          <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Мета описание" name="meta_description" value="{{(isset($page)) ? $page['meta_description'] : ''}}">
-                        </div>
-                      </div>
-
+                      @include('admin.pages.components.meta-tags')
                       <div class="form-group row">
                         <label>Адрес</label>
                         <div class="col-lg-12 col-md-9 col-sm-12">

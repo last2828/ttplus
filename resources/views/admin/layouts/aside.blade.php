@@ -106,28 +106,23 @@
                 <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu" data-ktmenu-submenu-toggle="hover">
                   <a class="kt-menu__link kt-menu__toggle" href="{{route('admin.blog.posts.create')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Добавить статью</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
                 </li>
-                {{--<li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu {{(Request::is('admin/blog/categories*') ? 'kt-menu__item--open' : '')}}" data-ktmenu-submenu-toggle="hover">--}}
-                  {{--<a class="kt-menu__link kt-menu__toggle" href="javascript:;"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Категории блога</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>--}}
-                  {{--<div class="kt-menu__submenu">--}}
-                    {{--<span class="kt-menu__arrow"></span>--}}
-                    {{--<ul class="kt-menu__subnav">--}}
-                      {{--<li aria-haspopup="true" class="kt-menu__item">--}}
-                        {{--<a class="kt-menu__link" href="{{route('categories.index')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Список категорий</span></a>--}}
-                      {{--</li>--}}
-                      {{--<li aria-haspopup="true" class="kt-menu__item">--}}
-                        {{--<a class="kt-menu__link" href="{{route('categories.create')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>--}}
-                      {{--</li>--}}
-                    {{--</ul>--}}
-                  {{--</div>--}}
-                {{--</li>--}}
               </ul>
             </div>
           </li>
+          <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu" data-ktmenu-submenu-toggle="hover">
+            <a class="kt-menu__link" href="{{route('admin.info_pages.index', 'home')}}"><i class="kt-menu__link-icon flaticon-tabs"></i><span class="kt-menu__link-text">Главная</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+          </li>
           <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu">
-            <a class="kt-menu__link" href="{{route('admin.info_pages.about.index')}}"><i class="kt-menu__link-icon flaticon-tabs"></i><span class="kt-menu__link-text">О компании</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+            <a class="kt-menu__link" href="{{route('admin.info_pages.index', 'about')}}"><i class="kt-menu__link-icon flaticon-tabs"></i><span class="kt-menu__link-text">О компании</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
           </li>
           <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu" data-ktmenu-submenu-toggle="hover">
-            <a class="kt-menu__link" href="{{route('admin.info_pages.contact.index')}}"><i class="kt-menu__link-icon flaticon-tabs"></i><span class="kt-menu__link-text">Контакты</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+            <a class="kt-menu__link" href="{{route('admin.info_pages.index', 'contact')}}"><i class="kt-menu__link-icon flaticon-tabs"></i><span class="kt-menu__link-text">Контакты</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+          </li>
+          <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu" data-ktmenu-submenu-toggle="hover">
+            <a class="kt-menu__link" href="{{route('admin.info_pages.index', 'dunkermotoren')}}"><i class="kt-menu__link-icon flaticon-tabs"></i><span class="kt-menu__link-text">Dunkermotoren</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+          </li>
+          <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu" data-ktmenu-submenu-toggle="hover">
+            <a class="kt-menu__link" href="{{route('admin.info_pages.index', 'jianghai')}}"><i class="kt-menu__link-icon flaticon-tabs"></i><span class="kt-menu__link-text">Jianghai</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
           </li>
         </ul>
       </div>

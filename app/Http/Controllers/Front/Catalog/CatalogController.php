@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front\Catalog;
 
 use App\Filters\ProductFilter;
 use App\Models\Catalog\Product;
+use App\Models\Catalog\ProductAttribute;
 use App\Repositories\Catalog\ProductCategoryRepository;
 use App\Repositories\Catalog\ProductGroupRepository;
 use App\Repositories\Catalog\ProductRepository;
@@ -105,41 +106,47 @@ class CatalogController extends BaseController
         $categoriesAside = $this->productCategoryRepository->getAllCategoriesForAside();
         $category = $this->productCategoryRepository->getOneSubBySlug($categorySlug);
         $groups = $category->groups()->paginate(4);
+
         $meta = $this->meta->getMetaTags($category->meta_title, $category->meta_keywords, $category->meta_description);
 
-        if ($category and $groups) {
-            return view('front.catalog.subcategory',
-                compact('categoriesAside', 'category', 'groups', 'meta'));
-        }
-
-        return abort(404);
+        return view('front.catalog.subcategory',
+            compact('categoriesAside', 'category', 'groups', 'meta'));
     }
 
     /**
      * Show products list by sub group
-     *
+     * @param ProductFilter $filters
      * @param $groupSlug
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function subGroupList($groupSlug)
+    public function subGroupList($groupSlug, ProductFilter $filters)
     {
         $categoriesAside = $this->productCategoryRepository->getAllCategoriesForAside();
         $group = $this->productGroupRepository->getOneSubBySlug($groupSlug);
-        $products = $group->products()->paginate(7);
-        $meta = $this->meta->getMetaTags($group->meta_title, $group->meta_keywords, $group->meta_description);
+        $attributes = ProductAttribute::with('products')->take(5)->get();
 
-        if ($group and $products) {
-            return view('front.catalog.subcategory',
-                compact('categoriesAside', 'group', 'products', 'meta'));
+        if ($filters->filters()) {
+            $products = Product::filter($filters)->paginate(7);
+        } else {
+            $products = $group->products()->paginate(7);
         }
 
-        return abort(404);
+        $meta = $this->meta->getMetaTags($group->meta_title, $group->meta_keywords, $group->meta_description);
+
+        return view('front.catalog.subcategory',
+                compact('categoriesAside', 'group', 'products', 'meta', 'attributes'));
     }
 
+    /**
+     * Фильтруем продукты по входящим параметрам
+     *
+     * @param ProductFilter $filters
+     * @return mixed
+     */
     public function filterProduct(ProductFilter $filters)
     {
-        $res = Product::filter($filters)->get();
-
-        dd($res);
+        $result = Product::filter($filters)->get();
+        dd($result);
+        return $result;
     }
 }

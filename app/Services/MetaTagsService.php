@@ -12,7 +12,7 @@ class MetaTagsService extends CoreService
     private $meta;
 
     /**
-     * SetMetaService constructor.
+     * MetaTagsService constructor.
      * @param MetaInterface $meta
      */
     public function __construct(MetaInterface $meta)

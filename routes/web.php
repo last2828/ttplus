@@ -54,16 +54,11 @@
         \Route::resources(['product_categories' => 'CategoryController']);
     });
 
-    \Route::group(['as' => 'info_pages.', 'namespace' => 'InfoPages'], function () {
-        \Route::get('/about/', 'AboutController@index')->name('about.index');
-        \Route::patch('/about/update', 'AboutController@update')->name('about.update');
-        \Route::get('/contact', 'ContactController@index')->name('contact.index');
-        \Route::patch('/contact/update', 'ContactController@update')->name('contact.update');
-    });
+
+    \Route::get('/{page}', 'PageController@index')->name('info_pages.index');
+    \Route::patch('/{page}/update', 'PageController@update')->name('info_pages.update');
 });
 
 Auth::routes();
 
 \Route::get('logout', 'Auth\LoginController@logout')->name('logout')->middleware('auth');
-
-\Route::get('/products', 'Front\Catalog\CatalogController@filterProduct')->name('filter');

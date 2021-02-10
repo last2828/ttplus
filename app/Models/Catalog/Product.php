@@ -4,9 +4,9 @@ namespace App\Models\Catalog;
 
 use App\Filters\ProductFilter;
 use Eloquent;
-use App\Filters\CoreFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -164,6 +164,8 @@ class Product extends Model
     }
 
     /**
+     * Заготовка для фильтрования продуктов
+     *
      * @param Builder $builder
      * @param ProductFilter $filters
      * @return mixed

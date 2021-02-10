@@ -25,12 +25,8 @@ class HomeController extends BaseController
      */
     public function index(PostRepository $postRepository)
     {
-        $tags = [
-            'title' => 'Главная страница',
-            'keywords' => 'Главная страница',
-            'description' => 'Главная страница',
-        ];
-        $meta = $this->meta->getMetaTags($tags['title'], $tags['keywords'], $tags['description']);
+        $page = PageField::where('key', 'home')->first();
+        $meta = $this->meta->getMetaTags($page->meta_title, $page->meta_keywords, $page->meta_description);
         $posts = $postRepository->getForIndexPage(4);
 
         return view('front.pages.home', compact('posts', 'meta'));
@@ -67,12 +63,8 @@ class HomeController extends BaseController
      */
     public function dunkermotoren()
     {
-        $tags = [
-            'title' => 'Информация о производителе Dunkermotoren',
-            'keywords' => 'Информация о производителе Dunkermotoren',
-            'description' => 'Информация о производителе Dunkermotoren'
-        ];
-        $meta = $this->meta->getMetaTags($tags['title'], $tags['keywords'], $tags['description']);
+        $page = PageField::where('key', 'dunkermotoren')->first();
+        $meta = $this->meta->getMetaTags($page->meta_title, $page->meta_keywords, $page->meta_description);
 
         return view('front.pages.dunkermotoren', compact('meta'));
     }
@@ -82,12 +74,8 @@ class HomeController extends BaseController
      */
     public function jianghai()
     {
-        $tags = [
-            'title' => 'Информация о производителе Jianghai',
-            'keywords' => 'Информация о производителе Jianghai',
-            'description' => 'Информация о производителе Jianghai'
-        ];
-        $meta = $this->meta->getMetaTags($tags['title'], $tags['keywords'], $tags['description']);
+        $page = PageField::where('key', 'jianghai')->first();
+        $meta = $this->meta->getMetaTags($page->meta_title, $page->meta_keywords, $page->meta_description);
 
         return view('front.pages.jianghai', compact('meta'));
     }
