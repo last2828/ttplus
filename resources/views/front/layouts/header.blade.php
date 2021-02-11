@@ -9,8 +9,8 @@
       <ul>
         <li><a href="{{route('pages.catalog.index')}}" class="{{(Request::is('catalog*') ? 'active' : '')}}">Каталог</a></li>
         <li><a href="{{route('pages.posts.index')}}" class="{{(Request::is('catalog"*') ? 'active' : '')}}">Статьи</a></li>
-        <li><a href="{{route('pages.about')}}" class="{{(Request::is('about*') ? 'active' : '')}}">О компании</a></li>
-        <li><a href="{{route('pages.contact')}}" class="{{(Request::is('contact*') ? 'active' : '')}}">Контакты</a></li>
+        <li><a href="{{route('pages.page', 'about')}}" class="{{(Request::is('about*') ? 'active' : '')}}">О компании</a></li>
+        <li><a href="{{route('pages.page', 'contact')}}" class="{{(Request::is('contact*') ? 'active' : '')}}">Контакты</a></li>
       </ul>
     </div><a href="#" class="btn btn-menu"><span></span><span></span></a>
     <div class="search">

@@ -13,7 +13,7 @@
                 <p>Немецкое качество с более чем полувековой историей</p>
                 <div class="content__bottom">
                   <div>
-                    <a href="{{route('pages.dunkermotoren')}}" class="btn btn-primary">Подробнее</a>
+                    <a href="{{route('pages.page', 'dunkermotoren')}}" class="btn btn-primary">Подробнее</a>
                   </div>
                   <div>
                     <a href="{{route('pages.catalog.maincategory', 'dunkermotoren')}}" class="btn btn-next--blue">В каталог<span class="span-arrow"></span></a>
@@ -42,7 +42,7 @@
               <div class="intro__content">
                 <h2 class="heading">Конденсаторы Jianghai</h2>
                 <p>Современные электролитические конденсаторы от крупнейшего китайского производителя</p>
-                <div class="content__bottom"><a href="{{route('pages.jianghai')}}" class="btn btn-primary">Подробнее</a>
+                <div class="content__bottom"><a href="{{route('pages.page', 'jianghai')}}" class="btn btn-primary">Подробнее</a>
                   <a href="{{route('pages.catalog.maincategory', 'jianghai')}}" class="btn btn-next--blue">В каталог<span class="span-arrow"></span></a></div>
               </div>
               <div class="intro__image"><img src="{{asset('img/main/intro-1-lg.png')}}" alt=""><a href="#" class="btn-play">
@@ -74,7 +74,7 @@
           <div class="about__block-text">
             <p>Dunkermotoren GmbH - немецкая производственная компания, которая с момента основания в 1950 году специализируется на высокоточных малогабаритных моторах и редукторах.</p>
             <p>Качество, профессионализм, высокий уровень сервиса, ориентированность на потребности клиента, оперативность и высокие экологические стандарты - отличительные черты продукции компании.</p>
-            <p>В 1991 Дункенмоторен стал первым производителем в малых моторов в мире прошедших сертификацию ISO 9001.</p><a href="{{route('pages.dunkermotoren')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Подробнее о компании</span></a>
+            <p>В 1991 Дункенмоторен стал первым производителем в малых моторов в мире прошедших сертификацию ISO 9001.</p><a href="{{route('pages.page', 'dunkermotoren')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Подробнее о компании</span></a>
           </div>
           <div class="about__cards">
             <div class="about__card">
@@ -145,14 +145,14 @@
             <div class="card__content">
               <p>Электродвигатели <span>Dunkermotoren</span></p>
             </div>
-            <div class="card__bottom"><a href="{{route('pages.dunkermotoren')}}" class="btn btn-primary">Подробнее</a><a href="{{route('pages.catalog.maincategory', 'dunkermotoren')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a></div>
+            <div class="card__bottom"><a href="{{route('pages.page', 'dunkermotoren')}}" class="btn btn-primary">Подробнее</a><a href="{{route('pages.catalog.maincategory', 'dunkermotoren')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a></div>
           </div>
           <div class="catalog-card">
             <div class="card__image"><img src="{{asset('img/main/card-2.png')}}" alt=""></div>
             <div class="card__content">
               <p>Электролитические и пленочные конденсаторы <span>Jianghai</span></p>
             </div>
-            <div class="card__bottom"><a href="{{route('pages.jianghai')}}" class="btn btn-primary">Подробнее</a><a href="{{route('pages.catalog.maincategory', 'jianghai')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a></div>
+            <div class="card__bottom"><a href="{{route('pages.page', 'jianghai')}}" class="btn btn-primary">Подробнее</a><a href="{{route('pages.catalog.maincategory', 'jianghai')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">В каталог</span></a></div>
           </div>
         </div>
       </div>

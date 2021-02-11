@@ -13,10 +13,7 @@
 
 \Route::group(['namespace' => 'Front', 'as' => 'pages.'], function () {
     \Route::get('/', 'HomeController@index')->name('home');
-    \Route::get('/contact', 'HomeController@contact')->name('contact');
-    \Route::get('/about-us', 'HomeController@about')->name('about');
-    \Route::get('/about/dunkermotoren', 'HomeController@dunkermotoren')->name('dunkermotoren');
-    \Route::get('/about/jianghai', 'HomeController@jianghai')->name('jianghai');
+    \Route::get('/page/{page}', 'HomeController@page')->name('page');
 
     \Route::group(['prefix' => 'catalog', 'namespace' => 'Catalog', 'as' => 'catalog.'], function () {
         \Route::get('/', 'CatalogController@index')->name('index');

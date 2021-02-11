@@ -34,49 +34,14 @@ class HomeController extends BaseController
 
     /**
      * Show about page
-     *
+     * @param string $key
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function about()
+    public function page($key)
     {
-        $page = PageField::where('key', 'about')->first();
+        $page = PageField::where('key', $key)->first();
         $meta = $this->meta->getMetaTags($page->meta_title, $page->meta_keywords, $page->meta_description);
 
-        return view('front.pages.about', compact('page','meta'));
-    }
-
-    /**
-     * Show contact page
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function contact()
-    {
-        $page = PageField::where('key', 'contact')->first();
-        $meta = $this->meta->getMetaTags($page->meta_title, $page->meta_keywords, $page->meta_description);
-
-        return view('front.pages.contact', compact('page', 'meta'));
-    }
-
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function dunkermotoren()
-    {
-        $page = PageField::where('key', 'dunkermotoren')->first();
-        $meta = $this->meta->getMetaTags($page->meta_title, $page->meta_keywords, $page->meta_description);
-
-        return view('front.pages.dunkermotoren', compact('meta'));
-    }
-
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function jianghai()
-    {
-        $page = PageField::where('key', 'jianghai')->first();
-        $meta = $this->meta->getMetaTags($page->meta_title, $page->meta_keywords, $page->meta_description);
-
-        return view('front.pages.jianghai', compact('meta'));
+        return view('front.pages.' . $page->key, compact('page','meta'));
     }
 }
