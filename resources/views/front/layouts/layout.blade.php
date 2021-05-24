@@ -7,8 +7,8 @@
     <meta name="theme-color" content="#fff">
     <meta name="format-detection" content="telephone=no">
     {!! Meta::toHtml() !!}
-    <link href="../css/front.css" rel="stylesheet" type="text/css" />
-    <link href="../css/app_new.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('css/front.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('css/app_new.css')}}" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
