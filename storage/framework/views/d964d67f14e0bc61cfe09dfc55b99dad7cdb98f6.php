@@ -1,19 +1,18 @@
-@extends('front.layouts.layout')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <section class="main-catalog__heading">
         <div class="container">
-            {{Breadcrumbs::render('catalog-brand', $category)}}
-            @include('front.catalog.components.description-section')
+            <?php echo e(Breadcrumbs::render('catalog-brand', $category)); ?>
+
+            <?php echo $__env->make('front.catalog.components.description-section', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         </div>
     </section>
     <section class="main-catalog__content">
         <div class="container"><a href="#" class="btn btn-single-param__heading btn-filter"><span class="span-text">Фильтры</span><span class="span-arrow"></span></a>
 
             <aside>
-                @include('front.catalog.components.aside')
+                <?php echo $__env->make('front.catalog.components.aside', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             </aside>
-            @if (Route::current()->parameter('category') == 'dunkermotoren')
+            <?php if(Route::current()->parameter('category') == 'dunkermotoren'): ?>
             <div class="products">
                 <div class="parameter__names">
                     <div class="param series">
@@ -38,7 +37,7 @@
                         <p>Номинальная мощность, <br> Вт</p>
                     </div>
                 </div>
-            @elseif (Route::current()->parameter('category') == 'jianghai')
+            <?php elseif(Route::current()->parameter('category') == 'jianghai'): ?>
             <div class="products">
                 <div class="parameter__names">
                     <div class="param series">
@@ -57,12 +56,13 @@
                         <p>Useful Life,<br> (hours)</p>
                     </div>
                 </div>
-            @endif
-                @php /** @var \App\Models\Catalog\ProductCategory $category */ @endphp
+            <?php endif; ?>
+                <?php /** @var \App\Models\Catalog\ProductCategory $category */ ?>
                 <div class="product__block">
-                    @include('front.catalog.components.subcategories-list', ['list' => $category, 'categories' => $subCategories])
+                    <?php echo $__env->make('front.catalog.components.subcategories-list', ['list' => $category, 'categories' => $subCategories], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 </div>
             </div>
         </div>
     </section>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('front.layouts.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/cyrill/Documents/GitHub/ttplus/resources/views/front/catalog/maincategory.blade.php ENDPATH**/ ?>

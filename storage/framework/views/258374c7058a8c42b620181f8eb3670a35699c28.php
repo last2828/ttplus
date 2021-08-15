@@ -1,4 +1,4 @@
-@if (Route::current()->parameter('category') == 'dunkermotoren')
+<?php if(Route::current()->parameter('category') == 'dunkermotoren'): ?>
     <h2>Электродвигатели Dunkermotoren</h2>
     <div class="heading__content">
         <div class="heading__text">
@@ -10,8 +10,8 @@
                 <div class="btn-pdf__img"></div>
                 <div class="btn-pdf__text">Общий каталог (Dunkermotoren).pdf</div>
             </a><a href="#" class="btn btn-watch">Смотреть видео</a></div>
-    </div><a href="{{route('pages.page', 'dunkermotoren')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Подробнее</span></a>
-@elseif (Route::current()->parameter('category') == 'jianghai')
+    </div><a href="<?php echo e(route('pages.page', 'dunkermotoren')); ?>" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Подробнее</span></a>
+<?php elseif(Route::current()->parameter('category') == 'jianghai'): ?>
     <h2>Конденсаторы Jianghai</h2>
     <div class="heading__content">
         <div class="heading__text">
@@ -23,5 +23,5 @@
                 <div class="btn-pdf__img"></div>
                 <div class="btn-pdf__text">Общий каталог (Dunkermotoren).pdf</div>
             </a><a href="#" class="btn btn-watch">Смотреть видео</a></div>
-    </div><a href="{{route('pages.page', 'jianghai')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Подробнее</span></a>
-@endif
+    </div><a href="<?php echo e(route('pages.page', 'jianghai')); ?>" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Подробнее</span></a>
+<?php endif; ?><?php /**PATH /Users/cyrill/Documents/GitHub/ttplus/resources/views/front/catalog/components/description-section.blade.php ENDPATH**/ ?>
