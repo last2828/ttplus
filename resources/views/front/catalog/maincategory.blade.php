@@ -13,7 +13,8 @@
             <aside>
                 @include('front.catalog.components.aside')
             </aside>
-
+{{--            @dd(Route::current())--}}
+            @if (Route::current()->parameter('category') == 'dunkermotoren')
             <div class="products">
                 <div class="parameter__names">
                     <div class="param series">
@@ -38,6 +39,26 @@
                         <p>Номинальная мощность, <br> Вт</p>
                     </div>
                 </div>
+            @elseif (Route::current()->parameter('category') == 'jianghai')
+            <div class="products">
+                <div class="parameter__names">
+                    <div class="param series">
+                        <p>Категория</p>
+                    </div>
+                    <div class="param diameter">
+                        <p>Capacitance,<br> (µF)</p>
+                    </div>
+                    <div class="param length">
+                        <p>Voltage, <br> (V DC)</p>
+                    </div>
+                    <div class="param speed">
+                        <p>Temperature,<br> (°C)</p>
+                    </div>
+                    <div class="param moment">
+                        <p>Useful Life,<br> (hours)</p>
+                    </div>
+                </div>
+            @endif
                 @php /** @var \App\Models\Catalog\ProductCategory $category */ @endphp
                 <div class="product__block">
                     @include('front.catalog.components.subcategories-list', ['list' => $category, 'categories' => $subCategories])

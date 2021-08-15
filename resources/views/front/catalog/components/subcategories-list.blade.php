@@ -21,12 +21,6 @@
         <div class="param speed">
             <p>3 950 <br> 450</p>
         </div>
-        <div class="param moment">
-            <p>1.0 <br> 1.1</p>
-        </div>
-        <div class="param power">
-            <p>4</p>
-        </div>
         <a href="{{ route('pages.catalog.category.subcategory', ['category' => $subCategory->slug]) }}" class="btn btn-next">
             <div class="span-arrow"></div>
         </a>
