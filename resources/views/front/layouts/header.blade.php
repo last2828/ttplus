@@ -1,7 +1,7 @@
 <!--BEGIN header-->
 <header class="header">
   <div class="container">
-    <a href="#" class="btn btn-phone"></a>
+    <a href="tel:+8 812 303 98 63" class="btn btn-phone"></a>
     <a href="{{route('pages.home')}}" class="btn logo__image">
       <img src="{{asset('img/tt.svg')}}" alt="">
     </a>

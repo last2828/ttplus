@@ -292,6 +292,13 @@
     #idle-speed, #idle-speed__content, #rated-speed, #rated-speed__content, #torque, #torque__content, #rated-moment, #rated-moment__content, #power, #power__content, #type, #type__content
       +r($xs)
         display: none
+  .info__bottom
+    display: flex
+    flex-grow: 1
+    flex-direction: row
+    justify-content: space-between
+    +r($xs)
+      padding-top: 40px
   .products
     max-width: 1250px
     display: flex
@@ -309,6 +316,8 @@
     +r($xs)
       width: 85%
       padding-bottom: 40px
+      margin-left: auto
+      margin-right: auto
     .param
       display: flex
       justify-content: center

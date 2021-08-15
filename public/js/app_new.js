@@ -10,6 +10,9 @@ $(document).ready(function(){
 
 
 
-
+	$(".product__characteristics>.mobile-details>.btn.btn-secondary").on("click",function(){
+		console.log("ok");
+		$('meta[name=viewport]').attr("content","width=1024px");
+	});
 
 });

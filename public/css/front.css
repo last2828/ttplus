@@ -1295,8 +1295,7 @@ button.swiper-pagination-bullet {
   .header .container .search .input .input__icon-search {
     width: 22px;
     height: 22px;
-    top: 19px;
-    top: 19px;
+    top: 17px;
     right: 35px;
   }
 }
@@ -1625,6 +1624,10 @@ p {
   justify-content: center;
   transition: 0.3s;
   cursor: pointer;
+}
+
+.btn.btn-next {
+  margin-left: auto;
 }
 
 .btn-primary {
@@ -2273,7 +2276,7 @@ p {
     width: 65px;
     height: 65px;
     background-position-x: 30px;
-    background-position-y: 26px;
+    background-position-y: 22px;
   }
 }
 
@@ -3091,6 +3094,7 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   background-color: white;
   margin-bottom: 90px;
   border: solid 1.2px transparent;
+  flex-grow: 1;
 }
 
 @media only screen and (max-width: 1919px) {
@@ -6403,23 +6407,19 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: 40px;
-  padding-top: 50px;
+  padding-left: 0px;
+  padding-top: 0px;
 }
 
 @media only screen and (max-width: 1919px) {
   .main-catalog__content aside {
     width: 390px;
-    padding-right: 35px;
-    padding-left: 30px;
   }
 }
 
 @media only screen and (max-width: 1679px) {
   .main-catalog__content aside {
     width: 260px;
-    padding-right: 40px;
-    padding-left: 30px;
   }
 }
 
@@ -6675,20 +6675,20 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
 .main-catalog__content aside .checkboxes {
   justify-content: center;
   display: flex;
-  padding-left: 65px;
-  min-width: 365px;
+  margin-left:0;
+  margin-right:0;
+  padding-left:0;
+  padding-right:0;
+  width:100%;
 }
 
 @media only screen and (max-width: 1919px) {
   .main-catalog__content aside .checkboxes {
-    padding-left: 80px;
   }
 }
 
 @media only screen and (max-width: 1679px) {
   .main-catalog__content aside .checkboxes {
-    padding-left: 75px;
-    min-height: 240px;
   }
 }
 
@@ -6697,12 +6697,10 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   margin: 0 auto;
   align-items: center;
   flex-wrap: wrap;
-  min-width: 365px;
 }
 
 @media only screen and (max-width: 1679px) {
   .main-catalog__content aside .checkboxes form {
-    min-width: 240px;
   }
 }
 
@@ -6809,10 +6807,27 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   }
 }
 
+  .info__bottom {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
 @media only screen and (max-width: 767px) {
   .main-catalog__content .products {
     width: 85%;
     padding-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .info__bottom {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 40px;
   }
 }
 

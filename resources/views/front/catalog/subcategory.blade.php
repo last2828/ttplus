@@ -16,7 +16,11 @@
 
       <aside>
         @include('front.catalog.components.aside')
-        @include('front.catalog.components.filter')
+	@if (isset($attributes))
+	        @include('front.catalog.components.filter',['attributes'=>$attributes])
+	@else
+	        @include('front.catalog.components.nofilter')
+	@endif
       </aside>
 
       <div class="products">

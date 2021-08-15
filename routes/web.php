@@ -59,3 +59,8 @@
 Auth::routes();
 
 \Route::get('logout', 'Auth\LoginController@logout')->name('logout')->middleware('auth');
+
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    return "Cache is cleared";
+});

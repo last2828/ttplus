@@ -101,16 +101,23 @@ class CatalogController extends BaseController
      * @param $categorySlug
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function subCategoryList($categorySlug)
+    public function subCategoryList($categorySlug, ProductFilter $filters)
     {
         $categoriesAside = $this->productCategoryRepository->getAllCategoriesForAside();
         $category = $this->productCategoryRepository->getOneSubBySlug($categorySlug);
         $groups = $category->groups()->paginate(4);
+        $attributes = ProductAttribute::with('products')->take(5)->get();
+
+        if ($filters->filters()) {
+            $products = Product::filter($filters)->paginate(7);
+        } else {
+            $products = $category->products()->paginate(7);
+        }
 
         $meta = $this->meta->getMetaTags($category->meta_title, $category->meta_keywords, $category->meta_description);
 
         return view('front.catalog.subcategory',
-            compact('categoriesAside', 'category', 'groups', 'meta'));
+            compact('categoriesAside', 'category', 'groups', 'meta','attributes'));
     }
 
     /**

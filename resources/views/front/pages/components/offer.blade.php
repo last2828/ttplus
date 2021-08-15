@@ -13,7 +13,8 @@
                 </div>
                 <div class="form-bottom">
                     <div class="policy"><input type="checkbox" id="policy-offer" checked class="policy__input"><label for="policy-offer" class="policy__label"></label><label for="policy-offer" class="policy__label--text"><a href="#">Я даю свое согласие на обработку персональных данных</a></label></div>
-                    <button type="submit" class="btn btn-form">Получить</button>
+                    <button type="submit" class="btn btn-form mobilehidden">Получить</button>
+              <div class="intro__bottom desktophidden"><a href="#feedbackpopupper" class="btn btn-form">Получить</a></div>
                 </div>
             </div>
         </form>

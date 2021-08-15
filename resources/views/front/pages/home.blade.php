@@ -22,7 +22,7 @@
               </div>
               <div class="intro__image">
                 <div><img src="{{asset('img/main/intro-lg.png')}}" alt=""></div>
-                <a href="#" class="btn-play">
+                <a href="#videopopupper" class="btn-play">
                   <div class="sp-circle"></div>
                   <div class="sp-text">Смотреть видео</div>
                 </a></div>
@@ -74,7 +74,7 @@
           <div class="about__block-text">
             <p>Dunkermotoren GmbH - немецкая производственная компания, которая с момента основания в 1950 году специализируется на высокоточных малогабаритных моторах и редукторах.</p>
             <p>Качество, профессионализм, высокий уровень сервиса, ориентированность на потребности клиента, оперативность и высокие экологические стандарты - отличительные черты продукции компании.</p>
-            <p>В 1991 Дункенмоторен стал первым производителем в малых моторов в мире прошедших сертификацию ISO 9001.</p><a href="{{route('pages.page', 'dunkermotoren')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Подробнее о компании</span></a>
+            <p>В 1991 Дункенмоторен стал первым производителем в малых моторов в мире прошедших сертификацию ISO 9001.</p><a href="{{route('pages.page', 'about')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Подробнее о компании</span></a>
           </div>
           <div class="about__cards">
             <div class="about__card">
