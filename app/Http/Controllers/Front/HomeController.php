@@ -47,7 +47,11 @@ class HomeController extends BaseController
     public function page(Request $request, $key)
     {
         $page = PageField::where('key', $key)->first();
-        $meta = $this->meta->getMetaTags($page->meta_title, $page->meta_keywords, $page->meta_description);
+        if(isset($page->meta_title) & isset($page->meta_keywords) & isset($page->meta_description)) {
+            $meta = $this->meta->getMetaTags($page->meta_title, $page->meta_keywords, $page->meta_description);
+        }else{
+            $meta = [];
+        }
 
         if($request->query('limit') == 'all') {
             $awards = Document::where('type', 'award')->get();
