@@ -29,7 +29,7 @@
                     <div class="popup">
                       <a class="close" href="#">&times;</a>
                       <div class="content">
-                        {!! $page->dunker_iframe !!}
+                        {!! $page->dunker_iframe ? isset($page->dunker_iframe) : '' !!}
                       </div>
                     </div>
                   </div>
