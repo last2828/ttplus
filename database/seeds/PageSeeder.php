@@ -54,28 +54,7 @@ class PageSeeder extends Seeder
             'blocks_3' => [
                 'title' => 'Поставка керамических изоляторов',
                 'description' => 'Начинаем поставлять керамические изоляторы для высоковольтных контакторов и линий электропередачи. Помимо стандартных решений мы предлагаем варианты специального исполнения согласно техническому заданию заказчика.'
-            ],
-            'awards' => [
-                [
-                    'image' => 'img/about/certificate.png',
-                ],
-                [
-                    'image' => 'img/about/certificate.png',
-                ],
-            ],
-            'licenses' => [
-                [
-                    'image' => 'img/about/certificate.png',
-                ],
-            ],
-            'shows' => [
-                [
-                    'image' => 'img/about/certificate.png',
-                ],
-                [
-                    'image' => 'img/about/certificate.png',
-                ],
-            ],
+            ]
         ]);
 
         PageField::create([
