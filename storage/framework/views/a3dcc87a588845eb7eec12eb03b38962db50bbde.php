@@ -26,6 +26,18 @@
                                 <?php echo method_field('PATCH'); ?>
                                 <div class="kt-portlet__body">
                                     <?php echo $__env->make('admin.pages.components.meta-tags', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                                    <div class="form-group row">
+                                        <label>Video Dunkermotoren Iframe</label>
+                                        <div class="col-lg-12 col-md-9 col-sm-12">
+                                            <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Video" name="dunker_iframe" value="<?php echo e((isset($page)) ? $page['dunker_iframe'] : ''); ?>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label>Video Jianghai Iframe</label>
+                                        <div class="col-lg-12 col-md-9 col-sm-12">
+                                            <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Video" name="jianghai_iframe" value="<?php echo e((isset($page)) ? $page['jianghai_iframe'] : ''); ?>">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="kt-portlet__foot">
                                     <div class="kt-form__actions">

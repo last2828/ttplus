@@ -29,7 +29,6 @@ class ProductCategoryStoreRequest extends FormRequest
             'slug' => 'max:255|unique:product_categories,slug',
             'status' => 'required|boolean',
             'parent_id' => 'sometimes|nullable|exists:product_categories,id',
-            'image' => 'sometimes|nullable|image'
         ];
     }
 

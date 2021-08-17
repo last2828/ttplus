@@ -40,8 +40,7 @@ class ProductCategoryUpdateRequest extends FormRequest
                 'exists:product_categories,id',
                 Rule::notIn($this->product_category)
             ],
-            'status' => 'required|boolean',
-            'image' => 'sometimes|nullable|image'
+            'status' => 'required|boolean'
         ];
     }
 

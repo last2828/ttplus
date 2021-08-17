@@ -130,6 +130,7 @@ class ProductCategoryRepository extends CoreRepository
         $columns = [
             'id',
             'name',
+            'name_ru',
             'content',
             'meta_title',
             'meta_keywords',
@@ -158,6 +159,7 @@ class ProductCategoryRepository extends CoreRepository
         $columns = [
             'id',
             'name',
+            'name_ru',
             'content',
             'meta_title',
             'meta_keywords',
@@ -169,7 +171,7 @@ class ProductCategoryRepository extends CoreRepository
 
         $result = $this->startCondition()
                         ->select($columns)
-                        ->with(['parent:id,name,slug',
+                        ->with(['parent:id,name,slug,name_ru,content',
                                 'groups' => function($query) {
                                     $query->select('id', 'category_id', 'name', 'slug')
                                             ->with('products:id,group_id,name,slug')

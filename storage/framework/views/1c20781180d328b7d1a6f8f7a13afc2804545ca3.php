@@ -180,107 +180,130 @@
 
                                         <div class="tab-pane" id="kt_tabs_1_4" role="tabpanel">
                                             <label>Награды</label>
+                                            <input type="hidden" id="count" value="<?php echo e(count($awards) ? count($awards) : 0); ?>">
+                                            <div class="col-lg-12">
+                                                <?php $__currentLoopData = $awards; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $award): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <?php if($award['image'] == null): ?>
+                                                        <?php continue; ?>
+                                                    <?php endif; ?>
+                                                    <div class="form-group row align-items-center image_row">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                                            <div class="about__image"><img src="<?php echo e($award['image']); ?>" alt="" width="50%"></div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="custom-file">
+                                                                <input type="text" class="custom-file-input" id="image_rewards_<?php echo e($key); ?>" name="old_rewards[<?php echo e($key); ?>]" value="<?php echo e($award['image']); ?>">
+                                                                <label class="custom-file-label" for="image_rewards_<?php echo e($key); ?>"><?php echo e($award['image'] ? $award['image'] : "Выбирете файл"); ?></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
+                                                                <i class="la la-trash-o"></i>
+                                                                Удалить
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            </div>
                                             <div id="kt_repeater_1">
                                                 <div data-repeater-list="awards" class="col-lg-12">
-                                                    <?php $__currentLoopData = $page->awards; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $award): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                        <div data-repeater-item class="form-group row align-items-center">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3">
-                                                                <div class="about__image"><img src="<?php echo e($page['image']); ?>" alt="" width="50%"></div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="input-group">
-                                                                    <input type="text" id="image_label" class="form-control image_label" name="image"
-                                                                           aria-label="Image" aria-describedby="button-image" value="<?php echo e($page['image']); ?>">
-                                                                    <div class="input-group-append">
-                                                                        <button class="btn btn-outline-secondary button-image" type="button" id="button-image">Select</button>
-                                                                    </div>
+                                                    <div data-repeater-item class="form-group row align-items-center">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                                            <div class="about__image"><img src="" alt="" width="50%"></div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="input-group">
+                                                                <div class="custom-file">
+                                                                    <input type="file" id="image_label" class="custom-file-input form-control image_label" name="image"
+                                                                           aria-label="Image" aria-describedby="button-image">
+                                                                        <label class="custom-file-label" for="image_rewards">Выбирите файл</label>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-2">
-                                                                <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
-                                                                    <i class="la la-trash-o"></i>
-                                                                    Удалить
-                                                                </a>
-                                                            </div>
                                                         </div>
-                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        <div class="col-md-2">
+                                                            <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
+                                                                <i class="la la-trash-o"></i>
+                                                                Удалить
+                                                            </a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">
+                                                    <a href="javascript:;" data-repeater-create="" id="add" class="btn btn-bold btn-sm btn-label-brand">
                                                         <i class="la la-plus"></i> Добавить
                                                     </a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab-pane" id="kt_tabs_1_5" role="tabpanel">
-                                            <label>Сертификаты и лицензии</label>
-                                            <div id="kt_repeater_2">
-                                                <div data-repeater-list="licenses" class="col-lg-12">
-                                                    <?php $__currentLoopData = $page->licenses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $licens): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                        <div data-repeater-item class="form-group row align-items-center">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3">
-                                                                <div class="about__image"><img src="<?php echo e($page['image']); ?>" alt="" width="50%"></div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="input-group">
-                                                                    <input type="text" id="image_label" class="form-control image_label" name="image"
-                                                                           aria-label="Image" aria-describedby="button-image" value="<?php echo e($page['image']); ?>">
-                                                                    <div class="input-group-append">
-                                                                        <button class="btn btn-outline-secondary button-image" type="button" id="button-image">Select</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-2">
-                                                                <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
-                                                                    <i class="la la-trash-o"></i>
-                                                                    Удалить
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">
-                                                        <i class="la la-plus"></i> Добавить
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane" id="kt_tabs_1_6" role="tabpanel">
-                                            <label>Выставки</label>
-                                            <div id="kt_repeater_3">
-                                                <div data-repeater-list="shows" class="col-lg-12">
-                                                    <?php $__currentLoopData = $page->shows; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $show): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                        <div data-repeater-item class="form-group row align-items-center">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3">
-                                                                <div class="about__image"><img src="<?php echo e($page['image']); ?>" alt="" width="50%"></div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="input-group">
-                                                                    <input type="text" id="image_label" class="form-control image_label" name="image"
-                                                                           aria-label="Image" aria-describedby="button-image" value="<?php echo e($page['image']); ?>">
-                                                                    <div class="input-group-append">
-                                                                        <button class="btn btn-outline-secondary button-image" type="button" id="button-image">Select</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-2">
-                                                                <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
-                                                                    <i class="la la-trash-o"></i>
-                                                                    Удалить
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">
-                                                        <i class="la la-plus"></i> Добавить
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        
+                                            
+                                            
+                                                
+                                                    
+                                                        
+                                                            
+                                                                
+                                                            
+                                                            
+                                                                
+                                                                    
+                                                                           
+                                                                    
+                                                                        
+                                                                    
+                                                                
+                                                            
+                                                            
+                                                                
+                                                                    
+                                                                    
+                                                                
+                                                            
+                                                        
+                                                    
+                                                
+                                                
+                                                    
+                                                        
+                                                    
+                                                
+                                            
+                                        
+                                        
+                                            
+                                            
+                                                
+                                                    
+                                                        
+                                                            
+                                                                
+                                                            
+                                                            
+                                                                
+                                                                    
+                                                                           
+                                                                    
+                                                                        
+                                                                    
+                                                                
+                                                            
+                                                            
+                                                                
+                                                                    
+                                                                    
+                                                                
+                                                            
+                                                        
+                                                    
+                                                
+                                                
+                                                    
+                                                        
+                                                    
+                                                
+                                            
+                                        
+                                    
                                     <div class="kt-portlet__foot">
                                         <div class="kt-form__actions">
                                             <button type="submit" class="btn btn-primary">Сохранить</button>
@@ -303,20 +326,5 @@
     
 
     <script src="<?php echo e(asset('assets/js/pages/crud/forms/widgets/form-repeater.js')); ?>" type="text/javascript"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-
-            document.querySelector('.button-image').addEventListener('click', (event) => {
-                event.preventDefault();
-
-                window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
-            });
-        });
-
-        // set file link
-        function fmSetLink($url) {
-            document.querySelector('.image_label').value = $url;
-        }
-    </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.layouts.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/cyrill/Documents/GitHub/ttplus/resources/views/admin/pages/about.blade.php ENDPATH**/ ?>

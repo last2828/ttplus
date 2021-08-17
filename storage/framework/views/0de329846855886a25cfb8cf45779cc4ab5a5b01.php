@@ -23,7 +23,17 @@
                 <a href="#videopopupper" class="btn-play">
                   <div class="sp-circle"></div>
                   <div class="sp-text">Смотреть видео</div>
-                </a></div>
+                  <div id="videopopupper" class="overlay">
+                    <div class="popup">
+                      <a class="close" href="#">&times;</a>
+                      <div class="content">
+                        <?php echo $page->dunker_iframe; ?>
+
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
               <div class="intro__bottom"><a href="<?php echo e(route('pages.catalog.maincategory', 'dunkermotoren')); ?>" class="btn btn-next--blue">В каталог<span class="span-arrow"></span></a></div>
               <div class="intro__card">
                 <div class="card__image"><img src="<?php echo e(asset('img/main/intro-sm.png')); ?>" alt=""></div>
@@ -43,9 +53,19 @@
                 <div class="content__bottom"><a href="<?php echo e(route('pages.page', 'jianghai')); ?>" class="btn btn-primary">Подробнее</a>
                   <a href="<?php echo e(route('pages.catalog.maincategory', 'jianghai')); ?>" class="btn btn-next--blue">В каталог<span class="span-arrow"></span></a></div>
               </div>
-              <div class="intro__image"><img src="<?php echo e(asset('img/main/intro-1-lg.png')); ?>" alt=""><a href="#" class="btn-play">
+              <div class="intro__image"><img src="<?php echo e(asset('img/main/intro-1-lg.png')); ?>" alt="">
+                <a href="#videopopupper2" class="btn-play">
                   <div class="sp-circle"></div>
                   <div class="sp-text">Смотреть видео</div>
+                  <div id="videopopupper2" class="overlay">
+                    <div class="popup">
+                      <a class="close" href="#">&times;</a>
+                      <div class="content">
+                        <?php echo $page->jianghai_iframe; ?>
+
+                      </div>
+                    </div>
+                  </div>
                 </a></div>
               <div class="intro__bottom"><a href="<?php echo e(route('pages.catalog.maincategory', 'jianghai')); ?>" class="btn btn-next--blue">В каталог<span class="span-arrow"></span></a></div>
               <div class="intro__card">
@@ -191,6 +211,5 @@
       </form>
     </div>
   </section>
-
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('front.layouts.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/cyrill/Documents/GitHub/ttplus/resources/views/front/pages/home.blade.php ENDPATH**/ ?>

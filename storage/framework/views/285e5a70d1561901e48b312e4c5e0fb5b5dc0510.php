@@ -12,9 +12,19 @@
                     <p>Немецкое качество с более чем полувековой историей</p>
                     <div class="n-intro__row">
                         <a href="<?php echo e(route('pages.catalog.maincategory', 'dunkermotoren')); ?>" class="btn btn-next--blue">В каталог<span class="span-arrow"></span></a>
-                        <a href="#" class="btn-play">
+                        <a href="#videopopupper" class="btn-play">
                             <div class="sp-circle"></div>
                             <div class="sp-text">Смотреть видео</div>
+
+                            <div id="videopopupper" class="overlay" style="padding-top: 100px">
+                                <div class="popup">
+                                    <a class="close" href="#">&times;</a>
+                                    <div class="content">
+                                        <?php echo $page->head_image; ?>
+
+                                    </div>
+                                </div>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -522,6 +532,59 @@
         </div>
     </section>
     <?php echo $__env->make('front.pages.components.offer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <script>
+        var tag = document.createElement('script');
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // 3. This function creates an <iframe> (and YouTube player)
+        //    after the API code downloads.
+        var player;
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '315',
+                width: '560',
+                videoId: 'l-gQLqv9f4o',
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+                //player is playing
+            } else {
+                //player is paused
+            }
+        }
+
+        function stopVideo() {
+            player.stopVideo();
+        }
+
+        function playVideo() {
+            player.playVideo();
+        }
+
+        function pauseVideo() {
+            player.pauseVideo();
+        }
+
+
+        $(document).on('opened.fndtn.reveal', '[data-reveal]', function () {
+            playVideo();
+        });
+
+        $(document).on('closed.fndtn.reveal', '[data-reveal]', function () {
+            pauseVideo();
+        });
+
+    </script>
 
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('front.layouts.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/cyrill/Documents/GitHub/ttplus/resources/views/front/pages/dunkermotoren.blade.php ENDPATH**/ ?>

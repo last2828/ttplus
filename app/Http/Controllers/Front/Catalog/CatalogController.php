@@ -132,11 +132,11 @@ class CatalogController extends BaseController
         $group = $this->productGroupRepository->getOneSubBySlug($groupSlug);
         $attributes = ProductAttribute::with('products')->take(5)->get();
 
-        if ($filters->filters()) {
-            $products = Product::filter($filters)->paginate(7);
-        } else {
+//        if ($filters->filters()) {
+//            $products = Product::filter($filters)->paginate(7);
+//        } else {
             $products = $group->products()->paginate(7);
-        }
+//        }
 
         $meta = $this->meta->getMetaTags($group->meta_title, $group->meta_keywords, $group->meta_description);
 

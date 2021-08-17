@@ -1,6 +1,6 @@
 <section class="offer">
     <div class="container">
-        <form method="POST" action="{{route('pages.offers.store')}}">
+        <form class="offer_form" method="POST" action="{{route('pages.offers.store')}}">
             @csrf
             <div class="form__container">
                 <h2>Индивидуальное предложение</h2>
@@ -14,7 +14,15 @@
                 <div class="form-bottom">
                     <div class="policy"><input type="checkbox" id="policy-offer" checked class="policy__input"><label for="policy-offer" class="policy__label"></label><label for="policy-offer" class="policy__label--text"><a href="#">Я даю свое согласие на обработку персональных данных</a></label></div>
                     <button type="submit" class="btn btn-form mobilehidden">Получить</button>
-              <div class="intro__bottom desktophidden"><a href="#feedbackpopupper" class="btn btn-form">Получить</a></div>
+                    <div class="intro__bottom desktophidden">
+                            <a href="#feedbackpopupper" class="btn btn-form submit__form__btn">Получить</a>
+                            <div id="feedbackpopupper" class="overlay">
+                                <div class="popup">
+                                    <a class="close" href="#">&times;</a>
+                                    <p><strong>Спасибо!</strong> Наш менеджер скоро свяжется с вами!</p>
+                                </div>
+                            </div>
+                    </div>
                 </div>
             </div>
         </form>

@@ -32,7 +32,7 @@
                                     </div>
                                     <!--begin::Form-->
                                     <form class="kt-form" method="POST" action="<?php echo e(route('admin.catalog.product_categories.update', $category->id)); ?>">
-                                        <?php echo method_field('PUT'); ?>
+                                        <?php echo method_field('PATCH'); ?>
                                         <?php echo csrf_field(); ?>
                                         <div class="kt-portlet__body">
                                             <ul class="nav nav-tabs  nav-tabs-line" role="tablist">
@@ -101,13 +101,19 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label class="col-form-label col-lg-3 col-sm-12">Изображение категории</label>
-                                                        <div class="col-lg-4 col-md-9 col-sm-12">
-                                                            <div class="dropzone dropzone-default" id="kt_dropzone_1">
-                                                                <div class="dropzone-msg dz-message needsclick">
-                                                                    <h3 class="dropzone-msg-title">Перетащите файл сюда или нажмите для загрузки</h3>
-                                                                </div>
+                                                        <label>Каталог</label>
+                                                        <div class="input-group">
+                                                            <input type="text" id="catalog_label" class="form-control" name="catalog"
+                                                                   aria-label="Image" aria-describedby="button-image">
+                                                            <div class="input-group-append">
+                                                                <button class="btn btn-outline-secondary" type="button" id="button-catalog">Select</button>
                                                             </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label>Видео</label>
+                                                        <div class="col-lg-12 col-md-9 col-sm-12">
+                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Video" name="video" value="<?php echo e($category->video); ?>">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
@@ -176,6 +182,23 @@
                 }
             }
         });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            document.getElementById('button-catalog').addEventListener('click', (event) => {
+                event.preventDefault();
+
+                window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
+            });
+
+        });
+
+        // set file link
+        function fmSetLink($url) {
+            document.getElementById('catalog_label').value = $url;
+        }
     </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.layouts.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/cyrill/Documents/GitHub/ttplus/resources/views/admin/catalog/categories/edit.blade.php ENDPATH**/ ?>

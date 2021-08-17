@@ -43,7 +43,9 @@ class ProductCategory extends Model
         'parent_id',
         'slug',
         'status',
-        'image'
+        'image',
+        'catalog',
+        'video'
     ];
 
     /**

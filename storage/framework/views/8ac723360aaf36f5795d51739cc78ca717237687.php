@@ -53,6 +53,7 @@
         </div>
     </div>
 </section>
+    <?php if(isset($awards) & isset($licenses) & isset($shows)): ?>
     <section class="about__documents">
     <div class="tabs">
         <ul class="tabs__caption">
@@ -61,21 +62,22 @@
             <li><a class="btn tab-button">Выставки</a></li>
         </ul>
         <div class="tabs__content about__documents-tab active">
-            <?php $__currentLoopData = $page->awards; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $award): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div class="document"><img src="img/about/certificate.png" alt=""></div>
+            <?php $__currentLoopData = $awards; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $award): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="document"><img src="<?php echo e(asset('storage/' . $award['image'])); ?>" alt=""></div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
         <div class="tabs__content about__documents-tab">
-            <?php $__currentLoopData = $page->licenses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $licens): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div class="document"><img src="img/about/certificate.png" alt=""></div>
+            <?php $__currentLoopData = $licenses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $license): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="document"><img src="<?php echo e(asset('storage/' . $license['image'])); ?>" alt=""></div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
         <div class="tabs__content about__documents-tab">
-            <?php $__currentLoopData = $page->shows; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $show): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div class="document"><img src="img/about/certificate.png" alt=""></div>
+            <?php $__currentLoopData = $shows; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $show): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="document"><img src="<?php echo e(asset('storage/' . $show['image'])); ?>" alt=""></div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
-    </div><a href="#" class="btn btn-form">Показать все</a>
+    </div><a href="<?php echo e(route('pages.page', 'about?limit=all')); ?>" class="btn btn-form">Показать все</a>
+    <?php endif; ?>
     <div class="custom-select"><select id="tab-select">
             <option value="awards">Награды</option>
             <option value="certificates">Сертификаты и лицензии</option>

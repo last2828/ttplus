@@ -54,6 +54,7 @@
         </div>
     </div>
 </section>
+    @if (isset($awards) & isset($licenses) & isset($shows))
     <section class="about__documents">
     <div class="tabs">
         <ul class="tabs__caption">
@@ -62,21 +63,22 @@
             <li><a class="btn tab-button">Выставки</a></li>
         </ul>
         <div class="tabs__content about__documents-tab active">
-            @foreach($page->awards as $award)
-            <div class="document"><img src="img/about/certificate.png" alt=""></div>
+            @foreach($awards as $award)
+            <div class="document"><img src="{{asset('storage/' . $award['image'])}}" alt=""></div>
             @endforeach
         </div>
         <div class="tabs__content about__documents-tab">
-            @foreach($page->licenses as $licens)
-            <div class="document"><img src="img/about/certificate.png" alt=""></div>
+            @foreach($licenses as $license)
+                <div class="document"><img src="{{asset('storage/' . $license['image'])}}" alt=""></div>
             @endforeach
         </div>
         <div class="tabs__content about__documents-tab">
-            @foreach($page->shows as $show)
-            <div class="document"><img src="img/about/certificate.png" alt=""></div>
+            @foreach($shows as $show)
+                <div class="document"><img src="{{asset('storage/' . $show['image'])}}" alt=""></div>
             @endforeach
         </div>
-    </div><a href="#" class="btn btn-form">Показать все</a>
+    </div><a href="{{route('pages.page', 'about?limit=all')}}" class="btn btn-form">Показать все</a>
+    @endif
     <div class="custom-select"><select id="tab-select">
             <option value="awards">Награды</option>
             <option value="certificates">Сертификаты и лицензии</option>

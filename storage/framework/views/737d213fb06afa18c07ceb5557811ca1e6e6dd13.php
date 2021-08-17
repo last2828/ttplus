@@ -82,7 +82,9 @@
                                                         <select class="form-control bootstrap-select" id="kt_form_group">
                                                             <option value="">Все</option>
                                                             <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                                <option value="<?php echo e($product->group->id); ?>"><?php echo e($product->group->name); ?></option>
+								<?php if($product->group): ?>
+	                                                                <option value="<?php echo e($product->group->id); ?>"><?php echo e($product->group->name); ?></option>
+								<?php endif; ?>
                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                         </select>
                                                     </div>

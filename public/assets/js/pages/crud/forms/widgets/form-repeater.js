@@ -1,6 +1,11 @@
 // Class definition
-var KTFormRepeater = function() {
+$(".image_row").find("a").click(function(){
+    $(this).closest(".image_row").remove()
+});
 
+
+var KTFormRepeater = function() {
+    let count = $('#count').val()
     // Private functions
     var demo1 = function() {
         $('#kt_repeater_1').repeater({
@@ -12,6 +17,8 @@ var KTFormRepeater = function() {
              
             show: function () {
                 $(this).slideDown();
+                $(this).find('input').attr('id', `image_rewards_${+count+1}`);
+                $(this).find('label').attr('for', `image_rewards_${+count+1}`)
                 console.log($(this).find('select'));
                 
                 $(this).find('select').select2({
@@ -22,6 +29,7 @@ var KTFormRepeater = function() {
                     },
                     placeholder: "Выберите значение"
                 });
+                count = +count + 1
             },
 
             hide: function (deleteElement) {                

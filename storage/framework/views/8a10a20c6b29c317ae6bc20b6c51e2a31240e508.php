@@ -31,6 +31,13 @@
     <!--end::Layout Skins -->
 
     <link rel="shortcut icon" href="<?php echo e(asset('assets/media/logos/favicon.ico')); ?>" />
+    <style>
+
+        .custom-file{
+            overflow: hidden !important;
+            white-space: pre !important;
+        }
+    </style>
 </head>
 <!-- end::Head -->
 

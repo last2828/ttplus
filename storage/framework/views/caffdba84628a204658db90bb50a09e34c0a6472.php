@@ -33,7 +33,7 @@
                                     </div>
                                     <!--begin::Form-->
                                     <form class="kt-form" method="POST" action="<?php echo e(route('admin.blog.posts.update', $post->id)); ?>">
-                                        <?php echo method_field('PUT'); ?>
+                                        <?php echo method_field('PATCH'); ?>
                                         <?php echo csrf_field(); ?>
                                         <div class="kt-portlet__body">
                                             <ul class="nav nav-tabs  nav-tabs-line" role="tablist">

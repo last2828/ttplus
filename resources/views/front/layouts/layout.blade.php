@@ -27,8 +27,28 @@
       @include('front.layouts.footer')
     </div>
     <!--END out-->
-
+    <div id="feedbackpopupper" class="overlay">
+      <div class="popup">
+        <a class="close" href="#">&times;</a>
+        <p><strong>Спасибо!</strong> Наш менеджер скоро свяжется с вами!</p>
+      </div>
+    </div>
     <!--LOAD SCRIPTS-->
+    <script>
+        $('.submit__form__btn').on('click', function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '/offers-store',
+                data: $('.offer_form').serialize() ,
+                dataType : 'json',
+                success: function (data) {
+                    console.log(data);
+                    $("#feedbackpopupper").modal('show');
+                }
+            });
+        });
+    </script>
     <script type="text/javascript" src="{{asset('js/front.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/app_new.js')}}"></script>
   </body>

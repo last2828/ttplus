@@ -27,6 +27,12 @@
                                 @method('PATCH')
                                 <div class="kt-portlet__body">
                                     @include('admin.pages.components.meta-tags')
+                                    <div class="form-group row">
+                                        <label>Video Iframe</label>
+                                        <div class="col-lg-12 col-md-9 col-sm-12">
+                                            <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Video" name="head_image" value="{{(isset($page)) ? $page['head_image'] : ''}}">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="kt-portlet__foot">
                                     <div class="kt-form__actions">

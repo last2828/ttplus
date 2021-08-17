@@ -45,7 +45,7 @@ class ProductUpdateRequest extends FormRequest
             'category_id' => 'required|exists:product_categories,id',
             'group_id' => 'sometimes|nullable|exists:product_groups,id',
             'status' => 'required|boolean',
-            'image' => 'sometimes|nullable|image'
+            'image' => 'sometimes|nullable|string'
         ];
     }
 

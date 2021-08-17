@@ -181,107 +181,130 @@
 
                                         <div class="tab-pane" id="kt_tabs_1_4" role="tabpanel">
                                             <label>Награды</label>
+                                            <input type="hidden" id="count" value="{{count($awards) ? count($awards) : 0}}">
+                                            <div class="col-lg-12">
+                                                @foreach($awards as $key => $award)
+                                                    @if($award['image'] == null)
+                                                        @continue
+                                                    @endif
+                                                    <div class="form-group row align-items-center image_row">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                                            <div class="about__image"><img src="{{$award['image']}}" alt="" width="50%"></div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="custom-file">
+                                                                <input type="text" class="custom-file-input" id="image_rewards_{{$key}}" name="old_rewards[{{$key}}]" value="{{$award['image']}}">
+                                                                <label class="custom-file-label" for="image_rewards_{{$key}}">{{$award['image'] ? $award['image'] : "Выбирете файл"}}</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
+                                                                <i class="la la-trash-o"></i>
+                                                                Удалить
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
                                             <div id="kt_repeater_1">
                                                 <div data-repeater-list="awards" class="col-lg-12">
-                                                    @foreach($page->awards as $award)
-                                                        <div data-repeater-item class="form-group row align-items-center">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3">
-                                                                <div class="about__image"><img src="{{$page['image']}}" alt="" width="50%"></div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="input-group">
-                                                                    <input type="text" id="image_label" class="form-control image_label" name="image"
-                                                                           aria-label="Image" aria-describedby="button-image" value="{{$page['image']}}">
-                                                                    <div class="input-group-append">
-                                                                        <button class="btn btn-outline-secondary button-image" type="button" id="button-image">Select</button>
-                                                                    </div>
+                                                    <div data-repeater-item class="form-group row align-items-center">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                                            <div class="about__image"><img src="" alt="" width="50%"></div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="input-group">
+                                                                <div class="custom-file">
+                                                                    <input type="file" id="image_label" class="custom-file-input form-control image_label" name="image"
+                                                                           aria-label="Image" aria-describedby="button-image">
+                                                                        <label class="custom-file-label" for="image_rewards">Выбирите файл</label>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-2">
-                                                                <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
-                                                                    <i class="la la-trash-o"></i>
-                                                                    Удалить
-                                                                </a>
-                                                            </div>
                                                         </div>
-                                                    @endforeach
+                                                        <div class="col-md-2">
+                                                            <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
+                                                                <i class="la la-trash-o"></i>
+                                                                Удалить
+                                                            </a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">
+                                                    <a href="javascript:;" data-repeater-create="" id="add" class="btn btn-bold btn-sm btn-label-brand">
                                                         <i class="la la-plus"></i> Добавить
                                                     </a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab-pane" id="kt_tabs_1_5" role="tabpanel">
-                                            <label>Сертификаты и лицензии</label>
-                                            <div id="kt_repeater_2">
-                                                <div data-repeater-list="licenses" class="col-lg-12">
-                                                    @foreach($page->licenses as $licens)
-                                                        <div data-repeater-item class="form-group row align-items-center">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3">
-                                                                <div class="about__image"><img src="{{$page['image']}}" alt="" width="50%"></div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="input-group">
-                                                                    <input type="text" id="image_label" class="form-control image_label" name="image"
-                                                                           aria-label="Image" aria-describedby="button-image" value="{{$page['image']}}">
-                                                                    <div class="input-group-append">
-                                                                        <button class="btn btn-outline-secondary button-image" type="button" id="button-image">Select</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-2">
-                                                                <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
-                                                                    <i class="la la-trash-o"></i>
-                                                                    Удалить
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    @endforeach
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">
-                                                        <i class="la la-plus"></i> Добавить
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane" id="kt_tabs_1_6" role="tabpanel">
-                                            <label>Выставки</label>
-                                            <div id="kt_repeater_3">
-                                                <div data-repeater-list="shows" class="col-lg-12">
-                                                    @foreach($page->shows as $show)
-                                                        <div data-repeater-item class="form-group row align-items-center">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3">
-                                                                <div class="about__image"><img src="{{$page['image']}}" alt="" width="50%"></div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="input-group">
-                                                                    <input type="text" id="image_label" class="form-control image_label" name="image"
-                                                                           aria-label="Image" aria-describedby="button-image" value="{{$page['image']}}">
-                                                                    <div class="input-group-append">
-                                                                        <button class="btn btn-outline-secondary button-image" type="button" id="button-image">Select</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-2">
-                                                                <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
-                                                                    <i class="la la-trash-o"></i>
-                                                                    Удалить
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    @endforeach
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">
-                                                        <i class="la la-plus"></i> Добавить
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        {{--<div class="tab-pane" id="kt_tabs_1_5" role="tabpanel">--}}
+                                            {{--<label>Сертификаты и лицензии</label>--}}
+                                            {{--<div id="kt_repeater_2">--}}
+                                                {{--<div data-repeater-list="licenses" class="col-lg-12">--}}
+                                                    {{--@foreach($licenses as $license)--}}
+                                                        {{--<div data-repeater-item class="form-group row align-items-center">--}}
+                                                            {{--<div class="col-lg-3 col-md-3 col-sm-3">--}}
+                                                                {{--<div class="about__image"><img src="{{$license['image']}}" alt="" width="50%"></div>--}}
+                                                            {{--</div>--}}
+                                                            {{--<div class="col-md-6">--}}
+                                                                {{--<div class="input-group">--}}
+                                                                    {{--<input type="file" id="image_label" class="form-control image_label" name="image"--}}
+                                                                           {{--aria-label="Image" aria-describedby="button-image" value="{{$license['image']}}">--}}
+                                                                    {{--<div class="input-group-append">--}}
+                                                                        {{--<label class="btn btn-outline-secondary button-image" type="button" for="image_label">Select</label>--}}
+                                                                    {{--</div>--}}
+                                                                {{--</div>--}}
+                                                            {{--</div>--}}
+                                                            {{--<div class="col-md-2">--}}
+                                                                {{--<a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">--}}
+                                                                    {{--<i class="la la-trash-o"></i>--}}
+                                                                    {{--Удалить--}}
+                                                                {{--</a>--}}
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
+                                                    {{--@endforeach--}}
+                                                {{--</div>--}}
+                                                {{--<div class="col-md-12">--}}
+                                                    {{--<a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">--}}
+                                                        {{--<i class="la la-plus"></i> Добавить--}}
+                                                    {{--</a>--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<div class="tab-pane" id="kt_tabs_1_6" role="tabpanel">--}}
+                                            {{--<label>Выставки</label>--}}
+                                            {{--<div id="kt_repeater_3">--}}
+                                                {{--<div data-repeater-list="shows" class="col-lg-12">--}}
+                                                    {{--@foreach($shows as $show)--}}
+                                                        {{--<div data-repeater-item class="form-group row align-items-center">--}}
+                                                            {{--<div class="col-lg-3 col-md-3 col-sm-3">--}}
+                                                                {{--<div class="about__image"><img src="{{$show['image']}}" alt="" width="50%"></div>--}}
+                                                            {{--</div>--}}
+                                                            {{--<div class="col-md-6">--}}
+                                                                {{--<div class="input-group">--}}
+                                                                    {{--<input type="text" id="image_label" class="form-control image_label" name="image"--}}
+                                                                           {{--aria-label="Image" aria-describedby="button-image" value="{{$show['image']}}">--}}
+                                                                    {{--<div class="input-group-append">--}}
+                                                                        {{--<button class="btn btn-outline-secondary button-image" type="button" id="button-image">Select</button>--}}
+                                                                    {{--</div>--}}
+                                                                {{--</div>--}}
+                                                            {{--</div>--}}
+                                                            {{--<div class="col-md-2">--}}
+                                                                {{--<a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">--}}
+                                                                    {{--<i class="la la-trash-o"></i>--}}
+                                                                    {{--Удалить--}}
+                                                                {{--</a>--}}
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
+                                                    {{--@endforeach--}}
+                                                {{--</div>--}}
+                                                {{--<div class="col-md-12">--}}
+                                                    {{--<a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">--}}
+                                                        {{--<i class="la la-plus"></i> Добавить--}}
+                                                    {{--</a>--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
                                     <div class="kt-portlet__foot">
                                         <div class="kt-form__actions">
                                             <button type="submit" class="btn btn-primary">Сохранить</button>
@@ -304,19 +327,4 @@
     {{--<script type="text/javascript" src="{{asset('js/app.js')}}"></script>--}}
 
     <script src="{{asset('assets/js/pages/crud/forms/widgets/form-repeater.js')}}" type="text/javascript"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-
-            document.querySelector('.button-image').addEventListener('click', (event) => {
-                event.preventDefault();
-
-                window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
-            });
-        });
-
-        // set file link
-        function fmSetLink($url) {
-            document.querySelector('.image_label').value = $url;
-        }
-    </script>
 @endsection

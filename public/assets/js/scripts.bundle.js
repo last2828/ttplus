@@ -54,10 +54,14 @@ var KTApp = function() {
 
     var initFileInput = function() {
         // init bootstrap popover
-        $('.custom-file-input').on('change', function() {
+        $(document).on("change", ".custom-file-input", function() {
             var fileName = $(this).val();
             $(this).next('.custom-file-label').addClass("selected").html(fileName);
-        });
+        })
+        // $('.custom-file-input').on('change', function() {
+        //     var fileName = $(this).val();
+        //     $(this).next('.custom-file-label').addClass("selected").html(fileName);
+        // });
     }
 
     var initPortlet = function(el, options) {

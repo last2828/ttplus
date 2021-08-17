@@ -275,26 +275,17 @@
   .about__documents-tab
     margin: 55px 0 60px
     justify-content: space-between
-    +r($lg)
-      margin: 50px 0
-    +r($md)
-      margin: 40px 0
+    flex-wrap: wrap
     +r($xs)
       margin-bottom: 70px
     .document
-      width: 440px
+      width: 33%
       height: 628px
-      margin-right: 63px
       +r($lg)
-        width: 387px
         height: 550px
-        margin-right: 55px
       +r($md)
-        width: 315px
         height: 447px
-        margin-right: 45px
       +r(1100)
-        width: 215px
         height: 304px
       &:nth-of-type(3)
         margin-right: 0

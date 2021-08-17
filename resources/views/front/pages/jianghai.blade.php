@@ -13,9 +13,18 @@
                         <p>Для промышленного использования, где требуется стабильность параметров в течение длительного срока эксплуатации</p>
                         <div class="n-intro__row">
                             <a href="{{route('pages.catalog.maincategory', 'jianghai')}}" class="btn btn-next--blue" data-fancybox data-src="#modal1">В каталог<span class="span-arrow"></span></a>
-                            <a href="#" class="btn-play">
+                            <a href="#videopopupper" class="btn-play">
                                 <div class="sp-circle"></div>
                                 <div class="sp-text">Смотреть видео</div>
+
+                                <div id="videopopupper" class="overlay" style="padding-top: 100px">
+                                    <div class="popup">
+                                        <a class="close" href="#">&times;</a>
+                                        <div class="content">
+                                            {!! $page->head_image !!}
+                                        </div>
+                                    </div>
+                                </div>
                             </a>
                         </div>
                     </div>

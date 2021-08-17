@@ -14,10 +14,7 @@ class PageField extends Model
         'years_3' => 'array',
         'blocks_1' => 'array',
         'blocks_2' => 'array',
-        'blocks_3' => 'array',
-        'awards' => 'array',
-        'licenses' => 'array',
-        'shows' => 'array',
+        'blocks_3' => 'array'
     ];
 
     protected $fillable = [
@@ -46,5 +43,8 @@ class PageField extends Model
         'address',
         'phone',
         'fax',
+
+        'jianghai_iframe',
+        'dunker_iframe'
     ];
 }

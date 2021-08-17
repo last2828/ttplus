@@ -23,15 +23,7 @@
 <div id="feedbackpopupper" class="overlay">
 	<div class="popup">
 		<a class="close" href="#">&times;</a>
-		<div class="content">
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			&nbsp;
-		</div>
+		<p><strong>Спасибо!</strong> Наш менеджер скоро свяжется с вами!</p>
 	</div>
 </div>
 <?php /**PATH /Users/cyrill/Documents/GitHub/ttplus/resources/views/front/layouts/footer.blade.php ENDPATH**/ ?>

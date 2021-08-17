@@ -1222,3 +1222,27 @@
 .videopopupper.show {
 	display:flex;
 }
+
+.videopopupper2 {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 200;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(255,255,255,0.7);
+}
+
+.videopopupper2>.content {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+	display: block;
+	background-color: #ffffff;
+}
+
+.videopopupper2.show {
+	display:flex;
+}

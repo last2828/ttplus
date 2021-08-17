@@ -1626,10 +1626,6 @@ p {
   cursor: pointer;
 }
 
-.btn.btn-next {
-  margin-left: auto;
-}
-
 .btn-primary {
   width: 331.7px;
   height: 91.4px;
@@ -2276,7 +2272,7 @@ p {
     width: 65px;
     height: 65px;
     background-position-x: 30px;
-    background-position-y: 22px;
+    background-position-y: 26px;
   }
 }
 
@@ -3094,7 +3090,6 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   background-color: white;
   margin-bottom: 90px;
   border: solid 1.2px transparent;
-  flex-grow: 1;
 }
 
 @media only screen and (max-width: 1919px) {
@@ -4366,18 +4361,7 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
 .about__documents .about__documents-tab {
   margin: 55px 0 60px;
   justify-content: space-between;
-}
-
-@media only screen and (max-width: 1919px) {
-  .about__documents .about__documents-tab {
-    margin: 50px 0;
-  }
-}
-
-@media only screen and (max-width: 1679px) {
-  .about__documents .about__documents-tab {
-    margin: 40px 0;
-  }
+  flex-wrap: wrap;
 }
 
 @media only screen and (max-width: 767px) {
@@ -4387,30 +4371,24 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
 }
 
 .about__documents .about__documents-tab .document {
-  width: 440px;
+  width: 33%;
   height: 628px;
-  margin-right: 63px;
 }
 
 @media only screen and (max-width: 1919px) {
   .about__documents .about__documents-tab .document {
-    width: 387px;
     height: 550px;
-    margin-right: 55px;
   }
 }
 
 @media only screen and (max-width: 1679px) {
   .about__documents .about__documents-tab .document {
-    width: 315px;
     height: 447px;
-    margin-right: 45px;
   }
 }
 
 @media only screen and (max-width: 1100px) {
   .about__documents .about__documents-tab .document {
-    width: 215px;
     height: 304px;
   }
 }
@@ -6407,19 +6385,23 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: 0px;
-  padding-top: 0px;
+  padding-left: 40px;
+  padding-top: 50px;
 }
 
 @media only screen and (max-width: 1919px) {
   .main-catalog__content aside {
     width: 390px;
+    padding-right: 35px;
+    padding-left: 30px;
   }
 }
 
 @media only screen and (max-width: 1679px) {
   .main-catalog__content aside {
     width: 260px;
+    padding-right: 40px;
+    padding-left: 30px;
   }
 }
 
@@ -6675,20 +6657,20 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
 .main-catalog__content aside .checkboxes {
   justify-content: center;
   display: flex;
-  margin-left:0;
-  margin-right:0;
-  padding-left:0;
-  padding-right:0;
-  width:100%;
+  padding-left: 65px;
+  min-width: 365px;
 }
 
 @media only screen and (max-width: 1919px) {
   .main-catalog__content aside .checkboxes {
+    padding-left: 80px;
   }
 }
 
 @media only screen and (max-width: 1679px) {
   .main-catalog__content aside .checkboxes {
+    padding-left: 75px;
+    min-height: 240px;
   }
 }
 
@@ -6697,10 +6679,12 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   margin: 0 auto;
   align-items: center;
   flex-wrap: wrap;
+  min-width: 365px;
 }
 
 @media only screen and (max-width: 1679px) {
   .main-catalog__content aside .checkboxes form {
+    min-width: 240px;
   }
 }
 
@@ -6779,6 +6763,19 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   }
 }
 
+.main-catalog__content .info__bottom {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 767px) {
+  .main-catalog__content .info__bottom {
+    padding-top: 40px;
+  }
+}
+
 .main-catalog__content .products {
   max-width: 1250px;
   display: flex;
@@ -6807,27 +6804,12 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   }
 }
 
-  .info__bottom {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
 @media only screen and (max-width: 767px) {
   .main-catalog__content .products {
     width: 85%;
     padding-bottom: 40px;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .info__bottom {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-top: 40px;
   }
 }
 
@@ -9033,5 +9015,10 @@ form .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
   .bg_div {
     background-image: url(/images/intro-bg-sm.svg?91d8423ceb2610356ac776becc0a060c);
   }
+}
+
+.custom-file {
+  overflow: hidden;
+  white-space: pre;
 }
 

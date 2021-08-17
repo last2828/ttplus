@@ -16,7 +16,11 @@
 
       <aside>
         <?php echo $__env->make('front.catalog.components.aside', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-        <?php echo $__env->make('front.catalog.components.filter', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+	<?php if(isset($attributes)): ?>
+	        <?php echo $__env->make('front.catalog.components.filter',['attributes'=>$attributes], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+	<?php else: ?>
+	        <?php echo $__env->make('front.catalog.components.nofilter', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+	<?php endif; ?>
       </aside>
 
       <div class="products">

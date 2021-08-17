@@ -33,8 +33,7 @@ class ProductStoreRequest extends FormRequest
             'attributes_old.*.value' => 'required',
             'category_id' => 'required|exists:product_categories,id',
             'group_id' => 'sometimes|nullable|exists:product_groups,id',
-            'status' => 'required|boolean',
-            'image' => 'sometimes|nullable|image'
+            'status' => 'required|boolean'
         ];
     }
 
