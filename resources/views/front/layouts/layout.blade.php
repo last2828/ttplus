@@ -43,8 +43,23 @@
                 data: $('.offer_form').serialize() ,
                 dataType : 'json',
                 success: function (data) {
-                    console.log(data);
-                    $("#feedbackpopupper").modal('show');
+                    $('.offer_form')[0].reset();
+                    window.location.hash = "feedbackpopupper"
+                }
+            });
+        });
+    </script>
+    <script>
+        $('#subscription').on('submit', function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '/subscription',
+                data: $('#subscription').serialize() ,
+                dataType : 'json',
+                success: function (data) {
+                    $('#subscription')[0].reset();
+                    window.location.hash = "feedbackpopupper"
                 }
             });
         });

@@ -6,6 +6,7 @@ use App\Http\Requests\OfferStoreRequest;
 use App\Http\Requests\SubscriptionRequest;
 use App\Models\Offer;
 use App\Models\Subscription;
+use Illuminate\Http\JsonResponse;
 
 class OfferController extends BaseController
 {
@@ -20,7 +21,8 @@ class OfferController extends BaseController
         $data = $request->toArray();
         Offer::create($data);
 
-        return redirect()->route('pages.home')->with(['success' => 'Ваша заявка успешно принята']);
+//        return redirect()->route('pages.home')->with(['success' => 'Ваша заявка успешно принята']);
+        return response()->json('ok', JsonResponse::HTTP_OK);
     }
 
     /**
@@ -34,6 +36,7 @@ class OfferController extends BaseController
         $data = $request->toArray();
         Subscription::create($data);
 
-        return redirect()->route('pages.home')->with(['success' => 'Ваша подписка успешно оформлена']);
+//        return redirect()->route('pages.home')->with(['success' => 'Ваша подписка успешно оформлена']);
+        return response()->json('ok', JsonResponse::HTTP_OK);
     }
 }

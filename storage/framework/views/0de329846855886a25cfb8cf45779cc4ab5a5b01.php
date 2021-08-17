@@ -198,7 +198,7 @@
   </section>
   <section class="subscribe">
     <div class="container">
-      <form method="POST" action="<?php echo e(route('pages.subscription.store')); ?>">
+      <form method="POST" id="subscription" action="<?php echo e(route('pages.subscription.store')); ?>">
         <?php echo csrf_field(); ?>
         <div class="form__container">
           <h2>Подписаться на обновления</h2>

@@ -198,7 +198,7 @@
   </section>
   <section class="subscribe">
     <div class="container">
-      <form method="POST" action="{{route('pages.subscription.store')}}">
+      <form method="POST" id="subscription" action="{{route('pages.subscription.store')}}">
         @csrf
         <div class="form__container">
           <h2>Подписаться на обновления</h2>

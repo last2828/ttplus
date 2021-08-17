@@ -28,7 +28,11 @@ class HomeController extends BaseController
     public function index(PostRepository $postRepository)
     {
         $page = PageField::where('key', 'home')->first();
-        $meta = $this->meta->getMetaTags($page->meta_title, $page->meta_keywords, $page->meta_description);
+        if($page->meta_title & $page->meta_keywords & $page->meta_description) {
+            $meta = $this->meta->getMetaTags($page->meta_title, $page->meta_keywords, $page->meta_description);
+        }
+
+        $meta = [];
         $posts = $postRepository->getForIndexPage(4);
 
         return view('front.pages.home', compact('page','posts', 'meta'));
