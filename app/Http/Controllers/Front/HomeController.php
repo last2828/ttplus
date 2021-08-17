@@ -30,9 +30,9 @@ class HomeController extends BaseController
         $page = PageField::where('key', 'home')->first();
         if($page->meta_title & $page->meta_keywords & $page->meta_description) {
             $meta = $this->meta->getMetaTags($page->meta_title, $page->meta_keywords, $page->meta_description);
+        }else{
+            $meta = [];
         }
-
-        $meta = [];
         $posts = $postRepository->getForIndexPage(4);
 
         return view('front.pages.home', compact('page','posts', 'meta'));
