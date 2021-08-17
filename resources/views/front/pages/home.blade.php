@@ -62,7 +62,7 @@
                     <div class="popup">
                       <a class="close" href="#">&times;</a>
                       <div class="content">
-                        {!! $page->jianghai_iframe !!}
+                        {!! isset($page->jianghai_iframe) ? $page->jianghai_iframe : '' !!}
                       </div>
                     </div>
                   </div>
