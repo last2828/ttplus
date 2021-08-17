@@ -28,7 +28,7 @@ class HomeController extends BaseController
     public function index(PostRepository $postRepository)
     {
         $page = PageField::where('key', 'home')->first();
-        if($page->meta_title & $page->meta_keywords & $page->meta_description) {
+        if(isset($page->meta_title) & isset($page->meta_keywords) & isset($page->meta_description)) {
             $meta = $this->meta->getMetaTags($page->meta_title, $page->meta_keywords, $page->meta_description);
         }else{
             $meta = [];
