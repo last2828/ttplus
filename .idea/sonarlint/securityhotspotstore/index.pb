@@ -61,3 +61,5 @@ M
 database/seeds/UserSeeder.php,0/d/0d609d01c9a49c00edc812758f631146e5781759
 Q
 !database/seeds/DatabaseSeeder.php,1/b/1bfb05dc7f9d1708ffc561e370a53ad2df3db646
+]
+-resources/views/admin/layouts/aside.blade.php,7/e/7e86afc94c712396504ce5e368ae90b58717a5f2

@@ -170,17 +170,6 @@
       <div class="info__heading">
         <h2 class="heading">Useful information</h2><a href="{{route('pages.posts.index')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Show <br> more</span></a>
       </div>
-      <div class="info__cards">
-        @php /** @var \App\Models\Blog\Post $post */ @endphp
-        @foreach($posts as $post)
-          <div class="info__card">
-            <div class="card__image"><img src="{{$post->image}}" alt=""></div>
-            <div class="card__bottom">
-              <p>{{$post->title}}<a href="{{route('pages.posts.show', $post->slug)}}" class="btn btn-primary">Read Full</a>
-            </div>
-          </div>
-        @endforeach
-      </div>
       <div class="info__bottom"><a href="{{route('pages.posts.index')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Show <br> all</span></a></div>
     </div>
   </section>

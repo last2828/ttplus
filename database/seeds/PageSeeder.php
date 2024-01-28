@@ -33,7 +33,7 @@ class PageSeeder extends Seeder
             'years_title' => 'The company was founded in 1994',
             'years_1' => [
                 'title' => '1998 year',
-                'description' => 'the company owns a factory that produces civilian products.'
+                'description' => 'The company owns a factory that produces civilian products.'
             ],
             'years_2' => [
                 'title' => '1999 year',
@@ -41,7 +41,7 @@ class PageSeeder extends Seeder
             ],
             'years_3' => [
                 'title' => '2012 year',
-                'description' => 'solving customer-specific tasks and meeting logistical needs with products that meet international quality standards.'
+                'description' => 'Solving customer-specific tasks and meeting logistical needs with products that meet international quality standards.'
             ],
             'blocks_1' => [
                 'title' => 'Supply of low-power electric motors, control systems and equipment based on them',
@@ -60,12 +60,9 @@ class PageSeeder extends Seeder
         PageField::create([
             'key' => 'contact',
             'title' => 'Contact us',
-            'address' => '<p>Street:  21 Kent Street</p>
-                <p>City:  Cronton <br></p>
-                <p><span>Zip code:  WA8 3JS</span></p>
-                <p>Country:  United Kingdom</p>',
+            'address' => '<p>21 Kent Street, Cronton, WA8 3JS, United Kingdom</p>',
             'phone' => '+44 1632 960953',
-            'fax' => 'last2828@gmail.com',
+            'fax' => 'ttplus@assisthero.online',
         ]);
 
         PageField::create([

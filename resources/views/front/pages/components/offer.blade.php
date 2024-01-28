@@ -6,10 +6,10 @@
                 <h2>Customized offer</h2>
                 <p>Briefly describe the task and we will prepare a customized proposal for you:</p>
                 <div class="inputs__container">
-                    <input type="text" placeholder="Ваше имя" name="name">
-                    <input type="tel" placeholder="Ваш телефон" id="tel" name="phone">
+                    <input type="text" placeholder="Full name" name="name">
+                    <input type="tel" placeholder="Phone" id="tel" name="phone">
                     <input type="email" placeholder="E-mail" name="email">
-                    <input type="text" placeholder="Комментарий" name="comment">
+                    <input type="text" placeholder="Comment" name="comment">
                 </div>
                 <div class="form-bottom">
                     <div class="policy"><input type="checkbox" id="policy-offer" checked class="policy__input"><label for="policy-offer" class="policy__label"></label><label for="policy-offer" class="policy__label--text"><a href="#">I give my consent to the processing of personal data</a></label></div>
