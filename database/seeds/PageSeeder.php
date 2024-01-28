@@ -16,56 +16,56 @@ class PageSeeder extends Seeder
 
         PageField::create([
             'key' => 'about',
-            'title' => 'О Компании',
-            'description' => '<span> Компания "Техника и Технология" - </span> это коллектив высококвалифицированных специалистов в области обеспечения производства необходимыми комплектующими.',
+            'title' => 'About the Company',
+            'description' => '<span>Technics and Technology Company - </span>is a team of highly qualified specialists in the field of providing production with necessary components.',
             'head_image' => 'img/about/about-main.png',
-            'partner_title' => 'Надежный партнер',
-            'partner_title_description' => 'Производство при наличии надежного поставщика комплектующих не вызывает никаких затруднений.',
+            'partner_title' => 'Reliable partner',
+            'partner_title_description' => 'Production with a reliable supplier of components is not difficult.',
             'features_content' => [
-                'Гарантируем 100% качество поставляемых комплектующих;',
-                'Цены - одни из самых низких на рынке;',
-                'Предлагаем гибкие условия оплаты с учетом специфики реализации продукции нашего потребителя(работа без предоплаты, отсрочка платежа);',
-                'Предлагаем удобные условия поставки(поддержка продукции на складе согласно производственному плану и в ряде случаев хранение более чем квартальной потребности, особенно в отраслях с плохо прогнозируемым сбытом, когда может быть выигран тендер и времени на комплектацию не хватает);',
-                'Благодаря многолетней работе и прямыми связями с представленными производителями мы обеспечиваем качественную техническую поддержку(согласование технических характеристик, помощь в подборе изделия из стандартной линейки продуктов или с доработками);',
-                'Предлагаем удобную логистику: заказанную продукцию можно забрать у нас со склада в Москве или Санкт-Петербурге, а также мы можем доставить его до дверей вашего предприятия.',
+                'We guarantee 100% quality of supplied components;',
+                'Prices are among the lowest in the market;',
+                'We offer flexible payment terms taking into account the specifics of realization of our customers products (work without prepayment, deferred payment);',
+                'We offer convenient terms of delivery (support of products in stock according to the production plan and in some cases storage of more than quarterly demand, especially in industries with poorly predictable sales, when a tender can be won and there is not enough time for kitting);',
+                'Thanks to many years of work and direct links with the represented manufacturers, we provide high-quality technical support (coordination of technical specifications, assistance in selecting a product from the standard product line or with modifications);',
+                'We offer a convenient logistics service',
             ],
-            'quote_title' => 'Мы понимаем, что сроки поставки для производства - один из наиважнейших параметров, поэтому уделяем им особенное внимание.',
-            'years_title' => 'Компания основана в 1994 году',
+            'quote_title' => 'We realize that delivery time for production is one of the most important parameters, so we pay special attention to it.',
+            'years_title' => 'The company was founded in 1994',
             'years_1' => [
-                'title' => 'c 1998 г.',
-                'description' => 'компании принадлежит завод ОАО "Вектор" в г.Острове Псковской области, который выпускает военную и гражданскую продукцию.'
+                'title' => '1998 year',
+                'description' => 'the company owns a factory that produces civilian products.'
             ],
             'years_2' => [
-                'title' => 'c 1999 г.',
-                'description' => 'был получен сертификат Второго поставщика на отечественные и импортные электронные компоненты, который ежегодно продлевается.'
+                'title' => '1999 year',
+                'description' => 'Second Supplier certificate was obtained for domestic and imported electronic components, which is annually renewed'
             ],
             'years_3' => [
-                'title' => 'c 2012 г.',
-                'description' => 'решение задач по специфике заказчиков и обеспечивает потребности материально-технического снабжения продукцией, соответствующей мировым стандартам качества.'
+                'title' => '2012 year',
+                'description' => 'solving customer-specific tasks and meeting logistical needs with products that meet international quality standards.'
             ],
             'blocks_1' => [
-                'title' => 'Поставка электродвигателей малой мощности, систем управления и оборудования на их основе',
-                'description' => 'Начинаем поставлять комплектующие для приборов учета электроэнергии, такие как: отсчетные механизмы, шунты, ЖК-дисплеи, трансформаторы тока и напряжения. Для производства приборов учета воды, тепла и газа в дополнение к перечисленной продукции мы предлагаем интеграторы, крыльчатки, магниты, герконы и датчики на их основе, а также пластиковые и металлические элементы конструкций.'
+                'title' => 'Supply of low-power electric motors, control systems and equipment based on them',
+                'description' => 'We start supplying components for electricity meters, such as: counting mechanisms, shunts, LCD displays, current and voltage transformers. For the production of water, heat and gas meters, in addition to the above products, we offer integrators, impellers, magnets, reed switches and sensors based on them, as well as plastic and metal structural elements.'
             ],
             'blocks_2' => [
-                'title' => 'Поставка комплектующих для приборов учета',
-                'description' => 'был получен сертификат Второго поставщика на отечественные и импортные электронные компоненты, который ежегодно продлевается.'
+                'title' => 'Supply of components for metering devices',
+                'description' => 'Second Supplier certificate for domestic and imported electronic components was obtained, which is renewed annually.'
             ],
             'blocks_3' => [
-                'title' => 'Поставка керамических изоляторов',
-                'description' => 'Начинаем поставлять керамические изоляторы для высоковольтных контакторов и линий электропередачи. Помимо стандартных решений мы предлагаем варианты специального исполнения согласно техническому заданию заказчика.'
+                'title' => 'Supply of ceramic insulators',
+                'description' => 'We start supplying ceramic insulators for high-voltage contactors and power lines. In addition to standard solutions, we offer special designs according to customer specifications.'
             ]
         ]);
 
         PageField::create([
             'key' => 'contact',
-            'title' => 'Контакты',
-            'address' => '<p>г.Санкт-Петербург, ул. Лодейнопольская, 5 литера А (здание КЦ "Петроконгресс")</p>
-                <p>Пешком от м.Чкаловская по ул. Большая Зеленина до ул. Лодейнопольская и повернуть направо. <br></p>
-                <p><span>Время в пути 6 минут.</span></p>
-                <p>Если едете на машине, то парковаться лучше либо на Лодейнопольской улице, либо на Петрозаводской.</p>',
-            'phone' => '+7 (812) 303 98 63',
-            'fax' => '+7 (812) 335 89 07',
+            'title' => 'Contact us',
+            'address' => '<p>Street:  21 Kent Street</p>
+                <p>City:  Cronton <br></p>
+                <p><span>Zip code:  WA8 3JS</span></p>
+                <p>Country:  United Kingdom</p>',
+            'phone' => '+44 1632 960953',
+            'email' => 'last2828@gmail.com',
         ]);
 
         PageField::create([
@@ -73,7 +73,7 @@ class PageSeeder extends Seeder
             'meta_title' => 'Home page',
             'meta_keywords' => 'Home page',
             'meta_description' => 'Home page',
-            'title' => 'Главная'
+            'title' => 'Main'
         ]);
 
         PageField::create([

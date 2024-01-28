@@ -16,16 +16,16 @@ class PostTypeSeeder extends Seeder
 
         PostType::create([
             'id' => '1',
-            'name' => 'Статья'
+            'name' => 'Article'
         ]);
 
         PostType::create([
             'id' => '2',
-            'name' => 'Документ'
+            'name' => 'Document'
         ]);
         PostType::create([
             'id' => '3',
-            'name' => 'Видео'
+            'name' => 'Video'
         ]);
     }
 }

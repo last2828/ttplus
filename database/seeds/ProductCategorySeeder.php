@@ -16,7 +16,7 @@ class ProductCategorySeeder extends Seeder
 
         $categoriesDunkermotoren = [
             'name' => 'Dunkermotoren',
-            'name_ru' => 'Электродвигатели Dunkermotoren',
+            'name_ru' => 'Electric motors Dunkermotoren',
             'slug' => Transliterate::slugify('Dunkermotoren'),
             'status' => 1,
 
@@ -110,7 +110,7 @@ class ProductCategorySeeder extends Seeder
 
         $categoriesJianghai = [
             'name' => 'Jianghai',
-            'name_ru' => 'Конденсаторы Jianghai',
+            'name_ru' => 'Capacitors Jianghai',
             'slug' => Transliterate::slugify('Jianghai'),
             'status' => 1,
 

@@ -440,7 +440,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href="{{route('pages.catalog.category.subcategory', 'bg-brushless-dc-motors')}}" class="btn btn-next--blue">
-                            <span class="sp-text">Catalog</span>
+                            <span class="sp-text">More</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
@@ -452,7 +452,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href="{{route('pages.catalog.category.subcategory', 'grg-brushed-dc-motors')}}" class="btn btn-next--blue">
-                            <span class="sp-text">Catalog</span>
+                            <span class="sp-text">More</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
@@ -464,7 +464,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href={{route('pages.catalog.category.subcategory', 'kddr-ac-motors')}} class="btn btn-next--blue">
-                            <span class="sp-text">Catalog</span>
+                            <span class="sp-text">More</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
@@ -476,7 +476,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href="{{route('pages.catalog.category.subcategory', 'ddcd-venetian-blind-drives')}}" class="btn btn-next--blue">
-                            <span class="sp-text">Catalog</span>
+                            <span class="sp-text">More</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
@@ -488,7 +488,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href="{{route('pages.catalog.category.subcategory', 'plgsgstg-gearboxes')}}" class="btn btn-next--blue">
-                            <span class="sp-text">Catalog</span>
+                            <span class="sp-text">More</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
@@ -500,7 +500,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href="{{route('pages.catalog.category.subcategory', 'bge-controllers')}}" class="btn btn-next--blue">
-                            <span class="sp-text">Catalog</span>
+                            <span class="sp-text">More</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
@@ -512,7 +512,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href="{{route('pages.catalog.category.subcategory', 'e-brakes')}}" class="btn btn-next--blue">
-                            <span class="sp-text">Catalog</span>
+                            <span class="sp-text">More</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
@@ -524,7 +524,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href="{{route('pages.catalog.category.subcategory', 'stcasmlsm-linear-systems')}}" class="btn btn-next--blue">
-                            <span class="sp-text">Catalog</span>
+                            <span class="sp-text">More</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
