@@ -36,9 +36,9 @@ class PostController extends BaseController
         $posts = $this->postRepository->getAllForBlogByType($type, 8);
 
         $tags = [
-            'title' => 'Новости компании TTplus',
-            'keywords' => 'Новости компании TTplus',
-            'description' => 'Новости компании TTplus'
+            'title' => 'News',
+            'keywords' => 'News',
+            'description' => 'News'
         ];
         $meta = $this->meta->getMetaTags($tags['title'], $tags['keywords'], $tags['description']);
 

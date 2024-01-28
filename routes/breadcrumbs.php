@@ -12,7 +12,7 @@ Breadcrumbs::for('info-page', function ($trail, $page) {
  * Blog
  */
 Breadcrumbs::for('blog', function ($trail) {
-    $trail->push('Блог', route('admin.blog.posts.index'), ['front' => false]);
+    $trail->push('Blog', route('admin.blog.posts.index'), ['front' => false]);
 });
 
 /*
@@ -20,7 +20,7 @@ Breadcrumbs::for('blog', function ($trail) {
  */
 Breadcrumbs::for('create-post', function ($trail) {
     $trail->parent('blog');
-    $trail->push('Добавить статью', route('admin.blog.posts.create'));
+    $trail->push('Add article', route('admin.blog.posts.create'));
 });
 
 /*
@@ -35,7 +35,7 @@ Breadcrumbs::for('edit-post', function ($trail, $post) {
  * Product
  */
 Breadcrumbs::for('catalog', function ($trail) {
-    $trail->push('Каталог', route('admin.catalog.products.index'), ['front' => false]);
+    $trail->push('Catalog', route('admin.catalog.products.index'), ['front' => false]);
 });
 
 /*
@@ -43,7 +43,7 @@ Breadcrumbs::for('catalog', function ($trail) {
  */
 Breadcrumbs::for('create-product', function ($trail) {
     $trail->parent('catalog');
-    $trail->push('Создать', route('admin.catalog.products.create'));
+    $trail->push('Create', route('admin.catalog.products.create'));
 });
 
 /*
@@ -59,7 +59,7 @@ Breadcrumbs::for('edit-product', function ($trail, $product) {
  */
 Breadcrumbs::for('product-groups', function ($trail) {
     $trail->parent('catalog');
-    $trail->push('Группы товаров', route('admin.catalog.groups.index'));
+    $trail->push('Groups', route('admin.catalog.groups.index'));
 });
 
 /*
@@ -67,7 +67,7 @@ Breadcrumbs::for('product-groups', function ($trail) {
  */
 Breadcrumbs::for('create-group', function ($trail) {
     $trail->parent('product-groups');
-    $trail->push('Новая группа', route('admin.catalog.groups.create'));
+    $trail->push('New group', route('admin.catalog.groups.create'));
 });
 
 /*
@@ -83,7 +83,7 @@ Breadcrumbs::for('edit-group', function ($trail, $group) {
  */
 Breadcrumbs::for('product-categories', function ($trail) {
     $trail->parent('catalog');
-    $trail->push('Категории товаров', route('admin.catalog.product_categories.index'));
+    $trail->push('Categories', route('admin.catalog.product_categories.index'));
 });
 
 /*
@@ -91,7 +91,7 @@ Breadcrumbs::for('product-categories', function ($trail) {
  */
 Breadcrumbs::for('create-category', function ($trail) {
     $trail->parent('product-categories');
-    $trail->push('Новая', route('admin.catalog.product_categories.create'));
+    $trail->push('New', route('admin.catalog.product_categories.create'));
 });
 
 /*
@@ -107,7 +107,7 @@ Breadcrumbs::for('edit-category', function ($trail, $category) {
  */
 Breadcrumbs::for('product-attributes', function ($trail) {
     $trail->parent('catalog');
-    $trail->push('Характеристики товаров', route('admin.catalog.attributes.index'));
+    $trail->push('Attributes', route('admin.catalog.attributes.index'));
 });
 
 /*
@@ -115,7 +115,7 @@ Breadcrumbs::for('product-attributes', function ($trail) {
  */
 Breadcrumbs::for('create-attribute', function ($trail) {
     $trail->parent('product-attributes');
-    $trail->push('Новая', route('admin.catalog.attributes.create'));
+    $trail->push('New', route('admin.catalog.attributes.create'));
 });
 
 /*
@@ -135,7 +135,7 @@ Breadcrumbs::for('edit-attribute', function ($trail, $attribute) {
  * Index page
  */
 Breadcrumbs::for('front', function ($trail) {
-  $trail->push('Главная', route('pages.home'), ['front' => true]);
+  $trail->push('Home', route('pages.home'), ['front' => true]);
 });
 
 /*
@@ -143,7 +143,7 @@ Breadcrumbs::for('front', function ($trail) {
  */
 Breadcrumbs::for('front-catalog', function ($trail) {
   $trail->parent('front');
-  $trail->push('Каталог', route('pages.catalog.index'));
+  $trail->push('Catalog', route('pages.catalog.index'));
 });
 
 /*
@@ -183,7 +183,7 @@ Breadcrumbs::for('catalog-brand-category-product', function ($trail, $product) {
  */
 Breadcrumbs::for('front-about', function ($trail) {
   $trail->parent('front');
-  $trail->push('О компании');
+  $trail->push('About company');
 });
 
 /*
@@ -191,7 +191,7 @@ Breadcrumbs::for('front-about', function ($trail) {
  */
 Breadcrumbs::for('front-contact', function ($trail) {
   $trail->parent('front');
-  $trail->push('Контакты');
+  $trail->push('Contacts');
 });
 
 /*
@@ -199,7 +199,7 @@ Breadcrumbs::for('front-contact', function ($trail) {
  */
 Breadcrumbs::for('front-news', function ($trail) {
   $trail->parent('front');
-  $trail->push('Полезная информация', route('pages.posts.index'));
+  $trail->push('Useful information', route('pages.posts.index'));
 });
 
 /*
@@ -207,5 +207,5 @@ Breadcrumbs::for('front-news', function ($trail) {
  */
 Breadcrumbs::for('front-post', function ($trail, $post) {
   $trail->parent('front-news');
-  $trail->push('Статья: «' . $post->title . '»');
+  $trail->push('Article: «' . $post->title . '»');
 });

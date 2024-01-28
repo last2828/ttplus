@@ -63,3 +63,17 @@ Q
 !database/seeds/DatabaseSeeder.php,1/b/1bfb05dc7f9d1708ffc561e370a53ad2df3db646
 ]
 -resources/views/admin/layouts/aside.blade.php,7/e/7e86afc94c712396504ce5e368ae90b58717a5f2
+h
+8app/Http/Controllers/Front/Catalog/CatalogController.php,4/d/4d94996e673bf9e1a86d89a41d84bab1de969ef4
+b
+2app/Http/Controllers/Front/Blog/PostController.php,8/c/8cfb065a96558d22acf6d8b3991f9cdcc2c515b1
+b
+2app/Http/Controllers/Front/Blog/BaseController.php,5/2/52e4b7e2778683dc5ffb79fd69c65e2bc0afa498
+]
+-app/Http/Controllers/Front/HomeController.php,5/c/5c3cda44259c15af0262d00763851ac33df042d0
+^
+.app/Http/Controllers/Front/OfferController.php,a/c/acd13b56c183e87ebf2d53130ac358243ce8b13e
+F
+routes/breadcrumbs.php,d/5/d5ba9966879d44836c457ee8731960e33d89c590
+>
+routes/web.php,6/b/6b9a783d9b43fee50fd28f56dbd1856d2608f305

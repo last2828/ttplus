@@ -48,9 +48,9 @@ class CatalogController extends BaseController
     public function index()
     {
         $tags = [
-            'title' => 'Каталог Dunkermotoren и Jianghai',
-            'keywords' => 'Каталог Dunkermotoren и Jianghai',
-            'description' => 'Каталог Dunkermotoren и Jianghai'
+            'title' => 'Catalog Dunkermotoren и Jianghai',
+            'keywords' => 'Catalog Dunkermotoren и Jianghai',
+            'description' => 'Catalog Dunkermotoren и Jianghai'
         ];
         $meta = $this->meta->getMetaTags($tags['title'], $tags['keywords'], $tags['description']);
 

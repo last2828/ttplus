@@ -253,7 +253,7 @@
     </section>
     <section class="catalog n-catalog">
         <div class="container container_small">
-            <h2 class="heading">Каталог</h2>
+            <h2 class="heading">Catalog</h2>
             <div class="catalog__wrap">
                 <div class="catalog-card">
                     <div class="card__image"><img src="{{asset('/img/product/catalog_image9.png')}}" alt=""></div>
