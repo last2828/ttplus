@@ -6,7 +6,7 @@ use App\Models\Catalog\Product;
 use Faker\Generator as Faker;
 
 $factory->define(Product::class, function (Faker $faker) {
-    $title = $faker->unique()->sentence(rand(1, 5), true);
+    $title = $faker->unique()->sentence(rand(0, 2), true);
     $model = $faker->unique(true)->numberBetween(rand(1, 3));
     $content = '<ul>
                 <li>
@@ -33,7 +33,21 @@ $factory->define(Product::class, function (Faker $faker) {
         'meta_description' => $faker->sentence(rand(3, 8), true),
         'meta_keywords' => $faker->sentence(rand(3, 8), true),
         'category_id' => rand(2, 13),
-        'image' => env('APP_URL') . '/storage/card-1.png',
+        'image' => env('APP_URL') . $faker->randomElement([
+            'img/product/catalog_image1.png',
+            'img/product/catalog_image2.png',
+            'img/product/catalog_image3.png',
+            'img/product/catalog_image4.png',
+            'img/product/catalog_image5.png',
+            'img/product/catalog_image6.png',
+            'img/product/catalog_image7.png',
+            'img/product/catalog_image8.png',
+            'img/product/catalog_image9.png',
+            'img/product/catalog_image10.png',
+            'img/product/catalog_image11.png',
+            'img/product/catalog_image12.png',
+            'img/product/catalog_image13.png'
+        ]),
         'group_id' => rand(1, 87),
         'slug' => Str::slug($title),
         'status' => $faker->boolean(50),

@@ -165,14 +165,6 @@
     </section>
   </section>
   @include('front.pages.components.offer')
-  <section class="info">
-    <div class="container">
-      <div class="info__heading">
-        <h2 class="heading">Useful information</h2><a href="{{route('pages.posts.index')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Show <br> more</span></a>
-      </div>
-      <div class="info__bottom"><a href="{{route('pages.posts.index')}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Show <br> all</span></a></div>
-    </div>
-  </section>
   <section class="subscribe">
     <div class="container">
       <form method="POST" id="subscription" action="{{route('pages.subscription.store')}}">
