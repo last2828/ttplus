@@ -45,11 +45,11 @@
     <div class="container container_small">
         <div class="n-about__wrap">
             <div class="n-about__title">
-                <h2 class="heading">О компании</h2>
+                <h2 class="heading">About</h2>
             </div>
             <div class="n-about__row">
                 <div class="n-about__info">
-                    <div class="n-about__descr"><p>Dunkermotoren GmbH - немецкая производственная компания, которая с момента основания в 1950 году специализируется на высокоточных малогабаритных моторах и редукторах.</p></div>
+                    <div class="n-about__descr"><p>Dunkermotoren GmbH is a German manufacturing company that has specialized in high-precision small motors and gearboxes since its founding in 1950.</p></div>
                 </div>
                 <div class="n-about__image">
                     <div class="n-about__image-wrap">
@@ -60,8 +60,8 @@
             <div class="n-about__row">
                 <div class="n-about__info">
                     <div class="n-about__descr">
-                        <p>Качество, профессионализм, высокий уровень сервиса, ориентированность на потребности клиента, оперативность и высокие экологические стандарты - отличительные черты продукции компании. </p>
-                        <p>В 1991 Дункенмоторен стал первым производителем в малых моторов в мире прошедших сертификация ISO 9001.</p>
+                        <p>Quality, professionalism, high level of service, customer focus, efficiency and high environmental standards are the hallmarks of the company's products. </p>
+                        <p>In 1991, Dunkenmotoren became the first ISO 9001 certified small engine manufacturer in the world.
                     </div>
                 </div>
                 <div class="n-about__image">
@@ -73,8 +73,8 @@
             <div class="n-about__row">
                 <div class="n-about__info">
                     <div class="n-about__descr">
-                        <p>Продукция компании широко используется в медицинском и лабораторном оборудовании, промышленности, автомобилестроении, при изготовлении дверных систем, жалюзи и общей автоматизации процессов. </p>
-                        <p>Большая часть продукции, выпускаемая компанией, является кастомизированной, то есть спроектированной и изготовленной под запросы определённого клиента.</p>
+                        <p>The company's products are widely used in medical and laboratory equipment, industrial, automotive, door systems, blinds and general process automation. </p>
+                        <p>Most of the products manufactured by the company are customizable, i.e. designed and manufactured to meet the needs of a specific customer.
                     </div>
                 </div>
                 <div class="n-about__image">
@@ -89,25 +89,25 @@
 <section class="contents">
     <div class="container container_small">
         <div class="contents__title">
-            <h2 class="heading">Сферы применения</h2>
+            <h2 class="heading">Areas of application</h2>
         </div>
         <div class="contents__wrap js-contents-wrap">
             <div class="contents__tabs">
-                <div class="contents__tab js-contents-tab active" data-contents="1">Промышленная автоматизация</div>
-                <div class="contents__tab js-contents-tab" data-contents="2">Медицинская инженерия</div>
-                <div class="contents__tab js-contents-tab" data-contents="3">Автоматические двери</div>
-                <div class="contents__tab js-contents-tab" data-contents="4">Солнцезащитное оборудование</div>
+                <div class="contents__tab js-contents-tab active" data-contents="1">Industrial automation</div>
+                <div class="contents__tab js-contents-tab" data-contents="2">Medical Engineering</div>
+                <div class="contents__tab js-contents-tab" data-contents="3">Automatic doors</div>
+                <div class="contents__tab js-contents-tab" data-contents="4">Sun protection equipment</div>
                 <div class="contents__tab js-contents-tab" data-contents="5">Motive</div>
-                <div class="contents__tab js-contents-tab" data-contents="6">Базовая автоматизация</div>
+                <div class="contents__tab js-contents-tab" data-contents="6">Basic automation</div>
             </div>
             <div class="custom-select contents__select">
                 <select id="tab-select" class="contents__select-item">
-                    <option value="1">Промышленная автоматизация</option>
-                    <option value="2">Медицинская инженерия</option>
-                    <option value="3">Автоматические двери</option>
-                    <option value="4">Солнцезащитное оборудование</option>
+                    <option value="1">Industrial automation</option>
+                    <option value="2">Medical Engineering</option>
+                    <option value="3">Automatic doors</option>
+                    <option value="4">Sun protection equipment</option>
                     <option value="5">Motive</option>
-                    <option value="6">Базовая автоматизация</option>
+                    <option value="6">Basic automation</option>
                 </select>
             </div>
             <div class="contents__container js-contents-container tabs__content-mobile active" id="1" data-contents="1">
@@ -431,7 +431,7 @@
 </section>
 <section class="catalog n-catalog">
         <div class="container container_small">
-            <h2 class="heading">Каталог</h2>
+            <h2 class="heading">Catalog</h2>
             <div class="catalog__wrap">
                 <div class="catalog-card">
                     <div class="card__image"><img src="{{asset('/img/product/catalog_image1.png')}}" alt=""></div>
@@ -440,7 +440,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href="{{route('pages.catalog.category.subcategory', 'bg-brushless-dc-motors')}}" class="btn btn-next--blue">
-                            <span class="sp-text">В каталог</span>
+                            <span class="sp-text">Catalog</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
@@ -452,7 +452,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href="{{route('pages.catalog.category.subcategory', 'grg-brushed-dc-motors')}}" class="btn btn-next--blue">
-                            <span class="sp-text">В каталог</span>
+                            <span class="sp-text">Catalog</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
@@ -464,7 +464,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href={{route('pages.catalog.category.subcategory', 'kddr-ac-motors')}} class="btn btn-next--blue">
-                            <span class="sp-text">В каталог</span>
+                            <span class="sp-text">Catalog</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
@@ -476,7 +476,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href="{{route('pages.catalog.category.subcategory', 'ddcd-venetian-blind-drives')}}" class="btn btn-next--blue">
-                            <span class="sp-text">В каталог</span>
+                            <span class="sp-text">Catalog</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
@@ -488,7 +488,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href="{{route('pages.catalog.category.subcategory', 'plgsgstg-gearboxes')}}" class="btn btn-next--blue">
-                            <span class="sp-text">В каталог</span>
+                            <span class="sp-text">Catalog</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
@@ -500,7 +500,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href="{{route('pages.catalog.category.subcategory', 'bge-controllers')}}" class="btn btn-next--blue">
-                            <span class="sp-text">В каталог</span>
+                            <span class="sp-text">Catalog</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
@@ -512,7 +512,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href="{{route('pages.catalog.category.subcategory', 'e-brakes')}}" class="btn btn-next--blue">
-                            <span class="sp-text">В каталог</span>
+                            <span class="sp-text">Catalog</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
@@ -524,7 +524,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href="{{route('pages.catalog.category.subcategory', 'stcasmlsm-linear-systems')}}" class="btn btn-next--blue">
-                            <span class="sp-text">В каталог</span>
+                            <span class="sp-text">Catalog</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
