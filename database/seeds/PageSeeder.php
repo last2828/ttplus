@@ -65,7 +65,7 @@ class PageSeeder extends Seeder
                 <p><span>Zip code:  WA8 3JS</span></p>
                 <p>Country:  United Kingdom</p>',
             'phone' => '+44 1632 960953',
-            'email' => 'last2828@gmail.com',
+            'fax' => 'last2828@gmail.com',
         ]);
 
         PageField::create([
