@@ -6,7 +6,7 @@ use App\Models\Catalog\Product;
 use Faker\Generator as Faker;
 
 $factory->define(Product::class, function (Faker $faker) {
-    $title = $faker->unique()->sentence(rand(0, 2), true);
+    $title = $faker->unique()->sentence(rand(1, 3), true);
     $model = $faker->unique(true)->numberBetween(rand(1, 3));
     $content = '<ul>
                 <li>
@@ -49,7 +49,7 @@ $factory->define(Product::class, function (Faker $faker) {
             'img/product/catalog_image13.png'
         ]),
         'group_id' => rand(1, 87),
-        'slug' => Str::slug($title),
+        'slug' => Str::slug($title . $faker->unique(true)->numberBetween(rand(10, 3000))),
         'status' => $faker->boolean(50),
     ];
 
