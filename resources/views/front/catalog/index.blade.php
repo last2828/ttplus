@@ -9,7 +9,7 @@
   </div>
   <div class="product-cards">
     <div class="catalog-card">
-      <div class="card__image"><img src="img/main/card-1.png" alt=""></div>
+      <div class="card__image"><img src="{{ env('APP_URL') . 'img/main/card-1.png' }}" alt=""></div>
       <div class="card__heading">
         <h3>Electric motors <span>Dunkermotoren</span></h3>
       </div>
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="catalog-card">
-      <div class="card__image"><img src="img/main/card-2.png" alt=""></div>
+      <div class="card__image"><img src="{{ env('APP_URL') . 'img/main/card-2.png' }}" alt=""></div>
       <div class="card__heading">
         <h3>Electrolytic and film capacitors <span>Jianghai</span></h3>
       </div>

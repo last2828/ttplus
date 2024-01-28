@@ -1,3 +1,13 @@
 
-w	php:S1192"VDefine a constant instead of duplicating this literal "/storage/product.jpg" 87 times.(‘ÂÃÆÿÿÿÿÿ8ƒø˜ŠÕ1
+{	php:S1192S"_Define a constant instead of duplicating this literal "img/product/catalog_image2.jpg" 6 times.(…œ½8ÛÄÔ‹Õ1
+{	php:S1192"_Define a constant instead of duplicating this literal "img/product/catalog_image1.jpg" 9 times.(ÉÜ„ˆ8¸‰Ó‹Õ1
+	php:S1192·"_Define a constant instead of duplicating this literal "img/product/catalog_image6.jpg" 8 times.( ´­Ûùÿÿÿÿ8¥Ù‹Õ1
+|	php:S1192í"_Define a constant instead of duplicating this literal "img/product/catalog_image7.jpg" 4 times.(Á“îİ8¾§Ú‹Õ1
+‚	php:S1192å"`Define a constant instead of duplicating this literal "img/product/catalog_image11.jpg" 3 times.(·‘Š›ùÿÿÿÿ8¿æÜ‹Õ1
+	php:S1192…"_Define a constant instead of duplicating this literal "img/product/catalog_image8.jpg" 7 times.(îŸ“üÿÿÿÿÿ8¶“Û‹Õ1
+}	php:S1192Å"`Define a constant instead of duplicating this literal "img/product/catalog_image5.jpg" 19 times.(‡ÛÔß8Ø™Ø‹Õ1
+	php:S1192¯"_Define a constant instead of duplicating this literal "img/product/catalog_image9.jpg" 7 times.(áĞº÷úÿÿÿÿ8Ø€Ü‹Õ1
+	php:S1192"_Define a constant instead of duplicating this literal "img/product/catalog_image4.jpg" 9 times.(¬àø÷ùÿÿÿÿ8¯¹Ö‹Õ1
+{	php:S1192w"_Define a constant instead of duplicating this literal "img/product/catalog_image3.jpg" 4 times.(ØÍâ¡8ÈµÕ‹Õ1
+}	php:S1192÷"`Define a constant instead of duplicating this literal "img/product/catalog_image12.jpg" 7 times.(²˜ã›8³Âİ‹Õ1
 ‡php:S138"sThis function "run" has 531 lines, which is greater than the 150 lines authorized. Split it into smaller functions.(¯ ö
