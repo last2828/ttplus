@@ -15,4 +15,4 @@
 </div>
 <div id="type__content" class="single-param__content"></div>
 {{--@endforeach--}}
-<div class="btn btn-underline">Очистить фильтр</div>
+<div class="btn btn-underline">Reset filter</div>

@@ -7,10 +7,10 @@
     </a>
     <div class="menu">
       <ul>
-        <li><a href="{{route('pages.catalog.index')}}" class="{{(Request::is('catalog*') ? 'active' : '')}}">Каталог</a></li>
-        <li><a href="{{route('pages.posts.index')}}" class="{{(Request::is('catalog"*') ? 'active' : '')}}">Статьи</a></li>
-        <li><a href="{{route('pages.page', 'about')}}" class="{{(Request::is('about*') ? 'active' : '')}}">О компании</a></li>
-        <li><a href="{{route('pages.page', 'contact')}}" class="{{(Request::is('contact*') ? 'active' : '')}}">Контакты</a></li>
+        <li><a href="{{route('pages.catalog.index')}}" class="{{(Request::is('catalog*') ? 'active' : '')}}">Catalog</a></li>
+        <li><a href="{{route('pages.posts.index')}}" class="{{(Request::is('catalog"*') ? 'active' : '')}}">Articles</a></li>
+        <li><a href="{{route('pages.page', 'about')}}" class="{{(Request::is('about*') ? 'active' : '')}}">About us</a></li>
+        <li><a href="{{route('pages.page', 'contact')}}" class="{{(Request::is('contact*') ? 'active' : '')}}">Contacts</a></li>
       </ul>
     </div><a href="#" class="btn btn-menu"><span></span><span></span></a>
     <div class="search">
@@ -19,8 +19,7 @@
       </form>
     </div>
     <div class="contact-info">
-      <a href="tel:+8 812 303 98 63" class="contact-info__phone">8 812 303 98 63</a>
-      <a href="mailto:info@ttplus.spb.ru" class="contact-info__email">info@ttplus.spb.ru</a>
+      <a href="mailto:last2828@gmail.com" class="contact-info__email">last2828@gmail.com</a>
     </div>
   </div>
 </header>

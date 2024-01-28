@@ -8,7 +8,7 @@
         </div>
     </section>
     <section class="main-catalog__content">
-        <div class="container"><a href="#" class="btn btn-single-param__heading btn-filter"><span class="span-text">Фильтры</span><span class="span-arrow"></span></a>
+        <div class="container"><a href="#" class="btn btn-single-param__heading btn-filter"><span class="span-text">Filters</span><span class="span-arrow"></span></a>
 
             <aside>
                 @include('front.catalog.components.aside')
@@ -17,32 +17,32 @@
             <div class="products">
                 <div class="parameter__names">
                     <div class="param series">
-                        <p>Категория</p>
+                        <p>Category</p>
                     </div>
                     <div class="param diameter">
-                        <p>Внешний диаметр,<br> мм</p>
+                        <p>Outer Diameter,<br> mm</p>
                     </div>
                     <div class="param length">
-                        <p>Длина, <br> мм</p>
+                        <p>Length, <br> mm</p>
                     </div>
                     <div class="param voltage">
-                        <p>Номинальное напряжение, В</p>
+                        <p>Nominal voltage, V</p>
                     </div>
                     <div class="param speed">
-                        <p>Номинальная скорость,<br> об/мин</p>
+                        <p>Rated speed,<br> rpm</p>
                     </div>
                     <div class="param moment">
-                        <p>Номинальный момент,<br> Нcм</p>
+                        <p>Rated torque,<br> Ncm</p>
                     </div>
                     <div class="param power">
-                        <p>Номинальная мощность, <br> Вт</p>
+                        <p>Rated power, <br> W</p>
                     </div>
                 </div>
             @elseif (Route::current()->parameter('category') == 'jianghai')
             <div class="products">
                 <div class="parameter__names">
                     <div class="param series">
-                        <p>Категория</p>
+                        <p>Category</p>
                     </div>
                     <div class="param diameter">
                         <p>Capacitance,<br> (µF)</p>

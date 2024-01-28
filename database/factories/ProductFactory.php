@@ -33,7 +33,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'meta_description' => $faker->sentence(rand(3, 8), true),
         'meta_keywords' => $faker->sentence(rand(3, 8), true),
         'category_id' => rand(2, 13),
-        'image' => 'http://ttplus:8888//storage/card-1.png',
+        'image' => env('APP_URL') . '/storage/card-1.png',
         'group_id' => rand(1, 87),
         'slug' => Str::slug($title),
         'status' => $faker->boolean(50),

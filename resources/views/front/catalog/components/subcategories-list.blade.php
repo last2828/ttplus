@@ -6,7 +6,7 @@
         <div class="param series">
             <div class="prod__img"><img src="{{ $subCategory->image }}" alt=""></div>
             <div class="prod__name">
-                <p><span>Категория</span> <br> {{$subCategory->name}}</p>
+                <p><span>Category</span> <br> {{$subCategory->name}}</p>
             </div>
         </div>
         <div class="param diameter">

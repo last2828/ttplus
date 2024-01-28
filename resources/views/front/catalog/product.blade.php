@@ -16,7 +16,7 @@
         </div>
       </div><a href="#" class="btn btn-pdf">
         <div class="btn-pdf__img"></div>
-        <div class="btn-pdf__text">Общий каталог (Dunkermotoren).pdf</div>
+        <div class="btn-pdf__text">General Catalog (Dunkermotoren).pdf</div>
       </a>
     </div>
   </div>
@@ -25,10 +25,10 @@
   <div class="tabs-blue">
     <div class="tabs__caption__bg">
       <ul class="tabs__caption">
-        <li class="active"><a class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Характеристики</span></a></li>
-        <li><a class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Размеры</span></a></li>
-        <li><a class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Вариации</span></a></li>
-        <li><a class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Контакты</span></a></li>
+        <li class="active"><a class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Attributes</span></a></li>
+        <li><a class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Size</span></a></li>
+        <li><a class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Variants</span></a></li>
+        <li><a class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Contact</span></a></li>
       </ul>
     </div>
     <div class="tabs__content active">
@@ -184,7 +184,7 @@
     </div>
   </div>
   <div class="mobile-details">
-    <p>Характеристики, размеры и вариации<span> электродвигателя G 30.1, 12V</span> Вы можете посмотреть в ПК-версии сайта</p><a class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Перейти в ПК-версию</span></a>
+    <p>Characteristics, dimensions and variations<span> of electric motor G 30.1, 12V</span> You can check out the PC version of the site</p><a class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Go to the PC version</span></a>
   </div>
 </section>
 @endsection

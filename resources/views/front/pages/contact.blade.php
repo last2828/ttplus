@@ -9,21 +9,21 @@
         <li>
           <div class="contacts-heading">
             <div class="dot"></div>
-            <h3>Адрес:</h3>
+            <h3>Address:</h3>
           </div>
           {!! $page->address !!}
         </li>
         <li>
           <div class="contacts-heading">
             <div class="dot"></div>
-            <h3>Телефон:</h3>
+            <h3>Phone:</h3>
           </div>
           <p>{{$page->phone}}</p>
         </li>
         <li>
           <div class="contacts-heading">
             <div class="dot"></div>
-            <h3>Факс:</h3>
+            <h3>Fax:</h3>
           </div>
           <p>{{$page->fax}}</p>
         </li>

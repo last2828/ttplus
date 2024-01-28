@@ -2,7 +2,7 @@
 <footer class="footer">
   <div class="container">
     <div class="policy">
-      <p>© 2019 TTPlus. Все права защищены. Все права на материалы, опубликованные на сайте, охраняются в соответствии с законодательством РФ. При использовании материалов - активная ссылка на источник обязательна. <br> Согласие на обработку персональных данных</p>
+      <p>© 2019 TTPlus. <br> Consent to the processing of personal data</p>
     </div>
     <div class="logo">
       <img src="{{asset('img/by.svg')}}" alt="">
@@ -23,6 +23,6 @@
 <div id="feedbackpopupper" class="overlay">
 	<div class="popup">
 		<a class="close" href="#">&times;</a>
-		<p><strong>Спасибо!</strong> Наш менеджер скоро свяжется с вами!</p>
+		<p><strong>Thanks!</strong> Our manager will be in touch with you shortly!</p>
 	</div>
 </div>

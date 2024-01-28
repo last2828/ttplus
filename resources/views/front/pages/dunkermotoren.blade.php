@@ -10,13 +10,13 @@
                     <div class="n-intro__label">
                         <span>Dunkermotoren</span>
                     </div>
-                    <h2 class="heading">Производство Электродвигателей</h2>
-                    <p>Немецкое качество с более чем полувековой историей</p>
+                    <h2 class="heading">Manufacture of Electric Motors</h2>
+                    <p>German quality with more than half a century of history</p>
                     <div class="n-intro__row">
-                        <a href="{{route('pages.catalog.maincategory', 'dunkermotoren')}}" class="btn btn-next--blue">В каталог<span class="span-arrow"></span></a>
+                        <a href="{{route('pages.catalog.maincategory', 'dunkermotoren')}}" class="btn btn-next--blue">Catalog<span class="span-arrow"></span></a>
                         <a href="#videopopupper" class="btn-play">
                             <div class="sp-circle"></div>
-                            <div class="sp-text">Смотреть видео</div>
+                            <div class="sp-text">Watch video</div>
 
                             <div id="videopopupper" class="overlay" style="padding-top: 100px">
                                 <div class="popup">

@@ -9,13 +9,13 @@
                         <div class="n-intro__label">
                             <span>Jianghai</span>
                         </div>
-                        <h2 class="heading">Производство конденсаторов </h2>
-                        <p>Для промышленного использования, где требуется стабильность параметров в течение длительного срока эксплуатации</p>
+                        <h2 class="heading">Capacitor manufacturing</h2>
+                        <p>For industrial applications where parameter stability is required over a long service life</p>
                         <div class="n-intro__row">
-                            <a href="{{route('pages.catalog.maincategory', 'jianghai')}}" class="btn btn-next--blue" data-fancybox data-src="#modal1">В каталог<span class="span-arrow"></span></a>
+                            <a href="{{route('pages.catalog.maincategory', 'jianghai')}}" class="btn btn-next--blue" data-fancybox data-src="#modal1">Catalog<span class="span-arrow"></span></a>
                             <a href="#videopopupper" class="btn-play">
                                 <div class="sp-circle"></div>
-                                <div class="sp-text">Смотреть видео</div>
+                                <div class="sp-text">Watch video</div>
 
                                 <div id="videopopupper" class="overlay" style="padding-top: 100px">
                                     <div class="popup">
@@ -44,35 +44,35 @@
         <div class="container container_small">
             <div class="n-about__wrap">
                 <div class="n-about__title">
-                    <h2 class="heading">О компании</h2>
+                    <h2 class="heading">About</h2>
                 </div>
                 <div class="n-about__descr">
-                    <p>Техника и Технология официально представляет продукцию Jianghai с 2003г.</p>
-                    <p>Компания JIANGHAI производит электролитические конденсаторы с 1958г. и на текущий момент является самым крупным предприятием этого профиля на территории Китая.</p>
-                    <p>Jianghai имеет свое собственное производство алюминиевой фольги, что безусловно делает предприятие более независимым от внешних факторов и сокращает сроки поставок, особенно в период кризиса.</p>
-                    <p>Ассортимент Jianghai включает алюминиевые электролитические конденсаторы с винтовым зажимом, радиальные, snap-in и полимерные конденсаторы.</p>
-                    <p>Многие российские производители по достоинству оценили качество, ценовые параметры и сроки поставок этих конденсаторов.</p>
+                    <p>Technique & Technology has been officially representing Jianghai products since 2003.
+                    <p>JIANGHAI has been manufacturing electrolytic capacitors since 1958 and is currently the largest electrolytic capacitor manufacturer in China.
+                    <p>Jianghai has its own aluminum foil production, which certainly makes the company more independent of external factors and shortens the delivery time, especially during the crisis.
+                    <p>Jianghai's product range includes aluminum electrolytic screw capacitors, radial capacitors, snap-in capacitors and polymer capacitors.
+                    <p>Many Russian manufacturers have appreciated the quality, price and delivery time of these capacitors.
                 </div>
                 <div class="n-advantages">
-                    <h3 class="n-advantages__title">Основными преимущества использования <br/>конденсаторов Jianghai:</h3>
+                    <h3 class="n-advantages__title">The main advantages of using <br/>Jianghai capacitors:</h3>
                     <div class="n-advantages__wrap">
                         <div class="n-advantages__item">
                             <div class="n-advantages__image">
                                 <img src="{{asset('/img/product/n-advantage_image1.svg')}}" alt="">
                             </div>
-                            <div class="n-advantages__descr">Высокое качество, которое находится на уровне с Epcos, Evox-Rifa  и других ведущих мировых производителей.</div>
+                            <div class="n-advantages__descr">High quality that is on par with Epcos, Evox-Rifa and other leading world manufacturers.</div>
                         </div>
                         <div class="n-advantages__item">
                             <div class="n-advantages__image">
                                 <img src="{{asset('/img/product/n-advantage_image2.svg')}}" alt="">
                             </div>
-                            <div class="n-advantages__descr">Существенно более низкая цена и сроки поставок.</div>
+                            <div class="n-advantages__descr">Significantly lower price and delivery times.</div>
                         </div>
                         <div class="n-advantages__item">
                             <div class="n-advantages__image">
                                 <img src="{{asset('/img/product/n-advantage_image3.svg')}}" alt="">
                             </div>
-                            <div class="n-advantages__descr">Гибкий подход к производству конденсаторов с параметрами, заточенными под конкретное изделие предприятия-потребителя.</div>
+                            <div class="n-advantages__descr">Flexible approach to the production of capacitors with parameters tailored to the specific product of the consumer company.</div>
                         </div>
                     </div>
                 </div>
@@ -82,8 +82,8 @@
     <section class="contents">
         <div class="container container_small">
             <div class="contents__title">
-                <h2 class="heading">Мировые лидеры</h2>
-                <h3 class="contents__h3">которые используют продукцию Jianghai в производстве</h3>
+                <h2 class="heading">World leaders</h2>
+                <h3 class="contents__h3">who use Jianghai products in their production</h3>
             </div>
             <div class="contents__wrap js-contents-wrap">
                 <div class="contents__tabs contents__tabs_maw">
@@ -262,7 +262,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href="{{route('pages.catalog.category.subcategory', 'radial')}}" class="btn btn-next--blue">
-                            <span class="sp-text">В каталог</span>
+                            <span class="sp-text">Catalog</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
@@ -274,7 +274,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href="{{route('pages.catalog.category.subcategory', 'snapin')}}" class="btn btn-next--blue">
-                            <span class="sp-text">В каталог</span>
+                            <span class="sp-text">Catalog</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
@@ -286,7 +286,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href="{{route('pages.catalog.category.subcategory', 'screw')}}" class="btn btn-next--blue">
-                            <span class="sp-text">В каталог</span>
+                            <span class="sp-text">Catalog</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
@@ -298,7 +298,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href="{{route('pages.catalog.category.subcategory', 'polymer')}}" class="btn btn-next--blue">
-                            <span class="sp-text">В каталог</span>
+                            <span class="sp-text">Catalog</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>
@@ -310,7 +310,7 @@
                     </div>
                     <div class="card__bottom n-intro__row">
                         <a href="{{route('pages.catalog.category.subcategory', 'film-capacitors')}}" class="btn btn-next--blue">
-                            <span class="sp-text">В каталог</span>
+                            <span class="sp-text">Catalog</span>
                             <span class="span-arrow"></span>
                         </a>
                     </div>

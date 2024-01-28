@@ -12,7 +12,7 @@
     </div>
   </section>
   <section class="main-catalog__content">
-    <div class="container"><a href="#" class="btn btn-single-param__heading btn-filter"><span class="span-text">Фильтры</span><span class="span-arrow"></span></a>
+    <div class="container"><a href="#" class="btn btn-single-param__heading btn-filter"><span class="span-text">Filters</span><span class="span-arrow"></span></a>
 
       <aside>
         @include('front.catalog.components.aside')
@@ -26,25 +26,25 @@
       <div class="products">
         <div class="parameter__names">
           <div class="param series">
-            <p>Серия</p>
+            <p>Series</p>
           </div>
           <div class="param diameter">
-            <p>Внешний диаметр,<br> мм</p>
+            <p>Outer diameter,<br> mm</p>
           </div>
           <div class="param length">
-            <p>Длина, <br> мм</p>
+            <p>Length, <br> mm</p>
           </div>
           <div class="param voltage">
-            <p>Номинальное напряжение, В</p>
+            <p>Rated voltage, V</p>
           </div>
           <div class="param speed">
-            <p>Номинальная скорость,<br> об/мин</p>
+            <p>Rated speed,<br> rpm</p>
           </div>
           <div class="param moment">
-            <p>Номинальный момент,<br> Нcм</p>
+            <p>Rated torque,<br> Ncm</p>
           </div>
           <div class="param power">
-            <p>Номинальная мощность, <br> Вт</p>
+            <p>Rated power, <br> W</p>
           </div>
         </div>
 
@@ -73,7 +73,7 @@
           @foreach ($groups as $group)
             <div class="product__block">
               @include('front.catalog.components.products-list', ['list' => $group, 'products' => $group->products->take(3)])
-              <div class="block__bottom"><a href="{{ route('pages.catalog.category.group', $group->slug) }}" class="btn btn-primary">Показать все позиции</a><a href="#" class="btn btn-next--blue">Индивидуальный заказ<span class="span-arrow"></span></a></div>
+              <div class="block__bottom"><a href="{{ route('pages.catalog.category.group', $group->slug) }}" class="btn btn-primary">Show all items</a><a href="#" class="btn btn-next--blue">Customized<span class="span-arrow"></span></a></div>
             </div>
           @endforeach
           @include('front.layouts.pagination', ['paginator' => $groups])

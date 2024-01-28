@@ -30,7 +30,7 @@
     <div id="feedbackpopupper" class="overlay">
       <div class="popup">
         <a class="close" href="#">&times;</a>
-        <p><strong>Спасибо!</strong> Наш менеджер скоро свяжется с вами!</p>
+        <p><strong>Thanks!</strong> Our manager will be in touch with you shortly!</p>
       </div>
     </div>
     <!--LOAD SCRIPTS-->

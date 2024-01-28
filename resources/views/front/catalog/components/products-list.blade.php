@@ -5,7 +5,7 @@
         <div class="param series">
             <div class="prod__img"><img src="{{$product->image}}" alt=""></div>
             <div class="prod__name">
-                <p><span>Серия</span> <br> {{$product->name}}</p>
+                <p><span>Series</span> <br> {{$product->name}}</p>
             </div>
         </div>
         <div class="param diameter">

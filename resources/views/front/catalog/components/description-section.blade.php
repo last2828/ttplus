@@ -7,9 +7,9 @@
         </div>
         <div class="heading__buttons"><a href="{{$category->catalog}}" class="btn btn-pdf">
                 <div class="btn-pdf__img"></div>
-                <div class="btn-pdf__text">Общий каталог ({{$category->name}}).pdf</div>
-            </a><a href="{{$category->video}}" class="btn btn-watch">Смотреть видео</a></div>
-    </div><a href="{{route('pages.page', $category->slug)}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Подробнее</span></a>
+                <div class="btn-pdf__text">General catalog ({{$category->name}}).pdf</div>
+            </a><a href="{{$category->video}}" class="btn btn-watch">Watch video</a></div>
+    </div><a href="{{route('pages.page', $category->slug)}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Read more</span></a>
 
 @elseif (isset($group->category))
 
@@ -20,9 +20,9 @@
         </div>
         <div class="heading__buttons"><a href="{{$group->category->parent->catalog}}" class="btn btn-pdf">
                 <div class="btn-pdf__img"></div>
-                <div class="btn-pdf__text">Общий каталог ({{$group->category->parent->name}}).pdf</div>
-            </a><a href="{{$group->category->parent->video}}" class="btn btn-watch">Смотреть видео</a></div>
-    </div><a href="{{route('pages.page', $group->category->parent->slug)}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Подробнее</span></a>
+                <div class="btn-pdf__text">General catalog ({{$group->category->parent->name}}).pdf</div>
+            </a><a href="{{$group->category->parent->video}}" class="btn btn-watch">Watch video</a></div>
+    </div><a href="{{route('pages.page', $group->category->parent->slug)}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Read more</span></a>
 
 @elseif (isset($category->parent))
 
@@ -33,8 +33,8 @@
         </div>
         <div class="heading__buttons"><a href="{{$category->parent->catalog}}" class="btn btn-pdf">
                 <div class="btn-pdf__img"></div>
-                <div class="btn-pdf__text">Общий каталог ({{$category->parent->name}}).pdf</div>
-            </a><a href="{{$category->parent->video}}" class="btn btn-watch">Смотреть видео</a></div>
-    </div><a href="{{route('pages.page', $category->parent->slug)}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Подробнее</span></a>
+                <div class="btn-pdf__text">General catalog ({{$category->parent->name}}).pdf</div>
+            </a><a href="{{$category->parent->video}}" class="btn btn-watch">Watch video</a></div>
+    </div><a href="{{route('pages.page', $category->parent->slug)}}" class="btn btn-secondary"><span class="sp-arrow"></span><span class="sp-text">Read more</span></a>
 
 @endif

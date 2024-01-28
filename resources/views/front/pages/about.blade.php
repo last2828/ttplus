@@ -58,9 +58,9 @@
     <section class="about__documents">
     <div class="tabs">
         <ul class="tabs__caption">
-            <li class="active"><a class="btn tab-button">Награды</a></li>
-            <li><a class="btn tab-button">Сертификаты и лицензии</a></li>
-            <li><a class="btn tab-button">Выставки</a></li>
+            <li class="active"><a class="btn tab-button">Awards</a></li>
+            <li><a class="btn tab-button">Certificates and licenses</a></li>
+            <li><a class="btn tab-button">Exhibitions</a></li>
         </ul>
         <div class="tabs__content about__documents-tab active">
             @foreach($awards as $award)
@@ -77,12 +77,12 @@
                 <div class="document"><img src="{{asset('storage/' . $show['image'])}}" alt=""></div>
             @endforeach
         </div>
-    </div><a href="{{route('pages.page', 'about?limit=all')}}" class="btn btn-form">Показать все</a>
+    </div><a href="{{route('pages.page', 'about?limit=all')}}" class="btn btn-form">Show all</a>
     @endif
     <div class="custom-select"><select id="tab-select">
-            <option value="awards">Награды</option>
-            <option value="certificates">Сертификаты и лицензии</option>
-            <option value="exhibitions">Выставки</option>
+            <option value="awards">Awards</option>
+            <option value="certificates">Certificates and licenses</option>
+            <option value="exhibitions">Exhibitions</option>
         </select></div>
     <div id="awards" class="tabs__content-mobile">
         <div class="swiper-mobile">
