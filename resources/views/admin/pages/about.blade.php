@@ -17,7 +17,7 @@
                             <div class="kt-portlet__head kt-portlet__head--lg">
                                 <div class="kt-portlet__head-label">
                                     <span class="kt-portlet__head-icon"><i class="kt-font-brand flaticon2-indent-dots"></i></span>
-                                    <h3 class="kt-portlet__head-title">О компании</h3>
+                                    <h3 class="kt-portlet__head-title">About us</h3>
                                 </div>
                             </div>
 
@@ -28,36 +28,36 @@
                                 <div class="kt-portlet__body">
                                     <ul class="nav nav-tabs  nav-tabs-line" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active" data-toggle="tab" href="#kt_tabs_1_1" role="tab">Общие</a>
+                                            <a class="nav-link active" data-toggle="tab" href="#kt_tabs_1_1" role="tab">General</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_2" role="tab">Преимущества</a>
+                                            <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_2" role="tab">Advantages</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_3" role="tab">Даты и события</a>
+                                            <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_3" role="tab">Dates and events</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_4" role="tab">Награды</a>
+                                            <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_4" role="tab">Awards</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_5" role="tab">Сертификаты и лицензии</a>
+                                            <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_5" role="tab">Certificates and licenses</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_6" role="tab">Выставки</a>
+                                            <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_6" role="tab">Exhibitions</a>
                                         </li>
                                     </ul>
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="kt_tabs_1_1" role="tabpanel">
-                                            <label>Заголовок и описание</label>
+                                            <label>Title and Description</label>
                                             <div class="form-group row">
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Заголовок" name="title" value="{{(isset($page)) ? $page['title'] : ''}}">
+                                                    <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Title" name="title" value="{{(isset($page)) ? $page['title'] : ''}}">
                                                 </div>
                                             </div>
                                             @include('admin.pages.components.meta-tags')
                                             <div class="form-group row">
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <textarea class="form-control" aria-describedby="" placeholder="Описание" rows="3" name="description">{{(isset($page)) ? $page['description'] : ''}}</textarea>
+                                                    <textarea class="form-control" aria-describedby="" placeholder="Description" rows="3" name="description">{{(isset($page)) ? $page['description'] : ''}}</textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -77,110 +77,110 @@
                                         </div>
 
                                         <div class="tab-pane" id="kt_tabs_1_2" role="tabpanel">
-                                            <label>Партнеры</label>
+                                            <label>Partners</label>
                                             <div class="form-group row">
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Партнеры" name="partner_title" value="{{(isset($page)) ? $page['partner_title'] : ''}}">
+                                                    <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Partners" name="partner_title" value="{{(isset($page)) ? $page['partner_title'] : ''}}">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <textarea class="form-control" aria-describedby="" placeholder="Цитата" rows="3" name="partner_title_description">{{(isset($page)) ? $page['partner_title_description'] : ''}}</textarea>
+                                                    <textarea class="form-control" aria-describedby="" placeholder="Quote" rows="3" name="partner_title_description">{{(isset($page)) ? $page['partner_title_description'] : ''}}</textarea>
                                                 </div>
                                             </div>
-                                            <label>Преимущества</label>
+                                            <label>Advantages</label>
                                             @foreach($page->features_content as $feature)
                                                 <div class="form-group row">
                                                     <div class="col-lg-12 col-md-9 col-sm-12">
-                                                        <textarea class="form-control" aria-describedby="" placeholder="Преимущества" rows="3" name="features_content[]">{{$feature}}</textarea>
+                                                        <textarea class="form-control" aria-describedby="" placeholder="Advantages" rows="3" name="features_content[]">{{$feature}}</textarea>
                                                     </div>
                                                 </div>
                                             @endforeach
-                                            <label>Цитата</label>
+                                            <label>Quote</label>
                                             <div class="form-group row">
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <textarea class="form-control" aria-describedby="" placeholder="Цитата" rows="3" name="quote_title">{{(isset($page)) ? $page['quote_title'] : ''}}</textarea>
+                                                    <textarea class="form-control" aria-describedby="" placeholder="Quote" rows="3" name="quote_title">{{(isset($page)) ? $page['quote_title'] : ''}}</textarea>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="tab-pane" id="kt_tabs_1_3" role="tabpanel">
-                                            <label>Заголовок</label>
+                                            <label>Title</label>
                                             <div class="form-group row">
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Даты" name="years_title" value="{{(isset($page)) ? $page['years_title'] : ''}}">
+                                                    <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Dates" name="years_title" value="{{(isset($page)) ? $page['years_title'] : ''}}">
                                                 </div>
                                             </div>
-                                            <label>Дата 1</label>
+                                            <label>Date 1</label>
                                             <div class="form-group row">
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Заголовок даты 1" name="years_1[title]" value="{{(isset($page)) ? $page->years_1['title'] : ''}}">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <textarea class="form-control" aria-describedby="" placeholder="Описание даты 1" rows="3" name="years_1[description]">{{(isset($page)) ? $page->years_1['description'] : ''}}</textarea>
-                                                </div>
-                                            </div>
-                                            <label>Дата 2</label>
-                                            <div class="form-group row">
-                                                <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Заголовок даты 2" name="years_2[title]" value="{{(isset($page)) ? $page->years_2['title'] : ''}}">
+                                                    <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Title" name="years_1[title]" value="{{(isset($page)) ? $page->years_1['title'] : ''}}">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <textarea class="form-control" aria-describedby="" placeholder="Описание даты 2" rows="3" name="years_2[description]">{{(isset($page)) ? $page->years_2['description'] : ''}}</textarea>
+                                                    <textarea class="form-control" aria-describedby="" placeholder="Description" rows="3" name="years_1[description]">{{(isset($page)) ? $page->years_1['description'] : ''}}</textarea>
+                                                </div>
+                                            </div>
+                                            <label>Date 2</label>
+                                            <div class="form-group row">
+                                                <div class="col-lg-12 col-md-9 col-sm-12">
+                                                    <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Title 2" name="years_2[title]" value="{{(isset($page)) ? $page->years_2['title'] : ''}}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-12 col-md-9 col-sm-12">
+                                                    <textarea class="form-control" aria-describedby="" placeholder="Description" rows="3" name="years_2[description]">{{(isset($page)) ? $page->years_2['description'] : ''}}</textarea>
                                                 </div>
                                             </div>
                                             <label>Дата 3</label>
                                             <div class="form-group row">
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Заголовок даты 3" name="years_3[title]" value="{{(isset($page)) ? $page->years_3['title'] : ''}}">
+                                                    <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Title 3" name="years_3[title]" value="{{(isset($page)) ? $page->years_3['title'] : ''}}">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <textarea class="form-control" aria-describedby="" placeholder="Описание даты 3" rows="3" name="years_3[description]">{{(isset($page)) ? $page->years_3['description'] : ''}}</textarea>
+                                                    <textarea class="form-control" aria-describedby="" placeholder="Description" rows="3" name="years_3[description]">{{(isset($page)) ? $page->years_3['description'] : ''}}</textarea>
                                                 </div>
                                             </div>
-                                            <label>Событие 1</label>
+                                            <label>Event 1</label>
                                             <div class="form-group row">
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Заголовок даты 1" name="blocks_1[title]" value="{{(isset($page)) ? $page->blocks_1['title'] : ''}}">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <textarea class="form-control" aria-describedby="" placeholder="Описание даты 1" rows="3" name="blocks_1[description]">{{(isset($page)) ? $page->blocks_1['description'] : ''}}</textarea>
-                                                </div>
-                                            </div>
-                                            <label>Событие 2</label>
-                                            <div class="form-group row">
-                                                <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Заголовок даты 1" name="blocks_2[title]" value="{{(isset($page)) ? $page->blocks_2['title'] : ''}}">
+                                                    <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Event title 1" name="blocks_1[title]" value="{{(isset($page)) ? $page->blocks_1['title'] : ''}}">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <textarea class="form-control" aria-describedby="" placeholder="Описание даты 1" rows="3" name="blocks_2[description]">{{(isset($page)) ? $page->blocks_2['description'] : ''}}</textarea>
+                                                    <textarea class="form-control" aria-describedby="" placeholder="Event description 1" rows="3" name="blocks_1[description]">{{(isset($page)) ? $page->blocks_1['description'] : ''}}</textarea>
                                                 </div>
                                             </div>
-                                            <label>Событие 3</label>
+                                            <label>Event 2</label>
                                             <div class="form-group row">
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Заголовок даты 1" name="blocks_3[title]" value="{{(isset($page)) ? $page->blocks_3['title'] : ''}}">
+                                                    <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Event title 2" name="blocks_2[title]" value="{{(isset($page)) ? $page->blocks_2['title'] : ''}}">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <textarea class="form-control" aria-describedby="" placeholder="Описание даты 1" rows="3" name="blocks_3[description]">{{(isset($page)) ? $page->blocks_3['description'] : ''}}</textarea>
+                                                    <textarea class="form-control" aria-describedby="" placeholder="Event descriptions 2" rows="3" name="blocks_2[description]">{{(isset($page)) ? $page->blocks_2['description'] : ''}}</textarea>
+                                                </div>
+                                            </div>
+                                            <label>Event 3</label>
+                                            <div class="form-group row">
+                                                <div class="col-lg-12 col-md-9 col-sm-12">
+                                                    <input type="text" class="form-control" role="alert" aria-describedby="" placeholder="Event title 3" name="blocks_3[title]" value="{{(isset($page)) ? $page->blocks_3['title'] : ''}}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-12 col-md-9 col-sm-12">
+                                                    <textarea class="form-control" aria-describedby="" placeholder="Event description 3" rows="3" name="blocks_3[description]">{{(isset($page)) ? $page->blocks_3['description'] : ''}}</textarea>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="tab-pane" id="kt_tabs_1_4" role="tabpanel">
-                                            <label>Награды</label>
+                                            <label>Awards</label>
                                             <input type="hidden" id="count" value="{{count($awards) ? count($awards) : 0}}">
                                             <div class="col-lg-12">
                                                 @foreach($awards as $key => $award)
@@ -200,7 +200,7 @@
                                                         <div class="col-md-2">
                                                             <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
                                                                 <i class="la la-trash-o"></i>
-                                                                Удалить
+                                                                Remove
                                                             </a>
                                                         </div>
                                                     </div>
@@ -217,21 +217,21 @@
                                                                 <div class="custom-file">
                                                                     <input type="file" id="image_label" class="custom-file-input form-control image_label" name="image"
                                                                            aria-label="Image" aria-describedby="button-image">
-                                                                        <label class="custom-file-label" for="image_rewards">Выбирите файл</label>
+                                                                        <label class="custom-file-label" for="image_rewards">Select file</label>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-2">
                                                             <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
                                                                 <i class="la la-trash-o"></i>
-                                                                Удалить
+                                                                Remove
                                                             </a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <a href="javascript:;" data-repeater-create="" id="add" class="btn btn-bold btn-sm btn-label-brand">
-                                                        <i class="la la-plus"></i> Добавить
+                                                        <i class="la la-plus"></i> Add
                                                     </a>
                                                 </div>
                                             </div>
@@ -307,8 +307,8 @@
                                     {{--</div>--}}
                                     <div class="kt-portlet__foot">
                                         <div class="kt-form__actions">
-                                            <button type="submit" class="btn btn-primary">Сохранить</button>
-                                            <button type="reset" class="btn btn-secondary">Отмена</button>
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                            <button type="reset" class="btn btn-secondary">Cancel</button>
                                         </div>
                                     </div>
                                 </div>

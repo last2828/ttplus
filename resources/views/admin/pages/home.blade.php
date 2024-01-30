@@ -17,7 +17,7 @@
                             <div class="kt-portlet__head kt-portlet__head--lg">
                                 <div class="kt-portlet__head-label">
                                     <span class="kt-portlet__head-icon"><i class="kt-font-brand flaticon2-indent-dots"></i></span>
-                                    <h3 class="kt-portlet__head-title">Главная страница</h3>
+                                    <h3 class="kt-portlet__head-title">Home page</h3>
                                 </div>
                             </div>
 
@@ -42,8 +42,8 @@
                                 </div>
                                 <div class="kt-portlet__foot">
                                     <div class="kt-form__actions">
-                                        <button type="submit" class="btn btn-primary">Сохранить</button>
-                                        <button type="reset" class="btn btn-secondary">Отмена</button>
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                        <button type="reset" class="btn btn-secondary">Cancel</button>
                                     </div>
                                 </div>
                             </form>
