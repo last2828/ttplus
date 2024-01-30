@@ -23,7 +23,12 @@ class PageController extends BaseController
             $shows = Document::where('type', 'show')->get();
         }
 
-        return view('admin.pages.' . $key, compact('page', 'awards', 'licenses', 'shows'));
+        return view('admin.pages.' . $key, [
+            'page' => $page,
+            'awards' => $awards ?? null,
+            'licenses' => $licenses ?? null,
+            'shows' => $shows ?? null
+        ]);
     }
 
     /**
