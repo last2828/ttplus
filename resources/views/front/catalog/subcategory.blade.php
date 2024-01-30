@@ -71,10 +71,12 @@
           {{--Получаем список всех групп в категории производителя Dunkermotoren--}}
         @elseif (isset($category) and !$category->groups->isEmpty())
           @foreach ($groups as $group)
-            <div class="product__block">
-              @include('front.catalog.components.products-list', ['list' => $group, 'products' => $group->products->take(3)])
-              <div class="block__bottom"><a href="{{ route('pages.catalog.category.group', $group->slug) }}" class="btn btn-primary">Show all items</a><a href="#" class="btn btn-next--blue">Customized<span class="span-arrow"></span></a></div>
-            </div>
+              @if ($group->products()->exists())
+                <div class="product__block">
+                  @include('front.catalog.components.products-list', ['list' => $group, 'products' => $group->products->take(3)])
+                  <div class="block__bottom"><a href="{{ route('pages.catalog.category.group', $group->slug) }}" class="btn btn-primary">Show all items</a><a href="#" class="btn btn-next--blue">Customized<span class="span-arrow"></span></a></div>
+                </div>
+              @endif
           @endforeach
           @include('front.layouts.pagination', ['paginator' => $groups])
         @endif
