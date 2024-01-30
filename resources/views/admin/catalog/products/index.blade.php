@@ -69,7 +69,7 @@
                                                             @php
                                                                 $availableCategories = [];
                                                             @endphp
-                                                            @foreach($products->sortByName('asc') as $product)
+                                                            @foreach($products->sortBy('name') as $product)
                                                                 @if($product->category && !in_array($product->category->id, $availableCategories))
                                                                     @php $availableCategories[] = $product->category->id; @endphp
                                                                     <option value="{{$product->category->id}}">{{$product->category->name}}</option>
@@ -90,7 +90,7 @@
                                                             @php
                                                                 $availableGroups = [];
                                                             @endphp
-                                                            @foreach($products->sortByName('asc') as $product)
+                                                            @foreach($products->sortBy('name') as $product)
 								                                @if($product->group && !in_array($product->group->id, $availableGroups))
                                                                     @php $availableGroups[] = $product->group->id; @endphp
 	                                                                <option value="{{$product->group->id}}">{{$product->group->name}}</option>
