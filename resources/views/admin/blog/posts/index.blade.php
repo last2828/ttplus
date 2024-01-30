@@ -27,7 +27,7 @@
 											<i class="kt-font-brand flaticon2-list-2"></i>
 										</span>
                                     <h3 class="kt-portlet__head-title">
-                                        Статьи
+                                        Articles
                                     </h3>
                                 </div>
                                 <div class="kt-portlet__head-toolbar">
@@ -36,7 +36,7 @@
                                         <div class="dropdown dropdown-inline">
                                             <a href="{{route('admin.blog.posts.create')}}">
                                                 <button type="button" class="btn btn-brand btn-icon-sm" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="flaticon2-plus"></i> Добавить
+                                                    <i class="flaticon2-plus"></i> Create
                                                 </button>
                                             </a>
                                         </div>
@@ -53,7 +53,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
                                                     <div class="kt-input-icon kt-input-icon--left">
-                                                        <input type="text" class="form-control" placeholder="Поиск..." id="generalSearch">
+                                                        <input type="text" class="form-control" placeholder="Search..." id="generalSearch">
                                                         <span class="kt-input-icon__icon kt-input-icon__icon--left">
 																<span><i class="la la-search"></i></span>
 															</span>
@@ -77,13 +77,13 @@
                                                 <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
                                                     <div class="kt-form__group kt-form__group--inline">
                                                         <div class="kt-form__label">
-                                                            <label>Статус:</label>
+                                                            <label>Status:</label>
                                                         </div>
                                                         <div class="kt-form__control">
                                                             <select class="form-control bootstrap-select" id="kt_form_type">
-                                                                <option value="">Все</option>
-                                                                <option value="1">Включено</option>
-                                                                <option value="0">Отключено</option>
+                                                                <option value="">All</option>
+                                                                <option value="1">Enabled</option>
+                                                                <option value="0">Disabled</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -117,7 +117,7 @@
 @section('script')
 
     <script>
-    
+
     var KTDatatableLocalSortDemo = function() {
       // Private functions
       // basic demo
@@ -143,7 +143,7 @@
           // columns definition
           columns: [{
             field: 'title',
-            title: 'Название',
+            title: 'Title',
           },
           // {
           //   field: 'category_name',
@@ -151,13 +151,13 @@
           // },
           {
             field: 'status',
-            title: 'Статус',
+            title: 'Status',
               template: function(data) {
-                  return (data.status == 1) ? 'Включено' : 'Отключено';
+                  return (data.status == 1) ? 'Enabled' : 'Disabled';
               },
           },{
             field: 'Actions',
-            title: 'Действия',
+            title: 'Actions',
             sortable: false,
             width: 110,
             overflow: 'visible',
@@ -198,7 +198,7 @@
     }();
     jQuery(document).ready(function() {
         KTDatatableLocalSortDemo.init();
-    }); 
+    });
 </script>
 
 @endsection

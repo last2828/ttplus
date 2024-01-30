@@ -95,7 +95,7 @@
             </div>
           </li>
           <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu {{(Request::is('admin/blog/*') ? 'kt-menu__item--open' : '')}}" data-ktmenu-submenu-toggle="hover">
-            <a class="kt-menu__link kt-menu__toggle" href="javascript:;"><i class="kt-menu__link-icon flaticon-web"></i><span class="kt-menu__link-text">Блог</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+            <a class="kt-menu__link kt-menu__toggle" href="javascript:;"><i class="kt-menu__link-icon flaticon-web"></i><span class="kt-menu__link-text">FAQ</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
             <div class="kt-menu__submenu">
               <span class="kt-menu__arrow"></span>
               <ul class="kt-menu__subnav">

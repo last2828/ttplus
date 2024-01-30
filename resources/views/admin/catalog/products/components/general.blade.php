@@ -27,7 +27,7 @@
 			</div>
 	</div>
 	<div class="form-group row">
-			<label >МMetaTitle</label>
+			<label >MetaTitle</label>
 			<div class="col-lg-12 col-md-9 col-sm-12">
 					<input type="text" class="form-control" aria-describedby="" placeholder="Meta Title" name="meta_title" value="{{(isset($product)) ? $product->meta_title : ''}}">
 			</div>

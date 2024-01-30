@@ -24,7 +24,7 @@
                                     <div class="kt-portlet__head">
                                         <div class="kt-portlet__head-label">
                                             <h3 class="kt-portlet__head-title">
-                                                Новая статья
+                                                New article
                                             </h3>
                                         </div>
                                     </div>
@@ -34,49 +34,49 @@
                                         <div class="kt-portlet__body">
                                             <ul class="nav nav-tabs  nav-tabs-line" role="tablist">
                                                 <li class="nav-item">
-                                                    <a class="nav-link active" data-toggle="tab" href="#kt_tabs_1_1" role="tab">Общие</a>
+                                                    <a class="nav-link active" data-toggle="tab" href="#kt_tabs_1_1" role="tab">General</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_2" role="tab">Данные</a>
+                                                    <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_2" role="tab">Data</a>
                                                 </li>
                                             </ul>
                                             <div class="tab-content">
                                                 <div class="tab-pane active" id="kt_tabs_1_1" role="tabpanel">
                                                     <div class="form-group row">
-                                                        <label>Название статьи</label>
+                                                        <label>Title</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Название статьи" name="title">
+                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Title" name="title">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label>Описание</label>
+                                                        <label>Content</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
                                                             <div class="summernote" id="kt_summernote_1" title="content"></div>
                                                         </div>
                                                         <input type="hidden" id="content" name="content">
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label >Мета-тег Title</label>
+                                                        <label >Meta Title</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Мета-тег Title" name="meta_title">
+                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Meta Title" name="meta_title">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label>Мета-тег Description</label>
+                                                        <label>Meta Description</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <textarea class="form-control" aria-describedby="" placeholder="Мета-тег Description" rows="3" name="meta_description"></textarea>
+                                                            <textarea class="form-control" aria-describedby="" placeholder="Meta Description" rows="3" name="meta_description"></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label>Мета-тег Keywords</label>
+                                                        <label>Meta Keywords</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Мета-тег Keywords" name="meta_keywords">
+                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Meta Keywords" name="meta_keywords">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane" id="kt_tabs_1_2" role="tabpanel">
                                                     <div class="form-group row">
-                                                        <label class="col-form-label col-lg-3 col-sm-12">Тип записи</label>
+                                                        <label class="col-form-label col-lg-3 col-sm-12">Type</label>
                                                         <div class="col-lg-4 col-md-9 col-sm-12">
                                                             <select class="form-control kt-select2" id="kt_select2_2" name="type_id">
                                                                 @php /** @var \App\Models\Blog\PostType $types */@endphp
@@ -87,7 +87,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label>Изображение статьи</label>
+                                                        <label>Image</label>
                                                         <div class="input-group">
                                                             <input type="text" id="image_label" class="form-control" name="image"
                                                                    aria-label="Image" aria-describedby="button-image">
@@ -99,15 +99,15 @@
                                                     <div class="form-group form-group-last row">
                                                         <label>Slug</label>
                                                         <div class="col-lg-12 col-md-9 col-sm-12">
-                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Адрес страницы" name="slug">
+                                                            <input type="text" class="form-control" aria-describedby="" placeholder="Slug" name="slug">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label class="col-form-label col-lg-3 col-sm-12">Статус</label>
+                                                        <label class="col-form-label col-lg-3 col-sm-12">Status</label>
                                                         <div class=" col-lg-4 col-md-9 col-sm-12">
                                                             <select class="form-control kt-select2" id="kt_select2_10" name="status">
-                                                                <option value="1">Включено</option>
-                                                                <option value="0">Отключено</option>
+                                                                <option value="1">Enabled</option>
+                                                                <option value="0">Disabled</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -116,8 +116,8 @@
                                         </div>
                                         <div class="kt-portlet__foot">
                                             <div class="kt-form__actions">
-                                                <button type="submit" class="btn btn-primary">Сохранить</button>
-                                                <button type="reset" class="btn btn-secondary">Отмена</button>
+                                                <button type="submit" class="btn btn-primary">Save</button>
+                                                <button type="reset" class="btn btn-secondary">Cancel</button>
                                             </div>
                                         </div>
                                     </form>
