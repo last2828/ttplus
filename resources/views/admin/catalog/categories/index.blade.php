@@ -154,13 +154,9 @@
                             return (data.status == 1) ? 'Enabled' : 'Disabled';
                         },
                     },
-                    // {
-                    //     field: 'parent_name',
-                    //     title: 'Родительская',
-                    // },
                     {
                         field: 'Actions',
-                        title: 'Действия',
+                        title: 'Actions',
                         sortable: false,
                         width: 110,
                         overflow: 'visible',

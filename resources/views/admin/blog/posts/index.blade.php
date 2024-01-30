@@ -59,21 +59,6 @@
 															</span>
                                                     </div>
                                                 </div>
-                                                {{--<div class="col-md-4 kt-margin-b-20-tablet-and-mobile">--}}
-                                                    {{--<div class="kt-form__group kt-form__group--inline">--}}
-                                                        {{--<div class="kt-form__label">--}}
-                                                            {{--<label>Категория:</label>--}}
-                                                        {{--</div>--}}
-                                                        {{--<div class="kt-form__control">--}}
-                                                            {{--<select class="form-control bootstrap-select" id="kt_form_status">--}}
-                                                                {{--<option value="">Все</option>--}}
-                                                                {{--@foreach($posts as $post)--}}
-                                                                {{--<option value="{{$post->category['id']}}">{{$post->category['name']}}</option>--}}
-                                                                {{--@endforeach--}}
-                                                            {{--</select>--}}
-                                                        {{--</div>--}}
-                                                    {{--</div>--}}
-                                                {{--</div>--}}
                                                 <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
                                                     <div class="kt-form__group kt-form__group--inline">
                                                         <div class="kt-form__label">

@@ -66,8 +66,14 @@
                                                     <div class="kt-form__control">
                                                         <select class="form-control bootstrap-select" id="kt_form_category">
                                                             <option value="">All</option>
-                                                            @foreach($products as $product)
-                                                                <option value="{{$product->category->id}}">{{$product->category->name}}</option>
+                                                            @php
+                                                                $availableCategories = [];
+                                                            @endphp
+                                                            @foreach($products->sortByName('asc') as $product)
+                                                                @if($product->category && !in_array($product->category->id, $availableCategories))
+                                                                    @php $availableCategories[] = $product->category->id; @endphp
+                                                                    <option value="{{$product->category->id}}">{{$product->category->name}}</option>
+                                                                @endif
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -81,10 +87,14 @@
                                                     <div class="kt-form__control">
                                                         <select class="form-control bootstrap-select" id="kt_form_group">
                                                             <option value="">All</option>
-                                                            @foreach($products as $product)
-								@if($product->group)
+                                                            @php
+                                                                $availableGroups = [];
+                                                            @endphp
+                                                            @foreach($products->sortByName('asc') as $product)
+								                                @if($product->group && !in_array($product->group->id, $availableGroups))
+                                                                    @php $availableGroups[] = $product->group->id; @endphp
 	                                                                <option value="{{$product->group->id}}">{{$product->group->name}}</option>
-								@endif
+                                                                @endif
                                                             @endforeach
                                                         </select>
                                                     </div>
