@@ -54,9 +54,9 @@
                       </div>
 
                       <div class="form-group row">
-                        <label>Fax</label>
+                        <label>Email</label>
                         <div class="col-lg-12 col-md-9 col-sm-12">
-                          <input type="text" class="form-control" aria-describedby="" placeholder="fax" name="fax" value="{{(isset($page)) ? $page['fax'] : ''}}">
+                          <input type="text" class="form-control" aria-describedby="" placeholder="email" name="fax" value="{{(isset($page)) ? $page['fax'] : ''}}">
                         </div>
                       </div>
                       <div class="kt-portlet__foot">
