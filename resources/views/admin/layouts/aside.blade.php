@@ -24,69 +24,69 @@
       <div class="kt-aside-menu" data-ktmenu-dropdown-timeout="500" data-ktmenu-scroll="1" data-ktmenu-vertical="1" id="kt_aside_menu">
         <ul class="kt-menu__nav">
           <li aria-haspopup="true" class="kt-menu__item">
-            <a class="kt-menu__link" href="{{route('admin.dashboard')}}"><i class="kt-menu__link-icon flaticon-home"></i><span class="kt-menu__link-text">Главная</span></a>
+            <a class="kt-menu__link" href="{{route('admin.dashboard')}}"><i class="kt-menu__link-icon flaticon-home"></i><span class="kt-menu__link-text">Home</span></a>
           </li>
           <li class="kt-menu__section">
             <h4 class="kt-menu__section-text">Меню</h4><i class="kt-menu__section-icon flaticon-more-v2"></i>
           </li>
           <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu {{(Request::is('admin/catalog/*') ? 'kt-menu__item--open' : '')}}" data-ktmenu-submenu-toggle="hover">
-            <a class="kt-menu__link kt-menu__toggle" href="javascript:;"><i class="kt-menu__link-icon flaticon-web"></i><span class="kt-menu__link-text">Каталог</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+            <a class="kt-menu__link kt-menu__toggle" href="javascript:;"><i class="kt-menu__link-icon flaticon-web"></i><span class="kt-menu__link-text">Catalog</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
             <div class="kt-menu__submenu">
               <span class="kt-menu__arrow"></span>
               <ul class="kt-menu__subnav">
-                <li aria-haspopup="true" class="kt-menu__item kt-menu__item--parent"><span class="kt-menu__link"><span class="kt-menu__link-text">Каталог</span></span></li>
+                <li aria-haspopup="true" class="kt-menu__item kt-menu__item--parent"><span class="kt-menu__link"><span class="kt-menu__link-text">Catalog</span></span></li>
                 <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu {{(Request::is('admin/catalog/products*') ? 'kt-menu__item--open' : '')}}" data-ktmenu-submenu-toggle="hover">
-                  <a class="kt-menu__link kt-menu__toggle" href="javascript:;"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Товары</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                  <a class="kt-menu__link kt-menu__toggle" href="javascript:;"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Products</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
                   <div class="kt-menu__submenu">
                     <span class="kt-menu__arrow"></span>
                     <ul class="kt-menu__subnav">
                       <li aria-haspopup="true" class="kt-menu__item">
-                        <a class="kt-menu__link" href="{{route('admin.catalog.products.index')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Каталог товаров</span></a>
+                        <a class="kt-menu__link" href="{{route('admin.catalog.products.index')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Products catalog</span></a>
                       </li>
                       <li aria-haspopup="true" class="kt-menu__item">
-                        <a class="kt-menu__link" href="{{route('admin.catalog.products.create')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>
+                        <a class="kt-menu__link" href="{{route('admin.catalog.products.create')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Create</span></a>
                       </li>
                     </ul>
                   </div>
                 </li>
                 <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu {{(Request::is('admin/catalog/groups*') ? 'kt-menu__item--open' : '')}}" data-ktmenu-submenu-toggle="hover">
-                  <a class="kt-menu__link kt-menu__toggle" href="javascript:;"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Группы товаров</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                  <a class="kt-menu__link kt-menu__toggle" href="javascript:;"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Groups</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
                   <div class="kt-menu__submenu">
                     <span class="kt-menu__arrow"></span>
                     <ul class="kt-menu__subnav">
                       <li aria-haspopup="true" class="kt-menu__item">
-                        <a class="kt-menu__link" href="{{route('admin.catalog.groups.index')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Список групп</span></a>
+                        <a class="kt-menu__link" href="{{route('admin.catalog.groups.index')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">List</span></a>
                       </li>
                       <li aria-haspopup="true" class="kt-menu__item">
-                        <a class="kt-menu__link" href="{{route('admin.catalog.groups.create')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Новая группа</span></a>
+                        <a class="kt-menu__link" href="{{route('admin.catalog.groups.create')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Create</span></a>
                       </li>
                     </ul>
                   </div>
                 </li>
                 <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu {{(Request::is('admin/catalog/product_categories*') ? 'kt-menu__item--open' : '')}}" data-ktmenu-submenu-toggle="hover">
-                  <a class="kt-menu__link kt-menu__toggle" href="javascript:;"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Категории</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                  <a class="kt-menu__link kt-menu__toggle" href="javascript:;"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Categories</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
                   <div class="kt-menu__submenu">
                     <span class="kt-menu__arrow"></span>
                     <ul class="kt-menu__subnav">
                       <li aria-haspopup="true" class="kt-menu__item">
-                        <a class="kt-menu__link" href="{{route('admin.catalog.product_categories.index')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Список категорий</span></a>
+                        <a class="kt-menu__link" href="{{route('admin.catalog.product_categories.index')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">List</span></a>
                       </li>
                       <li aria-haspopup="true" class="kt-menu__item">
-                        <a class="kt-menu__link" href="{{route('admin.catalog.product_categories.create')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>
+                        <a class="kt-menu__link" href="{{route('admin.catalog.product_categories.create')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Create</span></a>
                       </li>
                     </ul>
                   </div>
                 </li>
                 <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu {{(Request::is('admin/catalog/attributes*') ? 'kt-menu__item--open' : '')}}" data-ktmenu-submenu-toggle="hover">
-                  <a class="kt-menu__link kt-menu__toggle" href="javascript:;"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Характеристики</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                  <a class="kt-menu__link kt-menu__toggle" href="javascript:;"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Attributes</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
                   <div class="kt-menu__submenu">
                     <span class="kt-menu__arrow"></span>
                     <ul class="kt-menu__subnav">
                       <li aria-haspopup="true" class="kt-menu__item">
-                        <a class="kt-menu__link" href="{{route('admin.catalog.attributes.index')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Все характеристики</span></a>
+                        <a class="kt-menu__link" href="{{route('admin.catalog.attributes.index')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">List</span></a>
                       </li>
                       <li aria-haspopup="true" class="kt-menu__item">
-                        <a class="kt-menu__link" href="{{route('admin.catalog.attributes.create')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Создать</span></a>
+                        <a class="kt-menu__link" href="{{route('admin.catalog.attributes.create')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Create</span></a>
                       </li>
                     </ul>
                   </div>
@@ -99,30 +99,24 @@
             <div class="kt-menu__submenu">
               <span class="kt-menu__arrow"></span>
               <ul class="kt-menu__subnav">
-                <li aria-haspopup="true" class="kt-menu__item kt-menu__item--parent"><span class="kt-menu__link"><span class="kt-menu__link-text">Блог</span></span></li>
+                <li aria-haspopup="true" class="kt-menu__item kt-menu__item--parent"><span class="kt-menu__link"><span class="kt-menu__link-text">FAQ</span></span></li>
                 <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu" data-ktmenu-submenu-toggle="hover">
-                  <a class="kt-menu__link kt-menu__toggle" href="{{route('admin.blog.posts.index')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Статьи</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                  <a class="kt-menu__link kt-menu__toggle" href="{{route('admin.blog.posts.index')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Articles</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
                 </li>
                 <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu" data-ktmenu-submenu-toggle="hover">
-                  <a class="kt-menu__link kt-menu__toggle" href="{{route('admin.blog.posts.create')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Добавить статью</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                  <a class="kt-menu__link kt-menu__toggle" href="{{route('admin.blog.posts.create')}}"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Create</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
                 </li>
               </ul>
             </div>
           </li>
           <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu" data-ktmenu-submenu-toggle="hover">
-            <a class="kt-menu__link" href="{{route('admin.info_pages.index', 'home')}}"><i class="kt-menu__link-icon flaticon-tabs"></i><span class="kt-menu__link-text">Главная</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+            <a class="kt-menu__link" href="{{route('admin.info_pages.index', 'home')}}"><i class="kt-menu__link-icon flaticon-tabs"></i><span class="kt-menu__link-text">Home</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
           </li>
           <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu">
-            <a class="kt-menu__link" href="{{route('admin.info_pages.index', 'about')}}"><i class="kt-menu__link-icon flaticon-tabs"></i><span class="kt-menu__link-text">О компании</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+            <a class="kt-menu__link" href="{{route('admin.info_pages.index', 'about')}}"><i class="kt-menu__link-icon flaticon-tabs"></i><span class="kt-menu__link-text">About us</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
           </li>
           <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu" data-ktmenu-submenu-toggle="hover">
-            <a class="kt-menu__link" href="{{route('admin.info_pages.index', 'contact')}}"><i class="kt-menu__link-icon flaticon-tabs"></i><span class="kt-menu__link-text">Контакты</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
-          </li>
-          <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu" data-ktmenu-submenu-toggle="hover">
-            <a class="kt-menu__link" href="{{route('admin.info_pages.index', 'dunkermotoren')}}"><i class="kt-menu__link-icon flaticon-tabs"></i><span class="kt-menu__link-text">Dunkermotoren</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
-          </li>
-          <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu" data-ktmenu-submenu-toggle="hover">
-            <a class="kt-menu__link" href="{{route('admin.info_pages.index', 'jianghai')}}"><i class="kt-menu__link-icon flaticon-tabs"></i><span class="kt-menu__link-text">Jianghai</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+            <a class="kt-menu__link" href="{{route('admin.info_pages.index', 'contact')}}"><i class="kt-menu__link-icon flaticon-tabs"></i><span class="kt-menu__link-text">Contacts</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
           </li>
         </ul>
       </div>
@@ -135,7 +129,7 @@
       <div class="kt-header-menu kt-header-menu-mobile kt-header-menu--layout-default" id="kt_header_menu">
         <ul class="kt-menu__nav">
           <li aria-haspopup="true" class="kt-menu__item kt-menu__item--submenu kt-menu__item--rel kt-menu__item--active" data-ktmenu-submenu-toggle="click">
-            <a class="kt-menu__link kt-menu__toggle" href="javascript:;"><span class="kt-menu__link-text">Перейти на сайт</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+            <a class="kt-menu__link kt-menu__toggle" href="javascript:;"><span class="kt-menu__link-text">Go to the website</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
           </li>
         </ul>
       </div>
@@ -146,7 +140,7 @@
       <div class="kt-header__topbar-item kt-header__topbar-item--user">
         <div class="kt-header__topbar-wrapper" data-offset="0px,0px" data-toggle="dropdown">
           <div class="kt-header__topbar-user">
-            <span class="kt-header__topbar-welcome kt-hidden-mobile">Привет,</span> <span class="kt-header__topbar-username kt-hidden-mobile">{{Auth::user()->name}}</span>
+            <span class="kt-header__topbar-welcome kt-hidden-mobile">Hello,</span> <span class="kt-header__topbar-username kt-hidden-mobile">{{Auth::user()->name}}</span>
           </div>
         </div>
         <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround dropdown-menu-xl">
@@ -155,7 +149,7 @@
             <div class="kt-notification__custom kt-space-between">
               <form action="{{route('logout')}}" method="POST">
                 @CSRF
-                <button type="submit" class="btn btn-label btn-label-brand btn-sm btn-bold">Выйти</button>
+                <button type="submit" class="btn btn-label btn-label-brand btn-sm btn-bold">Logout</button>
               </form>
             </div>
           </div><!--end: Navigation -->

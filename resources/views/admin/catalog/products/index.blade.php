@@ -26,7 +26,7 @@
                                         <i class="kt-font-brand flaticon2-list-2"></i>
                                     </span>
                                 <h3 class="kt-portlet__head-title">
-                                    Товары
+                                    Products
                                 </h3>
                             </div>
                             <div class="kt-portlet__head-toolbar">
@@ -35,7 +35,7 @@
                                     <div class="dropdown dropdown-inline">
                                         <a href="{{route('admin.catalog.products.create')}}">
                                             <button type="button" class="btn btn-brand btn-icon-sm" aria-haspopup="true" aria-expanded="false">
-                                                <i class="flaticon2-plus"></i> Добавить
+                                                <i class="flaticon2-plus"></i> Create
                                             </button>
                                         </a>
                                     </div>
@@ -52,7 +52,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
                                                 <div class="kt-input-icon kt-input-icon--left">
-                                                    <input type="text" class="form-control" placeholder="Поиск..." id="generalSearch">
+                                                    <input type="text" class="form-control" placeholder="Search..." id="generalSearch">
                                                     <span class="kt-input-icon__icon kt-input-icon__icon--left">
                                                             <span><i class="la la-search"></i></span>
                                                         </span>
@@ -61,11 +61,11 @@
                                             <div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
                                                 <div class="kt-form__group kt-form__group--inline">
                                                     <div class="kt-form__label">
-                                                        <label>Категория:</label>
+                                                        <label>Category:</label>
                                                     </div>
                                                     <div class="kt-form__control">
                                                         <select class="form-control bootstrap-select" id="kt_form_category">
-                                                            <option value="">Все</option>
+                                                            <option value="">All</option>
                                                             @foreach($products as $product)
                                                                 <option value="{{$product->category->id}}">{{$product->category->name}}</option>
                                                             @endforeach
@@ -76,11 +76,11 @@
                                             <div class="col-md-3 kt-margin-b-20-tablet-and-mobile">
                                                 <div class="kt-form__group kt-form__group--inline">
                                                     <div class="kt-form__label">
-                                                        <label>Группа:</label>
+                                                        <label>Group:</label>
                                                     </div>
                                                     <div class="kt-form__control">
                                                         <select class="form-control bootstrap-select" id="kt_form_group">
-                                                            <option value="">Все</option>
+                                                            <option value="">All</option>
                                                             @foreach($products as $product)
 								@if($product->group)
 	                                                                <option value="{{$product->group->id}}">{{$product->group->name}}</option>
@@ -145,22 +145,22 @@
                     // columns definition
                     columns: [{
                         field: 'name',
-                        title: 'Название',
+                        title: 'Name',
                     },{
                         field: 'category.name',
-                        title: 'Категория',
+                        title: 'Category',
                     },{
                         field: 'group.name',
-                        title: 'Группа',
+                        title: 'Group',
                     },{
                         field: 'status',
-                        title: 'Статус',
+                        title: 'Status',
                         template: function(data) {
-                            return (data.status == 1) ? 'Включено' : 'Отключено';
+                            return (data.status == 1) ? 'Enabled' : 'Disabled';
                         },
                     },{
                         field: 'Actions',
-                        title: 'Действия',
+                        title: 'Actions',
                         sortable: false,
                         width: 110,
                         overflow: 'visible',

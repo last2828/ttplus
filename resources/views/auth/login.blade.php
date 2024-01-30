@@ -5,7 +5,7 @@
 <head>
     <base href="../../../">
     <meta charset="utf-8" />
-    <title>TT Plus | Админ</title>
+    <title>TT Plus | Admin</title>
     <meta name="description" content="Login page example">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -53,18 +53,18 @@
                     </div>
                     <div class="kt-login__signin">
                         <div class="kt-login__head">
-                            <h3 class="kt-login__title">Авторизация</h3>
+                            <h3 class="kt-login__title">Sign In</h3>
                         </div>
                         <form class="kt-form" method="POST" action="{{ route('login') }}">
                             @CSRF
                             <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Введите email" name="email" autocomplete="off">
+                                <input class="form-control" type="text" placeholder="email" name="email" autocomplete="off">
                             </div>
                             <div class="input-group">
-                                <input class="form-control" type="password" placeholder="Введите пароль" name="password">
+                                <input class="form-control" type="password" placeholder="password" name="password">
                             </div>
                             <div class="kt-login__actions">
-                                <button id="kt_login_signin_submit" class="btn btn-brand btn-pill kt-login__btn-primary">Войти</button>
+                                <button id="kt_login_signin_submit" class="btn btn-brand btn-pill kt-login__btn-primary">Sign IN</button>
                             </div>
                         </form>
                     </div>

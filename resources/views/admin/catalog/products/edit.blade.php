@@ -26,7 +26,7 @@
                                     <div class="kt-portlet__head">
                                         <div class="kt-portlet__head-label">
                                             <h3 class="kt-portlet__head-title">
-                                                Изменить товар
+                                                Edit product
                                             </h3>
                                         </div>
                                     </div>
@@ -37,13 +37,13 @@
                                         <div class="kt-portlet__body">
                                             <ul class="nav nav-tabs  nav-tabs-line" role="tablist">
                                                 <li class="nav-item">
-                                                    <a class="nav-link active" data-toggle="tab" href="#kt_tabs_1_1" role="tab">Общие</a>
+                                                    <a class="nav-link active" data-toggle="tab" href="#kt_tabs_1_1" role="tab">General</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_2" role="tab">Данные</a>
+                                                    <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_2" role="tab">Data</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_3" role="tab">Характеристики</a>
+                                                    <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_3" role="tab">Attributes</a>
                                                 </li>
                                             </ul>
                                             <div class="tab-content">
@@ -54,8 +54,8 @@
                                         </div>
                                         <div class="kt-portlet__foot">
                                             <div class="kt-form__actions">
-                                                <button type="submit" class="btn btn-primary">Сохранить</button>
-                                                <button type="reset" class="btn btn-secondary">Отмена</button>
+                                                <button type="submit" class="btn btn-primary">Save</button>
+                                                <button type="reset" class="btn btn-secondary">Cancel</button>
                                             </div>
                                         </div>
                                     </form>

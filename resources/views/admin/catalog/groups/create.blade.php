@@ -25,7 +25,7 @@
                                     <div class="kt-portlet__head">
                                         <div class="kt-portlet__head-label">
                                             <h3 class="kt-portlet__head-title">
-                                                Добавить
+                                                Create
                                             </h3>
                                         </div>
                                     </div>
@@ -34,13 +34,13 @@
                                         @CSRF
                                         <div class="kt-portlet__body">
                                             <div class="form-group row">
-                                                <label>Название группы</label>
+                                                <label>Group name</label>
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <input type="text" class="form-control" aria-describedby="" placeholder="Название группы" name="name">
+                                                    <input type="text" class="form-control" aria-describedby="" placeholder="Group name" name="name">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-form-label col-lg-3 col-sm-12">Категория</label>
+                                                <label class="col-form-label col-lg-3 col-sm-12">Category</label>
                                                 <div class="col-lg-4 col-md-9 col-sm-12">
                                                     <div class="input-group flex-nowrap mb-3">
                                                         <div class="input-group-prepend">
@@ -56,7 +56,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label>Изображение</label>
+                                                <label>Image</label>
                                                 <div class="input-group">
                                                     <input type="text" id="image_label" class="form-control" name="image"
                                                            aria-label="Image" aria-describedby="button-image">
@@ -68,14 +68,14 @@
                                             <div class="form-group form-group-last row">
                                                 <label>Slug</label>
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
-                                                    <input type="text" class="form-control" aria-describedby="" placeholder="Адрес страницы" name="slug">
+                                                    <input type="text" class="form-control" aria-describedby="" placeholder="Slug" name="slug">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="kt-portlet__foot">
                                             <div class="kt-form__actions">
-                                                <button type="submit" class="btn btn-primary">Сохранить</button>
-                                                <button type="reset" class="btn btn-secondary">Отмена</button>
+                                                <button type="submit" class="btn btn-primary">Save</button>
+                                                <button type="reset" class="btn btn-secondary">Cancel</button>
                                             </div>
                                         </div>
                                     </form>

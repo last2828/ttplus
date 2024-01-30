@@ -25,7 +25,7 @@
                                     <div class="kt-portlet__head">
                                         <div class="kt-portlet__head-label">
                                             <h3 class="kt-portlet__head-title">
-                                                Добавить
+                                                Create
                                             </h3>
                                         </div>
                                     </div>
@@ -36,23 +36,23 @@
                                         @php /** @var \Illuminate\Support\ViewErrorBag $errors */@endphp
                                         <div class="kt-portlet__body">
                                             <div class="form-group form-group row">
-                                                <label>Название характеристики</label>
+                                                <label>Attribute name</label>
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
                                                     <input type="text"
                                                            class="form-control {{($errors->has('name')) ? 'alert alert-outline-danger fade show' : ''}}"
                                                            aria-describedby=""
-                                                           placeholder="{{ ($errors->has('name')) ? $errors->first('name') : 'Название характеристики' }}"
+                                                           placeholder="{{ ($errors->has('name')) ? $errors->first('name') : 'Attribute name' }}"
                                                            name="name"
                                                            value="{{old('name')}}">
                                                 </div>
                                             </div>
                                             <div class="form-group form-group-last row">
-                                                <label>Еденицы измерения</label>
+                                                <label>Units</label>
                                                 <div class="col-lg-12 col-md-9 col-sm-12">
                                                     <input type="text"
                                                            class="form-control {{($errors->has('units')) ? 'alert alert-outline-danger fade show' : ''}}"
                                                            aria-describedby=""
-                                                           placeholder="{{ ($errors->has('units')) ? $errors->first('units') : 'Еденицы измерения' }}"
+                                                           placeholder="{{ ($errors->has('units')) ? $errors->first('units') : 'Units' }}"
                                                            name="units"
                                                            value="{{old('units')}}">
                                                 </div>
@@ -60,8 +60,8 @@
                                         </div>
                                         <div class="kt-portlet__foot">
                                             <div class="kt-form__actions">
-                                                <button type="submit" class="btn btn-primary">Сохранить</button>
-                                                <button type="reset" class="btn btn-secondary">Отмена</button>
+                                                <button type="submit" class="btn btn-primary">Save</button>
+                                                <button type="reset" class="btn btn-secondary">Cancel</button>
                                             </div>
                                         </div>
                                     </form>

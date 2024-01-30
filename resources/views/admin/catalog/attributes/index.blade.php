@@ -25,14 +25,14 @@
 											<i class="kt-font-brand flaticon-add"></i>
 										</span>
                                     <h3 class="kt-portlet__head-title">
-                                        Характеристики
+                                        Attributes
                                     </h3>
                                 </div>
                                 <div class="kt-portlet__head-toolbar">
                                     <div class="kt-portlet__head-wrapper">
                                         <div class="dropdown dropdown-inline">
                                             <a href="{{route('admin.catalog.attributes.create')}}" class="btn btn-brand btn-icon-sm" aria-haspopup="true" aria-expanded="false">
-                                                <i class="flaticon2-plus"></i> Создать
+                                                <i class="flaticon2-plus"></i> Create
                                             </a>
                                         </div>
                                     </div>

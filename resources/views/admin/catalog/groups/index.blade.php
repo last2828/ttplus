@@ -26,14 +26,14 @@
 											<i class="kt-font-brand flaticon-app"></i>
 										</span>
                                     <h3 class="kt-portlet__head-title">
-                                        Группы товаров
+                                        Product groups
                                     </h3>
                                 </div>
                                 <div class="kt-portlet__head-toolbar">
                                     <div class="kt-portlet__head-wrapper">
                                         <div class="dropdown dropdown-inline">
                                             <a href="{{route('admin.catalog.groups.create')}}" class="btn btn-brand btn-icon-sm" aria-haspopup="true" aria-expanded="false">
-                                                <i class="flaticon2-plus"></i> Создать
+                                                <i class="flaticon2-plus"></i> Create
                                             </a>
                                         </div>
                                     </div>
@@ -48,7 +48,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
                                                     <div class="kt-input-icon kt-input-icon--left">
-                                                        <input type="text" class="form-control" placeholder="Поиск..." id="generalSearch">
+                                                        <input type="text" class="form-control" placeholder="Search..." id="generalSearch">
                                                         <span class="kt-input-icon__icon kt-input-icon__icon--left">
 																<span><i class="la la-search"></i></span>
 															</span>
@@ -110,10 +110,10 @@
                     // columns definition
                     columns: [{
                         field: 'name',
-                        title: 'Название',
+                        title: 'Name',
                     },{
                         field: 'Actions',
-                        title: 'Действия',
+                        title: 'Action',
                         sortable: false,
                         width: 110,
                         overflow: 'visible',

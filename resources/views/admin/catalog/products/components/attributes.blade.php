@@ -1,5 +1,5 @@
 <div class="tab-pane " id="kt_tabs_1_3" role="tabpanel">
-    <label class="col-md-12 col-form-label">Характеристики</label>
+    <label class="col-md-12 col-form-label">Attributes</label>
     @php
         /** @var \App\Models\Catalog\Product $product */
         /** @var \Illuminate\Support\ViewErrorBag $errors */
@@ -23,7 +23,7 @@
                                 <input type="text"
                                        class="form-control {{($errors->has('attributes_old.*.value')) ? 'alert alert-outline-danger fade show' : ''}}"
                                        role="alert"
-                                       placeholder="{{ ($errors->has('attributes_old.*.value')) ? $errors->first('attributes_old.*.value') : 'Введите значение характеристики'}}"
+                                       placeholder="{{ ($errors->has('attributes_old.*.value')) ? $errors->first('attributes_old.*.value') : 'Add attribute value'}}"
                                        name="value" value="{{$attribute->pivot->value}}">
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                     <div class="col-md-2">
                         <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
                             <i class="la la-trash-o"></i>
-                            Удалить
+                            Remove
                         </a>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                                 <input type="text"
                                        class="form-control {{($errors->has('attributes.*.value')) ? 'alert alert-outline-danger fade show' : ''}}"
                                        role="alert"
-                                       placeholder="{{ ($errors->has('attributes.*.value')) ? $errors->first('attributes.*.value') : 'Введите значение характеристики'}}"
+                                       placeholder="{{ ($errors->has('attributes.*.value')) ? $errors->first('attributes.*.value') : 'Add attribute value'}}"
                                        name="value">
                             </div>
                         </div>
@@ -70,14 +70,14 @@
                     <div class="col-md-2">
                         <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
                             <i class="la la-trash-o"></i>
-                            Удалить
+                            Remove
                         </a>
                     </div>
                 </div>
             </div>
             <div class="col-md-12">
                 <a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">
-                    <i class="la la-plus"></i> Добавить
+                    <i class="la la-plus"></i> Add
                 </a>
             </div>
         </div>
