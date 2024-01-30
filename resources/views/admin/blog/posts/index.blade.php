@@ -166,12 +166,9 @@
 
           }],
         });
-        $('#kt_form_status').on('change', function() {
-          datatable.search($(this).val().toLowerCase(), 'Status');
-        });
-        $('#kt_form_type').on('change', function() {
-          datatable.search($(this).val().toLowerCase(), 'Type');
-        });
+          $('#kt_form_type').on('change', function() {
+              datatable.search($(this).val().toLowerCase(), 'status');
+          });
         $('#kt_form_status,#kt_form_type').selectpicker();
       };
       return {

@@ -4,9 +4,6 @@
     <div class="policy">
       <p>© 2019 TTPlus. <br> Consent to the processing of personal data</p>
     </div>
-    <div class="logo">
-      <img src="{{asset('img/by.svg')}}" alt="">
-    </div>
   </div>
 </footer>
 <!--END footer-->

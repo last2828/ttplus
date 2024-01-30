@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 
 $factory->define(Post::class, function (Faker $faker) {
-    $title = $faker->unique()->sentence(rand(3, 8), true);
+    $title = $faker->title();
 
     $data = [
         'title' => $title,

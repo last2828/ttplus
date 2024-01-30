@@ -179,63 +179,63 @@
                                             </div>
                                         </div>
 
-                                        <div class="tab-pane" id="kt_tabs_1_4" role="tabpanel">
-                                            <label>Awards</label>
-                                            <input type="hidden" id="count" value="{{count($awards) ? count($awards) : 0}}">
-                                            <div class="col-lg-12">
-                                                @foreach($awards as $key => $award)
-                                                    @if($award['image'] == null)
-                                                        @continue
-                                                    @endif
-                                                    <div class="form-group row align-items-center image_row">
-                                                        <div class="col-lg-3 col-md-3 col-sm-3">
-                                                            <div class="about__image"><img src="{{$award['image']}}" alt="" width="50%"></div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="custom-file">
-                                                                <input type="text" class="custom-file-input" id="image_rewards_{{$key}}" name="old_rewards[{{$key}}]" value="{{$award['image']}}">
-                                                                <label class="custom-file-label" for="image_rewards_{{$key}}">{{$award['image'] ? $award['image'] : "Выбирете файл"}}</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
-                                                                <i class="la la-trash-o"></i>
-                                                                Remove
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                            <div id="kt_repeater_1">
-                                                <div data-repeater-list="awards" class="col-lg-12">
-                                                    <div data-repeater-item class="form-group row align-items-center">
-                                                        <div class="col-lg-3 col-md-3 col-sm-3">
-                                                            <div class="about__image"><img src="" alt="" width="50%"></div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="input-group">
-                                                                <div class="custom-file">
-                                                                    <input type="file" id="image_label" class="custom-file-input form-control image_label" name="image"
-                                                                           aria-label="Image" aria-describedby="button-image">
-                                                                        <label class="custom-file-label" for="image_rewards">Select file</label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">
-                                                                <i class="la la-trash-o"></i>
-                                                                Remove
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <a href="javascript:;" data-repeater-create="" id="add" class="btn btn-bold btn-sm btn-label-brand">
-                                                        <i class="la la-plus"></i> Add
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
+{{--                                        <div class="tab-pane" id="kt_tabs_1_4" role="tabpanel">--}}
+{{--                                            <label>Awards</label>--}}
+{{--                                            <input type="hidden" id="count" value="{{count($awards) ? count($awards) : 0}}">--}}
+{{--                                            <div class="col-lg-12">--}}
+{{--                                                @foreach($awards as $key => $award)--}}
+{{--                                                    @if($award['image'] == null)--}}
+{{--                                                        @continue--}}
+{{--                                                    @endif--}}
+{{--                                                    <div class="form-group row align-items-center image_row">--}}
+{{--                                                        <div class="col-lg-3 col-md-3 col-sm-3">--}}
+{{--                                                            <div class="about__image"><img src="{{$award['image']}}" alt="" width="50%"></div>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="col-md-6">--}}
+{{--                                                            <div class="custom-file">--}}
+{{--                                                                <input type="text" class="custom-file-input" id="image_rewards_{{$key}}" name="old_rewards[{{$key}}]" value="{{$award['image']}}">--}}
+{{--                                                                <label class="custom-file-label" for="image_rewards_{{$key}}">{{$award['image'] ? $award['image'] : "Выбирете файл"}}</label>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="col-md-2">--}}
+{{--                                                            <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">--}}
+{{--                                                                <i class="la la-trash-o"></i>--}}
+{{--                                                                Remove--}}
+{{--                                                            </a>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                @endforeach--}}
+{{--                                            </div>--}}
+{{--                                            <div id="kt_repeater_1">--}}
+{{--                                                <div data-repeater-list="awards" class="col-lg-12">--}}
+{{--                                                    <div data-repeater-item class="form-group row align-items-center">--}}
+{{--                                                        <div class="col-lg-3 col-md-3 col-sm-3">--}}
+{{--                                                            <div class="about__image"><img src="" alt="" width="50%"></div>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="col-md-6">--}}
+{{--                                                            <div class="input-group">--}}
+{{--                                                                <div class="custom-file">--}}
+{{--                                                                    <input type="file" id="image_label" class="custom-file-input form-control image_label" name="image"--}}
+{{--                                                                           aria-label="Image" aria-describedby="button-image">--}}
+{{--                                                                        <label class="custom-file-label" for="image_rewards">Select file</label>--}}
+{{--                                                                </div>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="col-md-2">--}}
+{{--                                                            <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold">--}}
+{{--                                                                <i class="la la-trash-o"></i>--}}
+{{--                                                                Remove--}}
+{{--                                                            </a>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="col-md-12">--}}
+{{--                                                    <a href="javascript:;" data-repeater-create="" id="add" class="btn btn-bold btn-sm btn-label-brand">--}}
+{{--                                                        <i class="la la-plus"></i> Add--}}
+{{--                                                    </a>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
                                         {{--<div class="tab-pane" id="kt_tabs_1_5" role="tabpanel">--}}
                                             {{--<label>Сертификаты и лицензии</label>--}}
                                             {{--<div id="kt_repeater_2">--}}

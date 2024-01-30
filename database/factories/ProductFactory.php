@@ -6,7 +6,7 @@ use App\Models\Catalog\Product;
 use Faker\Generator as Faker;
 
 $factory->define(Product::class, function (Faker $faker) {
-    $title = $faker->unique()->sentence(rand(1, 3), true);
+    $title = "Product " . $faker->unique(true)->numberBetween(rand(10, 3000));
     $model = $faker->unique(true)->numberBetween(rand(1, 3));
     $content = '<ul>
                 <li>
